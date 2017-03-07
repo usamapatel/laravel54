@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "52ce9e4a42cc02fd5e45c8f7a36f5a38",
+    "content-hash": "3272537f5bdb99215d77c55876ae42c9",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -7980,6 +7980,46 @@
                 "testing"
             ],
             "time": "2017-02-28T12:52:32+00:00"
+        },
+        {
+            "name": "mpociot/laravel-test-factory-helper",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/laravel-test-factory-helper.git",
+                "reference": "b5706d7e8c663fb7d9d4af5c14b6331f967fa964"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/laravel-test-factory-helper/zipball/b5706d7e8c663fb7d9d4af5c14b6331f967fa964",
+                "reference": "b5706d7e8c663fb7d9d4af5c14b6331f967fa964",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "~2.3",
+                "illuminate/console": "^5.0",
+                "illuminate/filesystem": "^5.0",
+                "illuminate/support": "^5.0",
+                "php": ">=5.6.0",
+                "symfony/class-loader": "^2.3|3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mpociot\\LaravelTestFactoryHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generate Laravel test factories from your existing models",
+            "keywords": [
+                "factory",
+                "laravel",
+                "tests"
+            ],
+            "time": "2017-02-02T09:28:14+00:00"
         },
         {
             "name": "myclabs/deep-copy",
