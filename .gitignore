@@ -3,6 +3,7 @@
 /storage/*.key
 /storage/var
 /storage/Applications
+/storage/broadcasting.json
 /vendor
 /.idea
 Homestead.json
