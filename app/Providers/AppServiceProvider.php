@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
         $this->localProviders = config('app.localProviders');
         $this->localAliases = config('app.localAliases');
     }
+
     /**
      * Bootstrap any application services.
      *

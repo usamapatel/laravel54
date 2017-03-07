@@ -2,9 +2,9 @@
 
 
 return [
-	'models' => [
-		// 'App\User',
-	],
+    'models' => [
+        // 'App\User',
+    ],
 
-	'minutes' => '60'
+    'minutes' => '60',
 ];

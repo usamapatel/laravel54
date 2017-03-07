@@ -27,7 +27,7 @@ return [
     'channels' => ['mail', 'slack'],
 
     'mail' => [
-        'to' => env('APP_SUPER_ADMIN','your@example.com'),
+        'to' => env('APP_SUPER_ADMIN', 'your@example.com'),
     ],
 
     'slack' => [

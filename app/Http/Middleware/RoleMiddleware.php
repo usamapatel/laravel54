@@ -10,11 +10,13 @@ class RoleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     * @param mixed                    $role
+     * @param mixed                    $permission
+     *
      * @return mixed
      */
-   
     public function handle($request, Closure $next, $role, $permission)
     {
         if (Auth::guest()) {

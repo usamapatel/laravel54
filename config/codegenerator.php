@@ -12,7 +12,7 @@ return [
     | and call it what ever template your like "ex. skyblue".
     | Now, you can change the stubs to have your own templates generated.
     |
-    |        
+    |
     | IMPORTANT: It is not recomended to modify the default template, rather create a new template.
     | If you modify the default template and then executed "php artisan vendor:publish" command,
     | it will override the default template causing you to lose your modification.
@@ -36,11 +36,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | If you want to generate code by using laravel-collective, you must first
-    | install the package. Then add the tamplate name that should be using 
+    | install the package. Then add the tamplate name that should be using
     | Laravel-Collective extensions when generating code.
     */
     'laravel_collective_templates' => [
-        'default-collective'
+        'default-collective',
     ],
 
     /*
@@ -107,8 +107,7 @@ return [
     | The only time you really have to add more items here is if you don't like using the existing data-value that are used
     | with the code generator.
     */
-    'eloquent_type_to_method' =>
-    [
+    'eloquent_type_to_method' => [
         'char' => 'char',
         'date' => 'date',
         'datetime' => 'dateTime',
@@ -154,7 +153,7 @@ return [
         'unsignedsmallinteger' => 'unsignedSmallInteger',
         'unsignedsmallint' => 'unsignedSmallInteger',
         'unsignedtinyinteger' => 'unsignedTinyInteger',
-        'uuid' => 'uuid'
+        'uuid' => 'uuid',
     ],
 
     /*
@@ -164,8 +163,7 @@ return [
     |
     | This is the mapping used to convert database-column into html field
     */
-    'eloquent_type_to_html_type' =>
-    [
+    'eloquent_type_to_html_type' => [
         'char' => 'text',
         'date' => 'text',
         'dateTime' => 'text',
@@ -205,5 +203,5 @@ return [
         'unsignedSmallInteger' => 'number',
         'unsignedTinyInteger' => 'number',
         'uuid' => 'text',
-    ]
+    ],
 ];

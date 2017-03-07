@@ -278,8 +278,8 @@ return [
          * Package Facades...
          */
         'Active' => HieuLe\Active\Facades\Active::class,
-        'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
-        'Countries'=> PragmaRX\Countries\Facade::class,
+        'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
+        'Countries' => PragmaRX\Countries\Facade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'DingoApi' => Dingo\Api\Facade\API::class,
         'DingoROute' => Dingo\Api\Facade\Route::class,
@@ -295,7 +295,7 @@ return [
         'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
-        'Widget'       => Arrilot\Widgets\Facade::class,
+        'Widget' => Arrilot\Widgets\Facade::class,
 
     ],
 

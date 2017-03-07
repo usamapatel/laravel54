@@ -21,5 +21,5 @@ Route::get('/home', 'HomeController@index');
 
 // Local dev specific routes
 if (App::environment('local')) {
-    Route::get('decompose','\Lubusin\Decomposer\Controllers\DecomposerController@index');
+    Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
 }
