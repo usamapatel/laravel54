@@ -171,6 +171,7 @@ return [
         Arrilot\Widgets\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Caffeinated\Themes\ThemesServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
@@ -295,6 +296,7 @@ return [
         'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
         'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
+        'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         'Widget' => Arrilot\Widgets\Facade::class,
 
