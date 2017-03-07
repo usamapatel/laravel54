@@ -225,6 +225,7 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         CrestApps\CodeGenerator\CodeGeneratorServiceProvider::class,
+        JeroenG\Packager\PackagerServiceProvider::class,
         Lubusin\Decomposer\DecomposerServiceProvider::class,
         Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
     ],
