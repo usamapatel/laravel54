@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e187ce1dd9c3c5e816c6b251e0c7d5f8",
+    "content-hash": "e1258f185a6c28f6c90bee14fe5aea0d",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -518,6 +518,85 @@
                 "laravel"
             ],
             "time": "2017-02-15T22:07:40+00:00"
+        },
+        {
+            "name": "cybercog/laravel-eloquent-flag",
+            "version": "3.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cybercog/laravel-eloquent-flag.git",
+                "reference": "4d20401283bcbd31d3982da93533528ca3599b38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cybercog/laravel-eloquent-flag/zipball/4d20401283bcbd31d3982da93533528ca3599b38",
+                "reference": "4d20401283bcbd31d3982da93533528ca3599b38",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.2.0|~5.3.0|~5.4.0",
+                "php": "^5.6|^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.11",
+                "mockery/mockery": "^0.9.5",
+                "orchestra/database": "~3.4.0",
+                "orchestra/testbench": "~3.4.0",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cog\\Flag\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Komarev",
+                    "email": "a.komarev@cybercog.su",
+                    "homepage": "http://ell.folio.su",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Eloquent boolean & timestamp flagged attributes behavior.",
+            "homepage": "https://github.com/cybercog/laravel-eloquent-flag",
+            "keywords": [
+                "accepted",
+                "activated",
+                "active",
+                "approved",
+                "boolean",
+                "closed",
+                "cog",
+                "cybercog",
+                "deactivated",
+                "expired",
+                "expiry",
+                "flag",
+                "inactive",
+                "kept",
+                "laravel",
+                "opened",
+                "persisted",
+                "published",
+                "scopes",
+                "state",
+                "status",
+                "timestamp",
+                "toggle",
+                "trait",
+                "unaccepted",
+                "unapproved",
+                "unkept",
+                "unpublished",
+                "unverified",
+                "verified"
+            ],
+            "time": "2017-02-20T01:21:02+00:00"
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
@@ -3981,6 +4060,54 @@
             ],
             "description": "A simple laravel package to cache database values and manage them efficiently",
             "time": "2017-02-10T17:03:26+00:00"
+        },
+        {
+            "name": "skybluesofa/laravel-followers",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skybluesofa/laravel-followers.git",
+                "reference": "55386572b501f741d668418ec2cdbee35d8453a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skybluesofa/laravel-followers/zipball/55386572b501f741d668418ec2cdbee35d8453a8",
+                "reference": "55386572b501f741d668418ec2cdbee35d8453a8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0.3.2",
+                "fzaninotto/faker": "~1.4",
+                "laravel/laravel": "5.*",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Skybluesofa\\Followers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Rogers",
+                    "email": "connect@skybluesofa.com"
+                }
+            ],
+            "description": "This package gives Eloquent models the ability to manage their followers.",
+            "keywords": [
+                "Followers",
+                "eloqent",
+                "friends",
+                "laravel"
+            ],
+            "time": "2016-09-08T21:58:35+00:00"
         },
         {
             "name": "spatie/array-functions",

@@ -8,6 +8,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
 use Ufutx\LaravelComment\CanComment;
 use Ufutx\LaravelFavorite\Traits\Favoriteability;
+use Skybluesofa\Followers\Traits\Followable;
 
 /**
  * App\Models\User.
@@ -35,7 +36,7 @@ use Ufutx\LaravelFavorite\Traits\Favoriteability;
  */
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability;
+    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable;
 
     /**
      * The attributes that are mass assignable.
