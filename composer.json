@@ -8,6 +8,10 @@
       {
         "type": "vcs",
         "url": "https://github.com/coding-sunshine/themes"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/coding-sunshine/laravel-favorite"
       }
     ],
     "require": {
@@ -63,7 +67,8 @@
         "spatie/string": "^2.2",
         "spatie/valuestore": "^1.1",
         "tymon/jwt-auth": "^0.5.10",
-        "ufutx/laravel-comment": "^1.0"
+        "ufutx/laravel-comment": "^1.0",
+        "ufutx/laravel-favorite": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.3",

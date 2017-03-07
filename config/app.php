@@ -208,6 +208,7 @@ return [
         Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
+        Ufutx\LaravelFavorite\FavoriteServiceProvider::class,
 
         /*
          * Application Service Providers...
