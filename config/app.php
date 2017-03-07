@@ -187,6 +187,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         PragmaRX\Countries\ServiceProvider::class,
+        PragmaRX\Health\ServiceProvider::class,
         PragmaRX\Firewall\Vendor\Laravel\ServiceProvider::class,
         Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
         Sarav\Providers\ModelCacherServiceProvider::class,

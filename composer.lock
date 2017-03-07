@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5e4421e64b8da62b6ff82339cb65de7",
+    "content-hash": "96e281e131b2fd3d5582fcb1d3d63ace",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3648,6 +3648,69 @@
                 "whitelist"
             ],
             "time": "2017-01-31T02:35:57+00:00"
+        },
+        {
+            "name": "pragmarx/health",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antonioribeiro/health.git",
+                "reference": "ba0976a647da06ba067ff644ec238c344296d6ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antonioribeiro/health/zipball/ba0976a647da06ba067ff644ec238c344296d6ff",
+                "reference": "ba0976a647da06ba067ff644ec238c344296d6ff",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.3",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "docusign/esign-client": "^2.0",
+                "guzzlehttp/guzzle": "~6.0",
+                "laravel/laravel": "^5.3",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~5.7",
+                "predis/predis": "^1.0",
+                "symfony/yaml": "~3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Support/Throwable.php",
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "PragmaRX\\Health\\": "src/",
+                    "PragmaRX\\Health\\tests\\phpunit\\": "tests/phpunit/",
+                    "PragmaRX\\Health\\Tests\\PhpUnit\\": "tests/PhpUnit/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Carlos Ribeiro",
+                    "email": "acr@antoniocarlosribeiro.com",
+                    "role": "Creator & Designer"
+                }
+            ],
+            "description": "Laravel Server & App Health Monitor and Notifier",
+            "keywords": [
+                "app",
+                "health",
+                "laravel",
+                "monitor",
+                "notifications",
+                "panel",
+                "pragmarx",
+                "server"
+            ],
+            "time": "2017-02-26T02:28:28+00:00"
         },
         {
             "name": "pragmarx/support",
