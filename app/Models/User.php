@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Lab404\Impersonate\Models\Impersonate;
+use Ufutx\LaravelComment\CanComment;
 
 /**
  * App\Models\User.
@@ -33,7 +34,7 @@ use Lab404\Impersonate\Models\Impersonate;
  */
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles, Impersonate;
+    use Notifiable, HasRoles, Impersonate, CanComment;
 
     /**
      * The attributes that are mass assignable.
