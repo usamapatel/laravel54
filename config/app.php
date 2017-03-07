@@ -207,6 +207,7 @@ return [
         Spatie\Translatable\TranslatableServiceProvider::class,
         Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
 
         /*
          * Application Service Providers...
