@@ -19,8 +19,8 @@ parameters:
               multiline: true
               additional_modifiers: ''
           git_conflict: ~
-          gulp:
-              task: "--production"
+#         gulp:
+#             task: "--production"
           jsonlint: ~
 #         npm_script: ~
           phpcpd: ~
