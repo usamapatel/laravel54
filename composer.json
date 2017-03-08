@@ -37,6 +37,7 @@
         "jenssegers/agent": "^2.5",
         "jenssegers/imagehash": "^0.4.1",
         "jtant/laravel-env-sync": "^1.3",
+        "kalnoy/nestedset": "^4.2",
         "lab404/laravel-impersonate": "^1.0",
         "laracasts/utilities": "^2.1",
         "laravel/framework": "5.4.*",
