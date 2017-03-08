@@ -7744,12 +7744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coding-sunshine/laravel-favorite.git",
-                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0"
+                "reference": "55a218ac276afe297303adffcd836ac74e57046f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/laravel-favorite/zipball/52060a84f777e84062a76ead7dfc262006be8eb0",
-                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0",
+                "url": "https://api.github.com/repos/coding-sunshine/laravel-favorite/zipball/55a218ac276afe297303adffcd836ac74e57046f",
+                "reference": "55a218ac276afe297303adffcd836ac74e57046f",
                 "shasum": ""
             },
             "require": {
@@ -7816,7 +7816,7 @@
             "support": {
                 "source": "https://github.com/coding-sunshine/laravel-favorite/tree/master"
             },
-            "time": "2017-02-16T07:44:57+00:00"
+            "time": "2017-03-08T10:00:01+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
