@@ -44,6 +44,7 @@
         "laravelcollective/html": "^5.4",
         "maatwebsite/excel": "^2.1",
         "marceauka/laravel-crudable": "^2.0",
+        "nahid/talk": "^2.1",
         "nwidart/laravel-modules": "^1.17",
         "pragmarx/countries": "^0.1.0",
         "pragmarx/firewall": "^1.0",
