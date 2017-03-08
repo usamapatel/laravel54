@@ -9,6 +9,8 @@ use Lab404\Impersonate\Models\Impersonate;
 use Ufutx\LaravelComment\CanComment;
 use Ufutx\LaravelFavorite\Traits\Favoriteability;
 use Skybluesofa\Followers\Traits\Followable;
+use Cog\Ban\Contracts\HasBans as HasBansContract;
+use Cog\Ban\Traits\HasBans;
 
 /**
  * App\Models\User.
@@ -34,9 +36,9 @@ use Skybluesofa\Followers\Traits\Followable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class User extends Authenticatable implements HasBansContract
 {
-    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable;
+    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable, HasBans;
 
     /**
      * The attributes that are mass assignable.

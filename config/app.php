@@ -173,6 +173,7 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
+        Cog\Ban\Providers\BanServiceProvider::class,
         Cog\Flag\Providers\FlagServiceProvider::class,
         Cog\Optimus\Providers\OptimusServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
@@ -181,6 +182,7 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Imanghafoori\Widgets\WidgetsServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
         Jtant\LaravelEnvSync\EnvSyncServiceProvider::class,
         Lab404\Impersonate\ImpersonateServiceProvider::class,
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
@@ -290,6 +292,7 @@ return [
          * Package Facades...
          */
         'Active' => HieuLe\Active\Facades\Active::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
         'Countries' => PragmaRX\Countries\Facade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
