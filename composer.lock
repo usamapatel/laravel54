@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "413d020806d4ff3c5e5550f4f22b0cf4",
+    "content-hash": "f870cb62e0d6369bdc98bcbad860aba0",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3298,6 +3298,53 @@
                 "laravel"
             ],
             "time": "2017-01-20T16:16:51+00:00"
+        },
+        {
+            "name": "marceauka/laravel-crudable",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarceauKa/laravel-crudable.git",
+                "reference": "986f4617f4318bda933fae13fafd764b575861dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarceauKa/laravel-crudable/zipball/986f4617f4318bda933fae13fafd764b575861dd",
+                "reference": "986f4617f4318bda933fae13fafd764b575861dd",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.3",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "laracasts/testdummy": "~2.0",
+                "laravel/laravel": "~5.4",
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "plugin",
+            "autoload": {
+                "psr-4": {
+                    "Akibatech\\Crud\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel CRUD builder powered by custom fields",
+            "keywords": [
+                "admin",
+                "crud",
+                "fields",
+                "laravel"
+            ],
+            "time": "2017-01-28T15:24:34+00:00"
         },
         {
             "name": "maximebf/debugbar",

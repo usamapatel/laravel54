@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Akibatech\Crud\CrudServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
