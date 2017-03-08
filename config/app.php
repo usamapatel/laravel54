@@ -169,6 +169,7 @@ return [
         Akibatech\Crud\CrudServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        Appstract\Multisite\MultisiteServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Arrilot\Widgets\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
