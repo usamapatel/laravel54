@@ -32,7 +32,6 @@
         "dingo/api": "1.0.x@dev",
         "doctrine/dbal": "^2.5",
         "guidocella/eloquent-populator": "^1.2",
-        "hieu-le/active": "^3.4",
         "illuminated/helper-functions": "^1.0",
         "imanghafoori/laravel-widgetize": "^1.4",
         "jenssegers/agent": "^2.5",

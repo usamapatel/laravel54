@@ -183,7 +183,6 @@ return [
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
-        HieuLe\Active\ActiveServiceProvider::class,
         Imanghafoori\Widgets\WidgetsServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Jtant\LaravelEnvSync\EnvSyncServiceProvider::class,
@@ -298,7 +297,6 @@ return [
         /*
          * Package Facades...
          */
-        'Active' => HieuLe\Active\Facades\Active::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
         'Countries' => PragmaRX\Countries\Facade::class,
