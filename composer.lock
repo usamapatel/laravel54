@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6534e6425b9c2051eb5a2d9d2d095500",
+    "content-hash": "2cad4024d01f460802b3fbe720caa7aa",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -4402,6 +4402,49 @@
                 "x509"
             ],
             "time": "2015-01-28T21:50:33+00:00"
+        },
+        {
+            "name": "plank/laravel-metable",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/plank/laravel-metable.git",
+                "reference": "372282b24db28985a5b64809ea01810aa5bd3772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/plank/laravel-metable/zipball/372282b24db28985a5b64809ea01810aa5bd3772",
+                "reference": "372282b24db28985a5b64809ea01810aa5bd3772",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.2",
+                "illuminate/support": "~5.2",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.2",
+                "phpunit/phpunit": "~5.7",
+                "satooshi/php-coveralls": "^1.0.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Plank\\Metable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Fraser",
+                    "email": "sean@plankdesign.com"
+                }
+            ],
+            "description": "A package for attaching arbitrary data to Eloquent models",
+            "time": "2017-02-03T19:30:10+00:00"
         },
         {
             "name": "pragmarx/countries",

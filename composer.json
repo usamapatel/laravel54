@@ -48,6 +48,7 @@
         "marceauka/laravel-crudable": "^2.0",
         "nahid/talk": "^2.1",
         "nwidart/laravel-modules": "^1.17",
+        "plank/laravel-metable": "^1.0",
         "pragmarx/countries": "^0.1.0",
         "pragmarx/firewall": "^1.0",
         "pragmarx/health": "^0.3.1",

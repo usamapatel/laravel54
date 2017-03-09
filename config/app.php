@@ -193,6 +193,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Nahid\Talk\TalkServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
+        Plank\Metable\MetableServiceProvider::class,
         PragmaRX\Countries\ServiceProvider::class,
         PragmaRX\Health\ServiceProvider::class,
         PragmaRX\Firewall\Vendor\Laravel\ServiceProvider::class,
