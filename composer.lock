@@ -430,16 +430,16 @@
         },
         {
             "name": "brotzka/laravel-dotenv-editor",
-            "version": "v2.0.6",
+            "version": "v2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brotzka/laravel-dotenv-editor.git",
-                "reference": "6f9abb43faab098b34896a89cf048b5be607e4c5"
+                "reference": "360a86c06450f07d5c9efbf9a2b4462dd0094039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brotzka/laravel-dotenv-editor/zipball/6f9abb43faab098b34896a89cf048b5be607e4c5",
-                "reference": "6f9abb43faab098b34896a89cf048b5be607e4c5",
+                "url": "https://api.github.com/repos/Brotzka/laravel-dotenv-editor/zipball/360a86c06450f07d5c9efbf9a2b4462dd0094039",
+                "reference": "360a86c06450f07d5c9efbf9a2b4462dd0094039",
                 "shasum": ""
             },
             "require": {
@@ -467,7 +467,7 @@
                 "dotenv-editor",
                 "laravel"
             ],
-            "time": "2017-01-27T07:12:33+00:00"
+            "time": "2017-03-11T10:41:52+00:00"
         },
         {
             "name": "caffeinated/themes",
@@ -6330,16 +6330,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "1.11.0",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "2371bca698457f5654b6b8edb29527735348e59e"
+                "reference": "e1bba43dca22d95b5965dea929aebe94acbae941"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/2371bca698457f5654b6b8edb29527735348e59e",
-                "reference": "2371bca698457f5654b6b8edb29527735348e59e",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/e1bba43dca22d95b5965dea929aebe94acbae941",
+                "reference": "e1bba43dca22d95b5965dea929aebe94acbae941",
                 "shasum": ""
             },
             "require": {
@@ -6348,6 +6348,7 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
+                "monolog/monolog": "^1.22",
                 "orchestra/testbench": "~3.3.0|~3.4.0",
                 "phpunit/phpunit": "^5.7.8"
             },
@@ -6369,7 +6370,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Permission handling for Laravel 5.1",
+            "description": "Permission handling for Laravel 5.1 and up",
             "homepage": "https://github.com/spatie/laravel-permission",
             "keywords": [
                 "acl",
@@ -6378,7 +6379,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2017-02-22T16:48:45+00:00"
+            "time": "2017-03-12T07:58:04+00:00"
         },
         {
             "name": "spatie/laravel-referer",
