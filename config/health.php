@@ -51,7 +51,7 @@ return [
         ],
 
         'users' => [
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
 
             'emails' => [
                 'admin@mydomain.com',
