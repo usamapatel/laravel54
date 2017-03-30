@@ -204,6 +204,7 @@ return [
         Spatie\Browsershot\BrowsershotServiceProvider::class,
         Spatie\CollectionMacros\CollectionMacroServiceProvider::class,
         Spatie\CookieConsent\CookieConsentServiceProvider::class,
+        Spatie\DbSnapshots\DbSnapshotsServiceProvider::class,
         Spatie\DirectoryCleanup\DirectoryCleanupServiceProvider::class,
         Spatie\FailedJobMonitor\FailedJobMonitorServiceProvider::class,
         Spatie\Glide\GlideServiceProvider::class,
