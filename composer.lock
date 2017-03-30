@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1751d7f974c593fe005b2fb6c3c03447",
+    "content-hash": "649f7f05ddeb3512a7da2cc3f6ab704b",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -8766,16 +8766,16 @@
         },
         {
             "name": "yaap/theme",
-            "version": "2.3.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/yaapis/Theme.git",
-                "reference": "22fe369044ab2cdfc7da3042130b8087fd0a5f1e"
+                "url": "https://github.com/coding-sunshine/Theme.git",
+                "reference": "00cd49d2d2d2bc931a1208419f4c963719791856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yaapis/Theme/zipball/22fe369044ab2cdfc7da3042130b8087fd0a5f1e",
-                "reference": "22fe369044ab2cdfc7da3042130b8087fd0a5f1e",
+                "url": "https://api.github.com/repos/coding-sunshine/Theme/zipball/00cd49d2d2d2bc931a1208419f4c963719791856",
+                "reference": "00cd49d2d2d2bc931a1208419f4c963719791856",
                 "shasum": ""
             },
             "require": {
@@ -8789,7 +8789,6 @@
                     "YAAP\\Theme": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -8806,7 +8805,10 @@
                 "layout",
                 "theme"
             ],
-            "time": "2017-02-15T16:27:24+00:00"
+            "support": {
+                "source": "https://github.com/coding-sunshine/Theme/tree/master"
+            },
+            "time": "2017-03-30T11:41:33+00:00"
         }
     ],
     "packages-dev": [
@@ -12743,6 +12745,7 @@
     "stability-flags": {
         "dingo/api": 20,
         "ufutx/laravel-favorite": 20,
+        "yaap/theme": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

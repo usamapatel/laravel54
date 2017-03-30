@@ -7,6 +7,10 @@
     "repositories": [
       {
         "type": "vcs",
+        "url": "https://github.com/coding-sunshine/theme"
+      },
+      {
+        "type": "vcs",
         "url": "https://github.com/coding-sunshine/laravel-favorite"
       }
     ],
@@ -80,7 +84,7 @@
         "tymon/jwt-auth": "^0.5.10",
         "ufutx/laravel-comment": "^1.0",
         "ufutx/laravel-favorite": "dev-master",
-        "yaap/theme": "^2.3"
+        "yaap/theme": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.3",
