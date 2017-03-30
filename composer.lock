@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "016590efd64a231a6e91565fb1b50906",
+    "content-hash": "1751d7f974c593fe005b2fb6c3c03447",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -473,54 +473,6 @@
                 "laravel"
             ],
             "time": "2017-03-11T10:41:52+00:00"
-        },
-        {
-            "name": "caffeinated/themes",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/coding-sunshine/themes.git",
-                "reference": "a17c414a091b6878a3fbd166c02e75bad5df9258"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/themes/zipball/a17c414a091b6878a3fbd166c02e75bad5df9258",
-                "reference": "a17c414a091b6878a3fbd166c02e75bad5df9258",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "5.3.*|5.4.*",
-                "illuminate/filesystem": "5.3.*|5.4.*",
-                "illuminate/support": "5.3.*|5.4.*",
-                "illuminate/view": "5.3.*|5.4.*",
-                "php": ">=5.6.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Caffeinated\\Themes\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Shea Lewis",
-                    "email": "shea.lewis89@gmail.com"
-                }
-            ],
-            "description": "Laravel 5 Themes with extra features",
-            "keywords": [
-                "blade",
-                "caffeinated",
-                "laravel",
-                "themes"
-            ],
-            "support": {
-                "source": "https://github.com/coding-sunshine/themes/tree/dev-master"
-            },
-            "time": "2017-03-03T19:11:02+00:00"
         },
         {
             "name": "commercie/currency",
@@ -2158,16 +2110,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.4.6",
+            "version": "v1.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "eb1ea8eec9f78aa14110b0d5959d0fa4ff90fd43"
+                "reference": "1d1d02ce896f9011a922817572aecf98313cb934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/eb1ea8eec9f78aa14110b0d5959d0fa4ff90fd43",
-                "reference": "eb1ea8eec9f78aa14110b0d5959d0fa4ff90fd43",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/1d1d02ce896f9011a922817572aecf98313cb934",
+                "reference": "1d1d02ce896f9011a922817572aecf98313cb934",
                 "shasum": ""
             },
             "require": {
@@ -2203,7 +2155,7 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-03-30T04:11:48+00:00"
+            "time": "2017-03-30T10:00:45+00:00"
         },
         {
             "name": "intervention/image",
@@ -6288,16 +6240,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "5.8.0",
+            "version": "5.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "72fbfa940d4dabf847bbceb5fff524d8e84229a5"
+                "reference": "df9c07dfc3c2344e549eafc48747fdd98c148c0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/72fbfa940d4dabf847bbceb5fff524d8e84229a5",
-                "reference": "72fbfa940d4dabf847bbceb5fff524d8e84229a5",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/df9c07dfc3c2344e549eafc48747fdd98c148c0e",
+                "reference": "df9c07dfc3c2344e549eafc48747fdd98c148c0e",
                 "shasum": ""
             },
             "require": {
@@ -6355,7 +6307,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2017-03-24T13:26:33+00:00"
+            "time": "2017-03-30T10:05:33+00:00"
         },
         {
             "name": "spatie/laravel-menu",
@@ -8811,6 +8763,50 @@
                 "validate"
             ],
             "time": "2016-11-23T20:04:58+00:00"
+        },
+        {
+            "name": "yaap/theme",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yaapis/Theme.git",
+                "reference": "22fe369044ab2cdfc7da3042130b8087fd0a5f1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yaapis/Theme/zipball/22fe369044ab2cdfc7da3042130b8087fd0a5f1e",
+                "reference": "22fe369044ab2cdfc7da3042130b8087fd0a5f1e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "laravel/framework": "5.4.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "YAAP\\Theme": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Biluk Andrey",
+                    "email": "yaapis@gmail.com"
+                }
+            ],
+            "description": "Theme support for Laravel 4/5 with assets, theme extends etc.",
+            "keywords": [
+                "asset",
+                "laravel",
+                "layout",
+                "theme"
+            ],
+            "time": "2017-02-15T16:27:24+00:00"
         }
     ],
     "packages-dev": [
@@ -12745,7 +12741,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "caffeinated/themes": 20,
         "dingo/api": 20,
         "ufutx/laravel-favorite": 20,
         "roave/security-advisories": 20

@@ -7,10 +7,6 @@
     "repositories": [
       {
         "type": "vcs",
-        "url": "https://github.com/coding-sunshine/themes"
-      },
-      {
-        "type": "vcs",
         "url": "https://github.com/coding-sunshine/laravel-favorite"
       }
     ],
@@ -23,7 +19,6 @@
         "barryvdh/laravel-cors": "^0.9.2",
         "barryvdh/laravel-debugbar": "^2.3",
         "brotzka/laravel-dotenv-editor": "^2.0",
-        "caffeinated/themes": "dev-master",
         "creativeorange/gravatar": "^1.0",
         "cybercog/laravel-ban": "^2.0",
         "cybercog/laravel-eloquent-flag": "^3.11",
@@ -84,7 +79,8 @@
         "spatie/valuestore": "^1.1",
         "tymon/jwt-auth": "^0.5.10",
         "ufutx/laravel-comment": "^1.0",
-        "ufutx/laravel-favorite": "dev-master"
+        "ufutx/laravel-favorite": "dev-master",
+        "yaap/theme": "^2.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.3",

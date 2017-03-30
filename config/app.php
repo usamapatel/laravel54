@@ -175,7 +175,6 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Brotzka\DotenvEditor\DotenvEditorServiceProvider::class,
-        Caffeinated\Themes\ThemesServiceProvider::class,
         Cog\Ban\Providers\BanServiceProvider::class,
         Cog\Flag\Providers\FlagServiceProvider::class,
         Cog\Optimus\Providers\OptimusServiceProvider::class,
@@ -222,6 +221,7 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
         Ufutx\LaravelFavorite\FavoriteServiceProvider::class,
+        YAAP\Theme\ThemeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -291,6 +291,7 @@ return [
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'Talk' => Nahid\Talk\Facades\Talk::class,
+        'Theme' => YAAP\Theme\Facades\Theme::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
@@ -319,7 +320,6 @@ return [
         'Optimus' => Cog\Optimus\Facades\Optimus::class,
         'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
-        'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         'Widget' => Arrilot\Widgets\Facade::class,
 

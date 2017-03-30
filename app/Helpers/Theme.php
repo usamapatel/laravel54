@@ -14,7 +14,7 @@ if (! function_exists('view')) {
      */
     function view($view = null, $data = [], $mergeData = [])
     {
-        return Theme::view($view, $data);
+        return View::make($view, $data);
     }
 }
 
@@ -24,10 +24,11 @@ if (! function_exists('asset')) {
      * currently active theme.
      *
      * @return string
-     * @param  mixed  $path
+     *
+     * @param mixed $path
      */
     function asset($path)
     {
-        return Theme::asset($path);
+        return Theme::asset($path, null, true);
     }
 }
