@@ -17,7 +17,7 @@
     "require": {
         "php": ">=5.6.4",
         "anhskohbo/no-captcha": "^2.3",
-        "appstract/laravel-multisite": "^0.1.1",
+        "appstract/laravel-multisite": "^0.2.0",
         "arcanedev/log-viewer": "^4.3",
         "arrilot/laravel-widgets": "^3.7",
         "barryvdh/laravel-cors": "^0.9.2",
