@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "649f7f05ddeb3512a7da2cc3f6ab704b",
+    "content-hash": "0c3ee16c978b1e1ef4659f43600d21e9",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -104,16 +104,16 @@
         },
         {
             "name": "appstract/laravel-multisite",
-            "version": "0.1.3",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-multisite.git",
-                "reference": "7565b6061fad997811d0254ce176e6f5313ba609"
+                "reference": "59cf17125d764938db267b47d710dc851ee38827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-multisite/zipball/7565b6061fad997811d0254ce176e6f5313ba609",
-                "reference": "7565b6061fad997811d0254ce176e6f5313ba609",
+                "url": "https://api.github.com/repos/appstract/laravel-multisite/zipball/59cf17125d764938db267b47d710dc851ee38827",
+                "reference": "59cf17125d764938db267b47d710dc851ee38827",
                 "shasum": ""
             },
             "require": {
@@ -146,7 +146,7 @@
                 "appstract",
                 "laravel-multisite"
             ],
-            "time": "2017-03-13T10:09:05+00:00"
+            "time": "2017-04-07T12:41:54+00:00"
         },
         {
             "name": "arcanedev/log-viewer",
@@ -7141,21 +7141,21 @@
         },
         {
             "name": "spatie/url-signer",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/url-signer.git",
-                "reference": "fecd9113ccac0d2be4f0e510bd10b5b2b584a46b"
+                "reference": "945bf049d50eeaadd774e777114c6507eb6df58a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/url-signer/zipball/fecd9113ccac0d2be4f0e510bd10b5b2b584a46b",
-                "reference": "fecd9113ccac0d2be4f0e510bd10b5b2b584a46b",
+                "url": "https://api.github.com/repos/spatie/url-signer/zipball/945bf049d50eeaadd774e777114c6507eb6df58a",
+                "reference": "945bf049d50eeaadd774e777114c6507eb6df58a",
                 "shasum": ""
             },
             "require": {
                 "league/url": "^3.3",
-                "php": ">=5.5.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
                 "henrikbjorn/phpspec-code-coverage": "^1.0",
@@ -7193,7 +7193,7 @@
                 "spatie",
                 "url"
             ],
-            "time": "2015-08-15T08:20:44+00:00"
+            "time": "2017-04-09T08:13:03+00:00"
         },
         {
             "name": "spatie/valuestore",
@@ -9274,16 +9274,16 @@
         },
         {
             "name": "crestapps/laravel-code-generator",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CrestApps/laravel-code-generator.git",
-                "reference": "3ed308e2b93ddf91f7824f90b95e7d924e6f85d1"
+                "reference": "3de3f5ef77a9e171ee5f363602f264a099041514"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/3ed308e2b93ddf91f7824f90b95e7d924e6f85d1",
-                "reference": "3ed308e2b93ddf91f7824f90b95e7d924e6f85d1",
+                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/3de3f5ef77a9e171ee5f363602f264a099041514",
+                "reference": "3de3f5ef77a9e171ee5f363602f264a099041514",
                 "shasum": ""
             },
             "require": {
@@ -9329,7 +9329,7 @@
                 "routes creator",
                 "views creator"
             ],
-            "time": "2017-01-30T01:22:43+00:00"
+            "time": "2017-04-08T22:14:13+00:00"
         },
         {
             "name": "doctrine/instantiator",
