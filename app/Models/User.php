@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
-use Lab404\Impersonate\Models\Impersonate;
-use Ufutx\LaravelComment\CanComment;
-use Ufutx\LaravelFavorite\Traits\Favoriteability;
-use Skybluesofa\Followers\Traits\Followable;
 use Cog\Ban\Contracts\HasBans as HasBansContract;
 use Cog\Ban\Traits\HasBans;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Lab404\Impersonate\Models\Impersonate;
+use Skybluesofa\Followers\Traits\Followable;
+use Spatie\Permission\Traits\HasRoles;
+use Ufutx\LaravelComment\CanComment;
+use Ufutx\LaravelFavorite\Traits\Favoriteability;
 
 /**
  * App\Models\User.

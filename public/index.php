@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_URI'] === '/laravel-installer') {
-    if (! file_exists('../.installed')) {
+    if (!file_exists('../.installed')) {
         include 'install/index.php';
     } else {
         header('Location: /');

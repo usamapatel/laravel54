@@ -40,15 +40,15 @@ return [
     'connections' => [
 
         'main' => [
-            'prime' => '52164967',
+            'prime'   => '52164967',
             'inverse' => '742593111',
-            'random' => '1116056760',
+            'random'  => '1116056760',
         ],
 
         'alternative' => [
-            'prime' => '1683186083',
+            'prime'   => '1683186083',
             'inverse' => '604166667',
-            'random' => '831694511',
+            'random'  => '831694511',
         ],
 
     ],

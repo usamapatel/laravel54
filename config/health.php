@@ -26,9 +26,9 @@ return [
         'enabled' => true,
 
         'notify_on' => [
-            'panel' => false,
-            'check' => true,
-            'string' => true,
+            'panel'    => false,
+            'check'    => true,
+            'string'   => true,
             'resource' => false,
         ],
 
@@ -61,12 +61,12 @@ return [
         'channels' => [
             'mail' => [
                 'enabled' => true,
-                'sender' => PragmaRX\Health\Notifications\Channels\Mail::class,
+                'sender'  => PragmaRX\Health\Notifications\Channels\Mail::class,
             ],
 
             'slack' => [
                 'enabled' => true,
-                'sender' => PragmaRX\Health\Notifications\Channels\Slack::class,
+                'sender'  => PragmaRX\Health\Notifications\Channels\Slack::class,
             ],
 
             'facebook' => [
@@ -80,7 +80,7 @@ return [
     'alert' => [
         'success' => [
             'message' => 'Everything is fine with this resource',
-            'type' => 'success',
+            'type'    => 'success',
         ],
 
         'error' => [
@@ -104,14 +104,14 @@ return [
 
     'string' => [
         'glue' => '-',
-        'ok' => 'OK',
+        'ok'   => 'OK',
         'fail' => 'FAIL',
     ],
 
     'actions' => [
-        'panel' => $action_panel = 'PragmaRX\Health\Http\Controllers\Health@panel',
-        'check' => $action_check = 'PragmaRX\Health\Http\Controllers\Health@check',
-        'string' => $action_string = 'PragmaRX\Health\Http\Controllers\Health@string',
+        'panel'    => $action_panel = 'PragmaRX\Health\Http\Controllers\Health@panel',
+        'check'    => $action_check = 'PragmaRX\Health\Http\Controllers\Health@check',
+        'string'   => $action_string = 'PragmaRX\Health\Http\Controllers\Health@string',
         'resource' => $action_resource = 'PragmaRX\Health\Http\Controllers\Health@resource',
     ],
 
@@ -119,9 +119,9 @@ return [
         'prefix' => $route_prefix = '/health',
 
         'suffixes' => [
-            'panel' => $route_suffix_panel = '/panel',
-            'check' => $route_suffix_check = '/check',
-            'string' => $route_suffix_string = '/string',
+            'panel'    => $route_suffix_panel = '/panel',
+            'check'    => $route_suffix_check = '/check',
+            'string'   => $route_suffix_string = '/string',
             'resource' => $route_suffix_resource = '/resource',
         ],
 
@@ -129,30 +129,30 @@ return [
 
         'list' => [
             [
-                'uri' => $route_prefix.$route_suffix_panel,
-                'name' => 'pragmarx.health.panel',
-                'action' => $action_panel,
+                'uri'        => $route_prefix.$route_suffix_panel,
+                'name'       => 'pragmarx.health.panel',
+                'action'     => $action_panel,
                 'middleware' => [/*'auth.basic'*/],
             ],
 
             [
-                'uri' => $route_prefix.$route_suffix_check,
-                'name' => 'pragmarx.health.check',
-                'action' => $action_check,
+                'uri'        => $route_prefix.$route_suffix_check,
+                'name'       => 'pragmarx.health.check',
+                'action'     => $action_check,
                 'middleware' => [],
             ],
 
             [
-                'uri' => $route_prefix.$route_suffix_string,
-                'name' => 'pragmarx.health.string',
-                'action' => $action_string,
+                'uri'        => $route_prefix.$route_suffix_string,
+                'name'       => 'pragmarx.health.string',
+                'action'     => $action_string,
                 'middleware' => [],
             ],
 
             [
-                'uri' => "{$route_prefix}.{$route_suffix_resource}/{name}",
-                'name' => 'pragmarx.health.resource',
-                'action' => $action_resource,
+                'uri'        => "{$route_prefix}.{$route_suffix_resource}/{name}",
+                'name'       => 'pragmarx.health.resource',
+                'action'     => $action_resource,
                 'middleware' => [],
             ],
         ],

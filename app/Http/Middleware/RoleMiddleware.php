@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Auth;
+use Closure;
 
 class RoleMiddleware
 {
@@ -23,11 +23,11 @@ class RoleMiddleware
             return redirect(route('login'));
         }
 
-        if (! $request->user()->hasRole($role)) {
+        if (!$request->user()->hasRole($role)) {
             abort(403);
         }
 
-        if (! $request->user()->can($permission)) {
+        if (!$request->user()->can($permission)) {
             abort(403);
         }
 
