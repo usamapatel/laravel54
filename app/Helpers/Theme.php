@@ -2,7 +2,7 @@
 
 use Caffeinated\Themes\Facades\Theme;
 
-if (! function_exists('view')) {
+if (!function_exists('view')) {
     /**
      * Render theme view file.
      *
@@ -18,14 +18,15 @@ if (! function_exists('view')) {
     }
 }
 
-if (! function_exists('asset')) {
+if (!function_exists('asset')) {
     /**
      * Generate a HTML link to the given asset using HTTP for the
      * currently active theme.
      *
-     * @return string
      *
      * @param mixed $path
+     *
+     * @return string
      */
     function asset($path)
     {

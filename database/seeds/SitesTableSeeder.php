@@ -16,7 +16,7 @@ class SitesTableSeeder extends Seeder
             [
                 'name' => null,
                 'slug' => null,
-                'url' => null,
+                'url'  => null,
             ],
         ];
 

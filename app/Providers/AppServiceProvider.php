@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 //https://laravel-news.com/laravel-5-4-key-too-long-error #TODO
-use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,13 +35,13 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //register local dev service providers
-        if ($this->app->isLocal() && ! empty($this->localProviders)) {
+        if ($this->app->isLocal() && !empty($this->localProviders)) {
             foreach ($this->localProviders as $provider) {
                 $this->app->register($provider);
             }
         }
         //register local dev alias
-        if ($this->app->isLocal() && ! empty($this->localAliases)) {
+        if ($this->app->isLocal() && !empty($this->localAliases)) {
             foreach ($this->localAliases as $alias => $facade) {
                 $this->app->alias($alias, $facade);
             }

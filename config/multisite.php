@@ -37,9 +37,9 @@ return [
     */
 
     'views' => [
-        'overwrite' => true,
+        'overwrite'     => true,
         'overwriteable' => 'partials.*',
-        'sites' => 'sites',
+        'sites'         => 'sites',
     ],
 
 ];

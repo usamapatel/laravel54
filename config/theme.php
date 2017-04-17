@@ -33,9 +33,9 @@ return [
     */
 
         'containerDir' => [
-            'layout' => 'layouts',
+            'layout'  => 'layouts',
             'partial' => 'partials',
-            'view' => 'views',
+            'view'    => 'views',
         ],
 
 ];

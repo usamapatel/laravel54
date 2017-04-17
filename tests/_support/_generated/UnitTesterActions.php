@@ -7,9 +7,6 @@ namespace _generated;
 // You should not change it manually as it will be overwritten on next build
 // @codingStandardsIgnoreFile
 
-use Codeception\Module\Asserts;
-use Helper\Unit;
-
 trait UnitTesterActions
 {
     /**
