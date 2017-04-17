@@ -7,10 +7,6 @@
     "repositories": [
       {
         "type": "vcs",
-        "url": "https://github.com/coding-sunshine/theme"
-      },
-      {
-        "type": "vcs",
         "url": "https://github.com/coding-sunshine/laravel-favorite"
       }
     ],
@@ -71,7 +67,7 @@
         "spatie/laravel-menu": "^2.1",
         "spatie/laravel-newsletter": "^3.4",
         "spatie/laravel-paginateroute": "^2.4",
-        "spatie/laravel-permission": "^1.8",
+        "spatie/laravel-permission": "^2.0",
         "spatie/laravel-referer": "^1.2",
         "spatie/laravel-responsecache": "^3.0",
         "spatie/laravel-robots-middleware": "^1.0",
@@ -84,7 +80,7 @@
         "tymon/jwt-auth": "^0.5.10",
         "ufutx/laravel-comment": "^1.0",
         "ufutx/laravel-favorite": "dev-master",
-        "yaap/theme": "dev-master"
+        "yaap/theme": "2.*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.3",
@@ -100,7 +96,7 @@
         "mpociot/laravel-test-factory-helper": "^0.4.0",
         "nikic/php-parser": "^3.0",
         "phpmd/phpmd": "^2.6",
-        "phpro/grumphp": "^0.11.3",
+        "phpro/grumphp": "dev-master",
         "phpspec/phpspec": "^3.2",
         "phpunit/phpunit": "~5.0",
         "roave/security-advisories": "dev-master",
