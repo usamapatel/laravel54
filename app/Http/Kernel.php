@@ -45,10 +45,10 @@ class Kernel extends HttpKernel
         ],
 
         'fw-block-bl' => [
-            
+
         ],
         'fw-allow-wl' => [
-            
+
         ],
     ];
 
