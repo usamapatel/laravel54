@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "99ab4079a12a7371c75b8258194fc233",
+    "content-hash": "ae2c9a0eef47f757a7b20cb5c60e9787",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2757,6 +2757,49 @@
             "time": "2017-04-05T10:02:16+00:00"
         },
         {
+            "name": "laracasts/flash",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2016-07-11T20:46:02+00:00"
+        },
+        {
             "name": "laracasts/utilities",
             "version": "2.1",
             "source": {
@@ -4531,16 +4574,16 @@
         },
         {
             "name": "pragmarx/health",
-            "version": "v0.3.2",
+            "version": "v0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antonioribeiro/health.git",
-                "reference": "8db855fa08ba27e6fed51c9d7c240e51845a102c"
+                "reference": "15dc15119b482cedb0b23250a553972d703ad7fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antonioribeiro/health/zipball/8db855fa08ba27e6fed51c9d7c240e51845a102c",
-                "reference": "8db855fa08ba27e6fed51c9d7c240e51845a102c",
+                "url": "https://api.github.com/repos/antonioribeiro/health/zipball/15dc15119b482cedb0b23250a553972d703ad7fb",
+                "reference": "15dc15119b482cedb0b23250a553972d703ad7fb",
                 "shasum": ""
             },
             "require": {
@@ -4558,7 +4601,9 @@
             },
             "suggest": {
                 "docusign/esign-client": "^2.0",
-                "guzzlehttp/guzzle": "~6.0"
+                "guzzlehttp/guzzle": "~6.0",
+                "league/flysystem-aws-s3-v3": "^1.0",
+                "predis/predis": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -4594,7 +4639,7 @@
                 "pragmarx",
                 "server"
             ],
-            "time": "2017-04-16T03:09:46+00:00"
+            "time": "2017-04-21T02:46:36+00:00"
         },
         {
             "name": "pragmarx/support",
