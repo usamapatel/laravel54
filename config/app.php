@@ -192,9 +192,6 @@ return [
         Nahid\Talk\TalkServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Plank\Metable\MetableServiceProvider::class,
-        PragmaRX\Countries\ServiceProvider::class,
-        PragmaRX\Health\ServiceProvider::class,
-        PragmaRX\Firewall\Vendor\Laravel\ServiceProvider::class,
         Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
         Sarav\Providers\ModelCacherServiceProvider::class,
         Skybluesofa\Followers\ServiceProvider::class,
@@ -222,6 +219,7 @@ return [
         Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
         Ufutx\LaravelFavorite\FavoriteServiceProvider::class,
         YAAP\Theme\ThemeServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -301,13 +299,11 @@ return [
          */
         'Agent'         => Jenssegers\Agent\Facades\Agent::class,
         'AsyncWidget'   => Arrilot\Widgets\AsyncFacade::class,
-        'Countries'     => PragmaRX\Countries\Facade::class,
         'Debugbar'      => Barryvdh\Debugbar\Facade::class,
         'DingoApi'      => Dingo\Api\Facade\API::class,
         'DingoROute'    => Dingo\Api\Facade\Route::class,
         'DotenvEditor'  => Brotzka\DotenvEditor\DotenvEditorFacade::class,
         'Excel'         => Maatwebsite\Excel\Facades\Excel::class,
-        'Firewall'      => PragmaRX\Firewall\Vendor\Laravel\Facade::class,
         'Form'          => Collective\Html\FormFacade::class,
         'GlideImage'    => Spatie\Glide\GlideImageFacade::class,
         'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
@@ -322,6 +318,7 @@ return [
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
         'UrlSigner'     => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         'Widget'        => Arrilot\Widgets\Facade::class,
+        'Flash'         => Laracasts\Flash\Flash::class,
 
     ],
 
