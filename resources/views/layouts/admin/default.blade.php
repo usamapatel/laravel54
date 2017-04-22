@@ -18,6 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <html lang="en">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
+
     <head>
         <meta charset="utf-8" />
         <title>Company</title>
@@ -25,7 +26,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Company" />
         <meta content="" name="author" />
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -44,12 +44,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{ asset('css/admin/layout.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/admin/themes/blue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
+
         @yield('page-style')
+
         <link href="{{ asset('css/admin/custom.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <!-- END HEAD -->
+
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         <!-- BEGIN HEADER -->
         @include('elements.admin.header')
@@ -112,6 +115,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <!-- END PAGE HEADER-->
+
                     <div class="page-content-body">
                         @yield('page-content')
                     </div>

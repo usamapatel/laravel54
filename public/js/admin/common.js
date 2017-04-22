@@ -7,11 +7,13 @@ $(document).ready(function() {
     $(".select2-tag").select2({
         tags: true
     });
+
     $('#temp .dropdown-menu').on({
         "click":function(e){
           e.stopPropagation();
         }
     });
+
     // delete functionality
     $(document).on('click', '.js-delete-button', function(e){
         var action = $(this).data('delete-url');
@@ -19,6 +21,7 @@ $(document).ready(function() {
         $(".js-delete-confirmation-msg").html(confirmationMsg);
         $(".js-delete-modal-form").prop('action', action);
     });
+
     $(document).on('change', '.js-chk-column-management', function(e){
         if($(this).closest(".icheckbox_minimal-blue").hasClass("checked")) {
             $(this).closest(".icheckbox_minimal-blue").removeClass("checked");
@@ -26,16 +29,19 @@ $(document).ready(function() {
             $(this).closest(".icheckbox_minimal-blue").addClass("checked");                                                                                     
         }
     });
+
     $('.js-form-datetimepicker').datetimepicker({
         format: 'DD-MM-YYYY hh:mm A',
         showClose: true,
         ignoreReadonly: true
     });
+
     /*$('.js-form-datepicker').datepicker({
         format: 'dd-mm-yyyy',
         autoclose: true,
         ignoreReadonly: true
     });*/
+
     $('.js-form-datepicker-decade').datetimepicker({
         format: 'DD-MM-YYYY',
         showClose: true,
@@ -43,11 +49,13 @@ $(document).ready(function() {
         viewMode: 'years',
         maxDate : 'now'
     });
+
     /*$('input[type="checkbox"].icheck, input[type="radio"].icheck').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
       radioClass: 'iradio_minimal-blue'
     });*/
 });
+
 function ajaxCall(url, data, method, dataType, successHandlerFunction, processDataFlag, contentTypeFlag) {
     if(typeof(processDataFlag) == 'undefined'){
       processDataFlag = true;
@@ -56,6 +64,7 @@ function ajaxCall(url, data, method, dataType, successHandlerFunction, processDa
     if(typeof(contentTypeFlag) == 'undefined'){
       contentTypeFlag = 'application/x-www-form-urlencoded';
     }
+
     $(".js-data-table .overlay").show();
     
     geturl = $.ajax({
@@ -73,12 +82,15 @@ function ajaxCall(url, data, method, dataType, successHandlerFunction, processDa
         }
     });
 }
+
 // define
 var paginationComponent = Vue.extend({
   template: '<div class="dataTables_length pull-left pagination-length-div"><select id="pagination_length" name="pagination_length" aria-controls="pagination_length" class="form-control select2-hide-search-box input-xsmall input-inline"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="-1">All</option></select></div><div class="dataTables_info pull-left margin-7" id="pagination_record_msg"></div>'
 });
+
 // register
 Vue.component('pagination_component', paginationComponent);
+
 function setPaginationRecords(start, records, totalcount) {
     if(records > totalcount) {
         $("#pagination_record_msg").html("Showing "+ start +" to "+ totalcount +" of "+ totalcount +" entries");
@@ -88,6 +100,7 @@ function setPaginationRecords(start, records, totalcount) {
 }
 function setPaginationAmount() {
     var set_pagination = '';
+
     if(typeof(Cookies.get('pagination_length')) == "undefined"){
         set_pagination += "&pagination_length=10";
     }
@@ -101,6 +114,7 @@ function setPaginationAmount() {
     } 
     return set_pagination;
 }
+
 function initPaginationRecord() {
     setTimeout(function(){
         if(typeof(Cookies.get('pagination_length')) != "undefined"){
@@ -114,6 +128,7 @@ function clearFormData(formId) {
     setTimeout(function(){
         $("#"+formId).find("input").val('');
         $("#"+formId).find("textarea").val('');
+
         if($("#"+formId).find(".select2-allow-clear").length) {
             $("#"+formId+" .select2-allow-clear").each(function(){
                 $(this).select2("val", "");
