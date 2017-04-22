@@ -49,7 +49,7 @@
                 <div class="portlet-title">
                     <div class="caption col-md-8">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Users List</span>
+                        <span class="caption-subject font-dark bold uppercase">User List</span>
                     </div>
                     <div class="col-md-4">
                         <div class="btn-group pull-right">
