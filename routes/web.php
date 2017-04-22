@@ -25,4 +25,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::resource('permissions', 'PermissionController');
   	Route::post('/getPermissionData', 'PermissionController@getPermissionData');
+
+  	  //Users Section
+    Route::resource('users', 'UsersController');
+    Route::post('/getUserData', 'UsersController@getUserData');
 });
