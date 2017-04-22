@@ -4,12 +4,6 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-      {
-        "type": "vcs",
-        "url": "https://github.com/coding-sunshine/laravel-favorite"
-      }
-    ],
     "require": {
         "php": ">=5.6.4",
         "anhskohbo/no-captcha": "^2.3",
@@ -27,6 +21,7 @@
         "dingo/api": "1.0.x@dev",
         "doctrine/dbal": "^2.5",
         "guidocella/eloquent-populator": "^2.0",
+        "hipsterjazzbo/landlord": "^2.0",
         "illuminated/helper-functions": "^1.0",
         "imanghafoori/laravel-widgetize": "^1.4",
         "jenssegers/agent": "^2.5",
