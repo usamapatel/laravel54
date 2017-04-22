@@ -7,10 +7,10 @@ use View;
 use Session;
 use Storage;
 use JavaScript;
-use App\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
