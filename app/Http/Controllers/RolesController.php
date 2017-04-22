@@ -116,7 +116,7 @@ class RolesController extends Controller
         $role = new Role();
         $role->name = $request->name;
         $role->save();
-        $role->givePermissionTo($request->permission);
+        $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));        
         return redirect()->route('roles.index');
     }
@@ -149,7 +149,7 @@ class RolesController extends Controller
         $role->name = $request->name;
         $role->save();
         $role->syncPermissions();
-        $role->givePermissionTo($request->permission);
+        $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));        
         return redirect()->route('roles.index');
     }

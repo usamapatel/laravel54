@@ -7,11 +7,15 @@
     </div>
     <div class="form-group">
         <label class="col-md-3 control-label">Permissions</label>
-        @foreach($permissions as $permission)
-            <div class="col-md-3">
-                {{ Form::checkbox('permission[]', $permission->name, $from == "edit" ? (in_array($permission->name, $assignedPermissions)) : null ) }} {{ ucfirst(trans($permission->name)) }}<br>
+        <div class="col-md-9">
+            <div class="row">
+                @foreach($permissions as $permission)
+                    <div class="col-md-3">
+                        {{ Form::checkbox('permissions[]', $permission->name, $from == "edit" ? (in_array($permission->name, $assignedPermissions)) : null ) }} {{ ucfirst(trans($permission->name)) }}<br>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
+        </div>
     </div>
 </div>
 <div class="form-actions">
