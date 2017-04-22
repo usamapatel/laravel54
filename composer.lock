@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc93805928c54093269e7ca324168416",
+    "content-hash": "0b349fa61decdbce5eacdc409b22c198",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3747,6 +3747,54 @@
                 "psr-3"
             ],
             "time": "2017-03-13T07:08:03+00:00"
+        },
+        {
+            "name": "mpociot/teamwork",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/teamwork.git",
+                "reference": "d99a2275ca556befee8dcb18fe7a8acebd2d072f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/teamwork/zipball/d99a2275ca556befee8dcb18fe7a8acebd2d072f",
+                "reference": "d99a2275ca556befee8dcb18fe7a8acebd2d072f",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.4",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "orchestra/testbench": "3.4.*@dev",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mpociot\\Teamwork": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "description": "User to Team associations for the Laravel 5 Framework",
+            "homepage": "http://github.com/mpociot/teamwork",
+            "keywords": [
+                "Invite",
+                "Teams"
+            ],
+            "time": "2017-01-29T20:41:30+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
