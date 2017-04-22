@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Menu\Item;
+use App\Models\MenuItem;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
@@ -19,7 +19,7 @@ class Menu extends Model
      */
     public function items()
     {
-        return $this->hasMany('App\MenuItem');
+        return $this->hasMany('App\Models\MenuItem');
     }
 
     public function generate()
