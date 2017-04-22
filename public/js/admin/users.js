@@ -6,14 +6,14 @@ var User = function() {
             debug: false,
             messages: {  
                 email:{
-                    remote:'Email Already Exists',
-                }              
+                    remote:'Email already exists.',
+                }
             },
             rules: {
                 name: {
                     required: true
                 },
-                 email: {
+                email: {
                     required: true,
                     remote: {
                                 url: "/admin/validateEmail",
@@ -26,12 +26,16 @@ var User = function() {
                                 }  
                             }
                 },
-                paswword: {
+                'roles[]': {
                     required: true
                 },
             },
             errorPlacement: function (error, element) { // render error placement for each input type
-                element.parent().append(error);
+                if(element.prop('name') == "roles[]") {
+                    element.parent().parent().parent().append(error);
+                } else {
+                    element.parent().append(error);
+                }
             },
             submitHandler: function (form) {
                 form.submit();

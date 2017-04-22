@@ -21,7 +21,7 @@ class UsersController extends Controller
      */
     public function __construct(Request $request)
     {
-        $this->title = 'Users';
+        $this->title = 'User';
         $this->request= $request;
         View::share ( 'title', $this->title );
     }

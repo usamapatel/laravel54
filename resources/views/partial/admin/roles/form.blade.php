@@ -11,7 +11,7 @@
             <div class="row">
                 @foreach($permissions as $permission)
                     <div class="col-md-3">
-                        {{ Form::checkbox('permission[]', $permission->name, $from == "edit" ? (in_array($permission->name, $assignedPermissions)) : null ) }} {{ ucfirst(trans($permission->name)) }}<br>
+                        {{ Form::checkbox('permissions[]', $permission->name, $from == "edit" ? (in_array($permission->name, $assignedPermissions)) : null ) }} {{ ucfirst(trans($permission->name)) }}<br>
                     </div>
                 @endforeach
             </div>

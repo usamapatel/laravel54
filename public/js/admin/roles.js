@@ -10,9 +10,16 @@ var Role = function() {
                 name: {
                     required: true
                 },
+                'permissions[]': {
+                    required: true
+                },
             },
             errorPlacement: function (error, element) { // render error placement for each input type
-                element.parent().append(error);
+                if(element.prop('name') == "permissions[]") {
+                    element.parent().parent().parent().append(error);
+                } else {
+                    element.parent().append(error);
+                }
             },
             submitHandler: function (form) {
                 form.submit();
