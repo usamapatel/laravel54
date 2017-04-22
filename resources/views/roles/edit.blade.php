@@ -14,7 +14,7 @@
         </div>
         <div class="portlet-body form">
        		{!! Form::open(['route' => ['roles.update', $role->id], 'method' => 'PUT', 'class' => 'js-frm-edit-role form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
-		    	@include('partials.admin.roles.form',['from'=>'edit'])
+		    	@include('partial.admin.roles.form',['from'=>'edit'])
 			{{ Form::close() }}
         </div>
     </div>
