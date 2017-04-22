@@ -56,13 +56,15 @@
                         <table class="table table-striped table-bordered table-hover order-column" v-cloak>
                             <thead>
                                 <tr>
-                                    <th data-field="title" @click="sortBy('name')" :class="[sortKey != 'name' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Name</th>
+                                    <th data-field="name" @click="sortBy('name')" :class="[sortKey != 'name' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Name</th>
+                                    <th data-field="created_datetime" @click="sortBy('created_datetime')" :class="[sortKey != 'created_datetime' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Created at</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="" v-for="role in roleData">  
-                                    <td>@{{ role.name }}</td>                                   
+                                    <td>@{{ role.name }}</td>
+                                    <td>@{{ role.created_datetime }}</td>                                 
                                     <td class="text-center">
                                         <a href="{{ url('admin/roles') }}/@{{ role.id }}/edit" class="btn btn-icon-only green">
                                             <i class="fa fa-edit"></i>
