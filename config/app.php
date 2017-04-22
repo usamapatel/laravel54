@@ -219,6 +219,7 @@ return [
         Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
         Ufutx\LaravelFavorite\FavoriteServiceProvider::class,
         YAAP\Theme\ThemeServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -317,6 +318,7 @@ return [
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
         'UrlSigner'     => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         'Widget'        => Arrilot\Widgets\Facade::class,
+        'Flash'         => Laracasts\Flash\Flash::class,
 
     ],
 
