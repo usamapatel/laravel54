@@ -26,6 +26,7 @@ class RolesController extends Controller
         $this->title = 'Role';
         $this->request= $request;
         View::share ( 'title', $this->title );
+        parent::__construct();
     }
 
     /**

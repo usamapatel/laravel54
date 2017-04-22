@@ -13,3 +13,7 @@ table thead .sorting_asc {
   cursor: pointer;
   background: rgba(0, 0, 0, 0) url(../../img/admin/sort_asc.png) no-repeat scroll right center;
 }
+
+label.error {
+	color: red;
+}

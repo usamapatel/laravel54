@@ -24,6 +24,7 @@ class UsersController extends Controller
         $this->title = 'User';
         $this->request= $request;
         View::share ( 'title', $this->title );
+        parent::__construct();
     }
 
     public function __destruct()

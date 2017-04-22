@@ -19,6 +19,7 @@ class PermissionController extends Controller
         $this->title = 'Permission';
         $this->request= $request;
         View::share ( 'title', $this->title );
+        parent::__construct();
     }
 
     /**
