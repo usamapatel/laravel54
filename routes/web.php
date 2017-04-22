@@ -20,6 +20,6 @@ if (App::environment('local')) {
     /*Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');*/
 }
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
-	Route::resource('roles', 'RolesController');
+    Route::resource('roles', 'RolesController');
     Route::post('/getRoleData', 'RolesController@getRoleData');
 });
