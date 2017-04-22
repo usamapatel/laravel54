@@ -9,7 +9,7 @@
         <label class="col-md-3 control-label">Permissions</label>
         @foreach($permissions as $permission)
             <div class="col-md-3">
-                {{ Form::checkbox('permission[]', $permission->id, null) }} {{ ucfirst(trans($permission->name)) }}<br>
+                {{ Form::checkbox('permission[]', $permission->name, in_array($permission->name, $assignedPermissions) ) }} {{ ucfirst(trans($permission->name)) }}<br>
             </div>
         @endforeach
     </div>
