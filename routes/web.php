@@ -29,4 +29,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
   	  //Users Section
     Route::resource('users', 'UsersController');
     Route::post('/getUserData', 'UsersController@getUserData');
+    Route::post('/validateEmail','UsersController@validateEmail');
 });

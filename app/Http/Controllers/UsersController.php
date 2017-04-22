@@ -21,7 +21,7 @@ class UsersController extends Controller
      */
     public function __construct(Request $request)
     {
-        $this->title = 'User';
+        $this->title = 'Users';
         $this->request= $request;
         View::share ( 'title', $this->title );
     }
@@ -45,6 +45,21 @@ class UsersController extends Controller
         return view('users.index');
     }
 
+    public function validateEmail(Request $request) {
+        $email=$request->email;
+        if ($email !== null && !empty($email)) {
+            $userQuery = User::where('email', $email);  
+            if ($request->id) {
+                $userQuery->where("id", '!=' , $request->id);
+            }
+            $user=$userQuery->first();
+            if ($user) {
+                return "false";
+            }     
+        }        
+         return "true";       
+    } 
+    
     public function getUserData() 
     {
         $request = $this->request->all();

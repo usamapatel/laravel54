@@ -13,8 +13,18 @@ var User = function() {
                 name: {
                     required: true
                 },
-                email: {
-                    required: true
+                 email: {
+                    required: true,
+                    remote: {
+                                url: "/admin/validateEmail",
+                                type: "post",
+                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                                data: {   
+                                      id: function() {
+                                        return $('input[name="user_id"]').val();
+                                      }
+                                }  
+                            }
                 },
                 paswword: {
                     required: true
