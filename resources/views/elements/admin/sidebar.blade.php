@@ -18,6 +18,20 @@
                     <span class="arrow"></span>
                 </a>
             </li>
+            @if (count($menu_items) > 0)                
+                @foreach ($menu_items as $menu_item)
+                    <li class="nav-item start ">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="fa {{ $menu_item['icon'] }}"></i>
+                            <span class="title">{{ $menu_item['name'] }}</span>
+                            <span class="arrow"></span>
+                        </a>
+                        @if(isset($menu_item['children']) && count($menu_item['children']))
+                            @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
+                        @endif
+                    </li>
+                @endforeach
+            @endif
             <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link nav-toggle">
                     <i class="icon-user"></i>
