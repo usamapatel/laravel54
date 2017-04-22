@@ -10,9 +10,9 @@
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => ['users.update', $users->id], 'method' => 'PUT', 'class' => 'js-frm-edit-user form-horizontal', 'role' => 'form']) !!}
+       		{!! Form::open(['route' => ['users.update', $user->id], 'method' => 'PUT', 'class' => 'js-frm-edit-user form-horizontal', 'role' => 'form']) !!}
 		    	@include('partial.admin.users.form',['from'=>'edit'])
-                <input type="hidden" value="{{ $users->id }}" name="user_id"></input>
+                <input type="hidden" value="{{ $user->id }}" name="user_id"></input>
 			{{ Form::close() }}
         </div>
     </div>

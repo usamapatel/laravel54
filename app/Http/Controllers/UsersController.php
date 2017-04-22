@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon as Carbon;
-use App\Models\User;
 use DB;
-use Validator;
 use View;
-
+use Validator;
+use App\Models\User;
+use Carbon\Carbon as Carbon;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -89,7 +89,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-         return view('users.create');
+        $roles = Role::all();
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -101,12 +102,13 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->init();
-        $users = new User();
-        $users->name = $request->name;
-        $users->email = $request->email;
-        $users->password = Hash::make($request->get('password'));
-        $users->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
-        $users->save(); 
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->get('password'));
+        $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
+        $user->save();
+        $user->assignRole($request->get('roles'));
         flash()->success(config('config-variables.flash_messages.dataSaved'));
         return redirect()->route('users.index');
     }
@@ -130,8 +132,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $users = User::find($id);
-        return view('users.edit', compact('users'));
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -144,11 +147,13 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $this->init();
-        $users = User::findOrFail($id);
-        $users->name = $request->name;
-        $users->email = $request->email;
-        $users->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
-        $users->save(); 
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
+        $user->save();
+        $user->syncRoles();
+        $user->assignRole($request->get('roles'));
         flash()->success(config('config-variables.flash_messages.dataSaved'));
         return redirect()->route('users.index');
     }
