@@ -190,6 +190,7 @@ return [
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Mpociot\Teamwork\TeamworkServiceProvider::class,
         Nahid\Talk\TalkServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Plank\Metable\MetableServiceProvider::class,
