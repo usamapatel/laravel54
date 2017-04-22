@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use View;
-use Illuminate\Http\Request;
 use App\Models\Permission;
+use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
@@ -19,6 +19,16 @@ class PermissionController extends Controller
         $this->title = 'Permission';
         $this->request= $request;
         View::share ( 'title', $this->title );
+    }
+
+    /**
+     * Destory/Unset object variables.
+     *
+     * @return void
+     */
+    public function __destruct()
+    {
+        unset($this->title);
     }
 
     /**
@@ -90,7 +100,7 @@ class PermissionController extends Controller
     	$permission->name = $request->name;
         $permission->save();
 
-        // flash()->success(config('config-variables.flash_messages.dataSaved'));  
+        flash()->success(config('config-variables.flash_messages.dataSaved'));  
         return redirect()->route('permissions.index');
     }
 
@@ -118,7 +128,7 @@ class PermissionController extends Controller
     	$permission = Permission::findOrFail($id);
     	$permission->name = $request->name;
         $permission->save();
-        // flash()->success(config('config-variables.flash_messages.dataSaved'));        
+        flash()->success(config('config-variables.flash_messages.dataSaved'));   
         return redirect()->route('permissions.index');
     }
 

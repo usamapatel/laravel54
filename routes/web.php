@@ -22,4 +22,7 @@ if (App::environment('local')) {
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::resource('roles', 'RolesController');
     Route::post('/getRoleData', 'RolesController@getRoleData');
+
+    Route::resource('permissions', 'PermissionController');
+  	Route::post('/getPermissionData', 'PermissionController@getPermissionData');
 });

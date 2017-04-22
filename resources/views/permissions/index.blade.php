@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="portlet light">
-            
+             @include('flash::message')
                 <div class="portlet-title">
                     <div class="caption col-md-9">
                         <i class="icon-share font-dark hide"></i>
@@ -64,7 +64,7 @@
                             <tbody>
                                 <tr class="" v-for="permission in permissionData">  
                                     <td>@{{ permission.name }}</td>
-                                    <td>@{{ permission.created_at }}</td>                                    
+                                    <td>@{{ permission.created_datetime }}</td>                                    
                                     <td class="text-center">
                                         <a href="{{ url('admin/permissions') }}/@{{ permission.id }}/edit" class="btn btn-icon-only green">
                                             <i class="fa fa-edit"></i>

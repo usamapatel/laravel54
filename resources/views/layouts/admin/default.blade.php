@@ -26,6 +26,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Company" />
         <meta content="" name="author" />
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -117,6 +118,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END PAGE HEADER-->
 
                     <div class="page-content-body">
+                        @include('elements.admin.delete_modal')
                         @yield('page-content')
                     </div>
                 </div>
