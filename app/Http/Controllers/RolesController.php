@@ -7,10 +7,10 @@ use View;
 use Session;
 use Storage;
 use JavaScript;
-use App\Models\Permission;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
@@ -113,16 +113,10 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         $this->init();
-        $role = Role::create(['name' => $request->name]);
-        
-        /*$role = new Role();
+        $role = new Role();
         $role->name = $request->name;
         $role->save();
-
-        dd($request->input('permission'));
-        foreach ($request->input('permission') as $key => $value) {
-            $role->givePermissionTo([$request->input('permission')]);
-        }*/
+        $role->givePermissionTo($request->permission);
         flash()->success(config('config-variables.flash_messages.dataSaved'));        
         return redirect()->route('roles.index');
     }
@@ -136,7 +130,9 @@ class RolesController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
-        return view('roles.edit', compact('role'));
+        $permissions = Permission::all();
+        $assignedPermissions = $role->permissions->pluck('name')->all();
+        return view('roles.edit', compact('role', 'permissions', 'assignedPermissions'));
     }
 
     /**
@@ -152,6 +148,8 @@ class RolesController extends Controller
         $role = Role::findOrFail($id);
         $role->name = $request->name;
         $role->save();
+        $role->syncPermissions();
+        $role->givePermissionTo($request->permission);
         flash()->success(config('config-variables.flash_messages.dataSaved'));        
         return redirect()->route('roles.index');
     }

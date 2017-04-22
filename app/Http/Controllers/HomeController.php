@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use View;
+
 class HomeController extends Controller
 {
     /**
@@ -12,6 +14,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->title = 'Home';
+        View::share ( 'title', $this->title );
     }
 
     /**

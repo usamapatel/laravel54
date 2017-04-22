@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class MenuItem extends Model
 {
     /**
-     * The database table used by the model.
+     * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'permissions';
+    protected $table = 'menu_items';
+    
 }

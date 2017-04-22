@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use View;
-use App\Models\Permission;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -100,7 +100,7 @@ class PermissionController extends Controller
     	$permission->name = $request->name;
         $permission->save();
 
-        flash()->success(config('config-variables.flash_messages.dataSaved'));  
+        flash()->success(config('config-variables.flash_messages.dataSaved'));
         return redirect()->route('permissions.index');
     }
 
