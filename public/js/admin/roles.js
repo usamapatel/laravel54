@@ -81,8 +81,8 @@ $(document).ready(function() {
                     }
                 },
                 searchRoleData: function() {
-                    var question = $("#role_question").val();
-                    var searchdata = "&question="+ question;
+                    var name = $("#role_name").val();
+                    var searchdata = "&name="+ name;
                     if($('#role_pagination').data("twbs-pagination")){
                         $('#role_pagination').twbsPagination('destroy');
                     }
