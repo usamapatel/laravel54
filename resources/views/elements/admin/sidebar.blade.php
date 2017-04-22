@@ -26,9 +26,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('permissions.index' )}}" class="nav-link nav-toggle">
+                <a href="{{ route('roles.index') }}" class="nav-link nav-toggle">
                     <i class="icon-user"></i>
-                    <span class="title">Permission</span>
+                    <span class="title">Role</span>
                     <span class="arrow"></span>
                 </a>
             </li>
