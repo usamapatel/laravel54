@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "99ab4079a12a7371c75b8258194fc233",
+    "content-hash": "fb777237a4fc739b00434327e10e47fb",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2051,6 +2051,54 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "hipsterjazzbo/landlord",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HipsterJazzbo/Landlord.git",
+                "reference": "e1e6fab0b621bce8641897f57026a2e8ca2b430a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HipsterJazzbo/Landlord/zipball/e1e6fab0b621bce8641897f57026a2e8ca2b430a",
+                "reference": "e1e6fab0b621bce8641897f57026a2e8ca2b430a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.2.*|5.3.*|5.4.*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "laravel/framework": "5.2.*|5.3.*|5.4.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "5.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HipsterJazzbo\\Landlord\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Fidecaro",
+                    "email": "calebfidecaro@gmail.com"
+                }
+            ],
+            "description": "A simple, single database multi-tenancy solution for Laravel 5.2+",
+            "keywords": [
+                "multitenancy",
+                "multitenant",
+                "tenancy",
+                "tenant"
+            ],
+            "time": "2017-01-25T00:55:52+00:00"
         },
         {
             "name": "illuminated/helper-functions",
@@ -8538,13 +8586,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/coding-sunshine/laravel-favorite.git",
-                "reference": "55a218ac276afe297303adffcd836ac74e57046f"
+                "url": "https://github.com/glore/laravel-favorite.git",
+                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/laravel-favorite/zipball/55a218ac276afe297303adffcd836ac74e57046f",
-                "reference": "55a218ac276afe297303adffcd836ac74e57046f",
+                "url": "https://api.github.com/repos/glore/laravel-favorite/zipball/52060a84f777e84062a76ead7dfc262006be8eb0",
+                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0",
                 "shasum": ""
             },
             "require": {
@@ -8568,22 +8616,7 @@
                     "Ufutx\\LaravelFavorite\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Ufutx\\LaravelFavorite\\Test\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "check-style": [
-                    "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
-                ],
-                "fix-style": [
-                    "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -8597,21 +8630,18 @@
             "description": "Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.",
             "homepage": "https://github.com/glore/laravel-favorite",
             "keywords": [
+                "Follow",
                 "Ufutx",
                 "favoritable",
                 "favorite",
                 "favourite",
-                "follow",
                 "glore",
                 "laravel",
                 "laravel-favorite",
                 "package",
                 "remember"
             ],
-            "support": {
-                "source": "https://github.com/coding-sunshine/laravel-favorite/tree/master"
-            },
-            "time": "2017-03-08T10:00:01+00:00"
+            "time": "2017-02-16T07:44:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
