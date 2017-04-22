@@ -70,7 +70,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <h1 class="page-title"> Title
+<!--                     <h1 class="page-title"> Title
                         <small>Title</small>
                     </h1>
                     <div class="page-bar">
@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- END PAGE HEADER-->
 
                     <div class="page-content-body">

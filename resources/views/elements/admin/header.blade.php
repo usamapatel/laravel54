@@ -13,6 +13,11 @@
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->
         <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
         <!-- END RESPONSIVE MENU TOGGLER -->
+        <div class="page-actions">
+            <h1 class="page-title">
+                {{ $title }}
+            </h1>
+        </div>
         <!-- BEGIN PAGE TOP -->
         <div class="page-top">
             <!-- BEGIN TOP NAVIGATION MENU -->
