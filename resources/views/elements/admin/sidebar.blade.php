@@ -18,8 +18,30 @@
                     <span class="arrow"></span>
                 </a>
             </li>
+            @if (count($menu_items) > 0)                
+                @foreach ($menu_items as $menu_item)
+                    <li class="nav-item start ">
+
+                        
+                        @if(isset($menu_item['children']) && count($menu_item['children']))
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa {{ $menu_item['icon'] }}"></i>
+                                <span class="title">{{ $menu_item['name'] }}</span>
+                                <span class="arrow"></span>
+                            </a>    
+                            @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
+                        @else
+                            <a href="{{ $menu_item['url'] }}" class="nav-link nav-toggle">
+                                <i class="fa {{ $menu_item['icon'] }}"></i>
+                                <span class="title">{{ $menu_item['name'] }}</span>
+                                <span class="arrow"></span>
+                            </a>
+                        @endif
+                    </li>
+                @endforeach
+            @endif
             <li class="nav-item">
-                <a href="javascript:;" class="nav-link nav-toggle">
+                <a href="{{ route('users.index') }}" class="nav-link nav-toggle">
                     <i class="icon-user"></i>
                     <span class="title">User</span>
                     <span class="arrow"></span>
@@ -27,8 +49,15 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('roles.index') }}" class="nav-link nav-toggle">
-                    <i class="icon-user"></i>
+                    <i class="icon-login"></i>
                     <span class="title">Role</span>
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('permissions.index') }}" class="nav-link nav-toggle">
+                    <i class="icon-check"></i>
+                    <span class="title">Permission</span>
                     <span class="arrow"></span>
                 </a>
             </li>

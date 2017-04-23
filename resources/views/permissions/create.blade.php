@@ -9,17 +9,17 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase">Edit Role</span>
+                <span class="caption-subject font-dark bold uppercase">Add Permission</span>
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => ['roles.update', $role->id], 'method' => 'PUT', 'class' => 'js-frm-edit-role form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
-		    	@include('partial.admin.roles.form',['from'=>'edit'])
+       		{!! Form::open(['route' => 'permissions.store', 'class' => 'js-frm-create-permission form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+		    	@include('partial.admin.permissions.form', ['from'=>'add'])
 			{{ Form::close() }}
         </div>
     </div>
 @endsection
 
 @section('page-script')
-    <script src="{{ asset('js/admin/roles.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/permission.js') }}"></script>
 @endsection

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use View;
+use Illuminate\Http\Request;
+
 class DashboardController extends Controller
 {
     /**
@@ -12,6 +15,9 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->title = 'Dashboard';
+        View::share('title', $this->title);
+        parent::__construct();
     }
 
     /**

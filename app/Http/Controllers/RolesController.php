@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
 use DB;
-use Illuminate\Http\Request;
-use Storage;
 use View;
+use Session;
+use Storage;
+use JavaScript;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
@@ -22,6 +26,7 @@ class RolesController extends Controller
         $this->title = 'Role';
         $this->request = $request;
         View::share('title', $this->title);
+        parent::__construct();
     }
 
     /**
@@ -54,32 +59,32 @@ class RolesController extends Controller
     }
 
     /**
-     * Get faq data.
+     * Get role data.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getFaqData()
+    public function getRoleData()
     {
         $request = $this->request->all();
         $roles = DB::table('roles')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
+        $sortby = 'roles.id';
+        $sorttype = 'desc';
+
         if (isset($request['sortby'])) {
             $sortby = $request['sortby'];
             $sorttype = $request['sorttype'];
-        } else {
-            $sortby = 'faq.id';
-            $sorttype = 'desc';
         }
+
         $roles->orderBy($sortby, $sorttype);
 
-        $roles->where('roles.deleted_at', '=', null);
-        if (isset($request['question']) && trim($request['question']) != '') {
-            $roles->where('roles.question', 'like', '%'.$request['question'].'%');
+        if (isset($request['name']) && trim($request['name']) !== '') {
+            $roles->where('roles.name', 'like', '%'.$request['name'].'%');
         }
 
         $rolesList = [];
 
-        if (!array_key_exists('pagination', $request)) {
+        if (! array_key_exists('pagination', $request)) {
             $roles = $roles->paginate($request['pagination_length']);
             $rolesList = $roles;
         } else {
@@ -99,7 +104,9 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        $permissions = Permission::all();
+
+        return view('roles.create', compact('permissions'));
     }
 
     /**
@@ -116,6 +123,7 @@ class RolesController extends Controller
         $role->name = $request->name;
         $role->save();
 
+        $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
         return redirect()->route('roles.index');
@@ -124,15 +132,17 @@ class RolesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param int $rolesId
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($rolesId)
     {
-        $faq = Faq::find($id);
+        $role = Role::find($rolesId);
+        $permissions = Permission::all();
+        $assignedPermissions = $role->permissions->pluck('name')->all();
 
-        return view('roles.edit', compact('faq'));
+        return view('roles.edit', compact('role', 'permissions', 'assignedPermissions'));
     }
 
     /**
@@ -140,16 +150,18 @@ class RolesController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
+     * @param mixed                    $rolesId
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $rolesId)
     {
         $this->init();
-        $faqDetail = [];
-        $faqDetail['question'] = $request->question;
-        $faqDetail['answer'] = $request->answer;
-        $result = $this->rolesRepo->updateFaq($faqDetail, $id);
+        $role = Role::findOrFail($rolesId);
+        $role->name = $request->name;
+        $role->save();
+        $role->syncPermissions();
+        $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
         return redirect()->route('roles.index');
@@ -158,17 +170,20 @@ class RolesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param int   $id
+     * @param mixed $rolesId
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($rolesId)
     {
-        if (Faq::where('id', $id)->delete()) {
-            flash()->success(config('config-variables.flash_messages.dataDeleted'));
-        } else {
-            flash()->error(config('config-variables.flash_messages.dataNotDeleted'));
+        $message = config('config-variables.flash_messages.dataDeleted');
+        $type = 'success';
+        if (! Role::where('id', $rolesId)->delete()) {
+            $message = config('config-variables.flash_messages.dataNotDeleted');
+            $type = 'danger';
         }
+        flash()->message($message, $type);
 
         return redirect()->route('roles.index');
     }

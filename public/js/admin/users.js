@@ -1,21 +1,37 @@
-var vueRole;
-var Role = function() {
+var vueUser;
+var User = function() {
     var handleValidation = function() {
-        $('.js-frm-create-role,.js-frm-edit-role').validate({
+        $('.js-frm-create-user,.js-frm-edit-user').validate({
             ignore: [],
             debug: false,
-            messages: {                
+            messages: {  
+                email:{
+                    remote:'Email already exists.',
+                }
             },
             rules: {
                 name: {
                     required: true
                 },
-                'permissions[]': {
+                email: {
+                    required: true,
+                    remote: {
+                                url: "/admin/validateEmail",
+                                type: "post",
+                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                                data: {   
+                                      id: function() {
+                                        return $('input[name="user_id"]').val();
+                                      }
+                                }  
+                            }
+                },
+                'roles[]': {
                     required: true
                 },
             },
             errorPlacement: function (error, element) { // render error placement for each input type
-                if(element.prop('name') == "permissions[]") {
+                if(element.prop('name') == "roles[]") {
                     element.parent().parent().parent().append(error);
                 } else {
                     element.parent().append(error);
@@ -41,18 +57,18 @@ var Role = function() {
     }
 }();
 $(document).ready(function() {
-    Role.init();
+    User.init();
     $(document).on('change', '#pagination_length', function(){
         Cookies.set('pagination_length', $(this).val());
-        vueRole.roleListData(1, vueRole.sortby, vueRole.sorttype, vueRole.searchdata);
+        vueUser.userListData(1, vueUser.sortby, vueUser.sorttype, vueUser.searchdata);
     });
 
-    function getRoleData() {
-        vueRole = new Vue({
-            el: "#rolelist",
+    function getUserData() {
+        vueUser = new Vue({
+            el: "#userlist",
             data: {
-                roleData: [],
-                roleCount: 0,
+                userData: [],
+                userCount: 0,
                 sortKey: '',
                 sortOrder: 1,
                 sortby: 'id',
@@ -61,10 +77,10 @@ $(document).ready(function() {
                 footercontent: ''
             },
             ready: function() {
-                this.roleListData();
+                this.userListData();
             },
             methods: {
-                roleListData: function(page, sortby, sorttype, searchdata) {
+                userListData: function(page, sortby, sorttype, searchdata) {
                     if(typeof(sortby) == "undefined"){
                         sortby = this.sortby;
                         sorttype = this.sorttype;
@@ -82,19 +98,21 @@ $(document).ready(function() {
                     data += setPaginationAmount();
 
                     if(typeof(page) == "undefined"){
-                        ajaxCall("getRoleData", data, 'POST', 'json', roleDataSuccess);
+                        ajaxCall("getUserData", data, 'POST', 'json', userDataSuccess);
                     } else {
-                        ajaxCall("getRoleData?page="+page, data, 'POST', 'json', roleDataSuccess);
+                        ajaxCall("getUserData?page="+page, data, 'POST', 'json', userDataSuccess);
                     }
                 },
-                searchRoleData: function() {
-                    var name = $("#role_name").val();
-                    var searchdata = "&name="+ name;
-                    if($('#role_pagination').data("twbs-pagination")){
-                        $('#role_pagination').twbsPagination('destroy');
+                searchUserData: function() {
+                    var name = $("#user_name").val();
+                    var email = $("#user_email").val();
+                    var created_at = $("#created_at").val();
+                    var searchdata = "&name="+ name + "&email=" + email + "&created_at=" + created_at;
+                    if($('#user_pagination').data("twbs-pagination")){
+                        $('#user_pagination').twbsPagination('destroy');
                     }
                     this.$set('searchdata', searchdata);
-                    this.roleListData(1, this.sortby, this.sorttype, searchdata);
+                    this.userListData(1, this.sortby, this.sorttype, searchdata);
                 },
                 sortBy: function (key) {
                     this.sortOrder = this.sortOrder * -1;
@@ -103,12 +121,12 @@ $(document).ready(function() {
                     this.$set('sortKey', key);
                     var stype = this.sortOrder == 1 ? 'asc':'desc';
                     this.$set('sorttype', stype);
-                    this.roleListData(this.currPage, key, stype, this.searchdata);
+                    this.userListData(this.currPage, key, stype, this.searchdata);
                 },
                 reloadData: function() {
                     clearFormData('frmSearchData');
-                    setDefaultData(vueRole);
-                    this.roleListData();
+                    setDefaultData(vueUser);
+                    this.userListData();
                 },
                 clearForm: function(formid) {
                     this.reloadData();
@@ -116,53 +134,52 @@ $(document).ready(function() {
             }
         });
     }
-    getRoleData();
+    getUserData();
     initPaginationRecord();
     setTimeout(function(){
         $('.alert-success').slideUp();
       }, 5000);
 });
 
-function roleDataSuccess(roleData, status, xhr){
-    vueRole.$set('roleData', roleData['data']);
-    vueRole.$set('roleCount', roleData['data'].length);
+function userDataSuccess(userData, status, xhr){
+    vueUser.$set('userData', userData['data']);
+    vueUser.$set('userCount', userData['data'].length);
 
     setTimeout(function(){
-        if(roleData['data'].length>0 && Cookies.get('pagination_length') > 0) {
-            vueRole.$set('currPage', roleData.current_page);
-            current_page = roleData.current_page;
+        if(userData['data'].length>0 && Cookies.get('pagination_length') > 0) {
+            vueUser.$set('currPage', userData.current_page);
+            current_page = userData.current_page;
 
             if(current_page == 1) {
-                $('#role_pagination').off( "page" ).removeData( "twbs-pagination" ).empty();
+                $('#user_pagination').off( "page" ).removeData( "twbs-pagination" ).empty();
             }
 
-            per_page = roleData.per_page;
+            per_page = userData.per_page;
 
             startIndex = 0;
             if(current_page > 1) {
                 startIndex = (current_page - 1) * parseInt(per_page);
             }
-            vueRole.$set('page_index', startIndex+1);
+            vueUser.$set('page_index', startIndex+1);
             setTimeout(function() {
-                $('#role_pagination').twbsPagination({
-                  totalPages: roleData.last_page,
+                $('#user_pagination').twbsPagination({
+                  totalPages: userData.last_page,
                   visiblePages: 5,
                   initiateStartPageClick: false,
                   onPageClick: function (event, page) {
-                    vueRole.roleListData(page, vueRole.sortby, vueRole.sorttype, vueRole.searchdata);
+                    vueUser.userListData(page, vueUser.sortby, vueUser.sorttype, vueUser.searchdata);
                   }
                 });
-
-                setPaginationRecords(startIndex+1, startIndex+parseInt(Cookies.get('pagination_length')), roleData.total);
+                setPaginationRecords(startIndex+1, startIndex+parseInt(Cookies.get('pagination_length')), userData.total);
                 $("#pagination_length").select2({ minimumResultsForSearch: Infinity });
             }, 10);
 
         } else {
-            vueRole.$set('page_index', 1);
-            setPaginationRecords(1, roleData.total, roleData.total);
+            vueUser.$set('page_index', 1);
+            setPaginationRecords(1, userData.total, userData.total);
             $("#pagination_length").select2({ minimumResultsForSearch: Infinity });
-            if($('#role_pagination').data("twbs-pagination")){
-                $('#role_pagination').twbsPagination('destroy');
+            if($('#user_pagination').data("twbs-pagination")){
+                $('#user_pagination').twbsPagination('destroy');
             }
         }
 
