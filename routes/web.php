@@ -17,7 +17,7 @@ Route::get('/home', 'HomeController@index')->name('admin.home');
 Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
 // Local dev specific routes
 if (App::environment('local')) {
-    Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
+    // Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
 }
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::resource('roles', 'RolesController');
@@ -30,6 +30,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::resource('users', 'UsersController');
     Route::post('/getUserData', 'UsersController@getUserData');
     Route::post('/validateEmail', 'UsersController@validateEmail');
+
+    Route::resource('modules', 'ModulesController');
+    Route::post('/getModuleData', 'ModulesController@getModuleData');
+    Route::post('generateModuleUrl', 'ModulesController@generateModuleUrl');
+
+    Route::resource('widgets', 'WidgetsController');
+    Route::post('/getWidgetData', 'WidgetsController@getWidgetData');
 });
 
 /*

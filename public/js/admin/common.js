@@ -54,6 +54,10 @@ $(document).ready(function() {
       checkboxClass: 'icheckbox_minimal-blue',
       radioClass: 'iradio_minimal-blue'
     });*/
+
+    $('.js-icon-picker').iconpicker({
+        hideOnSelect: true,
+    });
 });
 
 function ajaxCall(url, data, method, dataType, successHandlerFunction, processDataFlag, contentTypeFlag) {

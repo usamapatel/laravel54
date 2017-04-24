@@ -20,6 +20,7 @@ class CreateMenuItemsTable extends Migration
                 ->references('id')->on('menus')
                 ->onDelete('cascade');
             $table->string('name');
+            $table->longtext('description');
             $table->string('url');
             $table->enum('type', ['Page', 'Module']);
             $table->integer('parent_id')->unsigned()->nullable()->index();
@@ -27,6 +28,7 @@ class CreateMenuItemsTable extends Migration
             $table->string('icon')->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_shown_on_menu')->default(true);
+            $table->longtext('is_publicly_visible')->default(false);
             $table->timestamps();
         });
     }
