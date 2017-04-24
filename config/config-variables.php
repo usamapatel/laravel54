@@ -7,4 +7,8 @@ return [
         'dataDeleted' => 'Data have been deleted successfully.',
         'dataNotDeleted' => 'Data could not be deleted at this moment. Please try later.',
     ],
+    'module_types' => [
+        'Page' => 'Page',
+        'Module' => 'Module',
+    ],
 ];

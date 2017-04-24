@@ -36,6 +36,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ asset('plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css') }}">
+        <link href="{{ asset('plugins/fontawesome-iconpicker/fontawesome-iconpicker.min.css') }}" rel="stylesheet" type="text/css" />
         @yield('page-core-style')
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN THEME GLOBAL STYLES -->
@@ -153,6 +154,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="{{ asset('js/admin/app.min.js') }}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <script src="{{ asset('plugins/fontawesome-iconpicker/fontawesome-iconpicker.min.js') }}" type="text/javascript"></script>
         @yield("page-core-scripts")
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="{{ asset('js/admin/layout.min.js') }}" type="text/javascript"></script>
