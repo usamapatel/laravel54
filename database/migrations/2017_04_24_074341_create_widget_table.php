@@ -25,6 +25,7 @@ class CreateWidgetTable extends Migration
             $table->longText('description');
             $table->string('width');
             $table->boolean('status');
+            $table->integer('parent_id')->nullable();
             $table->integer('widget_type_id');
             $table->foreign('widget_type_id')
                 ->references('id')->on('widget_type')
