@@ -81,7 +81,7 @@ class ModulesController extends Controller
 
         $modulesList = [];
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $modules = $modules->paginate($request['pagination_length']);
             $modulesList = $modules;
         } else {
@@ -174,7 +174,7 @@ class ModulesController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! MenuItem::where('id', $moduleId)->delete()) {
+        if (!MenuItem::where('id', $moduleId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }
