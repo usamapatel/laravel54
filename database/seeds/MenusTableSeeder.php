@@ -16,7 +16,7 @@ class MenusTableSeeder extends Seeder
         DB::table('menus')->insert([
         [
             'company_id' => 1,
-            'name' => 'Sidebar',
+            'name'       => 'Sidebar',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],
         ]);
