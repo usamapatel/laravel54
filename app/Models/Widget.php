@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Widget extends Model
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'widgets';
+
+    public static function generate()
+    {
+        $types = self::all()->toArray();
+
+        return self::buildWidgetTree($types);
+    }
+
+    /**
+     * Iterate through the menu structure and build the parent child relationships.
+     *
+     * @param array $menuArray
+     * @param int   $parent
+     *
+     * @return array
+     */
+    private static function buildWidgetTree(array $types, $parent = 0)
+    {
+        $items = [];
+        foreach ($types as $widgetTree) {
+            if ((int) $widgetTree['parent_id'] === (int) $parent) {
+                $widgetTree['children'] = isset($widgetTree['children'])
+                    ? $widgetTree['children']
+                    : self::buildWidgetTree($types, $widgetTree['id']);
+                if (! $widgetTree['children']) {
+                    unset($widgetTree['children']);
+                }
+                $items[] = $widgetTree;
+            }
+        }
+
+        return $items;
+    }
+}
