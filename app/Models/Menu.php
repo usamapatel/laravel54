@@ -29,12 +29,12 @@ class Menu extends Model
             ->orderBy('order')
             ->get()
             ->toArray();
-        
+
         return self::buildMenuTree($items);
     }
 
     /**
-     * Iterate through the menu structure and build the parent child relationships
+     * Iterate through the menu structure and build the parent child relationships.
      *
      * @param array $menuArray
      * @param int   $parent
@@ -45,17 +45,17 @@ class Menu extends Model
     {
         $items = [];
         foreach ($menuArray as $menuItem) {
-            if ((int)$menuItem['parent_id'] === (int)$parent) {
+            if ((int) $menuItem['parent_id'] === (int) $parent) {
                 $menuItem['children'] = isset($menuItem['children'])
                     ? $menuItem['children']
                     : self::buildMenuTree($menuArray, $menuItem['id']);
-                if (!$menuItem['children']) {
+                if (! $menuItem['children']) {
                     unset($menuItem['children']);
                 }
                 $items[] = $menuItem;
             }
         }
-        
+
         return $items;
     }
 }

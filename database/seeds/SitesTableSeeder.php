@@ -14,9 +14,9 @@ class SitesTableSeeder extends Seeder
     {
         $sites = [
             [
-                'name' => null,
-                'slug' => null,
-                'url'  => null,
+                'name' => 'main',
+                'slug' => 'main',
+                'url' => env('MULTISITE_HOST', 'localhost'),
             ],
         ];
 

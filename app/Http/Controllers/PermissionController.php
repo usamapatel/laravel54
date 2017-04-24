@@ -17,8 +17,8 @@ class PermissionController extends Controller
     public function __construct(Request $request)
     {
         $this->title = 'Permission';
-        $this->request= $request;
-        View::share ( 'title', $this->title );
+        $this->request = $request;
+        View::share('title', $this->title);
         parent::__construct();
     }
 
@@ -39,7 +39,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-    	return view('permissions.index');
+        return view('permissions.index');
     }
 
     /**
@@ -53,99 +53,114 @@ class PermissionController extends Controller
     }
 
     /**
-     * Get permission data
+     * Get permission data.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getPermissionData() 
+    public function getPermissionData()
     {
         $request = $this->request->all();
-        $permissions=DB::table('permissions')->select("*", DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $permissions = DB::table('permissions')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
-        if(isset($request['sortby'])) {
+        $sortby = 'permission.id';
+        $sorttype = 'desc';
+        if (isset($request['sortby'])) {
             $sortby = $request['sortby'];
             $sorttype = $request['sorttype'];
-        } else {
-            $sortby = 'permission.id';
-            $sorttype = 'desc';
         }
+
         $permissions->orderBy($sortby, $sorttype);
 
         // $permissions->where('permissions.deleted_at', '=', null);
-        if(isset($request['name']) && trim($request['name']) != '')
-            $permissions->where('permissions.name', 'like', "%" . $request['name'] . "%");
+        if (isset($request['name']) && trim($request['name']) !== '') {
+            $permissions->where('permissions.name', 'like', '%'.$request['name'].'%');
+        }
 
-        $permissionsList=array();
+        $permissionsList = [];
 
-        if(!array_key_exists('pagination', $request)) {
+        $permissionsList['total'] = $permissions->count();
+        $permissionsList['data'] = $permissions->get();
+
+        if (! array_key_exists('pagination', $request)) {
             $permissions = $permissions->paginate($request['pagination_length']);
             $permissionsList = $permissions;
-        } else {
-            $permissionsList['total'] = $permissions->count();
-            $permissionsList['data'] = $permissions->get();
         }
 
         $response = $permissionsList;
+
         return $response;
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-    	$permission = new Permission();
-    	$permission->name = $request->name;
+        $permission = new Permission();
+        $permission->name = $request->name;
         $permission->save();
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
+
         return redirect()->route('permissions.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int   $id
+     * @param mixed $permissionId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($permissionId)
     {
-        $permission = Permission::find($id);
+        $permission = Permission::find($permissionId);
+
         return view('permissions.edit', compact('permission'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     * @param mixed                    $permissionId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $permissionId)
     {
-    	$permission = Permission::findOrFail($id);
-    	$permission->name = $request->name;
+        $permission = Permission::findOrFail($permissionId);
+        $permission->name = $request->name;
         $permission->save();
-        flash()->success(config('config-variables.flash_messages.dataSaved'));   
+        flash()->success(config('config-variables.flash_messages.dataSaved'));
+
         return redirect()->route('permissions.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int   $permissionId
+     * @param mixed $permissionId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($permissionId)
     {
-        if(Permission::where('id', $id)->delete()) {
-            flash()->success(config('config-variables.flash_messages.dataDeleted'));
-        }else{
-            flash()->error(config('config-variables.flash_messages.dataNotDeleted'));
+        $message = config('config-variables.flash_messages.dataDeleted');
+        $type = 'success';
+        if (! Permission::where('id', $permissionId)->delete()) {
+            $message = config('config-variables.flash_messages.dataNotDeleted');
+            $type = 'danger';
         }
+        flash()->message($message, $type);
+
         return redirect()->route('permissions.index');
     }
 }
