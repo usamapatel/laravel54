@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-	/**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -16,9 +16,10 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
         $this->title = 'Dashboard';
-        View::share ( 'title', $this->title );
+        View::share('title', $this->title);
+        parent::__construct();
     }
-    
+
     /**
      * Show the application dashboard.
      *

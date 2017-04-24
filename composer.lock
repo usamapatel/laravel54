@@ -4,8 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "0b349fa61decdbce5eacdc409b22c198",
+=======
     "hash": "3ea14f596bdd0d5dca1b255277d346da",
     "content-hash": "583c191f7b99b54d304099f34852310a",
+>>>>>>> 3756ba6be4b1ab385b185135ea7ef8a99f824836
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2009,6 +2013,54 @@
             "time": "2017-03-20 17:10:46"
         },
         {
+            "name": "hipsterjazzbo/landlord",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HipsterJazzbo/Landlord.git",
+                "reference": "e1e6fab0b621bce8641897f57026a2e8ca2b430a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HipsterJazzbo/Landlord/zipball/e1e6fab0b621bce8641897f57026a2e8ca2b430a",
+                "reference": "e1e6fab0b621bce8641897f57026a2e8ca2b430a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.2.*|5.3.*|5.4.*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "laravel/framework": "5.2.*|5.3.*|5.4.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "5.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HipsterJazzbo\\Landlord\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Fidecaro",
+                    "email": "calebfidecaro@gmail.com"
+                }
+            ],
+            "description": "A simple, single database multi-tenancy solution for Laravel 5.2+",
+            "keywords": [
+                "multitenancy",
+                "multitenant",
+                "tenancy",
+                "tenant"
+            ],
+            "time": "2017-01-25T00:55:52+00:00"
+        },
+        {
             "name": "illuminated/helper-functions",
             "version": "1.0.23",
             "source": {
@@ -2754,6 +2806,49 @@
             ],
             "description": "Easy flash notifications",
             "time": "2016-07-11 20:46:02"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2016-07-11T20:46:02+00:00"
         },
         {
             "name": "laracasts/utilities",
@@ -3608,6 +3703,54 @@
                 "psr-3"
             ],
             "time": "2017-03-13 07:08:03"
+        },
+        {
+            "name": "mpociot/teamwork",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/teamwork.git",
+                "reference": "d99a2275ca556befee8dcb18fe7a8acebd2d072f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/teamwork/zipball/d99a2275ca556befee8dcb18fe7a8acebd2d072f",
+                "reference": "d99a2275ca556befee8dcb18fe7a8acebd2d072f",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.4",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "orchestra/testbench": "3.4.*@dev",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mpociot\\Teamwork": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "m.pociot@gmail.com"
+                }
+            ],
+            "description": "User to Team associations for the Laravel 5 Framework",
+            "homepage": "http://github.com/mpociot/teamwork",
+            "keywords": [
+                "Invite",
+                "Teams"
+            ],
+            "time": "2017-01-29T20:41:30+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -8152,13 +8295,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/coding-sunshine/laravel-favorite.git",
-                "reference": "55a218ac276afe297303adffcd836ac74e57046f"
+                "url": "https://github.com/glore/laravel-favorite.git",
+                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/laravel-favorite/zipball/55a218ac276afe297303adffcd836ac74e57046f",
-                "reference": "55a218ac276afe297303adffcd836ac74e57046f",
+                "url": "https://api.github.com/repos/glore/laravel-favorite/zipball/52060a84f777e84062a76ead7dfc262006be8eb0",
+                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0",
                 "shasum": ""
             },
             "require": {
@@ -8182,22 +8325,7 @@
                     "Ufutx\\LaravelFavorite\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Ufutx\\LaravelFavorite\\Test\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "check-style": [
-                    "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
-                ],
-                "fix-style": [
-                    "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -8211,21 +8339,25 @@
             "description": "Allows Laravel Eloquent models to implement a 'favorite' or 'remember' or 'follow' feature.",
             "homepage": "https://github.com/glore/laravel-favorite",
             "keywords": [
+                "Follow",
                 "Ufutx",
                 "favoritable",
                 "favorite",
                 "favourite",
-                "follow",
                 "glore",
                 "laravel",
                 "laravel-favorite",
                 "package",
                 "remember"
             ],
+<<<<<<< HEAD
+            "time": "2017-02-16T07:44:57+00:00"
+=======
             "support": {
                 "source": "https://github.com/coding-sunshine/laravel-favorite/tree/master"
             },
             "time": "2017-03-08 10:00:01"
+>>>>>>> 3756ba6be4b1ab385b185135ea7ef8a99f824836
         },
         {
             "name": "vlucas/phpdotenv",

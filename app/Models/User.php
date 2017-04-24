@@ -11,6 +11,7 @@ use Skybluesofa\Followers\Traits\Followable;
 use Spatie\Permission\Traits\HasRoles;
 use Ufutx\LaravelComment\CanComment;
 use Ufutx\LaravelFavorite\Traits\Favoriteability;
+use Mpociot\Teamwork\Traits\UserHasTeams;
 
 /**
  * App\Models\User.
@@ -38,7 +39,7 @@ use Ufutx\LaravelFavorite\Traits\Favoriteability;
  */
 class User extends Authenticatable implements HasBansContract
 {
-    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable, HasBans;
+    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable, HasBans, UserHasTeams;
 
     /**
      * The attributes that are mass assignable.

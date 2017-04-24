@@ -13,12 +13,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct() 
+    public function __construct()
     {
-    	// find menu by company and name for sidebar name will be "Sidebar"
-    	// eg: $menu = Menu::where('company_id', $company_id)->where('name', 'Sidebar')->first();
-    	$menu = Menu::find(1);
+        // find menu by company and name for sidebar name will be "Sidebar"
+        // eg: $menu = Menu::where('company_id', $company_id)->where('name', 'Sidebar')->first();
+        $menu = Menu::find(1);
         $menuArray = $menu->generate();
-    	View::share('menu_items', $menuArray );
+        View::share('menu_items', $menuArray);
     }
 }

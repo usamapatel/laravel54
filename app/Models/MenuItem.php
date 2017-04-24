@@ -12,5 +12,4 @@ class MenuItem extends Model
      * @var string
      */
     protected $table = 'menu_items';
-    
 }
