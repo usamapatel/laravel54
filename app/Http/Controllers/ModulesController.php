@@ -81,7 +81,7 @@ class ModulesController extends Controller
 
         $modulesList = [];
 
-        if (!array_key_exists('pagination', $request)) {
+        if (! array_key_exists('pagination', $request)) {
             $modules = $modules->paginate($request['pagination_length']);
             $modulesList = $modules;
         } else {
@@ -118,17 +118,7 @@ class ModulesController extends Controller
     {
         $this->init();
         $module = new MenuItem();
-        $module->menu_id = 1;
-        $module->name = $request->name;
-        $module->description = $request->description;
-        $module->url = $request->url;
-        $module->type = $request->type;
-        $module->parent_id = $request->parent_id ? $request->parent_id : null;
-        $module->order = $request->order;
-        $module->icon = $request->icon;
-        $module->is_active = $request->is_active ? 1 : 0;
-        $module->is_shown_on_menu = $request->is_shown_on_menu ? 1 : 0;
-        $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
+        $module = $this->setVariables($module, $request);
         $module->save();
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
@@ -157,6 +147,7 @@ class ModulesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
      * @param mixed                    $modulesId
+     * @param mixed                    $moduleId
      *
      * @return \Illuminate\Http\Response
      */
@@ -164,16 +155,7 @@ class ModulesController extends Controller
     {
         $this->init();
         $module = MenuItem::findOrFail($moduleId);
-        $module->name = $request->name;
-        $module->description = $request->description;
-        $module->url = $request->url;
-        $module->type = $request->type;
-        $module->parent_id = $request->parent_id ? $request->parent_id : null;
-        $module->order = $request->order;
-        $module->icon = $request->icon;
-        $module->is_active = $request->is_active ? 1 : 0;
-        $module->is_shown_on_menu = $request->is_shown_on_menu ? 1 : 0;
-        $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
+        $module = $this->setVariables($module, $request);
         $module->save();
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
@@ -192,7 +174,7 @@ class ModulesController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (!MenuItem::where('id', $moduleId)->delete()) {
+        if (! MenuItem::where('id', $moduleId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }
@@ -212,5 +194,20 @@ class ModulesController extends Controller
         $moduleName = $request->module_name;
         $moduleType = $request->module_type;
         $isPubliclyVisible = $request->is_publicly_visible;
+    }
+
+    private function setVariables($module, $request)
+    {
+        $module->menu_id = 1;
+        $module->name = $request->name;
+        $module->description = $request->description;
+        $module->url = $request->url;
+        $module->type = $request->type;
+        $module->parent_id = $request->parent_id ? $request->parent_id : null;
+        $module->order = $request->order;
+        $module->icon = $request->icon;
+        $module->is_active = $request->is_active ? 1 : 0;
+        $module->is_shown_on_menu = $request->is_shown_on_menu ? 1 : 0;
+        $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
     }
 }
