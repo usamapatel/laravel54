@@ -46,7 +46,7 @@ class TeamController extends Controller
         $teamModel = config('teamwork.team_model');
 
         $team = $teamModel::create([
-            'name' => $request->name,
+            'name'     => $request->name,
             'owner_id' => $request->user()->getKey(),
         ]);
         $request->user()->attachTeam($team);
@@ -86,7 +86,7 @@ class TeamController extends Controller
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
 
-        if (! auth()->user()->isOwnerOfTeam($team)) {
+        if (!auth()->user()->isOwnerOfTeam($team)) {
             abort(403);
         }
 
@@ -124,7 +124,7 @@ class TeamController extends Controller
         $teamModel = config('teamwork.team_model');
 
         $team = $teamModel::findOrFail($teamId);
-        if (! auth()->user()->isOwnerOfTeam($team)) {
+        if (!auth()->user()->isOwnerOfTeam($team)) {
             abort(403);
         }
 

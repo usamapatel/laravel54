@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
 use App\Models\Menu;
 use App\Models\MenuItem;
-use Carbon\Carbon as Carbon;
+use DB;
 use Illuminate\Http\Request;
+use View;
 
 class ModulesController extends Controller
 {
@@ -64,7 +63,7 @@ class ModulesController extends Controller
     {
         $request = $this->request->all();
         $modules = DB::table('menu_items')
-        		->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+                ->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'menu_items.id';
         $sorttype = 'desc';
@@ -82,7 +81,7 @@ class ModulesController extends Controller
 
         $modulesList = [];
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $modules = $modules->paginate($request['pagination_length']);
             $modulesList = $modules;
         } else {
@@ -102,8 +101,9 @@ class ModulesController extends Controller
      */
     public function create()
     {
-    	$menu = Menu::find(1);
-    	$allModules = $menu->generate();
+        $menu = Menu::find(1);
+        $allModules = $menu->generate();
+
         return view('modules.create', compact('allModules'));
     }
 
@@ -131,6 +131,7 @@ class ModulesController extends Controller
         $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
         $module->save();
         flash()->success(config('config-variables.flash_messages.dataSaved'));
+
         return redirect()->route('modules.index');
     }
 
@@ -146,6 +147,7 @@ class ModulesController extends Controller
         $module = MenuItem::find($moduleId);
         $menu = Menu::find(1);
         $allModules = $menu->generate();
+
         return view('modules.edit', compact('module', 'allModules'));
     }
 
@@ -190,7 +192,7 @@ class ModulesController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! MenuItem::where('id', $moduleId)->delete()) {
+        if (!MenuItem::where('id', $moduleId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }
@@ -200,15 +202,15 @@ class ModulesController extends Controller
     }
 
     /**
-     * Generete Module URL
+     * Generete Module URL.
      *
      * @return \Illuminate\Http\Response
      */
     public function generateModuleUrl(Request $request)
     {
-    	$parentId = $request->parent_id;
-    	$moduleName = $request->module_name;
-    	$moduleType = $request->module_type;
-    	$isPubliclyVisible = $request->is_publicly_visible;
+        $parentId = $request->parent_id;
+        $moduleName = $request->module_name;
+        $moduleType = $request->module_type;
+        $isPubliclyVisible = $request->is_publicly_visible;
     }
 }

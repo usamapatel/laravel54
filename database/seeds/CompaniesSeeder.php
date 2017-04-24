@@ -1,6 +1,5 @@
 <?php
 
-use Faker\Factory as Faker;
 use Carbon\Carbon as Carbon;
 use Illuminate\Database\Seeder;
 
@@ -16,10 +15,10 @@ class CompaniesSeeder extends Seeder
         DB::table('companies')->truncate();
         DB::table('companies')->insert([
         [
-            'name' => 'test',
-            'slug' => 'test',
+            'name'       => 'test',
+            'slug'       => 'test',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]
+        ],
         ]);
     }
 }

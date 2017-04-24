@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use DB;
-use View;
-use Session;
-use Storage;
-use JavaScript;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Storage;
+use View;
 
 class RolesController extends Controller
 {
@@ -84,7 +81,7 @@ class RolesController extends Controller
 
         $rolesList = [];
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $roles = $roles->paginate($request['pagination_length']);
             $rolesList = $roles;
         } else {
@@ -179,7 +176,7 @@ class RolesController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! Role::where('id', $rolesId)->delete()) {
+        if (!Role::where('id', $rolesId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }

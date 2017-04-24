@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use DB;
-use View;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use View;
 
 class PermissionController extends Controller
 {
@@ -81,7 +81,7 @@ class PermissionController extends Controller
         $permissionsList['total'] = $permissions->count();
         $permissionsList['data'] = $permissions->get();
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $permissions = $permissions->paginate($request['pagination_length']);
             $permissionsList = $permissions;
         }
@@ -155,7 +155,7 @@ class PermissionController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! Permission::where('id', $permissionId)->delete()) {
+        if (!Permission::where('id', $permissionId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }
