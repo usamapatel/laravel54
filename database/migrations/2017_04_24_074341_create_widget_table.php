@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateWidgetTable extends Migration
 {
@@ -22,11 +22,11 @@ class CreateWidgetTable extends Migration
             $table->string('icon');
             $table->string('name');
             $table->string('slug');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->string('width');
             $table->boolean('status');
             $table->integer('parent_id')->nullable();
-            $table->integer('widget_type_id');
+            $table->integer('widget_type_id')->unsigned();
             $table->foreign('widget_type_id')
                 ->references('id')->on('widget_type')
                 ->onDelete('cascade');

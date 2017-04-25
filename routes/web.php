@@ -31,6 +31,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::post('/getUserData', 'UsersController@getUserData');
     Route::post('/validateEmail', 'UsersController@validateEmail');
 
+    Route::resource('modules', 'ModulesController');
+    Route::post('/getModuleData', 'ModulesController@getModuleData');
+    Route::post('generateModuleUrl', 'ModulesController@generateModuleUrl');
+
     Route::resource('widgets', 'WidgetsController');
     Route::post('/getWidgetData', 'WidgetsController@getWidgetData');
 });
