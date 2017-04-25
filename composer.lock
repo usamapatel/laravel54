@@ -150,16 +150,16 @@
         },
         {
             "name": "arcanedev/log-viewer",
-            "version": "4.3.6",
+            "version": "4.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ARCANEDEV/LogViewer.git",
-                "reference": "3e31767fa51b7e230d8789f7a3fbbeccd3693e67"
+                "reference": "5ce287b6ef132d0a129337fbe6f472929bee89dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/3e31767fa51b7e230d8789f7a3fbbeccd3693e67",
-                "reference": "3e31767fa51b7e230d8789f7a3fbbeccd3693e67",
+                "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/5ce287b6ef132d0a129337fbe6f472929bee89dc",
+                "reference": "5ce287b6ef132d0a129337fbe6f472929bee89dc",
                 "shasum": ""
             },
             "require": {
@@ -209,7 +209,7 @@
                 "log-viewer",
                 "logviewer"
             ],
-            "time": "2017-04-07T18:46:49+00:00"
+            "time": "2017-04-23T11:47:56+00:00"
         },
         {
             "name": "arcanedev/support",
@@ -2158,16 +2158,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "b724d62e175b4f1dc501d8c27988fc0710654699"
+                "reference": "8770ea23e63aa36f136f19f689db3a57b34b8426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/b724d62e175b4f1dc501d8c27988fc0710654699",
-                "reference": "b724d62e175b4f1dc501d8c27988fc0710654699",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/8770ea23e63aa36f136f19f689db3a57b34b8426",
+                "reference": "8770ea23e63aa36f136f19f689db3a57b34b8426",
                 "shasum": ""
             },
             "require": {
@@ -2206,20 +2206,20 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-04-21T17:54:40+00:00"
+            "time": "2017-04-24T18:30:01+00:00"
         },
         {
             "name": "intervention/image",
-            "version": "2.3.11",
+            "version": "2.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "e8881fd99b9804b29e02d6d1c2c15ee459335cf1"
+                "reference": "15a517f052ee15d373ffa145c9642d5fec7ddf5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/e8881fd99b9804b29e02d6d1c2c15ee459335cf1",
-                "reference": "e8881fd99b9804b29e02d6d1c2c15ee459335cf1",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/15a517f052ee15d373ffa145c9642d5fec7ddf5c",
+                "reference": "15a517f052ee15d373ffa145c9642d5fec7ddf5c",
                 "shasum": ""
             },
             "require": {
@@ -2268,7 +2268,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-02-04T10:37:19+00:00"
+            "time": "2017-04-23T18:45:36+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -2359,16 +2359,16 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.39",
+            "version": "v1.2.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "ee994af8b5d67b07d2a489cb4ae2edd93d4f1a3a"
+                "reference": "c5c0f049264edcf6499847c756dc36e51a072313"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/ee994af8b5d67b07d2a489cb4ae2edd93d4f1a3a",
-                "reference": "ee994af8b5d67b07d2a489cb4ae2edd93d4f1a3a",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/c5c0f049264edcf6499847c756dc36e51a072313",
+                "reference": "c5c0f049264edcf6499847c756dc36e51a072313",
                 "shasum": ""
             },
             "require": {
@@ -2403,7 +2403,7 @@
                 "crawlerdetect",
                 "php crawler detect"
             ],
-            "time": "2017-04-14T19:58:14+00:00"
+            "time": "2017-04-20T18:58:25+00:00"
         },
         {
             "name": "jenssegers/agent",
@@ -3092,16 +3092,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.37",
+            "version": "1.0.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd"
+                "reference": "4ba6e13f5116204b21c3afdf400ecf2b9eb1c482"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
-                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4ba6e13f5116204b21c3afdf400ecf2b9eb1c482",
+                "reference": "4ba6e13f5116204b21c3afdf400ecf2b9eb1c482",
                 "shasum": ""
             },
             "require": {
@@ -3123,12 +3123,12 @@
                 "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
                 "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
                 "league/flysystem-copy": "Allows you to use Copy.com storage",
-                "league/flysystem-dropbox": "Allows you to use Dropbox storage",
                 "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
                 "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
                 "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
                 "league/flysystem-webdav": "Allows you to use WebDAV storage",
-                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
+                "spatie/flysystem-dropbox": "Allows you to use Dropbox storage"
             },
             "type": "library",
             "extra": {
@@ -3171,7 +3171,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-03-22T15:43:14+00:00"
+            "time": "2017-04-22T18:59:19+00:00"
         },
         {
             "name": "league/fractal",
