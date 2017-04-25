@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\MenuItem;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
@@ -49,7 +48,7 @@ class Menu extends Model
                 $menuItem['children'] = isset($menuItem['children'])
                     ? $menuItem['children']
                     : self::buildMenuTree($menuArray, $menuItem['id']);
-                if (! $menuItem['children']) {
+                if (!$menuItem['children']) {
                     unset($menuItem['children']);
                 }
                 $items[] = $menuItem;
