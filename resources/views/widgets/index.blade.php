@@ -57,7 +57,6 @@
                             <thead>
                                 <tr>
                                     <th data-field="name" @click="sortBy('name')" :class="[sortKey != 'name' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Name</th>
-                                    <th data-field="title" @click="sortBy('title')" :class="[sortKey != 'title' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Title</th>
                                     <th data-field="description" @click="sortBy('description')" :class="[sortKey != 'description' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Description</th>
                                     <th data-field="status" @click="sortBy('status')" :class="[sortKey != 'status' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Status</th>
                                     <th data-field="created_datetime" @click="sortBy('created_datetime')" :class="[sortKey != 'created_datetime' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Created at</th>
@@ -65,12 +64,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="" v-for="widget in widgetData">  
+                                <tr class="" v-for="widget in widgetData"> 
                                     <td>@{{ widget.name }}</td>
-                                    <td>@{{ widget.title }}</td>
                                     <td>@{{ widget.description }}</td>
                                     <td>@{{ widget.status==1 ? 'Activated' : 'Inactive' }}</td>
-                                    <td>@{{ widget.created_datetime }}</td>                   
+                                    <td>@{{ widget.created_datetime }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('admin/widgets') }}/@{{ widget.id }}/edit" class="btn btn-icon-only green">
                                             <i class="fa fa-edit"></i>

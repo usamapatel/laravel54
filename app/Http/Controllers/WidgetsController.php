@@ -64,7 +64,7 @@ class WidgetsController extends Controller
         $request = $this->request->all();
         $widgets = DB::table('widgets')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
-        $sortby = 'widgets.id';
+        $sortby = 'widgets.created_datetime';
         $sorttype = 'desc';
 
         if (isset($request['sortby'])) {
@@ -120,7 +120,6 @@ class WidgetsController extends Controller
         $widget = new Widget();
         $widget->icon = $request->widget_icon;
         $widget->name = $request->widget_name;
-        $widget->title = $request->widget_title;
         $widget->description = $request->description;
         $widget->width = $request->widget_width;
         $widget->status = $request->status ? 1 : 0;
@@ -176,7 +175,6 @@ class WidgetsController extends Controller
         $widget = Widget::findOrFail($id);
         $widget->icon = $request->widget_icon;
         $widget->name = $request->widget_name;
-        $widget->title = $request->widget_title;
         $widget->description = $request->description;
         $widget->width = $request->widget_width;
         $widget->status = $request->status ? 1 : 0;
