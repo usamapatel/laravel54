@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateMenuItemsTable extends Migration
 {
@@ -20,7 +20,7 @@ class CreateMenuItemsTable extends Migration
                 ->references('id')->on('menus')
                 ->onDelete('cascade');
             $table->string('name');
-            $table->longtext('description');
+            $table->text('description')->nullable();
             $table->string('url');
             $table->enum('type', ['Page', 'Module']);
             $table->integer('parent_id')->unsigned()->nullable()->index();
@@ -28,7 +28,7 @@ class CreateMenuItemsTable extends Migration
             $table->string('icon')->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_shown_on_menu')->default(true);
-            $table->longtext('is_publicly_visible')->default(false);
+            $table->boolean('is_publicly_visible')->default(false);
             $table->timestamps();
         });
     }

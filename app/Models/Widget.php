@@ -36,7 +36,7 @@ class Widget extends Model
                 $widgetTree['children'] = isset($widgetTree['children'])
                     ? $widgetTree['children']
                     : self::buildWidgetTree($types, $widgetTree['id']);
-                if (! $widgetTree['children']) {
+                if (!$widgetTree['children']) {
                     unset($widgetTree['children']);
                 }
                 $items[] = $widgetTree;

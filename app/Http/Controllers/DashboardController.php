@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use View;
 use App\Models\Widget;
-use Illuminate\Http\Request;
+use View;
 
 class DashboardController extends Controller
 {
@@ -29,6 +28,7 @@ class DashboardController extends Controller
     public function index()
     {
         $widgets = Widget::where('company_id', '=', 1)->get();
+
         return view('dashboard.dashboard', compact('widgets'));
     }
 }

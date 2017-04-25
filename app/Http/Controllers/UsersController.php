@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
-use Validator;
 use App\Models\User;
 use Carbon\Carbon as Carbon;
+use DB;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use View;
 
 class UsersController extends Controller
 {
@@ -48,7 +47,7 @@ class UsersController extends Controller
     public function validateEmail(Request $request)
     {
         $email = $request->email;
-        if ($email !== null && ! empty($email)) {
+        if ($email !== null && !empty($email)) {
             $userQuery = User::where('email', $email);
             if ($request->id) {
                 $userQuery->where('id', '!=', $request->id);
@@ -87,7 +86,7 @@ class UsersController extends Controller
 
         $usersList = [];
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $users = $users->paginate($request['pagination_length']);
             $usersList = $users;
         } else {
@@ -194,7 +193,7 @@ class UsersController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! User::where('id', $userId)->delete()) {
+        if (!User::where('id', $userId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }

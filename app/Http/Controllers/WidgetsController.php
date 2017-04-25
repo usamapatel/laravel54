@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
-use Illuminate\Http\Request;
 use App\Models\Widget;
 use App\Models\WidgetType;
+use DB;
+use Illuminate\Http\Request;
+use View;
 
 class WidgetsController extends Controller
 {
@@ -42,7 +42,6 @@ class WidgetsController extends Controller
      */
     public function init()
     {
-
     }
 
     /**
@@ -81,7 +80,7 @@ class WidgetsController extends Controller
 
         $widgetsList = [];
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $widgets = $widgets->paginate($request['pagination_length']);
             $widgetsList = $widgets;
         } else {
@@ -103,13 +102,15 @@ class WidgetsController extends Controller
     {
         $WidgetTypes = WidgetType::generate();
         $WidgetTree = Widget::generate();
+
         return view('widgets.create', compact('WidgetTypes', 'WidgetTree'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -137,7 +138,8 @@ class WidgetsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -148,7 +150,8 @@ class WidgetsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -163,8 +166,9 @@ class WidgetsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -189,14 +193,15 @@ class WidgetsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! Widget::where('id', $id)->delete()) {
+        if (!Widget::where('id', $id)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }

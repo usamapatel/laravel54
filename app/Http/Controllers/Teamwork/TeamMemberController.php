@@ -44,7 +44,7 @@ class TeamMemberController extends Controller
     {
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
-        if (! auth()->user()->isOwnerOfTeam($team)) {
+        if (!auth()->user()->isOwnerOfTeam($team)) {
             abort(403);
         }
 
