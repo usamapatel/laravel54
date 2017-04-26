@@ -15,7 +15,8 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
         $this->title = 'Home';
-        View::share ( 'title', $this->title );
+        View::share('title', $this->title);
+        parent::__construct();
     }
 
     /**

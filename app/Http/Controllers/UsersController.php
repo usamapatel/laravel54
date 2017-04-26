@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
-use Validator;
 use App\Models\User;
 use Carbon\Carbon as Carbon;
+use DB;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use View;
 
 class UsersController extends Controller
 {
-
-        /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -22,17 +20,18 @@ class UsersController extends Controller
     public function __construct(Request $request)
     {
         $this->title = 'User';
-        $this->request= $request;
-        View::share ( 'title', $this->title );
+        $this->request = $request;
+        View::share('title', $this->title);
+        parent::__construct();
     }
 
     public function __destruct()
     {
         unset($this->title);
     }
+
     public function init()
     {
-        
     }
 
     /**
@@ -45,55 +44,58 @@ class UsersController extends Controller
         return view('users.index');
     }
 
-    public function validateEmail(Request $request) {
-        $email=$request->email;
+    public function validateEmail(Request $request)
+    {
+        $email = $request->email;
         if ($email !== null && !empty($email)) {
-            $userQuery = User::where('email', $email);  
+            $userQuery = User::where('email', $email);
             if ($request->id) {
-                $userQuery->where("id", '!=' , $request->id);
+                $userQuery->where('id', '!=', $request->id);
             }
-            $user=$userQuery->first();
+            $user = $userQuery->first();
             if ($user) {
-                return "false";
-            }     
-        }        
-         return "true";       
-    } 
-    
-    public function getUserData() 
+                return 'false';
+            }
+        }
+
+        return 'true';
+    }
+
+    public function getUserData()
     {
         $request = $this->request->all();
-        $users=DB::table('users')->select("*", DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $users = DB::table('users')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
-        if(isset($request['sortby'])) {
+        $sortby = 'users.id';
+        $sorttype = 'desc';
+        if (isset($request['sortby'])) {
             $sortby = $request['sortby'];
             $sorttype = $request['sorttype'];
-        } else {
-            $sortby = 'users.id';
-            $sorttype = 'desc';
         }
+
         $users->orderBy($sortby, $sorttype);
 
         // $users->where('users.deleted_at', '=', null);
-        if(isset($request['name']) && trim($request['name']) != '')
-            $users->where('users.name', 'like', "%" . $request['name'] . "%");
+        if (isset($request['name']) && trim($request['name']) !== '') {
+            $users->where('users.name', 'like', '%'.$request['name'].'%');
+        }
 
+        if (isset($request['email']) && trim($request['email']) !== '') {
+            $users->where('users.email', 'like', '%'.$request['email'].'%');
+        }
 
-        if(isset($request['email']) && trim($request['email']) != '')
-            $users->where('users.email', 'like', "%" . $request['email'] . "%");
+        $usersList = [];
 
-
-        $usersList=array();
-
-        if(!array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $users = $users->paginate($request['pagination_length']);
             $usersList = $users;
         } else {
             $usersList['total'] = $users->count();
             $usersList['data'] = $users->get();
         }
-        
-        $response = $usersList; 
+
+        $response = $usersList;
+
         return $response;
     }
 
@@ -105,13 +107,15 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::all();
+
         return view('users.create', compact('roles'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -125,44 +129,48 @@ class UsersController extends Controller
         $user->save();
         $user->assignRole($request->get('roles'));
         flash()->success(config('config-variables.flash_messages.dataSaved'));
+
         return redirect()->route('users.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $userId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($userId)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $userId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($userId)
     {
-        $user = User::find($id);
+        $user = User::find($userId);
         $roles = Role::all();
+
         return view('users.edit', compact('user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $userId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $userId)
     {
         $this->init();
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($userId);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
@@ -170,22 +178,27 @@ class UsersController extends Controller
         $user->syncRoles();
         $user->assignRole($request->get('roles'));
         flash()->success(config('config-variables.flash_messages.dataSaved'));
+
         return redirect()->route('users.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $userId
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($userId)
     {
-        if(User::where('id', $id)->delete()) {
-            flash()->success(config('config-variables.flash_messages.dataDeleted'));
-        }else{
-            flash()->error(config('config-variables.flash_messages.dataNotDeleted'));
+        $message = config('config-variables.flash_messages.dataDeleted');
+        $type = 'success';
+        if (!User::where('id', $userId)->delete()) {
+            $message = config('config-variables.flash_messages.dataNotDeleted');
+            $type = 'danger';
         }
+        flash()->message($message, $type);
+
         return redirect()->route('users.index');
     }
 }

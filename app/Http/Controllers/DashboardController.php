@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Widget;
 use View;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-	/**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -16,9 +16,10 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
         $this->title = 'Dashboard';
-        View::share ( 'title', $this->title );
+        View::share('title', $this->title);
+        parent::__construct();
     }
-    
+
     /**
      * Show the application dashboard.
      *
@@ -26,6 +27,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $widgets = Widget::where('company_id', '=', 1)->get();
+
+        return view('dashboard.dashboard', compact('widgets'));
     }
 }

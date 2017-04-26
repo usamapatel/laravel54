@@ -7,6 +7,7 @@ use Cog\Ban\Traits\HasBans;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Lab404\Impersonate\Models\Impersonate;
+use Mpociot\Teamwork\Traits\UserHasTeams;
 use Skybluesofa\Followers\Traits\Followable;
 use Spatie\Permission\Traits\HasRoles;
 use Ufutx\LaravelComment\CanComment;
@@ -38,7 +39,7 @@ use Ufutx\LaravelFavorite\Traits\Favoriteability;
  */
 class User extends Authenticatable implements HasBansContract
 {
-    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable, HasBans;
+    use Notifiable, HasRoles, Impersonate, CanComment, Favoriteability, Followable, HasBans, UserHasTeams;
 
     /**
      * The attributes that are mass assignable.

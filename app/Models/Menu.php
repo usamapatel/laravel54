@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Menu\Item;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
@@ -19,7 +18,7 @@ class Menu extends Model
      */
     public function items()
     {
-        return $this->hasMany('App\MenuItem');
+        return $this->hasMany('App\Models\MenuItem');
     }
 
     public function generate()
@@ -29,12 +28,12 @@ class Menu extends Model
             ->orderBy('order')
             ->get()
             ->toArray();
-        
+
         return self::buildMenuTree($items);
     }
 
     /**
-     * Iterate through the menu structure and build the parent child relationships
+     * Iterate through the menu structure and build the parent child relationships.
      *
      * @param array $menuArray
      * @param int   $parent
@@ -45,7 +44,7 @@ class Menu extends Model
     {
         $items = [];
         foreach ($menuArray as $menuItem) {
-            if ((int)$menuItem['parent_id'] === (int)$parent) {
+            if ((int) $menuItem['parent_id'] === (int) $parent) {
                 $menuItem['children'] = isset($menuItem['children'])
                     ? $menuItem['children']
                     : self::buildMenuTree($menuArray, $menuItem['id']);
@@ -55,7 +54,7 @@ class Menu extends Model
                 $items[] = $menuItem;
             }
         }
-        
+
         return $items;
     }
 }
