@@ -2,9 +2,9 @@
 
 @section('auth-content')
     <div class="login-content">
-        <h1>{{ __("Set your new password.") }}</h1>
-        <p> {{ __("Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing.") }} </p>
-        <form class="login-form" role="form" method="POST" action="{{ route('password.request') }}">
+        <h1>Set your new password.</h1>
+        <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
+        <form class="login-form" role="form" method="POST" action="{{ route('password.request', ['domain' => app('request')->route()->parameter('company')]) }}">
             {{ csrf_field() }}
 
             <div class="alert alert-danger display-hide">

@@ -12,7 +12,7 @@ class WidgetTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('widget_type')->truncate();
+        DB::table('widget_type')->delete();
         DB::table('widget_type')->insert([
             [
                 'name'       => 'Count',

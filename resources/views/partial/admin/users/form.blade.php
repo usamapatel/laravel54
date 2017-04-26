@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-offset-3 col-md-9">
                 <button type="submit" class="btn green">Submit</button>
-                <a class="btn default" href="{{ route('users.index') }}">Cancel</a>
+                <a class="btn default" href="{{ route('users.index', ['domain' => app('request')->route()->parameter('company')]) }}">Cancel</a>
             </div>
         </div>
     </div>

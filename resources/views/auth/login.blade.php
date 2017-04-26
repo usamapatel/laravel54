@@ -2,9 +2,9 @@
 
 @section('auth-content')
     <div class="login-content">
-        <h1>{{ __("Login") }}</h1>
-        <p> {{ __("Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat.") }} </p>
-        <form class="login-form" role="form" method="POST" action="{{ route('login') }}">
+        <h1>Login</h1>
+        <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. </p>
+        <form class="login-form" role="form" method="POST" action="{{ route('login', ['domain' => app('request')->route()->parameter('company')]) }}">
             {{ csrf_field() }}
 
             <div class="alert alert-danger display-hide">
@@ -30,14 +30,14 @@
                 </div>
                 <div class="col-sm-8 text-right">
                     <div class="forgot-password">
-                        <a href="javascript:;" id="forget-password" class="forget-password" href="{{ route('password.request') }}">{{ __("Forgot Password?") }}</a>
+                        <a href="javascript:;" id="forget-password" class="forget-password" href="{{ route('password.request', ['domain' => app('request')->route()->parameter('company')]) }}">Forgot Password?</a>
                     </div>
                     <button class="btn green" type="submit">{{ __("Sign In") }}</button>
                 </div>
             </div>
         </form>
         <!-- BEGIN FORGOT PASSWORD FORM -->
-        <form class="forget-form login-form" role="form" method="POST" action="{{ route('password.email') }}">
+        <form class="forget-form login-form" role="form" method="POST" action="{{ route('password.email', ['domain' => app('request')->route()->parameter('company')]) }}">
             {{ csrf_field() }}
             <h3 class="font-green">{{ __("Forgot Password?") }}</h3>
             <p> {{ __("Enter your e-mail address below to reset your password.") }} </p>

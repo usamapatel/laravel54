@@ -18,13 +18,11 @@
         </div>
     </div>
 
-    
-        <div class="form-group">
+    <div class="form-group">
         <label class="col-md-3 control-label">Widget Parent</label>
         <div class="col-md-9">
             <select class="form-control select2-hide-search-box" id="parent_id" name="widget_parent">
-                <option value="">Select</option>
-                
+                <option value="">Select</option>                
                 @if (count($WidgetTree) > 0)
                     @foreach ($WidgetTree as $wt)
                         @if(isset($wt['children']) && count($wt['children']))
@@ -41,19 +39,13 @@
     <div class="form-group">
         <label class="col-md-3 control-label">Widget Icon</label>
         <div class="col-md-9">
-            {!! Form::select('widget_icon', ['fa-user', 'fa-list'], $from=="edit" ? $widget->icon : null, array('class' =>'form-control select2-allow-clear select2-hide-search-box', 'placeholder' =>'Select')) !!}
+            {!! Form::text('widget_icon', $from=="edit" ? $widget->icon : null, ['class' => 'form-control js-icon-picker', 'readonly' => 'readonly']) !!}
         </div>
     </div>
     <div class="form-group">
         <label class="col-md-3 control-label">Widget Name</label>
         <div class="col-md-9">
             {!! Form::text('widget_name', $from=="edit" ? $widget->name : null,['class' => 'form-control']) !!}
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-md-3 control-label">Widget Title</label>
-        <div class="col-md-9">
-            {!! Form::text('widget_title', $from=="edit" ? $widget->title : null,['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="form-group">
@@ -79,7 +71,7 @@
     <div class="row">
         <div class="col-md-offset-3 col-md-9">
             <button type="submit" class="btn green">Submit</button>
-            <a class="btn default" href="{{ route('widgets.index') }}">Cancel</a>
+            <a class="btn default" href="{{ route('widgets.index', ['domain' => app('request')->route()->parameter('company')]) }}">Cancel</a>
         </div>
     </div>
 </div>
