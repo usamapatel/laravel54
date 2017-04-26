@@ -245,6 +245,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         CrestApps\CodeGenerator\CodeGeneratorServiceProvider::class,
         JeroenG\Packager\PackagerServiceProvider::class,
+        Lord\Laroute\LarouteServiceProvider::class,
         Lubusin\Decomposer\DecomposerServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
         Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,

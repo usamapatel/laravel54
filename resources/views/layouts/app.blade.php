@@ -17,15 +17,6 @@
     @includeIf('scripts.beforeapp')
 
 </head>
-
-<head>
-
-    <!-- Styles -->
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css" media="none" onload="this.media='all';">
-    @yield('pageStyle')
-
-    @includeIf('scripts.beforeapp')
-</head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -106,5 +97,6 @@
     @yield('beforeScript')
     <script src="{{ mix('js/app.js') }}" type="application/javascript"></script>
     @yield('afterScript')
+    <script src="/js/laroute.js"></script>
 </body>
 </html>
