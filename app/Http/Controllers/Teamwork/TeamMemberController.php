@@ -2,17 +2,34 @@
 
 namespace App\Http\Controllers\Teamwork;
 
+use DB;
+use View;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Mpociot\Teamwork\Facades\Teamwork;
 use Mpociot\Teamwork\TeamInvite;
 
 class TeamMemberController extends Controller
 {
-    public function __construct()
+    public $title;
+
+    public function __construct(Request $request)
     {
-        $this->middleware('auth');
+        $this->title = 'Team Member';
+        $this->request = $request;
+        View::share('title', $this->title);
+        parent::__construct();
+    }
+
+    /**
+     * Destory/Unset object variables.
+     *
+     * @return void
+     */
+    public function __destruct()
+    {
+        unset($this->title);
     }
 
     /**

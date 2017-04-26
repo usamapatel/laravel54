@@ -2,15 +2,32 @@
 
 namespace App\Http\Controllers\Teamwork;
 
+use DB;
+use View;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Mpociot\Teamwork\Exceptions\UserNotInTeamException;
 
 class TeamController extends Controller
 {
-    public function __construct()
+    public $title;
+
+    public function __construct(Request $request)
     {
-        $this->middleware('auth');
+        $this->title = 'Team';
+        $this->request = $request;
+        View::share('title', $this->title);
+        parent::__construct();
+    }
+
+    /**
+     * Destory/Unset object variables.
+     *
+     * @return void
+     */
+    public function __destruct()
+    {
+        unset($this->title);
     }
 
     /**
@@ -22,6 +39,47 @@ class TeamController extends Controller
     {
         return view('teamwork.index')
             ->with('teams', auth()->user()->teams);
+    }
+
+    /**
+     * Get team data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getTeamData()
+    {
+        $request = $this->request->all();
+        $teams = DB::table('teams')
+                ->where('owner_id', auth()->user()->id)
+                ->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+
+        $sortby = 'teams.id';
+        $sorttype = 'desc';
+
+        if (isset($request['sortby'])) {
+            $sortby = $request['sortby'];
+            $sorttype = $request['sorttype'];
+        }
+
+        $teams->orderBy($sortby, $sorttype);
+
+        if (isset($request['name']) && trim($request['name']) !== '') {
+            $teams->where('teams.name', 'like', '%'.$request['name'].'%');
+        }
+
+        $teamsList = [];
+
+        if (!array_key_exists('pagination', $request)) {
+            $teams = $teams->paginate($request['pagination_length']);
+            $teamsList = $teams;
+        } else {
+            $teamsList['total'] = $teams->count();
+            $teamsList['data'] = $teams->get();
+        }
+
+        $response = $teamsList;
+
+        return $response;
     }
 
     /**

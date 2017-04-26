@@ -192,9 +192,6 @@ class ModulesController extends Controller
     public function generateModuleUrl(Request $request)
     {
     	$moduleType = $request->module_type;
-    	if($moduleType == "Module") {
-    		return ['moduleUrl' => '#'];
-    	}
     	$moduleName = $request->module_name;
     	$moduleUrl = str_slug($moduleName, '-');
     	$parent = $request->parent_id ? MenuItem::find($request->parent_id) : null;
