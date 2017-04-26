@@ -167,8 +167,6 @@ return [
          * Package Service Providers...
          */
         Akibatech\Crud\CrudServiceProvider::class,
-        App\Providers\HelperServiceProvider::class,
-        App\Providers\OptimusServiceProvider::class,
         Appstract\Multisite\MultisiteServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Arrilot\Widgets\ServiceProvider::class,
@@ -197,6 +195,7 @@ return [
         Mpociot\Teamwork\TeamworkServiceProvider::class,
         Nahid\Talk\TalkServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
+        OwenIt\Auditing\AuditingServiceProvider::class,
         Plank\Metable\MetableServiceProvider::class,
         PragmaRX\Countries\ServiceProvider::class,
         PragmaRX\Health\ServiceProvider::class,
@@ -237,6 +236,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
+        App\Providers\OptimusServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],

@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Basemodel;
 
-class Companies extends Model
+class Companies extends Basemodel
 {
 }
