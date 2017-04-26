@@ -61,7 +61,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                     <li>
-                                        <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
+                                        <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode, $url = null, $attributes = [], $forceDefaultLocation = true) }}">
                                             {{ $properties['native'] }}
                                         </a>
                                     </li>
