@@ -3,6 +3,6 @@
  		{{ '[' . $loop->iteration . '] ' . $item['name'] }}
  	</option>
 	@if(isset($item['children']) && count($item['children']))
-	     @include('elements.admin.widget_parent_select', ['type' => $item['children']])
+	     @include('elements.admin.widget_parent_select', ['widgets' => $item['children']])
 	@endif 
 @endforeach

@@ -27,8 +27,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $widgets = Widget::where('company_id', '=', 1)->get();
-
+        $widgets = Widget::where('company_id', '=', 1)->pluck('status', 'slug');
         return view('dashboard.dashboard', compact('widgets'));
     }
 }
