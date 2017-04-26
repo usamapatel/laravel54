@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5f885543bc882da9bc3623931dbe84f",
+    "content-hash": "bd3ba1b8c8043ab3d8827fdf59ba4f84",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -55,52 +55,6 @@
                 "toolkit"
             ],
             "time": "2015-05-16T19:24:58+00:00"
-        },
-        {
-            "name": "anhskohbo/no-captcha",
-            "version": "2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/anhskohbo/no-captcha.git",
-                "reference": "4f729a21999f496db9580fc4625a0f837ef53adc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/4f729a21999f496db9580fc4625a0f837ef53adc",
-                "reference": "4f729a21999f496db9580fc4625a0f837ef53adc",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
-                "php": ">=5.5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Anhskohbo\\NoCaptcha\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "anhskohbo",
-                    "email": "anhskohbo@gmail.com"
-                }
-            ],
-            "description": "No CAPTCHA reCAPTCHA For Laravel.",
-            "keywords": [
-                "captcha",
-                "laravel",
-                "laravel4",
-                "laravel5",
-                "no-captcha",
-                "recaptcha"
-            ],
-            "time": "2017-01-30T19:35:26+00:00"
         },
         {
             "name": "appstract/laravel-multisite",
@@ -706,67 +660,6 @@
                 "verified"
             ],
             "time": "2017-02-20T01:21:02+00:00"
-        },
-        {
-            "name": "cybercog/laravel-optimus",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cybercog/laravel-optimus.git",
-                "reference": "6b2ea720b9021aec1d513e20ab1ae8b5d09ac09e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cybercog/laravel-optimus/zipball/6b2ea720b9021aec1d513e20ab1ae8b5d09ac09e",
-                "reference": "6b2ea720b9021aec1d513e20ab1ae8b5d09ac09e",
-                "shasum": ""
-            },
-            "require": {
-                "graham-campbell/manager": "^2.5",
-                "illuminate/contracts": "~5.2.0|~5.3.0|~5.4.0",
-                "illuminate/support": "~5.2.0|~5.3.0|~5.4.0",
-                "jenssegers/optimus": "^0.2.2",
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.11",
-                "graham-campbell/testbench": "^3.3",
-                "mockery/mockery": "^0.9.5",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "^5.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Cog\\Optimus\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Komarev",
-                    "email": "a.komarev@cybercog.su",
-                    "homepage": "http://ell.folio.su",
-                    "role": "Developer"
-                }
-            ],
-            "description": "An Optimus bridge for Laravel. Id obfuscation based on Knuth's multiplicative hashing method.",
-            "homepage": "https://github.com/cybercog/laravel-optimus",
-            "keywords": [
-                "cog",
-                "cybercog",
-                "decrypt",
-                "encrypt",
-                "hashids",
-                "id",
-                "laravel",
-                "obfuscate",
-                "optimus"
-            ],
-            "time": "2017-01-02T08:00:05+00:00"
         },
         {
             "name": "cybercog/laravel-ownership",
@@ -1604,54 +1497,6 @@
             "time": "2017-03-29T16:04:15+00:00"
         },
         {
-            "name": "fzaninotto/faker",
-            "version": "v1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
-                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3|^7.0"
-            },
-            "require-dev": {
-                "ext-intl": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~1.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": []
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "time": "2016-04-29T12:21:54+00:00"
-        },
-        {
             "name": "giggsey/libphonenumber-for-php",
             "version": "8.4.2",
             "source": {
@@ -1769,38 +1614,35 @@
             "time": "2017-04-07T18:45:42+00:00"
         },
         {
-            "name": "graham-campbell/manager",
-            "version": "v2.5.0",
+            "name": "greggilbert/recaptcha",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
-                "reference": "e6ab47a8971da6fd18bc7ced546f0d24cb7ebe3a"
+                "url": "https://github.com/greggilbert/recaptcha.git",
+                "reference": "298cbc072e8ba734df2b8af798f848dacd27a4c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/e6ab47a8971da6fd18bc7ced546f0d24cb7ebe3a",
-                "reference": "e6ab47a8971da6fd18bc7ced546f0d24cb7ebe3a",
+                "url": "https://api.github.com/repos/greggilbert/recaptcha/zipball/298cbc072e8ba734df2b8af798f848dacd27a4c9",
+                "reference": "298cbc072e8ba734df2b8af798f848dacd27a4c9",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*",
-                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench-core": "^1.1",
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8|^5.0"
+                "illuminate/support": "~5.1",
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
                 "psr-4": {
-                    "GrahamCampbell\\Manager\\": "src/"
+                    "Greggilbert\\Recaptcha\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1809,70 +1651,19 @@
             ],
             "authors": [
                 {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
+                    "name": "Greg Gilbert",
+                    "email": "greg@greg-gilbert.com"
                 }
             ],
-            "description": "Manager Provides Some Manager Functionality For Laravel 5",
+            "description": "reCAPTCHA Validator for Laravel 5",
+            "homepage": "http://github.com/greggilbert/recaptcha",
             "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Manager",
-                "Laravel-Manager",
-                "connector",
-                "framework",
-                "interface",
+                "captcha",
                 "laravel",
-                "manager"
+                "laravel5",
+                "recaptcha"
             ],
-            "time": "2017-01-01T13:08:54+00:00"
-        },
-        {
-            "name": "guidocella/eloquent-populator",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guidocella/eloquent-populator.git",
-                "reference": "178d8e24296bd83a3a830727d7da9f5a68216776"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guidocella/eloquent-populator/zipball/178d8e24296bd83a3a830727d7da9f5a68216776",
-                "reference": "178d8e24296bd83a3a830727d7da9f5a68216776",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "^2.5",
-                "fzaninotto/faker": "^1.4",
-                "illuminate/database": "5.3.*|5.4.*",
-                "php": ">=5.6.4"
-            },
-            "require-dev": {
-                "dimsav/laravel-translatable": "^6",
-                "laravel/laravel": "5.4.*",
-                "phpunit/phpunit": "^5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "EloquentPopulator\\": "src"
-                },
-                "files": [
-                    "src/helper.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Automatically populate Eloquent models",
-            "keywords": [
-                "database",
-                "eloquent",
-                "faker",
-                "laravel"
-            ],
-            "time": "2017-04-18T10:36:07+00:00"
+            "time": "2017-04-06T17:10:49+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2463,6 +2254,63 @@
                 "useragent"
             ],
             "time": "2017-03-12T09:58:22+00:00"
+        },
+        {
+            "name": "jenssegers/date",
+            "version": "v3.2.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/date.git",
+                "reference": "ddc073e6cbba95bf298bf2bf43f2ebb2ec47b050"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/date/zipball/ddc073e6cbba95bf298bf2bf43f2ebb2ec47b050",
+                "reference": "ddc073e6cbba95bf298bf2bf43f2ebb2ec47b050",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^1.0",
+                "php": ">=5.4",
+                "symfony/translation": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0|^6.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Date\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "A date library to help you work with dates in different languages",
+            "homepage": "https://github.com/jenssegers/date",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "i18n",
+                "laravel",
+                "time",
+                "translation"
+            ],
+            "time": "2017-04-20T14:50:49+00:00"
         },
         {
             "name": "jenssegers/imagehash",
@@ -5673,16 +5521,16 @@
         },
         {
             "name": "spatie/eloquent-sortable",
-            "version": "3.2.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/eloquent-sortable.git",
-                "reference": "16c9828fa2cd50b720b03d647a8fc37b64a8fb95"
+                "reference": "09326d99be72c3121d43c1c1f1442502765b388f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/16c9828fa2cd50b720b03d647a8fc37b64a8fb95",
-                "reference": "16c9828fa2cd50b720b03d647a8fc37b64a8fb95",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/09326d99be72c3121d43c1c1f1442502765b388f",
+                "reference": "09326d99be72c3121d43c1c1f1442502765b388f",
                 "shasum": ""
             },
             "require": {
@@ -5720,7 +5568,7 @@
                 "sort",
                 "sortable"
             ],
-            "time": "2017-01-23T09:32:16+00:00"
+            "time": "2017-04-16T10:11:46+00:00"
         },
         {
             "name": "spatie/html-element",
@@ -9699,6 +9547,54 @@
             "time": "2017-04-25T20:50:30+00:00"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3|^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": []
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2016-04-29T12:21:54+00:00"
+        },
+        {
             "name": "garygreen/pretty-routes",
             "version": "0.0.6",
             "source": {
@@ -9787,6 +9683,53 @@
             "description": "Library for accessing git",
             "homepage": "http://gitonomy.com",
             "time": "2016-05-11T08:25:40+00:00"
+        },
+        {
+            "name": "guidocella/eloquent-populator",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guidocella/eloquent-populator.git",
+                "reference": "178d8e24296bd83a3a830727d7da9f5a68216776"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guidocella/eloquent-populator/zipball/178d8e24296bd83a3a830727d7da9f5a68216776",
+                "reference": "178d8e24296bd83a3a830727d7da9f5a68216776",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.5",
+                "fzaninotto/faker": "^1.4",
+                "illuminate/database": "5.3.*|5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "dimsav/laravel-translatable": "^6",
+                "laravel/laravel": "5.4.*",
+                "phpunit/phpunit": "^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EloquentPopulator\\": "src"
+                },
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Automatically populate Eloquent models",
+            "keywords": [
+                "database",
+                "eloquent",
+                "faker",
+                "laravel"
+            ],
+            "time": "2017-04-18T10:36:07+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
