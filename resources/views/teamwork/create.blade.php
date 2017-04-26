@@ -11,7 +11,7 @@
                             {!! csrf_field() !!}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">Name</label>
+                                <label class="col-md-4 control-label">{{ __("Name") }}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-save"></i>Save
+                                        <i class="fa fa-btn fa-save"></i>{{ __("Save") }}
                                     </button>
                                 </div>
                             </div>

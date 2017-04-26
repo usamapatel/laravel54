@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d083fb7c8d3acaa9e606e1421cb0acd",
+    "content-hash": "49f87b6820fe5e99af558af0da58043b",
     "packages": [
+        {
+            "name": "amamarul/laravel-json-locations-manager",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amamarul/laravel-json-locations-manager.git",
+                "reference": "e66278125da6f60039bf4615fed0005303506f77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amamarul/laravel-json-locations-manager/zipball/e66278125da6f60039bf4615fed0005303506f77",
+                "reference": "e66278125da6f60039bf4615fed0005303506f77",
+                "shasum": ""
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Amamarul\\LaravelJsonLocationsManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maru Amallo",
+                    "email": "ama_marul@hotmail.com"
+                }
+            ],
+            "description": "Laravel Json Locations Manager. Import all app language strings from lang folder",
+            "keywords": [
+                "Laravel 5.4 Localization Using Translation Strings As Keys",
+                "Laravel Json Locations Manager",
+                "laravel",
+                "laravel 5.4"
+            ],
+            "time": "2017-02-24T05:48:16+00:00"
+        },
         {
             "name": "anahkiasen/underscore-php",
             "version": "2.0.0",

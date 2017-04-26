@@ -1,5 +1,5 @@
 <div class="form-group{{ $has_error ? ' has-error' : '' }}">
-    <label for="{{ $id }}">{{ $label }}</label>
+    <label for="{{ $id }}">{{ __($label) }}</label>
     @foreach($options as $option_key => $option_name)
     <div class="radio">
         <label for="{{ $option_name }}">
