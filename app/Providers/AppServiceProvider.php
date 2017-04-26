@@ -35,13 +35,13 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //register local dev service providers
-        if ($this->app->isLocal() && ! empty($this->localProviders)) {
+        if ($this->app->isLocal() && !empty($this->localProviders)) {
             foreach ($this->localProviders as $provider) {
                 $this->app->register($provider);
             }
         }
         //register local dev alias
-        if ($this->app->isLocal() && ! empty($this->localAliases)) {
+        if ($this->app->isLocal() && !empty($this->localAliases)) {
             foreach ($this->localAliases as $alias => $facade) {
                 $this->app->alias($alias, $facade);
             }

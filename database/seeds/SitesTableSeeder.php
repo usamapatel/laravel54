@@ -16,7 +16,7 @@ class SitesTableSeeder extends Seeder
             [
                 'name' => 'main',
                 'slug' => 'main',
-                'url' => env('MULTISITE_HOST', 'localhost'),
+                'url'  => env('MULTISITE_HOST', 'localhost'),
             ],
         ];
 
