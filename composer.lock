@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd3ba1b8c8043ab3d8827fdf59ba4f84",
+    "content-hash": "8e8d89b5920239fae99a102722e187e5",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1497,6 +1497,56 @@
             "time": "2017-03-29T16:04:15+00:00"
         },
         {
+            "name": "eyewitness/eye",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eyewitness/eye.git",
+                "reference": "f5f26e3e5253dc15a34a985a674683fa6e84df47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eyewitness/eye/zipball/f5f26e3e5253dc15a34a985a674683fa6e84df47",
+                "reference": "f5f26e3e5253dc15a34a985a674683fa6e84df47",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "5.*|6.*",
+                "laravel/framework": "~5.0.14|~5.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "orchestra/testbench": "~3.4",
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eyewitness\\Eye\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laurence",
+                    "email": "laurence@eyewitness.io"
+                }
+            ],
+            "description": "Eyewitness.io client for Laravel 5 applications",
+            "homepage": "https://github.com/eyewitness/eye",
+            "keywords": [
+                "cron",
+                "eyewitness",
+                "laravel 5",
+                "monitor",
+                "queue"
+            ],
+            "time": "2017-04-23T22:57:08+00:00"
+        },
+        {
             "name": "giggsey/libphonenumber-for-php",
             "version": "8.4.2",
             "source": {
@@ -2611,6 +2661,59 @@
                 "nsm"
             ],
             "time": "2017-04-12T17:32:55+00:00"
+        },
+        {
+            "name": "ksubileau/color-thief-php",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ksubileau/color-thief-php.git",
+                "reference": "a673d7d3fa815c70fa4bebdee74d337e9e6944fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ksubileau/color-thief-php/zipball/a673d7d3fa815c70fa4bebdee74d337e9e6944fa",
+                "reference": "a673d7d3fa815c70fa4bebdee74d337e9e6944fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.7",
+                "squizlabs/php_codesniffer": "~2.7"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD image adapter.",
+                "ext-gmagick": "to use the Gmagick image adapter.",
+                "ext-imagick": "to use the Imagick image adapter."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ColorThief\\": "lib/ColorThief"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-2.5"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Subileau",
+                    "homepage": "http://www.kevinsubileau.fr"
+                }
+            ],
+            "description": "Grabs the dominant color or a representative color palette from an image.",
+            "homepage": "http://www.kevinsubileau.fr/projets/color-thief-php",
+            "keywords": [
+                "color",
+                "dominant",
+                "palette",
+                "php",
+                "thief"
+            ],
+            "time": "2016-12-18T03:12:25+00:00"
         },
         {
             "name": "lab404/laravel-impersonate",

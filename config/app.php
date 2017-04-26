@@ -181,6 +181,7 @@ return [
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        Eyewitness\Eye\EyeServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         HipsterJazzbo\Landlord\LandlordServiceProvider::class,
         //Imanghafoori\Widgets\WidgetsServiceProvider::class,
