@@ -44,6 +44,7 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
 
         Route::resource('widgets', 'WidgetsController');
         Route::post('/getWidgetData', 'WidgetsController@getWidgetData');
+        Route::resource('groups', 'GroupController');
     });
 
     /*

@@ -21,7 +21,7 @@ class CreateWidgetTable extends Migration
                 ->onDelete('cascade');
             $table->string('icon');
             $table->string('name');
-            $table->string('title');
+            $table->string('slug');
             $table->longText('description')->nullable();
             $table->string('width');
             $table->boolean('status');

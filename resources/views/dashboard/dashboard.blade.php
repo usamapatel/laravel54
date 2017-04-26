@@ -7,7 +7,9 @@
 
 @section('page-content')
 	<!-- BEGIN DASHBOARD STATS 1-->
+    @if($widgets["tile-count-widget"] == 1)
     <div class="row">
+        @if($widgets["new-feedbacks"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
                 <div class="visual">
@@ -21,6 +23,8 @@
                 </div>
             </a>
         </div>
+        @endif
+        @if($widgets["total-profit"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat dashboard-stat-v2 red" href="#">
                 <div class="visual">
@@ -33,6 +37,8 @@
                 </div>
             </a>
         </div>
+        @endif
+        @if($widgets["new-orders"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat dashboard-stat-v2 green" href="#">
                 <div class="visual">
@@ -46,6 +52,8 @@
                 </div>
             </a>
         </div>
+        @endif
+        @if($widgets["brand-popularity"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
                 <div class="visual">
@@ -58,10 +66,14 @@
                 </div>
             </a>
         </div>
+        @endif
     </div>
+    @endif
     <div class="clearfix"></div>
     <!-- END DASHBOARD STATS 1-->
+    @if($widgets["graph"] ==1)
     <div class="row">
+        @if($widgets["area-chart"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN PORTLET-->
             <div class="portlet light ">
@@ -90,6 +102,9 @@
             </div>
             <!-- END PORTLET-->
         </div>
+        @endif
+
+        @if($widgets["line-chart"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN PORTLET-->
             <div class="portlet light ">
@@ -159,8 +174,11 @@
             </div>
             <!-- END PORTLET-->
         </div>
+        @endif
     </div>
+    @endif
     <div class="row">
+        @if($widgets["comments-widget"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title tabbable-line">
@@ -395,7 +413,9 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="col-lg-6 col-xs-12 col-sm-12">
+            @if($widgets["quick-actions-widget"] == 1)
             <div class="portlet light ">
                 <div class="portlet-title tabbable-line">
                     <div class="caption">
@@ -708,6 +728,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
     <div class="row">
@@ -2167,7 +2188,10 @@
             </div>
         </div>
     </div>
+
+    @if($widgets["stats"] == 1)
     <div class="row">
+        @if($widgets["general-stats"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title">
@@ -2215,6 +2239,9 @@
                 </div>
             </div>
         </div>
+        @endif
+
+        @if($widgets["server-stats"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title">
@@ -2262,7 +2289,10 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
+    @endif
+
     {{--<div class="row">
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN REGIONAL STATS PORTLET-->

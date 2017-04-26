@@ -17,3 +17,151 @@ table thead .sorting_asc {
 label.error {
 	color: red;
 }
+
+.mt-element-list .list-todo .list-count.green-haze, 
+.mt-element-list .list-todo.mt-list-head.green-haze {
+	background-color: #17C4BB;
+}
+.add_modul.mt-element-list .list-todo.mt-list-container {
+	border-left: 0;
+	border-right: 0;
+}
+.add_modul.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item:after {
+	border: 0;
+}
+.add_modul.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item {
+	width: 100%;
+	margin-left: 0;
+}
+.add_modul.mt-element-list .list-todo .list-todo-item.grey .list-toggle {
+	background: #27A7CE;
+	color: #fff !important;
+	font-size: 16px
+}
+.add_modul .md-checkbox label>.box {
+	border:2px solid #fff;
+}
+.list-todo-icon i {
+	left: 5px;
+    position: absolute;
+    top: 33px;
+}
+.group-scroll {
+    margin-bottom: 0;
+    max-height: 181px;
+    overflow-y: auto;
+}
+.inner_list li.list-group-item{
+	position: relative;
+    display: block;
+    padding: 10px 10px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.inner_list li.list-group-item:last-child {
+	margin-bottom: 0;
+}
+.inner_list li.list-group-item .checker {
+	margin-left: 3px;
+    margin-top: -3px;
+    width: 19px;
+    height: 19px;
+    float: left;
+}
+.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item .task-list .task-list-item:last-child {
+	border-bottom: 1px solid #e7ecf1;
+}
+.md-checkbox label.mt-checkbox span,
+.md-checkbox label.mt-checkbox span:hover,
+.mt-checkbox.mt-checkbox-outline:hover>input:not([disabled])~span,
+.mt-checkbox.mt-checkbox-outline>span,
+.mt-checkbox.mt-checkbox-outline:hover>input:not([disabled]):checked~span, 
+.mt-checkbox.mt-checkbox-outline>input:checked~span{
+	border: 1px solid #fff;
+	background: #fff;
+}
+.inner_list .md-checkbox label.mt-checkbox span,
+.inner_list .mt-checkbox.mt-checkbox-outline:hover>input:not([disabled])~span,
+.inner_list .mt-checkbox.mt-checkbox-outline>span,
+.inner_list .mt-checkbox.mt-checkbox-outline:hover>input:not([disabled]):checked~span, 
+.inner_list .mt-checkbox.mt-checkbox-outline>input:checked~span{
+	border:1px solid #d9d9d9;
+}
+.modul_list .md-checkbox label>.check {
+	border: 2px solid #fff;
+	border-top: none;
+    border-left: none;
+}
+.portlet.light.box-layout.group-clear.grop-box-1 {
+    overflow: visible;
+    width: 100%;
+    moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eee #ededed #ededed;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.03);
+}
+.mt-element-ribbon .ribbon.ribbon-color-black {
+	color: #fff;
+}
+.mt-element-ribbon .ribbon.ribbon-color-black .ribbon-sub {
+	background-color: #000;
+	color: #fff;
+}
+.mt-element-ribbon .ribbon>.ribbon-sub.ribbon-clip:before {
+	    border-right-color: #000!important;
+}
+.ribbon.ribbon-shadow.ribbon-color-black.uppercase.title-group-color {
+    left: -28px !important;
+}
+.mt-element-ribbon .ribbon {
+    clear: left;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: -2px;
+    margin-right: 0;
+    margin-top: 5px;
+    padding-bottom: 0.5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 0.5em;
+    position: relative;
+    z-index: 5;
+}
+.portlet.light {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eee #ededed #ededed;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.03);
+    padding: 0 20px;
+}
+.portlet.light .portlet-body {
+    padding: 15px 0;
+}
+.module_btn {
+	margin-bottom: 25px;
+}
+.module_btn button {
+	width: 150px;
+	font-size: 16px;
+	border-radius: 3px !important;
+}
+.module-edit label.col-md-3{
+	margin: 7px 0;
+}
+.btn.green-haze:not(.btn-outline) {
+	background-color: #17C4BB;
+	border-color: #17C4BB;
+}
