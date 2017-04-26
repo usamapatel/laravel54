@@ -12,8 +12,13 @@ class CompaniesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('companies')->truncate();
+        DB::table('companies')->delete();
         DB::table('companies')->insert([
+        [
+            'name'       => 'www',
+            'slug'       => 'www',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ],
         [
             'name'       => 'test',
             'slug'       => 'test',

@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => 'widgets.store', 'class' => 'js-frm-create-widget form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+       		{!! Form::open(['route' => ['widgets.store', 'domain' => app('request')->route()->parameter('company')], 'class' => 'js-frm-create-widget form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 		    	@include('partial.admin.widgets.form',['from'=>'add'])
 			{{ Form::close() }}
         </div>

@@ -1,7 +1,7 @@
 <ul class="sub-menu">
 	@foreach ($menu_item as $item)
 		<li class="nav-item start ">
-		    <a href="{{ $item['url'] }}" class="nav-link ">
+		    <a href="{{ url($item['url']) }}" class="nav-link ">
 		    	<i class="fa {{ $item['icon'] }}"></i>
 		        <span class="title">{{ $item['name'] }}</span>
 		    </a>

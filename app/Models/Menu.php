@@ -40,7 +40,7 @@ class Menu extends Model
      *
      * @return array
      */
-    private static function buildMenuTree(array $menuArray, $parent = 0)
+    public static function buildMenuTree(array $menuArray, $parent = 0)
     {
         $items = [];
         foreach ($menuArray as $menuItem) {

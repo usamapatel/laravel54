@@ -11,6 +11,7 @@ use View;
 class ModulesController extends Controller
 {
     public $title;
+    public $uniqueUrl;
 
     /**
      * Create a new controller instance.
@@ -101,8 +102,8 @@ class ModulesController extends Controller
      */
     public function create()
     {
-        $menu = Menu::find(1);
-        $allModules = $menu->generate();
+    	$menuItems = MenuItem::where('menu_id', 1)->where('type', 'Module')->get()->toArray();
+        $allModules = Menu::buildMenuTree($menuItems);
 
         return view('modules.create', compact('allModules'));
     }
@@ -122,7 +123,7 @@ class ModulesController extends Controller
         $module->save();
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('modules.index');
+        return redirect()->route('modules.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -132,11 +133,11 @@ class ModulesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($moduleId)
+    public function edit($company, $moduleId)
     {
         $module = MenuItem::find($moduleId);
-        $menu = Menu::find(1);
-        $allModules = $menu->generate();
+        $menuItems = MenuItem::where('menu_id', 1)->where('type', 'Module')->get()->toArray();
+        $allModules = Menu::buildMenuTree($menuItems);
 
         return view('modules.edit', compact('module', 'allModules'));
     }
@@ -151,7 +152,7 @@ class ModulesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $moduleId)
+    public function update(Request $request, $company, $moduleId)
     {
         $this->init();
         $module = MenuItem::findOrFail($moduleId);
@@ -159,7 +160,7 @@ class ModulesController extends Controller
         $module->save();
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('modules.index');
+        return redirect()->route('modules.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -170,7 +171,7 @@ class ModulesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($moduleId)
+    public function destroy($company, $moduleId)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
@@ -180,7 +181,7 @@ class ModulesController extends Controller
         }
         flash()->message($message, $type);
 
-        return redirect()->route('modules.index');
+        return redirect()->route('modules.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -190,10 +191,21 @@ class ModulesController extends Controller
      */
     public function generateModuleUrl(Request $request)
     {
-        $parentId = $request->parent_id;
-        $moduleName = $request->module_name;
-        $moduleType = $request->module_type;
-        $isPubliclyVisible = $request->is_publicly_visible;
+    	$moduleType = $request->module_type;
+    	if($moduleType == "Module") {
+    		return ['moduleUrl' => '#'];
+    	}
+    	$moduleName = $request->module_name;
+    	$moduleUrl = str_slug($moduleName, '-');
+    	$parent = $request->parent_id ? MenuItem::find($request->parent_id) : null;
+    	if($parent) {
+    		$moduleUrl = $parent->url . '/' . $moduleUrl;
+    	}
+    	if($parent->is_publicly_visible == 1 && $request->is_publicly_visible == 0) {
+    		$moduleUrl = '/admin' . $moduleUrl;
+    	}
+    	$moduleUrl = $this->generateUniqueUrl($moduleUrl, '');
+        return ['moduleUrl' => $this->uniqueUrl];
     }
 
     private function setVariables($module, $request)
@@ -209,5 +221,24 @@ class ModulesController extends Controller
         $module->is_active = $request->is_active ? 1 : 0;
         $module->is_shown_on_menu = $request->is_shown_on_menu ? 1 : 0;
         $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
+        return $module;
+    }
+
+    /**
+     * Get unique module url
+     *
+     */	
+    public function generateUniqueUrl($url, $extra)
+    {
+    	$moduleUrlExp = explode("/", $url);
+        $moduleUrlTemp = str_slug($moduleUrlExp[count($moduleUrlExp) - 1].'-'.$extra);
+        $moduleUrlExp[count($moduleUrlExp) - 1] = $moduleUrlTemp;
+        $uniqueUrl = implode("/", $moduleUrlExp);
+        if(MenuItem::where('url',$uniqueUrl)->exists())
+        {
+            $this->generateUniqueUrl($url, $extra + 1);
+            return;
+        }
+        $this->uniqueUrl = $uniqueUrl;
     }
 }

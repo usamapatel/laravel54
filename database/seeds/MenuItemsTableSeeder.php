@@ -12,7 +12,7 @@ class MenuItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('menu_items')->truncate();
+        DB::table('menu_items')->delete();
         DB::table('menu_items')->insert([
         [
             'menu_id'          => 1,

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'app' => [
+        'domain' => env('APP_DOMAIN'),
+        'subdomain' => '',
+    ],
     'flash_messages' => [
         'dataSaved'      => 'Data has been saved successfully.',
         'dataNotSaved'   => 'Data could not be saved at this moment. Please try later.',

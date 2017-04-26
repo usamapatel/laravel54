@@ -14,7 +14,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function acceptInvite($token)
+    public function acceptInvite($company, $token)
     {
         $invite = Teamwork::getInviteFromAcceptToken($token);
         if (!$invite) {

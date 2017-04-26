@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => 'users.store', 'class' => 'js-frm-create-user form-horizontal', 'role' => 'form']) !!}
+       		{!! Form::open(['route' => ['users.store', 'domain' => app('request')->route()->parameter('company')], 'class' => 'js-frm-create-user form-horizontal', 'role' => 'form']) !!}
 		    	@include('partial.admin.users.form',['from'=>'add'])
 			{{ Form::close() }}
         </div>

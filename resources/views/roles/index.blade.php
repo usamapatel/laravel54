@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('roles.create') }}"> Add New
+                            <a class="btn sbold green" href="{{ route('roles.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>

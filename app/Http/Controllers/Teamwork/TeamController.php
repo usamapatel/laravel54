@@ -51,7 +51,7 @@ class TeamController extends Controller
         ]);
         $request->user()->attachTeam($team);
 
-        return redirect(route('teams.index'));
+        return redirect(route('teams.index', ['domain' => app('request')->route()->parameter('company')]));
     }
 
     /**
@@ -61,7 +61,7 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function switchTeam($teamId)
+    public function switchTeam($company, $teamId)
     {
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
@@ -71,7 +71,7 @@ class TeamController extends Controller
             abort(403);
         }
 
-        return redirect(route('teams.index'));
+        return redirect(route('teams.index', ['domain' => app('request')->route()->parameter('company')]));
     }
 
     /**
@@ -81,7 +81,7 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($teamId)
+    public function edit($company, $teamId)
     {
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
@@ -101,7 +101,7 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $teamId)
+    public function update(Request $request, $company, $teamId)
     {
         $teamModel = config('teamwork.team_model');
 
@@ -109,7 +109,7 @@ class TeamController extends Controller
         $team->name = $request->name;
         $team->save();
 
-        return redirect(route('teams.index'));
+        return redirect(route('teams.index', ['domain' => app('request')->route()->parameter('company')]));
     }
 
     /**
@@ -119,7 +119,7 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($teamId)
+    public function destroy($company, $teamId)
     {
         $teamModel = config('teamwork.team_model');
 
@@ -134,6 +134,6 @@ class TeamController extends Controller
         $userModel::where('current_team_id', $teamId)
                     ->update(['current_team_id' => null]);
 
-        return redirect(route('teams.index'));
+        return redirect(route('teams.index', ['domain' => app('request')->route()->parameter('company')]));
     }
 }
