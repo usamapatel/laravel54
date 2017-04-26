@@ -6,17 +6,17 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        Members of team "{{$team->name}}"
+                        {{ __("Members of team") }} "{{$team->name}}"
                         <a href="{{route('teams.index')}}" class="btn btn-sm btn-default pull-right">
-                            <i class="fa fa-arrow-left"></i> Back
+                            <i class="fa fa-arrow-left"></i> {{ __("Back") }}
                         </a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Action</th>
+                                <th>{{ __("Name") }}</th>
+                                <th>{{ __("Action") }}</th>
                             </tr>
                             </thead>
                             @foreach($team->users AS $user)
@@ -28,7 +28,7 @@
                                                 <form style="display: inline-block;" action="{{route('teams.members.destroy', [$team, $user])}}" method="post">
                                                     {!! csrf_field() !!}
                                                     <input type="hidden" name="_method" value="DELETE" />
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete</button>
+                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> {{ __("Delete") }}</button>
                                                 </form>
                                             @endif
                                         @endif
@@ -39,13 +39,13 @@
                     </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading clearfix">Pending invitations</div>
+                    <div class="panel-heading clearfix">{{ __("Pending invitations") }}</div>
                     <div class="panel-body">
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>E-Mail</th>
-                                <th>Action</th>
+                                <th>{{ __("E-Mail") }}</th>
+                                <th>{{ __("Action") }}</th>
                             </tr>
                             </thead>
                             @foreach($team->invites AS $invite)
@@ -53,7 +53,7 @@
                                     <td>{{$invite->email}}</td>
                                     <td>
                                         <a href="{{route('teams.members.resend_invite', $invite)}}" class="btn btn-sm btn-default">
-                                            <i class="fa fa-envelope-o"></i> Resend invite
+                                            <i class="fa fa-envelope-o"></i> {{ __("Resend invite") }}
                                         </a>
                                     </td>
                                 </tr>

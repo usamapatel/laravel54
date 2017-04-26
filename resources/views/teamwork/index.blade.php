@@ -8,15 +8,15 @@
                     <div class="panel-heading clearfix">
                         Teams
                         <a class="pull-right btn btn-default btn-sm" href="{{route('teams.create')}}">
-                            <i class="fa fa-plus"></i> Create team
+                            <i class="fa fa-plus"></i> {{ __("Create team") }}
                         </a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Status</th>
+                                    <th>{{ __("Name") }}</th>
+                                    <th>{{ __("Status") }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -26,34 +26,34 @@
                                         <td>{{$team->name}}</td>
                                         <td>
                                             @if(auth()->user()->isOwnerOfTeam($team))
-                                                <span class="label label-success">Owner</span>
+                                                <span class="label label-success">{{ __("Owner") }}</span>
                                             @else
-                                                <span class="label label-primary">Member</span>
+                                                <span class="label label-primary">{{ __("Member") }}</span>
                                             @endif
                                         </td>
                                         <td>
                                             @if(is_null(auth()->user()->currentTeam) || auth()->user()->currentTeam->getKey() !== $team->getKey())
                                                 <a href="{{route('teams.switch', $team)}}" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-sign-in"></i> Switch
+                                                    <i class="fa fa-sign-in"></i> {{ __("Switch") }}
                                                 </a>
                                             @else
-                                                <span class="label label-default">Current team</span>
+                                                <span class="label label-default">{{ __("Current team") }}</span>
                                             @endif
 
                                             <a href="{{route('teams.members.show', $team)}}" class="btn btn-sm btn-default">
-                                                <i class="fa fa-users"></i> Members
+                                                <i class="fa fa-users"></i> {{ __("Members") }}
                                             </a>
 
                                             @if(auth()->user()->isOwnerOfTeam($team))
 
                                                 <a href="{{route('teams.edit', $team)}}" class="btn btn-sm btn-default">
-                                                    <i class="fa fa-pencil"></i> Edit
+                                                    <i class="fa fa-pencil"></i> {{ __("Edit") }}
                                                 </a>
 
                                                 <form style="display: inline-block;" action="{{route('teams.destroy', $team)}}" method="post">
                                                     {!! csrf_field() !!}
                                                     <input type="hidden" name="_method" value="DELETE" />
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Delete</button>
+                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> {{ __("Delete") }}</button>
                                                 </form>
                                             @endif
                                         </td>

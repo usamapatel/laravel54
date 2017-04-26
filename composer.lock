@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b349fa61decdbce5eacdc409b22c198",
+    "content-hash": "c2782d4aa0980f2c2d865c7e0c206b11",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1653,16 +1653,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.4.1",
+            "version": "8.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "eeb3835c8afc6ab35427bc9771ffc7851ce4ed8f"
+                "reference": "01c72a52c38a0a55e4aebb972d65124f618d570a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/eeb3835c8afc6ab35427bc9771ffc7851ce4ed8f",
-                "reference": "eeb3835c8afc6ab35427bc9771ffc7851ce4ed8f",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/01c72a52c38a0a55e4aebb972d65124f618d570a",
+                "reference": "01c72a52c38a0a55e4aebb972d65124f618d570a",
                 "shasum": ""
             },
             "require": {
@@ -1717,7 +1717,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2017-04-11T20:52:21+00:00"
+            "time": "2017-04-25T12:16:41+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -2158,16 +2158,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.6.2",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "3f0c83b9d6f08a9bd667e933d6f86161b1365b3e"
+                "reference": "8770ea23e63aa36f136f19f689db3a57b34b8426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/3f0c83b9d6f08a9bd667e933d6f86161b1365b3e",
-                "reference": "3f0c83b9d6f08a9bd667e933d6f86161b1365b3e",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/8770ea23e63aa36f136f19f689db3a57b34b8426",
+                "reference": "8770ea23e63aa36f136f19f689db3a57b34b8426",
                 "shasum": ""
             },
             "require": {
@@ -2206,7 +2206,7 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-04-23T18:14:48+00:00"
+            "time": "2017-04-24T18:30:01+00:00"
         },
         {
             "name": "intervention/image",
@@ -3135,16 +3135,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.38",
+            "version": "1.0.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "4ba6e13f5116204b21c3afdf400ecf2b9eb1c482"
+                "reference": "2474325ee924134bb05848663b12531f6f2e9fbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4ba6e13f5116204b21c3afdf400ecf2b9eb1c482",
-                "reference": "4ba6e13f5116204b21c3afdf400ecf2b9eb1c482",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/2474325ee924134bb05848663b12531f6f2e9fbe",
+                "reference": "2474325ee924134bb05848663b12531f6f2e9fbe",
                 "shasum": ""
             },
             "require": {
@@ -3214,7 +3214,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2017-04-22T18:59:19+00:00"
+            "time": "2017-04-25T15:24:43+00:00"
         },
         {
             "name": "league/fractal",
@@ -8455,6 +8455,50 @@
             "time": "2017-03-20T09:45:15+00:00"
         },
         {
+            "name": "themsaid/laravel-langman-gui",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/themsaid/laravel-langman-gui.git",
+                "reference": "1f940e909f6ac5995d6b9879cc4a1636e371320f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/themsaid/laravel-langman-gui/zipball/1f940e909f6ac5995d6b9879cc4a1636e371320f",
+                "reference": "1f940e909f6ac5995d6b9879cc4a1636e371320f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/translation": "~5.4",
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Themsaid\\LangmanGUI\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Said",
+                    "email": "theMohamedSaid@gmail.com",
+                    "homepage": "https://themsaid.com"
+                }
+            ],
+            "description": "Manage language files with ease.",
+            "homepage": "https://github.com/themsaid/laravel-langman-gui",
+            "keywords": [
+                "laravel",
+                "localization",
+                "multilingual"
+            ],
+            "time": "2017-04-25T08:16:56+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.0",
             "source": {
@@ -9573,16 +9617,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "ab8c61329ddd896e287a84c7663d06cf1bed3907"
+                "reference": "d5257f7433bb490299c4f300d95598fd911a8ab0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/ab8c61329ddd896e287a84c7663d06cf1bed3907",
-                "reference": "ab8c61329ddd896e287a84c7663d06cf1bed3907",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/d5257f7433bb490299c4f300d95598fd911a8ab0",
+                "reference": "d5257f7433bb490299c4f300d95598fd911a8ab0",
                 "shasum": ""
             },
             "require": {
@@ -9646,7 +9690,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-04-21T17:17:40+00:00"
+            "time": "2017-04-25T20:50:30+00:00"
         },
         {
             "name": "garygreen/pretty-routes",
