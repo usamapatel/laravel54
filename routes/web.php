@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::post('/getWidgetData', 'WidgetsController@getWidgetData');
 
     Route::resource('groups', 'GroupController');
+    Route::post('/getGroupData', 'GroupController@getGroupData');
 });
 
 /*
