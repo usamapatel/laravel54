@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2782d4aa0980f2c2d865c7e0c206b11",
+    "content-hash": "8a284ced26bd5d80853e8bf014c7d4bd",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3573,6 +3573,55 @@
             "time": "2017-01-05T08:46:19+00:00"
         },
         {
+            "name": "mcamara/laravel-localization",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mcamara/laravel-localization.git",
+                "reference": "29f9ea25bbb97888aa4e0c0e36787b0f80b9920f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/29f9ea25bbb97888aa4e0c0e36787b0f80b9920f",
+                "reference": "29f9ea25bbb97888aa4e0c0e36787b0f80b9920f",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.2",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench-browser-kit": "~3.4",
+                "phpunit/phpunit": "5.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "psr-0": {
+                    "Mcamara\\LaravelLocalization": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Cámara",
+                    "email": "mcamara88@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy localization for Laravel",
+            "homepage": "https://github.com/mcamara/laravel-localization",
+            "keywords": [
+                "laravel",
+                "localization",
+                "php"
+            ],
+            "time": "2017-04-25T15:27:29+00:00"
+        },
+        {
             "name": "mledoze/countries",
             "version": "1.8.0",
             "source": {
@@ -5667,16 +5716,16 @@
         },
         {
             "name": "spatie/eloquent-sortable",
-            "version": "3.2.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/eloquent-sortable.git",
-                "reference": "16c9828fa2cd50b720b03d647a8fc37b64a8fb95"
+                "reference": "09326d99be72c3121d43c1c1f1442502765b388f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/16c9828fa2cd50b720b03d647a8fc37b64a8fb95",
-                "reference": "16c9828fa2cd50b720b03d647a8fc37b64a8fb95",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/09326d99be72c3121d43c1c1f1442502765b388f",
+                "reference": "09326d99be72c3121d43c1c1f1442502765b388f",
                 "shasum": ""
             },
             "require": {
@@ -5714,7 +5763,7 @@
                 "sort",
                 "sortable"
             ],
-            "time": "2017-01-23T09:32:16+00:00"
+            "time": "2017-04-16T10:11:46+00:00"
         },
         {
             "name": "spatie/html-element",
