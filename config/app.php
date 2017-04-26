@@ -220,6 +220,7 @@ return [
         Spatie\Tags\TagsServiceProvider::class,
         Spatie\Translatable\TranslatableServiceProvider::class,
         Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
+        Themsaid\LangmanGUI\LangmanServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
         Ufutx\LaravelFavorite\FavoriteServiceProvider::class,

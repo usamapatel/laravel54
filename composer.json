@@ -73,6 +73,7 @@
         "spatie/laravel-url-signer": "^2.0",
         "spatie/string": "^2.2",
         "spatie/valuestore": "^1.1",
+        "themsaid/laravel-langman-gui": "^0.1.0",
         "tymon/jwt-auth": "^0.5.10",
         "ufutx/laravel-comment": "^1.0",
         "ufutx/laravel-favorite": "dev-master",
