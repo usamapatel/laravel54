@@ -43,6 +43,7 @@
     "The :attribute does not match the format :format.": null,
     "The :attribute failed to upload.": null,
     "The :attribute field contains an invalid number.": null,
+    "The :attribute field is not correct.": null,
     "The :attribute field does not exist in :other.": null,
     "The :attribute field has a duplicate value.": null,
     "The :attribute field is required unless :other is in :values.": null,
