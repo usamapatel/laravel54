@@ -174,6 +174,7 @@ return [
         Arrilot\Widgets\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
         Brotzka\DotenvEditor\DotenvEditorServiceProvider::class,
         Cog\Ban\Providers\BanServiceProvider::class,
         Cog\Flag\Providers\FlagServiceProvider::class,
@@ -329,7 +330,9 @@ return [
         'Module' => Nwidart\Modules\Facades\Module::class,
         'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
         'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         'Widget' => Arrilot\Widgets\Facade::class,
 
