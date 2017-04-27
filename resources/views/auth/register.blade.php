@@ -9,27 +9,27 @@
 
             <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
-                <span>Please fill up required fields.</span>
+                <span>{{ __("Please fill up required fields.") }}</span>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="name" autocomplete="off" placeholder="Name" name="name" value="{{ old('name') }}" required/>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="name" autocomplete="off" placeholder="{{ __("Name") }}" name="name" value="{{ old('name') }}" required/>
                 </div>
                 <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="email" type="email" autocomplete="off" value="{{ old('email') }}" placeholder="Email" name="email" required/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" id="password" autocomplete="off" id="password" placeholder="Password" name="password" required/>
-                </div>
-                <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="password-confirm" type="password" autocomplete="off" placeholder="Confirm Password" name="password_confirmation" required/>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="email" type="email" autocomplete="off" value="{{ old('email') }}" placeholder="{{ __("Email") }}" name="email" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <button class="btn green" type="submit">Register</button>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" id="password" autocomplete="off" id="password" placeholder="{{ __("Password") }}" name="password" required/>
+                </div>
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="password-confirm" type="password" autocomplete="off" placeholder="{{ __("Confirm Password") }}" name="password_confirmation" required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <button class="btn green" type="submit">{{ __("Register") }}</button>
                 </div>
             </div>
         </form>

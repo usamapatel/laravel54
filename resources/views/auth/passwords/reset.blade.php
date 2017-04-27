@@ -9,24 +9,24 @@
 
             <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
-                <span>Please fill up required fields.</span>
+                <span>{{ __("Please fill up required fields.") }}</span>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="email" type="email" autocomplete="off" value="{{ $email or old('email') }}" placeholder="Email" name="email" required/>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="email" type="email" autocomplete="off" value="{{ $email or old('email') }}" placeholder="{{ __("Email") }}" name="email" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" id="password" autocomplete="off" placeholder="Password" name="password" required/>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" id="password" autocomplete="off" placeholder="{{ __("Password") }}" name="password" required/>
                 </div>
                 <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="password-confirm" type="password" autocomplete="off" placeholder="Confirm Password" name="password_confirmation" required/>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="password-confirm" type="password" autocomplete="off" placeholder="{{ __("Confirm Password") }}" name="password_confirmation" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <button class="btn green" type="submit">Reset Password</button>
+                    <button class="btn green" type="submit">{{ __("Reset Password") }}</button>
                 </div>
             </div>
         </form>

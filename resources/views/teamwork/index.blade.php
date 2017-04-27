@@ -73,9 +73,9 @@
                                         <td>{{$team->name}}</td>
                                         <td>
                                             @if(auth()->user()->isOwnerOfTeam($team))
-                                                <span class="label label-success">Owner</span>
+                                                <span class="label label-success">{{ __("Owner") }}</span>
                                             @else
-                                                <span class="label label-primary">Member</span>
+                                                <span class="label label-primary">{{ __("Member") }}</span>
                                             @endif
                                         </td>
                                         <td>
@@ -84,7 +84,7 @@
                                                     <i class="fa fa-sign-in"></i> Switch
                                                 </a>
                                             @else
-                                                <span class="label label-default">Current team</span>
+                                                <span class="label label-default">{{ __("Current team") }}</span>
                                             @endif
                                         </td>
                                         <td>{{ Carbon\Carbon::parse($team->created_at)->format('d-m-Y h:i:s') }}</td>

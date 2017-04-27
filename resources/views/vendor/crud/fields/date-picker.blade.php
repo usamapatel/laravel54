@@ -1,5 +1,5 @@
 <div class="form-group{{ $has_error ? ' has-error' : '' }}">
-    <label for="{{ $id }}">{{ $label }}</label>
+    <label for="{{ $id }}">{{ __($label) }}</label>
     <input name="{{ $name }}" id="{{ $id }}" class="form-control" style="max-width: 100%;"  placeholder="{{ $placeholder }}" value="{{ $value }}">
     @include('crud::fields.partials.help')
     @include('crud::fields.partials.errors')

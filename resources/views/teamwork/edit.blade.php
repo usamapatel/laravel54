@@ -1,5 +1,6 @@
 @extends('layouts.admin.default')
 
+
 @section('page-style')
 
 @endsection
@@ -9,7 +10,7 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase">Edit Team</span>
+                <span class="caption-subject font-dark bold uppercase">{{ __("Edit Team") }}</span>
             </div>
         </div>
         <div class="portlet-body form">
