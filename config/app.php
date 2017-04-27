@@ -170,7 +170,7 @@ return [
         Appstract\Multisite\MultisiteServiceProvider::class,
         Appstract\Options\OptionsServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
-        Arrilot\Widgets\ServiceProvider::class,
+        //Arrilot\Widgets\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
@@ -185,7 +185,7 @@ return [
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         HipsterJazzbo\Landlord\LandlordServiceProvider::class,
         Hootlex\Moderation\ModerationServiceProvider::class,
-        //Imanghafoori\Widgets\WidgetsServiceProvider::class,
+        Imanghafoori\Widgets\WidgetsServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
         Jtant\LaravelEnvSync\EnvSyncServiceProvider::class,
@@ -316,7 +316,7 @@ return [
          * Package Facades...
          */
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
-        'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
+        //'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
         'BotMan' => Mpociot\BotMan\Facades\BotMan::class,
         'Countries' => PragmaRX\Countries\Facade::class,
         'Date' => Jenssegers\Date\Date::class,
@@ -343,7 +343,7 @@ return [
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
-        'Widget' => Arrilot\Widgets\Facade::class,
+        //'Widget' => Arrilot\Widgets\Facade::class,
 
     ],
 
