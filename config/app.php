@@ -183,6 +183,7 @@ return [
         Eyewitness\Eye\EyeServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         HipsterJazzbo\Landlord\LandlordServiceProvider::class,
+        Hootlex\Moderation\ModerationServiceProvider::class,
         //Imanghafoori\Widgets\WidgetsServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,

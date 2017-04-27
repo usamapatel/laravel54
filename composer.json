@@ -26,6 +26,7 @@
         "h4cc/wkhtmltopdf-amd64": "^0.12.3",
         "h4cc/wkhtmltopdf-i386": "^0.12.3",
         "hipsterjazzbo/landlord": "^2.0",
+        "hootlex/laravel-moderation": "^1.0",
         "illuminated/helper-functions": "^1.0",
         "imanghafoori/laravel-widgetize": "^1.4",
         "jenssegers/agent": "^2.5",

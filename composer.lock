@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "46ccdb734a1dbd327ff273d3925a1420",
+    "content-hash": "388627b584d8b7065c583dc2dbc7655b",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2152,6 +2152,52 @@
                 "tenant"
             ],
             "time": "2017-01-25T00:55:52+00:00"
+        },
+        {
+            "name": "hootlex/laravel-moderation",
+            "version": "v1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hootlex/laravel-moderation.git",
+                "reference": "bac5310cf359a47780eba5c8e5bcc81320e337ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hootlex/laravel-moderation/zipball/bac5310cf359a47780eba5c8e5bcc81320e337ab",
+                "reference": "bac5310cf359a47780eba5c8e5bcc81320e337ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "5.*",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hootlex\\Moderation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Kyriakidis",
+                    "email": "hootlex@icloud.com"
+                }
+            ],
+            "description": "A simple Content Moderation System for Laravel 5.* that allows you to Approve or Reject resources like posts, comments, users, etc.",
+            "keywords": [
+                "content-moderation",
+                "laravel",
+                "moderation",
+                "moderation-system"
+            ],
+            "time": "2017-02-12T02:40:36+00:00"
         },
         {
             "name": "illuminated/helper-functions",
