@@ -101,6 +101,7 @@
         "jeroen-g/laravel-packager": "^1.5",
         "lord/laroute": "^2.4",
         "lubusin/laravel-decomposer": "^1.1.1",
+        "mathiasgrimm/laravel-dot-env-gen": "dev-master",
         "mockery/mockery": "0.9.*",
         "mpociot/laravel-test-factory-helper": "^0.4.0",
         "nikic/php-parser": "^3.0",

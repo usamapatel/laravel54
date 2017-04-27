@@ -251,6 +251,7 @@ return [
         JeroenG\Packager\PackagerServiceProvider::class,
         Lord\Laroute\LarouteServiceProvider::class,
         Lubusin\Decomposer\DecomposerServiceProvider::class,
+        MathiasGrimm\LaravelDotEnvGen\DotEnvGenServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
         Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
     ],

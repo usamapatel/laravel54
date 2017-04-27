@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "759874f68e73a8f8810334e785c8b3e7",
+    "content-hash": "46ccdb734a1dbd327ff273d3925a1420",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2211,16 +2211,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.7.0",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "8770ea23e63aa36f136f19f689db3a57b34b8426"
+                "reference": "f86420389dc99130d2f772f09f2c6f1a5cc4a743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/8770ea23e63aa36f136f19f689db3a57b34b8426",
-                "reference": "8770ea23e63aa36f136f19f689db3a57b34b8426",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/f86420389dc99130d2f772f09f2c6f1a5cc4a743",
+                "reference": "f86420389dc99130d2f772f09f2c6f1a5cc4a743",
                 "shasum": ""
             },
             "require": {
@@ -2259,7 +2259,7 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-04-24T18:30:01+00:00"
+            "time": "2017-04-26T18:30:30+00:00"
         },
         {
             "name": "intervention/image",
@@ -6225,16 +6225,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "4.12.1",
+            "version": "4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "bc68e441eb982a3184137ca8611e15996cb730c9"
+                "reference": "043be78861d1bd9a3fd12a32d8f46020090153d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/bc68e441eb982a3184137ca8611e15996cb730c9",
-                "reference": "bc68e441eb982a3184137ca8611e15996cb730c9",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/043be78861d1bd9a3fd12a32d8f46020090153d9",
+                "reference": "043be78861d1bd9a3fd12a32d8f46020090153d9",
                 "shasum": ""
             },
             "require": {
@@ -6287,7 +6287,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2017-04-19T14:06:57+00:00"
+            "time": "2017-04-26T13:10:04+00:00"
         },
         {
             "name": "spatie/laravel-collection-macros",
@@ -8804,16 +8804,16 @@
         },
         {
             "name": "themsaid/laravel-langman-gui",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/themsaid/laravel-langman-gui.git",
-                "reference": "1f940e909f6ac5995d6b9879cc4a1636e371320f"
+                "reference": "a36f29064ad68808cc102e68cc9d6056d511bc8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/themsaid/laravel-langman-gui/zipball/1f940e909f6ac5995d6b9879cc4a1636e371320f",
-                "reference": "1f940e909f6ac5995d6b9879cc4a1636e371320f",
+                "url": "https://api.github.com/repos/themsaid/laravel-langman-gui/zipball/a36f29064ad68808cc102e68cc9d6056d511bc8f",
+                "reference": "a36f29064ad68808cc102e68cc9d6056d511bc8f",
                 "shasum": ""
             },
             "require": {
@@ -8844,7 +8844,7 @@
                 "localization",
                 "multilingual"
             ],
-            "time": "2017-04-25T08:16:56+00:00"
+            "time": "2017-04-26T18:47:27+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -10566,6 +10566,48 @@
             ],
             "description": "A Laravel package to decompose your installed packages, their dependencies, your app & server environment",
             "time": "2017-04-06T12:13:04+00:00"
+        },
+        {
+            "name": "mathiasgrimm/laravel-dot-env-gen",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mathiasgrimm/laravel-dot-env-gen.git",
+                "reference": "966112e6c9b036a3fbc3d8787889afab529eada1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mathiasgrimm/laravel-dot-env-gen/zipball/966112e6c9b036a3fbc3d8787889afab529eada1",
+                "reference": "966112e6c9b036a3fbc3d8787889afab529eada1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MathiasGrimm\\LaravelDotEnvGen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mathias Grimm",
+                    "email": "mathiasgrimm@gmail.com",
+                    "homepage": "http://phpEmpregos.com"
+                }
+            ],
+            "description": "A Laravel 5 artisan command to generate a .env.gen file based on the existing project.",
+            "homepage": "https://github.com/mathiasgrimm/laravel-dot-env-gen/",
+            "keywords": [
+                "artisan",
+                "command",
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2015-04-20T12:50:38+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -13423,6 +13465,7 @@
     "stability-flags": {
         "dingo/api": 20,
         "ufutx/laravel-favorite": 20,
+        "mathiasgrimm/laravel-dot-env-gen": 20,
         "phpro/grumphp": 20,
         "roave/security-advisories": 20
     },
