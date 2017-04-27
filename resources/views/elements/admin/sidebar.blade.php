@@ -10,15 +10,16 @@
         <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-        <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+        <ul class="page-sidebar-menu  page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
             @if (count($menu_items) > 0)                
                 @foreach ($menu_items as $menu_item)
-                    <li class="nav-item start ">
+                    <li class="nav-item start active open">
                         @if(isset($menu_item['children']) && count($menu_item['children']))
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="fa {{ $menu_item['icon'] }}"></i>
                                 <span class="title">{{ $menu_item['name'] }}</span>
-                                <span class="arrow"></span>
+                                <!-- <span class="selected"></span> -->
+                                <span class="arrow open"></span>
                             </a>    
                             @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
                         @else

@@ -3,7 +3,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="row">
         <div class="col-md-12" id="userlist">
-            <div class="portlet box green">
+            <div class="portlet box white">
                 <div class="portlet-title">
                     <div class="caption">
                         Search
@@ -49,7 +49,7 @@
                 <div class="portlet-title">
                     <div class="caption col-md-8">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">User List</span>
+                        <span class="caption-subject">User List</span>
                     </div>
                     <div class="col-md-4">
                         <div class="btn-group pull-right">

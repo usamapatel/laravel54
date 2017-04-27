@@ -8,8 +8,8 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase"> 
-                <i class="fa fa-gear fa-lg" aria-hidden="true">&nbsp;</i> CREATE NEW GROUP  </span>
+                <span class="caption-subject"> 
+                <i class="fa fa-gear fa-lg" aria-hidden="true">&nbsp;</i> Create New Group  </span>
             </div>
         </div>
         <div class="portlet-body form">
@@ -39,8 +39,8 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase">
-                <i class="fa fa-gear fa-lg" aria-hidden="true">&nbsp;</i> ASSIGN ACCESS WIDGETS</span>
+                <span class="caption-subject">
+                <i class="fa fa-gear fa-lg" aria-hidden="true">&nbsp;</i> Assign Access Widgets</span>
             </div>
             <div class="tools">
                 <a href="" class="collapse" data-original-title="" title=""> </a>
