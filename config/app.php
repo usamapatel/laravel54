@@ -193,6 +193,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Mpociot\BotMan\BotManServiceProvider::class,
         Mpociot\Teamwork\TeamworkServiceProvider::class,
         Nahid\Talk\TalkServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
@@ -313,6 +314,7 @@ return [
          */
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
+        'BotMan' => Mpociot\BotMan\Facades\BotMan::class,
         'Countries' => PragmaRX\Countries\Facade::class,
         'Date' => Jenssegers\Date\Date::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,

@@ -44,6 +44,7 @@
         "maatwebsite/excel": "^2.1",
         "marceauka/laravel-crudable": "^2.0",
         "mcamara/laravel-localization": "^1.2",
+        "mpociot/botman": "^1.5",
         "mpociot/teamwork": "^5.0",
         "nahid/talk": "^2.1",
         "nwidart/laravel-modules": "^1.17",
