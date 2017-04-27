@@ -39,16 +39,14 @@ var Module = function() {
         
     };
     var formEvents = function() {
-        var data = "parent_id=" + $('#parent_id').val() + "&module_name=" + $('#module_name').val() + "&module_type=" + $('#module_type').val();
-
-        data += $('#is_publicly_visible').bootstrapSwitch('state') ? "&is_publicly_visible=1" : "&is_publicly_visible=0";
-
-        $(document).on('change', '#parent_id, #module_name', function(event) {
-            /*ajaxCall("generateModuleUrl", data, 'POST', 'json', generateModuleUrlResponse);*/
-        });
-        $(document).on('switchChange.bootstrapSwitch', '#is_publicly_visible, #module_type', function(event){
-            /*ajaxCall("getCommentData", data, 'POST', 'json', generateModuleUrlResponse);*/
-        });
+        if($('.js-frm-create-module').length) {
+            $(document).on('change', '#parent_id, #module_name, #module_type', function(event) {
+                generateModuleUrl();
+            });
+            $(document).on('switchChange.bootstrapSwitch', '#is_publicly_visible, #module_type', function(event){
+                generateModuleUrl();
+            });
+        }
     };
     return {
         init: function() {
@@ -188,6 +186,12 @@ function moduleDataSuccess(moduleData, status, xhr){
     });
 }
 
-function generateModuleUrlResponse(moduleData, status, xhr) {
-    
+function generateModuleUrl() {
+    var data = "parent_id=" + $('#parent_id').val() + "&module_name=" + $('#module_name').val() + "&module_type=" + $('#module_type').val();
+    data += $('#is_publicly_visible').bootstrapSwitch('state') ? "&is_publicly_visible=1" : "&is_publicly_visible=0";
+    ajaxCall("/admin/generateModuleUrl", data, 'POST', 'json', generateModuleUrlResponse);
+}
+
+function generateModuleUrlResponse(response, status, xhr) {
+    $("#module_url").val(response.moduleUrl);
 }

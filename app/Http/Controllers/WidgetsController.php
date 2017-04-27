@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use View;
 use App\Models\Widget;
 use App\Models\WidgetType;
-use DB;
 use Illuminate\Http\Request;
-use View;
 
 class WidgetsController extends Controller
 {
@@ -55,7 +55,7 @@ class WidgetsController extends Controller
     }
 
     /**
-     * Get role data.
+     * Get widget data.
      *
      * @return \Illuminate\Http\Response
      */
@@ -131,7 +131,7 @@ class WidgetsController extends Controller
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('widgets.index');
+        return redirect()->route('widgets.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -153,7 +153,7 @@ class WidgetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($company, $id)
     {
         $widget = Widget::find($id);
         $WidgetTypes = WidgetType::generate();
@@ -170,7 +170,7 @@ class WidgetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $company, $id)
     {
         $widget = Widget::findOrFail($id);
         $widget->icon = $request->widget_icon;
@@ -185,7 +185,7 @@ class WidgetsController extends Controller
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('widgets.index');
+        return redirect()->route('widgets.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -195,7 +195,7 @@ class WidgetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($company, $id)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
@@ -205,6 +205,6 @@ class WidgetsController extends Controller
         }
         flash()->message($message, $type);
 
-        return redirect()->route('widgets.index');
+        return redirect()->route('widgets.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 }

@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => ['widgets.update', $widget->id], 'method' => 'PUT', 'class' => 'js-frm-edit-widget form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+       		{!! Form::open(['route' => ['widgets.update', 'domain' => app('request')->route()->parameter('company'), 'widgetId' => $widget->id], 'method' => 'PUT', 'class' => 'js-frm-edit-widget form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 		    	@include('partial.admin.widgets.form',['from'=>'edit'])
 			{{ Form::close() }}
         </div>

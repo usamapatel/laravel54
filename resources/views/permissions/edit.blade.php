@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => ['permissions.update', $permission->id], 'method' => 'PUT', 'class' => 'js-frm-edit-permission form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+       		{!! Form::open(['route' => ['permissions.update', 'domain' => app('request')->route()->parameter('company'), 'permissionId' => $permission->id], 'method' => 'PUT', 'class' => 'js-frm-edit-permission form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 		    	@include('partial.admin.permissions.form',['from'=>'edit'])
 			{{ Form::close() }}
         </div>

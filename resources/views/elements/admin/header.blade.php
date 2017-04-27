@@ -3,7 +3,7 @@
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="{{ route('admin.home') }}">
+            <a href="{{ route('admin.home', ['domain' => app('request')->route()->parameter('company')]) }}">
                 <img src="{{ asset('img/logo.png') }}" alt="logo" class="logo-default" /> </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
