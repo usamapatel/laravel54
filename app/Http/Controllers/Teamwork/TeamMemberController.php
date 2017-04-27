@@ -2,17 +2,34 @@
 
 namespace App\Http\Controllers\Teamwork;
 
+use DB;
+use View;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Mpociot\Teamwork\Facades\Teamwork;
 use Mpociot\Teamwork\TeamInvite;
 
 class TeamMemberController extends Controller
 {
-    public function __construct()
+    public $title;
+
+    public function __construct(Request $request)
     {
-        $this->middleware('auth');
+        $this->title = 'Team Member';
+        $this->request = $request;
+        View::share('title', $this->title);
+        parent::__construct();
+    }
+
+    /**
+     * Destory/Unset object variables.
+     *
+     * @return void
+     */
+    public function __destruct()
+    {
+        unset($this->title);
     }
 
     /**
@@ -22,7 +39,7 @@ class TeamMemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($teamId)
+    public function show($company, $teamId)
     {
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
@@ -40,7 +57,7 @@ class TeamMemberController extends Controller
      *
      * @internal param int $teamId
      */
-    public function destroy($teamId, $userId)
+    public function destroy($company, $teamId, $userId)
     {
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
@@ -56,7 +73,7 @@ class TeamMemberController extends Controller
 
         $user->detachTeam($team);
 
-        return redirect(route('teams.index'));
+        return redirect(route('teams.index', ['domain' => app('request')->route()->parameter('company')]));
     }
 
     /**
@@ -65,7 +82,7 @@ class TeamMemberController extends Controller
      *
      * @return $this
      */
-    public function invite(Request $request, $teamId)
+    public function invite(Request $request, $company, $teamId)
     {
         $teamModel = config('teamwork.team_model');
         $team = $teamModel::findOrFail($teamId);
@@ -83,7 +100,7 @@ class TeamMemberController extends Controller
             // Send email to user
         });
 
-        return redirect(route('teams.members.show', $team->id));
+        return redirect(route('teams.members.show', ['domain' => app('request')->route()->parameter('company'), 'id' => $team->id]));
     }
 
     /**
@@ -93,13 +110,13 @@ class TeamMemberController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function resendInvite($inviteId)
+    public function resendInvite($company, $inviteId)
     {
         $invite = TeamInvite::findOrFail($inviteId);
         Mail::send('teamwork.emails.invite', ['team' => $invite->team, 'invite' => $invite], function ($m) use ($invite) {
             $m->to($invite->email)->subject('Invitation to join team '.$invite->team->name);
         });
 
-        return redirect(route('teams.members.show', $invite->team));
+        return redirect(route('teams.members.show', ['domain' => app('request')->route()->parameter('company'), 'id' => $invite->team]));
     }
 }

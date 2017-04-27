@@ -98,7 +98,7 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($company, Request $request)
     {
         $permission = new Permission();
         $permission->name = $request->name;
@@ -106,7 +106,7 @@ class PermissionController extends Controller
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('permissions.index');
+        return redirect()->route('permissions.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -117,7 +117,7 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($permissionId)
+    public function edit($company, $permissionId)
     {
         $permission = Permission::find($permissionId);
 
@@ -133,14 +133,14 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $permissionId)
+    public function update(Request $request, $company, $permissionId)
     {
         $permission = Permission::findOrFail($permissionId);
         $permission->name = $request->name;
         $permission->save();
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('permissions.index');
+        return redirect()->route('permissions.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -151,7 +151,7 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($permissionId)
+    public function destroy($company, $permissionId)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
@@ -161,6 +161,6 @@ class PermissionController extends Controller
         }
         flash()->message($message, $type);
 
-        return redirect()->route('permissions.index');
+        return redirect()->route('permissions.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 }

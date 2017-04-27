@@ -12,7 +12,7 @@ class MenuItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('menu_items')->truncate();
+        DB::table('menu_items')->delete();
         DB::table('menu_items')->insert([
         [
             'menu_id'          => 1,
@@ -296,6 +296,42 @@ class MenuItemsTableSeeder extends Seeder
             'url'              => '/admin/groups/create',
             'type'             => 'Page',
             'parent_id'        => 22,
+            'order'            => 0,
+            'icon'             => 'fa-plus',
+            'is_active'        => 1,
+            'is_shown_on_menu' => 1,
+            'created_at'       => Carbon::now()->format('Y-m-d H:i:s'),
+        ],
+        [
+            'menu_id'          => 1,
+            'name'             => 'Team',
+            'url'              => '#',
+            'type'             => 'Module',
+            'parent_id'        => null,
+            'order'            => 0,
+            'icon'             => 'fa-users',
+            'is_active'        => 1,
+            'is_shown_on_menu' => 1,
+            'created_at'       => Carbon::now()->format('Y-m-d H:i:s'),
+        ],
+        [
+            'menu_id'          => 1,
+            'name'             => 'List all team',
+            'url'              => '/admin/teams',
+            'type'             => 'Page',
+            'parent_id'        => 25,
+            'order'            => 0,
+            'icon'             => 'fa-list',
+            'is_active'        => 1,
+            'is_shown_on_menu' => 1,
+            'created_at'       => Carbon::now()->format('Y-m-d H:i:s'),
+        ],
+        [
+            'menu_id'          => 1,
+            'name'             => 'Add team',
+            'url'              => '/admin/teams/create',
+            'type'             => 'Page',
+            'parent_id'        => 25,
             'order'            => 0,
             'icon'             => 'fa-plus',
             'is_active'        => 1,

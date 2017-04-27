@@ -5,7 +5,7 @@
 @endsection
 @section('page-content')
 
-{!! Form::open(['route' => 'groups.store', 'class' => 'js-frm-create-group form-inline row module-edit', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+{!! Form::open(['route' => ['groups.store', 'domain' => app('request')->route()->parameter('company')], 'class' => 'js-frm-create-group form-inline row module-edit', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 
     @include('partial.admin.groups.form',['from'=>'add'])
     

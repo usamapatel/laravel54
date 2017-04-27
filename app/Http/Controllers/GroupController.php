@@ -134,7 +134,7 @@ class GroupController extends Controller
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('groups.index');
+        return redirect()->route('groups.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -154,7 +154,7 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($company, $id)
     {
         $group = Group::with('menuItems')->find($id);
         $modules = $group->menuItems->pluck('menu_item_id')->toArray();
@@ -170,7 +170,7 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $company, $id)
     {
         $group = Group::findOrFail($id);
         $group->name = $request->group_name;
@@ -188,7 +188,7 @@ class GroupController extends Controller
         }
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
-        return redirect()->route('groups.index');
+        return redirect()->route('groups.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -197,7 +197,7 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($company, $id)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
@@ -207,6 +207,6 @@ class GroupController extends Controller
         }
         flash()->message($message, $type);
 
-        return redirect()->route('groups.index');
+        return redirect()->route('groups.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 }
