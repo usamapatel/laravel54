@@ -227,6 +227,7 @@ return [
         Spatie\Tags\TagsServiceProvider::class,
         Spatie\Translatable\TranslatableServiceProvider::class,
         Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
+        Swap\Laravel\SwapServiceProvider::class,
         Themsaid\LangmanGUI\LangmanServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Ufutx\LaravelComment\LaravelCommentServiceProvider::class,
@@ -342,6 +343,7 @@ return [
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'Swap' => Swap\Laravel\Facades\Swap::class,
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         //'Widget' => Arrilot\Widgets\Facade::class,
 
