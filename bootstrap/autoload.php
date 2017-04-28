@@ -4,6 +4,19 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
+| Register The Helper Overloading functions
+|--------------------------------------------------------------------------
+|
+| Laravel provides a nice st of hhelper fuctions but at times you want
+| to overload load them. Keep such functions in
+| app/Helpers/HelperOverload.php
+|
+*/
+
+require __DIR__.'/../app/Helpers/HelperOverload.php';
+
+/*
+|--------------------------------------------------------------------------
 | Register The Composer Auto Loader
 |--------------------------------------------------------------------------
 |
