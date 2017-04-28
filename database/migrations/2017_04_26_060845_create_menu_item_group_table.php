@@ -14,7 +14,6 @@ class CreateMenuItemGroupTable extends Migration
     public function up()
     {
         Schema::create('menu_item_group', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('group_id')->unsigned();
             $table->foreign('group_id')
                 ->references('id')->on('groups')
@@ -23,7 +22,6 @@ class CreateMenuItemGroupTable extends Migration
             $table->foreign('menu_item_id')
                 ->references('id')->on('menu_items')
                 ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Hash;
+use Landlord;
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -44,6 +47,30 @@ class LoginController extends Controller
     {
         $this->performLogout($request);
 
-        return redirect()->route('front.index');
+        return redirect()->route('front.index', ['domain' => app('request')->route()->parameter('company')])->with('status', 'Profile updated!');
+    }
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if($user) {
+            if (Hash::check($request->password, $user->password)) {
+                $companies = $user->companies->pluck('slug')->toArray();
+                $currentCompanySlug = Landlord::getTenants()['company']->slug;
+                if(!in_array($currentCompanySlug, $companies)) {
+                    return false;
+                }
+            }
+        }
+
+        return $this->guard()->attempt(
+            $this->credentials($request), $request->has('remember')
+        );
     }
 }

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use View;
+use Landlord;
 use App\Models\Menu;
 use App\Models\MenuItem;
-use DB;
+use App\Models\Companies;
 use Illuminate\Http\Request;
-use View;
+use Spatie\Permission\Models\Permission;
 
 class ModulesController extends Controller
 {
@@ -121,6 +124,12 @@ class ModulesController extends Controller
         $module = new MenuItem();
         $module = $this->setVariables($module, $request);
         $module->save();
+
+        $companyId = Landlord::getTenants()['company']->id;
+        $permission = new Permission();
+        $permission->name = $companyId.'.'.$module->id;
+        $permission->save();
+
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
         return redirect()->route('modules.index', ['domain' => app('request')->route()->parameter('company')]);
@@ -175,6 +184,10 @@ class ModulesController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
+        $companyId = Landlord::getTenants()['company']->id;
+
+        Permission::where('name', $companyId.'.'.$moduleId)->delete();
+
         if (!MenuItem::where('id', $moduleId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
@@ -205,6 +218,10 @@ class ModulesController extends Controller
         return ['moduleUrl' => $this->uniqueUrl];
     }
 
+    /**
+     * @param Object $module
+     * @param Object $request
+     */
     private function setVariables($module, $request)
     {
         $module->menu_id = 1;
@@ -218,6 +235,7 @@ class ModulesController extends Controller
         $module->is_active = $request->is_active ? 1 : 0;
         $module->is_shown_on_menu = $request->is_shown_on_menu ? 1 : 0;
         $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
+
         return $module;
     }
 

@@ -23,5 +23,12 @@ class UsersTableSeeder extends Seeder
             'password'   => bcrypt('password'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ], ]);
+
+        DB::table('company_user')->delete();
+        DB::table('company_user')->insert([
+        [
+            'company_id' => 1,
+            'user_id' => 1,
+        ], ]);        
     }
 }

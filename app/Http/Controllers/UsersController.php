@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use View;
+use Landlord;
 use App\Models\User;
 use Carbon\Carbon as Carbon;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use View;
 
 class UsersController extends Controller
 {
@@ -106,8 +107,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-
+        $companyId = Landlord::getTenants()['company']->id;
+        $roles = Role::where('name', 'LIKE', $companyId . '%')->get();
         return view('users.create', compact('roles'));
     }
 
@@ -154,8 +155,8 @@ class UsersController extends Controller
     public function edit($company, $userId)
     {
         $user = User::find($userId);
-        $roles = Role::all();
-
+        $companyId = Landlord::getTenants()['company']->id;
+        $roles = Role::where('name', 'LIKE', $companyId . '%')->get();
         return view('users.edit', compact('user', 'roles'));
     }
 
@@ -193,7 +194,9 @@ class UsersController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (!User::where('id', $userId)->delete()) {
+        $user = User::find($userId);
+        $user->syncRoles();
+        if (!$user->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }

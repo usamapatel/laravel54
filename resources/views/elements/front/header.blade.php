@@ -47,7 +47,7 @@
                     <a href="{{ url('/register') }}">Register</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="{{ url('/login') }}">Login</a>
+                    <a href="{{ url('/companyselect') }}">Login</a>
                 </li>
             </ul>
         </div>
