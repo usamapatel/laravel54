@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use DB;
 use View;
+use Landlord;
+use App\Models\Companies;
 use App\Models\Menu;
 use App\Models\Group;
 use App\Models\MenuItem;
 use App\Models\MenuItemGroup;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class GroupController extends Controller
 {
@@ -55,7 +59,7 @@ class GroupController extends Controller
     public function getGroupData()
     {
         $request = $this->request->all();
-        $groups = DB::table('groups')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $groups = DB::table('roles')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'groups.created_datetime';
         $sorttype = 'desc';
@@ -119,19 +123,23 @@ class GroupController extends Controller
     {
         $request = $this->request;
         $this->init();
-        $group = new Group();        
-        $group->name = $request->group_name;
-        $group->status = $request->status ? 1 : 0;
-        $group->company_id = 1;
-        $group->save();
+        $company_id = Landlord::getTenants()['companies_id'];
 
-        foreach($request->groupItems as $item) {
-            $menuItems = new MenuItemGroup();
-            $menuItems->group_id = $group->id;
-            $menuItems->menu_item_id = $item;
-            $menuItems->save();
-        }
-
+        // create a new role for the added group
+        $role = Role::create([
+            'name' => $company_id . '.' . $request->group_name,
+            'display_name' => $request->group_name,
+        ]);
+        
+        // fetch all the relevant permission ids based on the menu items
+        $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
+        $permissionsName = $menuItems->map(function($item, $key) use($company_id) {
+            return $company_id . '.' . $item->id;
+        });
+        $permissions = Permission::whereIn('name', $permissionsName)->pluck('id');
+        
+        // Bind all the selected permissions to the newly created role
+        $role->permissions()->sync($permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
         return redirect()->route('groups.index', ['domain' => app('request')->route()->parameter('company')]);
@@ -156,11 +164,19 @@ class GroupController extends Controller
      */
     public function edit($company, $id)
     {
-        $group = Group::with('menuItems')->find($id);
-        $modules = $group->menuItems->pluck('menu_item_id')->toArray();
+        $role = Role::find($id);
+        $assignedPermissions = $role->permissions->pluck('id');
+        
+        $permissions = Permission::whereIn('id', $assignedPermissions)->get();
+        $company_id = Landlord::getTenants()['companies_id'];
+        $modules = $permissions->map(function($item, $key) use($company_id) {
+            $menuItemId = explode('.',$item->name);
+            return (int)$menuItemId[1];
+        })->toArray();
+
         $menu = Menu::where('company_id', 1)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
-        return view('groups.edit', compact('group', 'menu', 'menuTree', 'modules'));
+        return view('groups.edit', compact('role', 'menu', 'menuTree', 'modules'));
     }
 
     /**
@@ -172,20 +188,25 @@ class GroupController extends Controller
      */
     public function update(Request $request, $company, $id)
     {
-        $group = Group::findOrFail($id);
-        $group->name = $request->group_name;
-        $group->status = $request->status ? 1 : 0;
-        $group->company_id = 1;
-        $group->save();
+        $request = $this->request;
+        $this->init();
+        $company_id = Landlord::getTenants()['companies_id'];
 
-        $oldGroupItems = MenuItemGroup::where('group_id', $group->id)->delete();
+        // update role
+        $role = Role::findOrFail($id);
+        $role->display_name = $request->group_name;
+        // $role->status = $request->status ? 1 : 0;
+        $role->save();
 
-        foreach($request->groupItems as $item) {
-            $menuItems = new MenuItemGroup();
-            $menuItems->group_id = $group->id;
-            $menuItems->menu_item_id = $item;
-            $menuItems->save();
-        }
+        // fetch all the relevant permission ids based on the menu items
+        $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
+        $permissionsName = $menuItems->map(function($item, $key) use($company_id) {
+            return $company_id . '.' . $item->id;
+        });
+        $permissions = Permission::whereIn('name', $permissionsName)->pluck('id');
+
+        // Bind all the selected permissions to the updated role      
+        $role->permissions()->sync($permissions);
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
         return redirect()->route('groups.index', ['domain' => app('request')->route()->parameter('company')]);
@@ -201,7 +222,7 @@ class GroupController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (!Group::where('id', $id)->delete()) {
+        if (!Role::where('id', $id)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }
