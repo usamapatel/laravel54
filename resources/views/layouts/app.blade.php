@@ -97,6 +97,5 @@
     @yield('beforeScript')
     <script src="{{ mix('js/app.js') }}" type="application/javascript"></script>
     @yield('afterScript')
-    <script src="/js/laroute.js"></script>
 </body>
 </html>

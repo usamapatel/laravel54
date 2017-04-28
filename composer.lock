@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a181102db2d5ddb1fb55ae375b2194fd",
+    "content-hash": "1a4c63c681fabd21152207a58611795d",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -7381,16 +7381,16 @@
         },
         {
             "name": "spatie/laravel-activitylog",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-activitylog.git",
-                "reference": "3afaf432e935f329c2e210f32b56add87d83a73d"
+                "reference": "5f436c11031520ae7b5c365d2dc5468a01ca2bec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/3afaf432e935f329c2e210f32b56add87d83a73d",
-                "reference": "3afaf432e935f329c2e210f32b56add87d83a73d",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/5f436c11031520ae7b5c365d2dc5468a01ca2bec",
+                "reference": "5f436c11031520ae7b5c365d2dc5468a01ca2bec",
                 "shasum": ""
             },
             "require": {
@@ -7441,7 +7441,7 @@
                 "spatie",
                 "user"
             ],
-            "time": "2017-04-16T19:17:47+00:00"
+            "time": "2017-04-28T06:02:07+00:00"
         },
         {
             "name": "spatie/laravel-backup",
