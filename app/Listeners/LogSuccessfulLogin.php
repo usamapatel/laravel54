@@ -32,15 +32,5 @@ class LogSuccessfulLogin
      */
     public function handle(Login $event)
     {
-        /*
-         * Check to see if the users account is confirmed and active
-         */
-        if ($event->user->is_verified === 1) {
-            $event->user->last_login_time = Carbon::now();
-            $event->user->last_active_time = Carbon::now();
-            $event->user->is_online = 1;
-            $event->user->is_active = 1;
-            $event->user->save();
-        }
     }
 }

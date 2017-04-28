@@ -47,7 +47,22 @@ class User extends Authenticatable implements HasBansContract
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'person_id',
+        'username',
+        'email',
+        'password',
+        'verification_token',
+        'is_verified',
+        'verified_at',
+        'is_online',
+        'last_login_time',
+        'is_active',
+        'last_active_time',
+        'is_banned',
+        'banned_at',
+        'banned_by',
+        'timezone',
+        'settings',
     ];
 
     /**
@@ -56,6 +71,44 @@ class User extends Authenticatable implements HasBansContract
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'verification_token', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'person_id' => 'integer',
+        'username' => 'string',
+        'email' => 'string',
+        'password' => 'string',
+        'is_verified' => 'boolean',
+        'verified_at' => 'datetime',
+        'is_online' => 'boolean',
+        'last_login_time' => 'datetime',
+        'is_active' => 'boolean',
+        'last_active_time' => 'datetime',
+        'is_banned' => 'boolean',
+        'banned_at' => 'datetime',
+        'banned_by' => 'integer',
+        'timezone' => 'string',
+        'settings' => 'array',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'verified_at',
+        'last_login_time',
+        'last_active_time',
+        'banned_at',
     ];
 }
