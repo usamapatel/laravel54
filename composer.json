@@ -4,6 +4,10 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/coding-sunshine/laravel-langman-gui" }
+    ],
+    "require-all": true,
     "require": {
         "php": ">=5.6.4",
         "appstract/laravel-multisite": "^0.2.0",
@@ -92,7 +96,7 @@
         "spatie/laravel-url-signer": "^2.0",
         "spatie/string": "^2.2",
         "spatie/valuestore": "^1.1",
-        "themsaid/laravel-langman-gui": "^0.1.0",
+        "themsaid/laravel-langman-gui": "dev-master",
         "timacdonald/rule-builder": "^2.2",
         "tymon/jwt-auth": "^0.5.10",
         "ufutx/laravel-comment": "^1.0",

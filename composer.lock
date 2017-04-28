@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c144c5c81099735c24ba86dc7726c1e",
+    "content-hash": "a181102db2d5ddb1fb55ae375b2194fd",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3655,16 +3655,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.19",
+            "version": "v5.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad"
+                "reference": "851aad458bcc904178ded02954d55d36c2c35f8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/02444b7450350db17a7607c8a52f7268ebdb0dad",
-                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/851aad458bcc904178ded02954d55d36c2c35f8b",
+                "reference": "851aad458bcc904178ded02954d55d36c2c35f8b",
                 "shasum": ""
             },
             "require": {
@@ -3780,7 +3780,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-16T13:33:34+00:00"
+            "time": "2017-04-27T13:04:35+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -7077,16 +7077,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "9de1595caf0501fb24f0c71a3f520e404cb29de8"
+                "reference": "de814b9fc301b26f93dae7378370a934f5000f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/9de1595caf0501fb24f0c71a3f520e404cb29de8",
-                "reference": "9de1595caf0501fb24f0c71a3f520e404cb29de8",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/de814b9fc301b26f93dae7378370a934f5000f11",
+                "reference": "de814b9fc301b26f93dae7378370a934f5000f11",
                 "shasum": ""
             },
             "require": {
@@ -7127,7 +7127,7 @@
                 "screenshot",
                 "webpage"
             ],
-            "time": "2017-03-14T18:48:35+00:00"
+            "time": "2017-04-27T22:39:13+00:00"
         },
         {
             "name": "spatie/crawler",
@@ -8284,16 +8284,16 @@
         },
         {
             "name": "spatie/laravel-responsecache",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-responsecache.git",
-                "reference": "e36e5006b591129b7e4dacc700c52817e2e08ddc"
+                "reference": "cb085bcbe2cb2966f5d2f74c257a04d6ae485756"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/e36e5006b591129b7e4dacc700c52817e2e08ddc",
-                "reference": "e36e5006b591129b7e4dacc700c52817e2e08ddc",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/cb085bcbe2cb2966f5d2f74c257a04d6ae485756",
+                "reference": "cb085bcbe2cb2966f5d2f74c257a04d6ae485756",
                 "shasum": ""
             },
             "require": {
@@ -8340,7 +8340,7 @@
                 "response",
                 "spatie"
             ],
-            "time": "2017-03-17T00:00:05+00:00"
+            "time": "2017-04-27T20:35:37+00:00"
         },
         {
             "name": "spatie/laravel-robots-middleware",
@@ -10024,16 +10024,16 @@
         },
         {
             "name": "themsaid/laravel-langman-gui",
-            "version": "v0.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/themsaid/laravel-langman-gui.git",
-                "reference": "a36f29064ad68808cc102e68cc9d6056d511bc8f"
+                "url": "https://github.com/coding-sunshine/laravel-langman-gui.git",
+                "reference": "3c016ffa9edaeb49c98d110a9d4d0c0831eb65ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/themsaid/laravel-langman-gui/zipball/a36f29064ad68808cc102e68cc9d6056d511bc8f",
-                "reference": "a36f29064ad68808cc102e68cc9d6056d511bc8f",
+                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/3c016ffa9edaeb49c98d110a9d4d0c0831eb65ee",
+                "reference": "3c016ffa9edaeb49c98d110a9d4d0c0831eb65ee",
                 "shasum": ""
             },
             "require": {
@@ -10046,7 +10046,6 @@
                     "Themsaid\\LangmanGUI\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -10064,7 +10063,10 @@
                 "localization",
                 "multilingual"
             ],
-            "time": "2017-04-26T18:47:27+00:00"
+            "support": {
+                "source": "https://github.com/coding-sunshine/laravel-langman-gui/tree/master"
+            },
+            "time": "2017-04-28T04:09:45+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -12378,16 +12380,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "3.2.3",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "97246d90708cf98983d95d609bbe6f4b039b8600"
+                "reference": "1c77d11878c4bd475bc66f0eaa2686df0fcfa30f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/97246d90708cf98983d95d609bbe6f4b039b8600",
-                "reference": "97246d90708cf98983d95d609bbe6f4b039b8600",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/1c77d11878c4bd475bc66f0eaa2686df0fcfa30f",
+                "reference": "1c77d11878c4bd475bc66f0eaa2686df0fcfa30f",
                 "shasum": ""
             },
             "require": {
@@ -12396,7 +12398,7 @@
                 "php": "^5.6 || ^7.0",
                 "phpspec/php-diff": "^1.0.0",
                 "phpspec/prophecy": "^1.5",
-                "sebastian/exporter": "^1.0 || ^2.0",
+                "sebastian/exporter": "^1.0 || ^2.0 || ^3.0",
                 "symfony/console": "^2.7 || ^3.0",
                 "symfony/event-dispatcher": "^2.7 || ^3.0",
                 "symfony/finder": "^2.7 || ^3.0",
@@ -12404,9 +12406,9 @@
                 "symfony/yaml": "^2.7 || ^3.0"
             },
             "require-dev": {
-                "behat/behat": "^3.1",
+                "behat/behat": "^3.3",
                 "ciaranmcnulty/versionbasedtestskipper": "^0.2.1",
-                "phpunit/phpunit": "^5.4",
+                "phpunit/phpunit": "^5.5|^6.0",
                 "symfony/filesystem": "^3.0"
             },
             "suggest": {
@@ -12456,7 +12458,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-01-29T12:28:48+00:00"
+            "time": "2017-04-27T12:40:39+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -14729,6 +14731,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "dingo/api": 20,
+        "themsaid/laravel-langman-gui": 20,
         "ufutx/laravel-favorite": 20,
         "mathiasgrimm/laravel-dot-env-gen": 20,
         "phpro/grumphp": 20,
