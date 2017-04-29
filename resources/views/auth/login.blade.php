@@ -13,15 +13,15 @@
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="email" id="email" autocomplete="off" placeholder="{{ __("Email") }}" name="email" value="{{ old('email') }}" required/>
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="login" autocomplete="off" placeholder="{{ __("Email or Username") }}" name="login" value="{{ old('login') }}" required/>
                 </div>
                 <div class="col-xs-6">
                     <input class="form-control form-control-solid placeholder-no-fix form-group" id="password" type="password" autocomplete="off" placeholder="{{ __("Password") }}" name="password" required/>
                 </div>
                 <div class="col-xs-6">
-                    @if ($errors->has('email'))
+                    @if ($errors->has('login'))
                         <span class="help-block">
-                            <strong>{{ __($errors->first('email')) }}</strong>
+                            <strong>{{ __($errors->first('login')) }}</strong>
                         </span>
                     @endif
                 </div>

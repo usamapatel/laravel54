@@ -15,13 +15,25 @@ class UsersTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        DB::table('people')->delete();
+        $person = DB::table('people')->insert([
+                                                [
+                                                    'first_name'       => 'Hardik',
+                                                    'last_name'     => 'Shah',
+                                                    'display_name'      => 'Hardik Shah',
+                                                    'primary_email' => 'hshah@aecordigital.com'
+                                                ], ]
+                    );
+
         DB::table('users')->delete();
         DB::table('users')->insert([
         [
-            'name'       => 'Hardik Shah',
+            'person_id' => 1,
+            'username' => 'admin',
             'email'      => 'hshah@aecordigital.com',
             'password'   => bcrypt('password'),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'verification_token' => md5(uniqid(mt_rand(), true)),
+
         ], ]);
 
         DB::table('company_user')->delete();
