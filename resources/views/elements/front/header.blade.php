@@ -1,4 +1,23 @@
 <nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="lang-translation">
+        <ul>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    {{ LaravelLocalization::getCurrentLocaleNative() }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode, $url = null, $attributes = [], $forceDefaultLocation = true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div style="clear: both"></div>
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">

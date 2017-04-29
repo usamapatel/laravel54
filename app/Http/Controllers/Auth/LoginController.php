@@ -47,7 +47,7 @@ class LoginController extends Controller
     {
         $this->performLogout($request);
 
-        return redirect()->route('front.index', ['domain' => app('request')->route()->parameter('company')])->with('status', 'Profile updated!');
+        return redirect()->route('front.index', ['domain' => 'www'])->with('status', 'Profile updated!');
     }
 
     /**
