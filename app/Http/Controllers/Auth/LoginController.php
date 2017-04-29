@@ -59,7 +59,9 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $field = filter_var($this->request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $user = User::where($field, $request->login)->first();
+
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $companies = $user->companies->pluck('slug')->toArray();
