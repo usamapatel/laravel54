@@ -29,7 +29,7 @@
             <div class="row">
                 @foreach($roles as $role)
                     <div class="col-md-3">
-                        {{ Form::checkbox('roles[]', $role->name, $from == "edit" ? $user->hasRole($role->name) : null ) }} {{ ucfirst(trans($role->name)) }}<br>
+                        {{ Form::checkbox('roles[]', $role->name, $from == "edit" ? $user->hasRole($role->name) : null ) }} {{ $role->display_name }}<br>
                     </div>
                 @endforeach
             </div>

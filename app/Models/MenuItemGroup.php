@@ -12,4 +12,6 @@ class MenuItemGroup extends Model
      * @var string
      */
     protected $table = 'menu_item_group';
+
+    public $timestamps = false;
 }

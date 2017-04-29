@@ -127,9 +127,6 @@ var initTable = function () {
         "order": [
             [1, "asc"]
         ], // set first column as a default sort by asc
-        "fnDrawCallback": function () {
-            $('.dataTables_info').prepend($('.dataTables_length'));
-        }
     });
 
     var tableWrapper = jQuery('#sample_1_wrapper');

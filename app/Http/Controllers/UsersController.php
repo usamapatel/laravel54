@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Carbon\Carbon as Carbon;
 use DB;
+use View;
+use Landlord;
+use App\Models\User;
+use App\Models\CompanyUser;
+use Carbon\Carbon as Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use View;
 
 class UsersController extends Controller
 {
@@ -64,7 +66,9 @@ class UsersController extends Controller
     public function getUserData()
     {
         $request = $this->request->all();
-        $users = DB::table('users')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $companyId = Landlord::getTenants()['company']->id;
+
+        $users = DB::table('users')->join('company_user', 'company_user.user_id', 'users.id')->where('company_user.company_id', $companyId)->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'users.id';
         $sorttype = 'desc';
@@ -106,8 +110,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-
+        $companyId = Landlord::getTenants()['company']->id;
+        $roles = Role::where('name', 'LIKE', $companyId . '%')->get();
         return view('users.create', compact('roles'));
     }
 
@@ -121,6 +125,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->init();
+        $companyId = Landlord::getTenants()['company']->id;
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -128,6 +133,12 @@ class UsersController extends Controller
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
         $user->save();
         $user->assignRole($request->get('roles'));
+
+        $companyUser = new CompanyUser();
+        $companyUser->company_id = $companyId;
+        $companyUser->user_id = $user->id;
+        $companyUser->save();
+
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
         return redirect()->route('users.index', ['domain' => app('request')->route()->parameter('company')]);
@@ -154,8 +165,8 @@ class UsersController extends Controller
     public function edit($company, $userId)
     {
         $user = User::find($userId);
-        $roles = Role::all();
-
+        $companyId = Landlord::getTenants()['company']->id;
+        $roles = Role::where('name', 'LIKE', $companyId . '%')->get();
         return view('users.edit', compact('user', 'roles'));
     }
 
@@ -193,7 +204,9 @@ class UsersController extends Controller
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (!User::where('id', $userId)->delete()) {
+        $user = User::find($userId);
+        $user->syncRoles();
+        if (!$user->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }

@@ -58,4 +58,14 @@ class User extends Authenticatable implements HasBansContract
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relationship: companies
+     *
+     * @return
+     */
+    public function companies()
+    {
+        return $this->belongsToMany('App\Models\Companies', 'company_user', 'user_id', 'company_id');
+    }
 }

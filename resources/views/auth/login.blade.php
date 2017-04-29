@@ -18,6 +18,13 @@
                 <div class="col-xs-6">
                     <input class="form-control form-control-solid placeholder-no-fix form-group" id="password" type="password" autocomplete="off" placeholder="{{ __("Password") }}" name="password" required/>
                 </div>
+                <div class="col-xs-6">
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ __($errors->first('email')) }}</strong>
+                        </span>
+                    @endif
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">

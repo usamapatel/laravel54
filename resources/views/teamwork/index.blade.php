@@ -7,7 +7,7 @@
 @section('page-content')
     <div class="row">
         <div class="col-md-12" id="teamlist">
-            <div class="portlet box green">
+            {{-- <div class="portlet box green">
                 <div class="portlet-title">
                     <div class="caption">
                         Search
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="portlet light">
                 @include('flash::message')
                 <div class="portlet-title">
