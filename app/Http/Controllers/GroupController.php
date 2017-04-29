@@ -59,7 +59,8 @@ class GroupController extends Controller
     public function getGroupData()
     {
         $request = $this->request->all();
-        $groups = DB::table('roles')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $companyId = Landlord::getTenants()['company']->id;
+        $groups = DB::table('roles')->where('name', 'LIKE', $companyId.'%')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'groups.created_datetime';
         $sorttype = 'desc';

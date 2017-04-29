@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Companies;
 use App\Models\CompanyUser;
 use Illuminate\Http\Request;
+use App\Events\CompanyRegistered;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
