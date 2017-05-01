@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use View;
+use Landlord;
 use App\Models\Menu;
 use App\Models\MenuItem;
-use DB;
+use App\Models\Companies;
 use Illuminate\Http\Request;
-use View;
+use Spatie\Permission\Models\Permission;
 
 class ModulesController extends Controller
 {
     public $title;
     public $uniqueUrl;
+    public $menuId;
 
     /**
      * Create a new controller instance.
@@ -20,6 +24,7 @@ class ModulesController extends Controller
      */
     public function __construct(Request $request)
     {
+        $this->menuId = null;
         $this->title = 'Module';
         $this->request = $request;
         View::share('title', $this->title);
@@ -34,6 +39,7 @@ class ModulesController extends Controller
     public function __destruct()
     {
         unset($this->title);
+        unset($this->menuId);
     }
 
     /**
@@ -43,6 +49,9 @@ class ModulesController extends Controller
      */
     public function init()
     {
+        $companyId = Landlord::getTenants()['company']->id;
+        $menu = Menu::where('company_id', $companyId)->where('name', 'Sidebar')->first();
+        $this->menuId = $menu->id;
     }
 
     /**
@@ -62,8 +71,10 @@ class ModulesController extends Controller
      */
     public function getModuleData()
     {
+        $this->init();
         $request = $this->request->all();
         $modules = DB::table('menu_items')
+                ->where('menu_id', $this->menuId)
                 ->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'menu_items.id';
@@ -102,7 +113,8 @@ class ModulesController extends Controller
      */
     public function create()
     {
-    	$menuItems = MenuItem::where('menu_id', 1)->where('type', 'Module')->get()->toArray();
+        $this->init();
+    	$menuItems = MenuItem::where('menu_id', $this->menuId)->where('type', 'Module')->get()->toArray();
         $allModules = Menu::buildMenuTree($menuItems);
 
         return view('modules.create', compact('allModules'));
@@ -121,6 +133,12 @@ class ModulesController extends Controller
         $module = new MenuItem();
         $module = $this->setVariables($module, $request);
         $module->save();
+
+        $companyId = Landlord::getTenants()['company']->id;
+        $permission = new Permission();
+        $permission->name = $companyId.'.'.$module->id;
+        $permission->save();
+
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
         return redirect()->route('modules.index', ['domain' => app('request')->route()->parameter('company')]);
@@ -135,8 +153,9 @@ class ModulesController extends Controller
      */
     public function edit($company, $moduleId)
     {
+        $this->init();
         $module = MenuItem::find($moduleId);
-        $menuItems = MenuItem::where('menu_id', 1)->where('type', 'Module')->get()->toArray();
+        $menuItems = MenuItem::where('menu_id', $this->menuId)->where('type', 'Module')->get()->toArray();
         $allModules = Menu::buildMenuTree($menuItems);
 
         return view('modules.edit', compact('module', 'allModules'));
@@ -173,8 +192,13 @@ class ModulesController extends Controller
      */
     public function destroy($company, $moduleId)
     {
+        $this->init();
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
+        $companyId = Landlord::getTenants()['company']->id;
+
+        Permission::where('name', $companyId.'.'.$moduleId)->delete();
+
         if (!MenuItem::where('id', $moduleId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
@@ -205,9 +229,14 @@ class ModulesController extends Controller
         return ['moduleUrl' => $this->uniqueUrl];
     }
 
+    /**
+     * @param Object $module
+     * @param Object $request
+     */
     private function setVariables($module, $request)
     {
-        $module->menu_id = 1;
+        $this->init();
+        $module->menu_id = $this->menuId;
         $module->name = $request->name;
         $module->description = $request->description;
         $module->url = $request->url;
@@ -218,6 +247,7 @@ class ModulesController extends Controller
         $module->is_active = $request->is_active ? 1 : 0;
         $module->is_shown_on_menu = $request->is_shown_on_menu ? 1 : 0;
         $module->is_publicly_visible = $request->is_publicly_visible ? 1 : 0;
+
         return $module;
     }
 

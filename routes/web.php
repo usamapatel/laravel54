@@ -24,7 +24,11 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
                 return view('index');
             })->name('front.index');
 
+            Route::get('companyselect', 'CompaniesController@selectCompany')->name('company.select');
+            Route::post('companyselect', 'CompaniesController@checkCompany')->name('check.selected.company');
+
             Auth::routes();
+            Route::post('company/generateSlug', 'CompaniesController@generateSlug')->name('generate.company.slug');
 
             Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 

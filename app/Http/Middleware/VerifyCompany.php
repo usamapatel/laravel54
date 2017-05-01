@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Config;
 use Closure;
 use Landlord;
@@ -26,14 +27,17 @@ class VerifyCompany
             return response()->json(['error' => 'not found'], 404);
         }
 
-        $company = Companies::where('slug', $slug)->first();
+        if(Auth::check() && $slug !== "www") {
+            $company = $request->user()->companies()->where('slug', $slug)->first();
+        } else {
+            $company = Companies::where('slug', $slug)->first();
+        }
 
         if(!$company) {
             return response()->json(['error' => 'not found'], 404);
         }
 
-        //Add the tenant
-        Landlord::addTenant($company);
+        Landlord::addTenant('company', $company);
         Config::set('config-variable.app.subdomain', $slug);
 
         return $next($request);

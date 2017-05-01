@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use View;
+use Landlord;
 use App\Models\Menu;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use View;
+
 
 class Controller extends BaseController
 {
@@ -15,10 +17,15 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        // find menu by company and name for sidebar name will be "Sidebar"
-        // eg: $menu = Menu::where('company_id', $company_id)->where('name', 'Sidebar')->first();
-        $menu = Menu::find(1);
-        $menuArray = $menu->generate();
-        View::share('menu_items', $menuArray);
+    	$this->middleware(function ($request, $next) {
+    		$companyId = Landlord::getTenants()['company']->id;
+	        $menu = Menu::where('company_id', $companyId)->where('name', 'Sidebar')->first();
+	        $menuArray = array();
+	        if($menu) {
+	        	$menuArray = $menu->generate();
+	        }
+	        View::share('menu_items', $menuArray);
+	        return $next($request);
+	    });
     }
 }

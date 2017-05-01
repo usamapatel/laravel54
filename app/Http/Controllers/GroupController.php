@@ -59,7 +59,8 @@ class GroupController extends Controller
     public function getGroupData()
     {
         $request = $this->request->all();
-        $groups = DB::table('roles')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $companyId = Landlord::getTenants()['company']->id;
+        $groups = DB::table('roles')->where('name', 'LIKE', $companyId.'%')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'groups.created_datetime';
         $sorttype = 'desc';
@@ -123,7 +124,7 @@ class GroupController extends Controller
     {
         $request = $this->request;
         $this->init();
-        $company_id = Landlord::getTenants()['companies_id'];
+        $company_id = Landlord::getTenants()['company']->id;
 
         // create a new role for the added group
         $role = Role::create([
@@ -168,7 +169,7 @@ class GroupController extends Controller
         $assignedPermissions = $role->permissions->pluck('id');
         
         $permissions = Permission::whereIn('id', $assignedPermissions)->get();
-        $company_id = Landlord::getTenants()['companies_id'];
+        $company_id = Landlord::getTenants()['company']->id;
         $modules = $permissions->map(function($item, $key) use($company_id) {
             $menuItemId = explode('.',$item->name);
             return (int)$menuItemId[1];
@@ -190,7 +191,7 @@ class GroupController extends Controller
     {
         $request = $this->request;
         $this->init();
-        $company_id = Landlord::getTenants()['companies_id'];
+        $company_id = Landlord::getTenants()['company']->id;
 
         // update role
         $role = Role::findOrFail($id);

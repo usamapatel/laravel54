@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Basemodel as Model;
 
 class MenuItemGroup extends Model
 {
@@ -12,4 +12,6 @@ class MenuItemGroup extends Model
      * @var string
      */
     protected $table = 'menu_item_group';
+
+    public $timestamps = false;
 }

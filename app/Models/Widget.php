@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Basemodel as Model;
 
 class Widget extends Model
 {
