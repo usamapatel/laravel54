@@ -51,8 +51,8 @@
     <div class="wrapper">
         @if (Route::has('login'))
             <div class="links">
-                <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
+                <a href="{{ url('/login') }}">{{ __("Login") }}</a>
+                <a href="{{ url('/register') }}">{{ __("Register") }}</a>
             </div>
         @endif
 

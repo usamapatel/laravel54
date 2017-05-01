@@ -5,11 +5,11 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase">Add Module</span>
+                <span class="caption-subject">Add Module</span>
             </div>
         </div>
         <div class="portlet-body form">
-       		{!! Form::open(['route' => 'modules.store', 'class' => 'js-frm-create-module form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+       		{!! Form::open(['route' => ['modules.store', 'domain' => app('request')->route()->parameter('company')], 'class' => 'js-frm-create-module form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 		    	@include('partial.admin.modules.form',['from'=>'add'])
 			{{ Form::close() }}
         </div>

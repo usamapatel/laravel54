@@ -23,7 +23,7 @@
                             </a>    
                             @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
                         @else
-                            <a href="{{ $menu_item['url'] }}" class="nav-link nav-toggle">
+                            <a href="{{ url($menu_item['url']) }}" class="nav-link nav-toggle">
                                 <i class="fa {{ $menu_item['icon'] }}"></i>
                                 <span class="title">{{ $menu_item['name'] }}</span>
                                 <span class="arrow"></span>

@@ -44,10 +44,10 @@
                     <a href="#contact">Contact</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ url('/register') }}">Register</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ url('/login') }}">Login</a>
                 </li>
             </ul>
         </div>

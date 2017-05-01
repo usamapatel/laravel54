@@ -123,7 +123,7 @@ class RolesController extends Controller
         $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -133,7 +133,7 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($rolesId)
+    public function edit($company, $rolesId)
     {
         $role = Role::find($rolesId);
         $permissions = Permission::all();
@@ -151,7 +151,7 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $rolesId)
+    public function update(Request $request, $company, $rolesId)
     {
         $this->init();
         $role = Role::findOrFail($rolesId);
@@ -161,7 +161,7 @@ class RolesController extends Controller
         $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -172,7 +172,7 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($rolesId)
+    public function destroy($company, $rolesId)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
@@ -182,6 +182,6 @@ class RolesController extends Controller
         }
         flash()->message($message, $type);
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 }

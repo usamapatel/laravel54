@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('users.create') }}"> Add New
+                            <a class="btn sbold green" href="{{ route('users.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>

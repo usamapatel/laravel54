@@ -3,7 +3,7 @@
 @section('page-content')
     <div class="row">
         <div class="col-md-12" id="widgetlist">
-            <div class="portlet box green">
+            <div class="portlet box white">
                 <div class="portlet-title">
                     <div class="caption">
                         Search
@@ -41,11 +41,11 @@
                 <div class="portlet-title">
                     <div class="caption col-md-9">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Widget List</span>
+                        <span class="caption-subject">Widget List</span>
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('widgets.create') }}"> Add New
+                            <a class="btn sbold green" href="{{ route('widgets.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>

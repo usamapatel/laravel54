@@ -7,7 +7,7 @@
 
 @section('page-content')
 	<!-- BEGIN DASHBOARD STATS 1-->
-    @if($widgets["tile-count-widget"] == 1)
+    @if(isset($widgets["tile-count-widget"]) && $widgets["tile-count-widget"] == 1)
     <div class="row">
         @if($widgets["new-feedbacks"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -71,7 +71,7 @@
     @endif
     <div class="clearfix"></div>
     <!-- END DASHBOARD STATS 1-->
-    @if($widgets["graph"] ==1)
+    @if(isset($widgets["graph"]) && $widgets["graph"] ==1)
     <div class="row">
         @if($widgets["area-chart"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
@@ -104,7 +104,7 @@
         </div>
         @endif
 
-        @if($widgets["line-chart"] == 1)
+        @if(isset($widgets["line-chart"]) && $widgets["line-chart"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN PORTLET-->
             <div class="portlet light ">
@@ -178,7 +178,7 @@
     </div>
     @endif
     <div class="row">
-        @if($widgets["comments-widget"] == 1)
+        @if(isset($widgets["comments-widget"]) && $widgets["comments-widget"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title tabbable-line">
@@ -415,7 +415,7 @@
         </div>
         @endif
         <div class="col-lg-6 col-xs-12 col-sm-12">
-            @if($widgets["quick-actions-widget"] == 1)
+            @if(isset($widgets["quick-actions-widget"]) && $widgets["quick-actions-widget"] == 1)
             <div class="portlet light ">
                 <div class="portlet-title tabbable-line">
                     <div class="caption">
@@ -2189,7 +2189,7 @@
         </div>
     </div>
 
-    @if($widgets["stats"] == 1)
+    @if(isset($widgets["stats"]) && $widgets["stats"] == 1)
     <div class="row">
         @if($widgets["general-stats"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
@@ -2241,7 +2241,7 @@
         </div>
         @endif
 
-        @if($widgets["server-stats"] == 1)
+        @if(isset($widgets["server-stats"]) && $widgets["server-stats"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title">
