@@ -1761,16 +1761,16 @@
         },
         {
             "name": "eyewitness/eye",
-            "version": "v1.3.1",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eyewitness/eye.git",
-                "reference": "f5f26e3e5253dc15a34a985a674683fa6e84df47"
+                "reference": "b550e5639163002040e4fa6dc288b2fa65844987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eyewitness/eye/zipball/f5f26e3e5253dc15a34a985a674683fa6e84df47",
-                "reference": "f5f26e3e5253dc15a34a985a674683fa6e84df47",
+                "url": "https://api.github.com/repos/eyewitness/eye/zipball/b550e5639163002040e4fa6dc288b2fa65844987",
+                "reference": "b550e5639163002040e4fa6dc288b2fa65844987",
                 "shasum": ""
             },
             "require": {
@@ -1807,7 +1807,7 @@
                 "monitor",
                 "queue"
             ],
-            "time": "2017-04-23T22:57:08+00:00"
+            "time": "2017-04-30T11:28:04+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2694,16 +2694,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.7.1",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "f86420389dc99130d2f772f09f2c6f1a5cc4a743"
+                "reference": "ded2202167bc57371e2ec865761eb3c0883424a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/f86420389dc99130d2f772f09f2c6f1a5cc4a743",
-                "reference": "f86420389dc99130d2f772f09f2c6f1a5cc4a743",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/ded2202167bc57371e2ec865761eb3c0883424a3",
+                "reference": "ded2202167bc57371e2ec865761eb3c0883424a3",
                 "shasum": ""
             },
             "require": {
@@ -2742,7 +2742,7 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-04-26T18:30:30+00:00"
+            "time": "2017-04-29T17:56:13+00:00"
         },
         {
             "name": "intervention/image",
@@ -4694,12 +4694,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpociot/botman.git",
-                "reference": "8cfd5b7c408192287c99a71692821226bfe28c9a"
+                "reference": "c7b3bc2469d440f8ad6a5f294eda4394e3e8c3c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/botman/zipball/8cfd5b7c408192287c99a71692821226bfe28c9a",
-                "reference": "8cfd5b7c408192287c99a71692821226bfe28c9a",
+                "url": "https://api.github.com/repos/mpociot/botman/zipball/c7b3bc2469d440f8ad6a5f294eda4394e3e8c3c0",
+                "reference": "c7b3bc2469d440f8ad6a5f294eda4394e3e8c3c0",
                 "shasum": ""
             },
             "require": {
@@ -4754,7 +4754,7 @@
                 "slack",
                 "telegram"
             ],
-            "time": "2017-04-28T18:44:58+00:00"
+            "time": "2017-04-30T22:13:59+00:00"
         },
         {
             "name": "mpociot/pipeline",
@@ -5214,16 +5214,16 @@
         },
         {
             "name": "owen-it/laravel-auditing",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/owen-it/laravel-auditing.git",
-                "reference": "2dfc70c810bfdfe551b2b950178a567d5ffe3cfb"
+                "reference": "e58253ef4490f6894519983c358e1c7bb2f51c27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/2dfc70c810bfdfe551b2b950178a567d5ffe3cfb",
-                "reference": "2dfc70c810bfdfe551b2b950178a567d5ffe3cfb",
+                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/e58253ef4490f6894519983c358e1c7bb2f51c27",
+                "reference": "e58253ef4490f6894519983c358e1c7bb2f51c27",
                 "shasum": ""
             },
             "require": {
@@ -5286,7 +5286,7 @@
                 "record",
                 "track"
             ],
-            "time": "2017-03-21T19:07:57+00:00"
+            "time": "2017-05-01T07:32:51+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -10073,12 +10073,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coding-sunshine/laravel-langman-gui.git",
-                "reference": "3c016ffa9edaeb49c98d110a9d4d0c0831eb65ee"
+                "reference": "6f14c69c71f7cb615413c941307cce8a923746e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/3c016ffa9edaeb49c98d110a9d4d0c0831eb65ee",
-                "reference": "3c016ffa9edaeb49c98d110a9d4d0c0831eb65ee",
+                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/6f14c69c71f7cb615413c941307cce8a923746e6",
+                "reference": "6f14c69c71f7cb615413c941307cce8a923746e6",
                 "shasum": ""
             },
             "require": {
@@ -10111,7 +10111,7 @@
             "support": {
                 "source": "https://github.com/coding-sunshine/laravel-langman-gui/tree/master"
             },
-            "time": "2017-04-28T04:09:45+00:00"
+            "time": "2017-05-01T10:20:44+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -10162,16 +10162,16 @@
         },
         {
             "name": "timacdonald/rule-builder",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timacdonald/rule-builder.git",
-                "reference": "a47a45f84a96682cbd0f3acab8488592cc7e9653"
+                "reference": "7fa938edcf4d6e76708c4e240f44e82b1e4e6ead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timacdonald/rule-builder/zipball/a47a45f84a96682cbd0f3acab8488592cc7e9653",
-                "reference": "a47a45f84a96682cbd0f3acab8488592cc7e9653",
+                "url": "https://api.github.com/repos/timacdonald/rule-builder/zipball/7fa938edcf4d6e76708c4e240f44e82b1e4e6ead",
+                "reference": "7fa938edcf4d6e76708c4e240f44e82b1e4e6ead",
                 "shasum": ""
             },
             "require": {
@@ -10203,7 +10203,7 @@
                 "rule",
                 "validation"
             ],
-            "time": "2017-04-25T00:29:05+00:00"
+            "time": "2017-05-01T03:23:47+00:00"
         },
         {
             "name": "true/punycode",
@@ -10764,12 +10764,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "caf94a8b1003c13be766edc97c5fa9033d805bbb"
+                "reference": "2d97e0ab0372cb87bfef1a1485db8dc102c436cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/caf94a8b1003c13be766edc97c5fa9033d805bbb",
-                "reference": "caf94a8b1003c13be766edc97c5fa9033d805bbb",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/2d97e0ab0372cb87bfef1a1485db8dc102c436cb",
+                "reference": "2d97e0ab0372cb87bfef1a1485db8dc102c436cb",
                 "shasum": ""
             },
             "require": {
@@ -10850,7 +10850,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-04-28T21:55:58+00:00"
+            "time": "2017-04-30T22:14:07+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -11117,12 +11117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CrestApps/laravel-code-generator.git",
-                "reference": "ae9e92496799479836a51c9c7cfc00768f48a875"
+                "reference": "85696feb71b144d7b671f4c5f8200070943a8958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/ae9e92496799479836a51c9c7cfc00768f48a875",
-                "reference": "ae9e92496799479836a51c9c7cfc00768f48a875",
+                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/85696feb71b144d7b671f4c5f8200070943a8958",
+                "reference": "85696feb71b144d7b671f4c5f8200070943a8958",
                 "shasum": ""
             },
             "require": {
@@ -11168,7 +11168,7 @@
                 "routes creator",
                 "views creator"
             ],
-            "time": "2017-04-28T20:14:43+00:00"
+            "time": "2017-05-01T00:48:17+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -12928,16 +12928,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.1.2",
+            "version": "6.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fbf2e46d5c563ee78c9b559bcbeb1c97cad6af0f"
+                "reference": "824d02024916525a36b2db21847a5ef91db9e4a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fbf2e46d5c563ee78c9b559bcbeb1c97cad6af0f",
-                "reference": "fbf2e46d5c563ee78c9b559bcbeb1c97cad6af0f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/824d02024916525a36b2db21847a5ef91db9e4a8",
+                "reference": "824d02024916525a36b2db21847a5ef91db9e4a8",
                 "shasum": ""
             },
             "require": {
@@ -13008,7 +13008,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-25T21:30:13+00:00"
+            "time": "2017-04-29T10:40:17+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
