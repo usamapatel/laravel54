@@ -17,6 +17,6 @@
 <!-- END PAGE LEVEL PLUGIN STYLES -->
 <!-- BEGIN THEME STYLES -->
 <link href="{{ asset('front/assets/onepage2/css/layout.css') }}" rel="stylesheet" type="text/css"/>
-<!-- <link href="{{ asset('front/assets/onepage2/css/custom.css') }}" rel="stylesheet" type="text/css"/> -->
+<link href="{{ asset('front/assets/onepage2/css/custom.css') }}" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>

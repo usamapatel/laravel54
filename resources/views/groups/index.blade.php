@@ -64,7 +64,7 @@
                             </thead>
                             <tbody>
                                 <tr class="" v-for="group in groupData"> 
-                                    <td>@{{ group.name }}</td>
+                                    <td>@{{ group.display_name }}</td>
                                     <td>@{{ group.status==1 ? 'Activated' : 'Inactive' }}</td>
                                     <td>@{{ group.created_datetime }}</td>
                                     <td class="text-center">

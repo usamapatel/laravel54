@@ -3,7 +3,7 @@
 return [
     'app' => [
         'domain' => env('APP_DOMAIN'),
-        'subdomain' => '',
+        'subdomain' => ''
     ],
     'flash_messages' => [
         'dataSaved'      => 'Data has been saved successfully.',

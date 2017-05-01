@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Companies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CompaniesController extends Controller
 {
@@ -79,5 +80,45 @@ class CompaniesController extends Controller
      */
     public function destroy(Companies $companies)
     {
+    }
+
+    /**
+     * Generate slug
+     * @param  Request $request Request Object
+     * @return JSON           JSON response
+     */
+    public function generateSlug(Request $request)
+    {
+        $slug = Companies::makeSlugUniqueBeforeCreate(str_slug($request->company_name));
+        return $slug;
+    }
+
+    /**
+     * Select company
+     * @param  Request $request Request Object
+     * @return JSON           JSON response
+     */
+    public function selectCompany(Request $request)
+    {
+        return view('auth.selectcompany');
+    }
+
+    /**
+     * Check selected company
+     * @param  Request $request Request Object
+     * @return JSON           JSON response
+     */
+    public function checkCompany(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'company_slug' => 'required|max:255|alpha_dash|exists:companies,slug',
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }
+
+        $company = Companies::where('slug', $request->company_slug)->first();
+        return redirect()->route('login', ['domain' => $company->slug]);
     }
 }

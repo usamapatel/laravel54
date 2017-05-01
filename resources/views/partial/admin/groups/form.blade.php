@@ -10,7 +10,7 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label class="col-md-3" for="">Group Name:</label>                    
-                {!! Form::text('group_name', $from=="edit" ? $group->name : null, ['class' => 'form-control col-md-6', 'style' => 'width: 350px;']) !!}
+                {!! Form::text('group_name', $from=="edit" ? $role->display_name : null, ['class' => 'form-control col-md-6', 'style' => 'width: 350px;']) !!}
             </div> 
             <div class="form-group col-md-6">
                 <label class="col-md-3" ">Active Status:</label>
@@ -35,22 +35,20 @@
         </div>
         <div id="sortable">
             <div class="portlet light box-layout group-clear grop-box-1">
-            @foreach($menuTree as $item)
-                <div class="mt-element-ribbon portlet-title add-form">
-                    <div class="ribbon ribbon-shadow ribbon-color-black uppercase title-group-color"><div class="ribbon-sub ribbon-clip title-group-color"></div>{{ $item['name'] }}</div>
-                    <!--<div class="tools dash-widget">
-                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
-                    </div>-->
-                </div>
-
-                <div class="portlet-body form">
-                    <div class="row">
-                    @if(isset($item['children']) && count($item['children']))                        
-                         @include('elements.admin.group_menu', ['group_item' => $item['children']])
-                    @endif               
+                @foreach($menuTree as $item)
+                    <div class="mt-element-ribbon portlet-title add-form">
+                        <div class="ribbon ribbon-shadow ribbon-color-black uppercase title-group-color"><div class="ribbon-sub ribbon-clip title-group-color"></div>{{ $item['name'] }}
+                        </div>
                     </div>
-                </div>
-            @endforeach  
+
+                    <div class="portlet-body form">
+                        <div class="row">
+                        @if(isset($item['children']) && count($item['children']))                        
+                             @include('elements.admin.group_menu', ['group_item' => $item['children']])
+                        @endif               
+                        </div>
+                    </div>
+                @endforeach  
             </div>
         </div>
         <div class="row module_btn">
