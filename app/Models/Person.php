@@ -7,6 +7,13 @@ use App\Models\BaseModel as Model;
 
 class Person extends Model
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'people';
+
     use Notifiable;
 
     /**
