@@ -81,7 +81,8 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
             });
         }
     );
- });
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+});
 
 // Local dev specific routes
 if (App::environment('local')) {

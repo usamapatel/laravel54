@@ -6,6 +6,7 @@ use DB;
 use View;
 use Landlord;
 use App\Models\User;
+use App\Models\Person;
 use App\Models\CompanyUser;
 use Carbon\Carbon as Carbon;
 use Illuminate\Http\Request;
@@ -68,7 +69,7 @@ class UsersController extends Controller
         $request = $this->request->all();
         $companyId = Landlord::getTenants()['company']->id;
 
-        $users = DB::table('users')->join('company_user', 'company_user.user_id', 'users.id')->where('company_user.company_id', $companyId)->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $users = DB::table('users')->join('company_user', 'company_user.user_id', 'users.id')->join('people', 'users.person_id', 'people.id')->where('company_user.company_id', $companyId)->select('*', DB::raw('DATE_FORMAT(users.created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'), DB::raw('users.id as user_id'));
 
         $sortby = 'users.id';
         $sorttype = 'desc';
@@ -126,10 +127,18 @@ class UsersController extends Controller
     {
         $this->init();
         $companyId = Landlord::getTenants()['company']->id;
+
+        $person = new Person();
+        $person->first_name = $request->first_name;
+        $person->last_name = $request->last_name;
+        $person->save();
+
         $user = new User();
-        $user->name = $request->name;
+        $user->person_id = $person->id;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->get('password'));
+        $user->verification_token = md5(uniqid(mt_rand(), true));
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
         $user->save();
         $user->assignRole($request->get('roles'));
@@ -182,7 +191,12 @@ class UsersController extends Controller
     {
         $this->init();
         $user = User::findOrFail($userId);
-        $user->name = $request->name;
+        $person = Person::findOrFail($user->person_id);
+
+        $person->first_name = $request->first_name;
+        $person->last_name = $request->last_name;
+        $person->save();
+        
         $user->email = $request->email;
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
         $user->save();

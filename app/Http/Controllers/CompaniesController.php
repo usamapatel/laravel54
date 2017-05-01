@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Companies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -100,6 +101,11 @@ class CompaniesController extends Controller
      */
     public function selectCompany(Request $request)
     {
+        $companySlug = app('request')->route()->parameter('company');
+        if($companySlug != 'www') 
+        {
+            return redirect()->route('admin.home', ['domain' => $companySlug]);
+        }
         return view('auth.selectcompany');
     }
 
