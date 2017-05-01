@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Companies;
+use App\Models\CompanyUser;
+use Illuminate\Http\Request;
+use App\Events\CompanyRegistered;
+use App\Http\Controllers\Controller;
+use App\Models\Person;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -27,8 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    protected $redirectTo = '/admin/home';
     /**
      * Create a new controller instance.
      *
@@ -49,10 +54,27 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'     => 'required|max:255',
+            'company_name'     => 'required|max:255',
+            'first_name'     => 'required|max:60',
             'email'    => 'required|email|max:255|unique:users',
+            'username' => 'required|max:60|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect()->route('company.select', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -64,10 +86,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'password' => bcrypt($data['password']),
+
+        $person = Person::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'display_name' => $data['username'],
+                'primary_email' => $data['email'],
         ]);
+        $company = Companies::create([
+                'name'  => $data['company_name']
+        ]);
+
+        $user = User::create([
+            'person_id' => $person->id,
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'verification_token' => md5(uniqid(mt_rand(), true)),
+        ]);
+
+        $companyUser = CompanyUser::create([
+            'user_id'     => $user->id,
+            'company_id'    => $company->id,
+        ]);
+
+        event(new CompanyRegistered($company));
+
+        return $user;
     }
 }
