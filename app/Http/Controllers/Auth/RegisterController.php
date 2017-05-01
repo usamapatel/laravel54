@@ -8,9 +8,10 @@ use App\Models\CompanyUser;
 use Illuminate\Http\Request;
 use App\Events\CompanyRegistered;
 use App\Http\Controllers\Controller;
+use App\Models\Person;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -33,7 +34,6 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/admin/home';
-
     /**
      * Create a new controller instance.
      *
@@ -55,8 +55,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'company_name'     => 'required|max:255',
-            'name'     => 'required|max:255',
+            'first_name'     => 'required|max:60',
             'email'    => 'required|email|max:255|unique:users',
+            'username' => 'required|max:60|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -85,14 +86,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $person = Person::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'display_name' => $data['username'],
+                'primary_email' => $data['email'],
+        ]);
         $company = Companies::create([
-            'name'  => $data['company_name']
+                'name'  => $data['company_name']
         ]);
 
         $user = User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
+            'person_id' => $person->id,
+            'username' => $data['username'],
+            'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'verification_token' => md5(uniqid(mt_rand(), true)),
         ]);
 
         $companyUser = CompanyUser::create([

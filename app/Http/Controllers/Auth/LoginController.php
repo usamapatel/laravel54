@@ -38,8 +38,9 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
+        $this->request = $request;
         $this->middleware('guest', ['except' => 'logout']);
     }
 
@@ -58,12 +59,14 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
-        if($user) {
+        $field = filter_var($this->request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $user = User::where($field, $request->login)->first();
+
+        if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $companies = $user->companies->pluck('slug')->toArray();
                 $currentCompanySlug = Landlord::getTenants()['company']->slug;
-                if(!in_array($currentCompanySlug, $companies)) {
+                if (!in_array($currentCompanySlug, $companies)) {
                     return false;
                 }
             }
@@ -72,5 +75,17 @@ class LoginController extends Controller
         return $this->guard()->attempt(
             $this->credentials($request), $request->has('remember')
         );
+    }
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        $field = filter_var($this->request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $this->request->merge([$field => $this->request->input('login')]);
+
+        return $field;
     }
 }
