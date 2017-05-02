@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use View;
 use Landlord;
 use App\Models\Menu;
@@ -25,6 +26,9 @@ class Controller extends BaseController
 	        	$menuArray = $menu->generate();
 	        }
 	        View::share('menu_items', $menuArray);
+	        if(Auth::check()) {
+	        	View::share('companies', Auth::user()->companies);
+	        }
 	        return $next($request);
 	    });
     }

@@ -10,7 +10,10 @@ var User = function() {
                 }
             },
             rules: {
-                name: {
+                first_name: {
+                    required: true
+                },
+                last_name: {
                     required: true
                 },
                 email: {
@@ -71,7 +74,7 @@ $(document).ready(function() {
                 userCount: 0,
                 sortKey: '',
                 sortOrder: 1,
-                sortby: 'id',
+                sortby: 'users.id',
                 sorttype: 'desc',
                 searchdata: '',
                 footercontent: ''
