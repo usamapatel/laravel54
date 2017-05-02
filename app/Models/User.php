@@ -121,4 +121,14 @@ class User extends Authenticatable implements HasBansContract
     {
         return $this->belongsToMany('App\Models\Companies', 'company_user', 'user_id', 'company_id');
     }
+
+    /**
+     * Relationship: person
+     *
+     * @return
+     */
+    public function person()
+    {
+        return $this->belongsTo('App\Models\Person', 'person_id');
+    }
 }

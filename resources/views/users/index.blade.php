@@ -64,22 +64,24 @@
                         <table class="table table-striped table-bordered table-hover order-column" v-cloak>
                             <thead>
                                 <tr>
-                                    <th data-field="name" @click="sortBy('name')" :class="[sortKey != 'name' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Name</th>
+                                    <th data-field="people.first_name" @click="sortBy('people.first_name')" :class="[sortKey != 'people.first_name' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">First name</th>
+                                    <th data-field="people.last_name" @click="sortBy('people.last_name')" :class="[sortKey != 'people.last_name' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Last name</th>
                                     <th data-field="email" @click="sortBy('email')" :class="[sortKey != 'email' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Email</th> 
-                                    <th data-field="created_at" @click="sortBy('created_at')" :class="[sortKey != 'created_at' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Created at</th>     
+                                    <th data-field="created_datetime" @click="sortBy('created_datetime')" :class="[sortKey != 'created_datetime' ? 'sorting' : sortOrder == 1 ? 'sorting_asc' : 'sorting_desc']">Created at</th>     
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="" v-for="user in userData">  
-                                    <td>@{{ user.name }}</td>
+                                    <td>@{{ user.first_name }}</td>
+                                    <td>@{{ user.last_name }}</td>
                                     <td>@{{ user.email }}</td>
                                     <td>@{{ user.created_datetime }}</td>
                                     <td class="text-center">
-                                        <a href="{{url('admin/users')}}/@{{user.id}}/edit" class="btn btn-icon-only green">
+                                        <a href="{{url('admin/users')}}/@{{user.user_id}}/edit" class="btn btn-icon-only green">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this tag record?" data-delete-url="{{ url('admin/users') }}/@{{ user.id }}"  class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this tag record?" data-delete-url="{{ url('admin/users') }}/@{{ user.user_id }}"  class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

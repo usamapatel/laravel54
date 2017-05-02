@@ -27,13 +27,13 @@
                             </div>
                 			@if(isset($item['children']) && count($item['children']))                            
 	                            <div class="list-todo-item grey-steel">
-	                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#moduleDiv-5" onclick=" " href="#task-5" aria-expanded="false">
+	                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#moduleDiv-5" onclick=" " href="#task-{{ $loop->index }}" aria-expanded="false">
 	                                    <div class="list-toggle done uppercase">
 	                                        <div class="list-toggle-title font-blue-chambray  sbold">Dashboard </div>
 	                                        <div class="badge badge-default pull-right bold"></div>
 	                                    </div>
 	                                </a>
-	                                <div class="task-list panel-collapse collapse in" id="task-5">
+	                                <div class="task-list panel-collapse collapse in" id="task-{{ $loop->index }}">
 	                                    <ul class="inner_list">
 	                                        <li class="task-list-item done">
 	                                           <ul class="list-group group-scroll">

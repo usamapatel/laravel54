@@ -18,14 +18,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <html lang="en">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
-
     <head>
         <meta charset="utf-8" />
-        <title>Laravel Base</title>
+        <title>Company Admin Theme</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="Laravel Base" />
+        <meta content="Preview page of Metronic Admin Theme #2 for " name="description" />
         <meta content="" name="author" />
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Signika+Negative:400,600,700" rel="stylesheet">
@@ -39,51 +39,20 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ asset('css/admin/plugins.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="{{ asset('css/admin/layout.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('css/admin/themes/blue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
-
-        @yield('page-style')
-
-        <link href="{{ asset('css/admin/custom.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/admin/login-3.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="favicon.ico" /> 
     </head>
     <!-- END HEAD -->
 
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
-        <!-- BEGIN HEADER -->
-        @include('elements.admin.header')
-        <!-- END HEADER -->
-        <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
-        <div class="page-container">
-            <!-- BEGIN SIDEBAR -->
-            @include('elements.admin.sidebar')
-            <!-- END SIDEBAR -->
-            <!-- BEGIN CONTENT -->
-            <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-                <div class="page-content">
-                    <div class="page-content-body">
-                        @yield('page-content')
-                    </div>
-                </div>
-                <!-- END CONTENT BODY -->
-            </div>
-            <!-- END CONTENT -->
+    <body class="login">
+        <div style="padding-top: 100px"></div>
+
+        <div class="content">
+            @yield('content')
         </div>
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        @include('elements.admin.footer')
-            <!-- END QUICK NAV -->
-            <!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script> 
-<script src="../assets/global/plugins/ie8.fix.min.js"></script> 
-<![endif]-->
-        <!-- BEGIN CORE PLUGINS -->
+
+     	<!-- BEGIN CORE PLUGINS -->
         <script src="{{ asset('plugins/jquery.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/js.cookie.min.js') }}" type="text/javascript"></script>
@@ -91,14 +60,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="{{ asset('plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="{{ asset('plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
+        <link href="{{ asset('css/admin/plugins.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->        
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="{{ asset('js/admin/app.min.js') }}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="{{ asset('js/admin/layout.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('js/admin/quick-sidebar.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('js/admin/quick-nav.min.js') }}" type="text/javascript"></script>
-        <!-- END THEME LAYOUT SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
         @yield("page-script")
+        <!-- END PAGE LEVEL SCRIPTS -->
     </body>
-</html>
