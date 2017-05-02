@@ -167,7 +167,6 @@ return [
          * Package Service Providers...
          */
         Akibatech\Crud\CrudServiceProvider::class,
-        Appstract\Multisite\MultisiteServiceProvider::class,
         Appstract\Options\OptionsServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         //Arrilot\Widgets\ServiceProvider::class,
