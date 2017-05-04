@@ -80,21 +80,21 @@ class User extends Authenticatable implements HasBansContract
      * @var array
      */
     protected $casts = [
-        'person_id' => 'integer',
-        'username' => 'string',
-        'email' => 'string',
-        'password' => 'string',
-        'is_verified' => 'boolean',
-        'verified_at' => 'datetime',
-        'is_online' => 'boolean',
-        'last_login_time' => 'datetime',
-        'is_active' => 'boolean',
+        'person_id'        => 'integer',
+        'username'         => 'string',
+        'email'            => 'string',
+        'password'         => 'string',
+        'is_verified'      => 'boolean',
+        'verified_at'      => 'datetime',
+        'is_online'        => 'boolean',
+        'last_login_time'  => 'datetime',
+        'is_active'        => 'boolean',
         'last_active_time' => 'datetime',
-        'is_banned' => 'boolean',
-        'banned_at' => 'datetime',
-        'banned_by' => 'integer',
-        'timezone' => 'string',
-        'settings' => 'array',
+        'is_banned'        => 'boolean',
+        'banned_at'        => 'datetime',
+        'banned_by'        => 'integer',
+        'timezone'         => 'string',
+        'settings'         => 'array',
     ];
 
     /**
