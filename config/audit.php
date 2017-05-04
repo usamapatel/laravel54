@@ -24,7 +24,7 @@ return [
     */
 
     'user' => [
-        'model' => App\Models\User::class,
+        'model'    => App\Models\User::class,
         'resolver' => function () {
             return Auth::check() ? Auth::user()->getAuthIdentifier() : null;
         },
@@ -51,7 +51,7 @@ return [
     */
     'drivers' => [
         'database' => [
-            'table' => 'audits',
+            'table'      => 'audits',
             'connection' => null,
         ],
     ],

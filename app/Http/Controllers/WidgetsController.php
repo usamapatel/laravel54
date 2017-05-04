@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
 use App\Models\Widget;
 use App\Models\WidgetType;
+use DB;
 use Illuminate\Http\Request;
+use View;
 
 class WidgetsController extends Controller
 {

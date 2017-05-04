@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Teamwork;
 
-use DB;
-use View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
+use Illuminate\Http\Request;
 use Mpociot\Teamwork\Exceptions\UserNotInTeamException;
+use View;
 
 class TeamController extends Controller
 {
