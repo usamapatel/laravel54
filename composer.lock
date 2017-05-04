@@ -1715,16 +1715,16 @@
         },
         {
             "name": "eyewitness/eye",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eyewitness/eye.git",
-                "reference": "b550e5639163002040e4fa6dc288b2fa65844987"
+                "reference": "1c34daf1f3e586b7b57dcbe69978b909afaa4dbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eyewitness/eye/zipball/b550e5639163002040e4fa6dc288b2fa65844987",
-                "reference": "b550e5639163002040e4fa6dc288b2fa65844987",
+                "url": "https://api.github.com/repos/eyewitness/eye/zipball/1c34daf1f3e586b7b57dcbe69978b909afaa4dbd",
+                "reference": "1c34daf1f3e586b7b57dcbe69978b909afaa4dbd",
                 "shasum": ""
             },
             "require": {
@@ -1761,7 +1761,7 @@
                 "monitor",
                 "queue"
             ],
-            "time": "2017-04-30T11:28:04+00:00"
+            "time": "2017-05-02T16:27:05+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2648,16 +2648,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.7.3",
+            "version": "v1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "9bb571452c5f52a428875f739d2a77d44940f6e6"
+                "reference": "c622128a50a6cd6fd13332d62b69f21cd2d6e38c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/9bb571452c5f52a428875f739d2a77d44940f6e6",
-                "reference": "9bb571452c5f52a428875f739d2a77d44940f6e6",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/c622128a50a6cd6fd13332d62b69f21cd2d6e38c",
+                "reference": "c622128a50a6cd6fd13332d62b69f21cd2d6e38c",
                 "shasum": ""
             },
             "require": {
@@ -2696,7 +2696,7 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-05-01T17:19:47+00:00"
+            "time": "2017-05-03T18:46:49+00:00"
         },
         {
             "name": "intervention/image",
@@ -5168,16 +5168,16 @@
         },
         {
             "name": "owen-it/laravel-auditing",
-            "version": "v4.0.4",
+            "version": "v4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/owen-it/laravel-auditing.git",
-                "reference": "e58253ef4490f6894519983c358e1c7bb2f51c27"
+                "reference": "d6219df4c035a9cea54b0b2294d983651bf65516"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/e58253ef4490f6894519983c358e1c7bb2f51c27",
-                "reference": "e58253ef4490f6894519983c358e1c7bb2f51c27",
+                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/d6219df4c035a9cea54b0b2294d983651bf65516",
+                "reference": "d6219df4c035a9cea54b0b2294d983651bf65516",
                 "shasum": ""
             },
             "require": {
@@ -5240,7 +5240,7 @@
                 "record",
                 "track"
             ],
-            "time": "2017-05-01T07:32:51+00:00"
+            "time": "2017-05-03T09:21:04+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -8013,16 +8013,16 @@
         },
         {
             "name": "spatie/laravel-migrate-fresh",
-            "version": "1.4.3",
+            "version": "1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-migrate-fresh.git",
-                "reference": "029f319c821da1d4b60505ac697803104204b1a3"
+                "reference": "3c5ff10580c89255ec82eea61f6582f3e0a11ff3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-migrate-fresh/zipball/029f319c821da1d4b60505ac697803104204b1a3",
-                "reference": "029f319c821da1d4b60505ac697803104204b1a3",
+                "url": "https://api.github.com/repos/spatie/laravel-migrate-fresh/zipball/3c5ff10580c89255ec82eea61f6582f3e0a11ff3",
+                "reference": "3c5ff10580c89255ec82eea61f6582f3e0a11ff3",
                 "shasum": ""
             },
             "require": {
@@ -8063,7 +8063,7 @@
                 "migrate",
                 "spatie"
             ],
-            "time": "2017-04-21T06:00:00+00:00"
+            "time": "2017-05-03T13:33:57+00:00"
         },
         {
             "name": "spatie/laravel-newsletter",
@@ -10029,12 +10029,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coding-sunshine/laravel-langman-gui.git",
-                "reference": "6f14c69c71f7cb615413c941307cce8a923746e6"
+                "reference": "638cbea188d9d338cc5698fc4c22600753706c37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/6f14c69c71f7cb615413c941307cce8a923746e6",
-                "reference": "6f14c69c71f7cb615413c941307cce8a923746e6",
+                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/638cbea188d9d338cc5698fc4c22600753706c37",
+                "reference": "638cbea188d9d338cc5698fc4c22600753706c37",
                 "shasum": ""
             },
             "require": {
@@ -10067,7 +10067,7 @@
             "support": {
                 "source": "https://github.com/coding-sunshine/laravel-langman-gui/tree/master"
             },
-            "time": "2017-05-01T10:20:44+00:00"
+            "time": "2017-05-04T18:19:28+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -11073,12 +11073,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CrestApps/laravel-code-generator.git",
-                "reference": "ea70699a8202da497b4cd559ca5c98e628fb3bf6"
+                "reference": "ffcbaf7b3672b2390406e57d7032a53313a64bb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/ea70699a8202da497b4cd559ca5c98e628fb3bf6",
-                "reference": "ea70699a8202da497b4cd559ca5c98e628fb3bf6",
+                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/ffcbaf7b3672b2390406e57d7032a53313a64bb5",
+                "reference": "ffcbaf7b3672b2390406e57d7032a53313a64bb5",
                 "shasum": ""
             },
             "require": {
@@ -11124,7 +11124,7 @@
                 "routes creator",
                 "views creator"
             ],
-            "time": "2017-05-01T13:52:21+00:00"
+            "time": "2017-05-03T17:17:25+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -11299,12 +11299,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "382e54a241bba7f8551bfc01487482642b72e206"
+                "reference": "0cd8f38815ea42c2eaab91ee28a6dd5020e4d5d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/382e54a241bba7f8551bfc01487482642b72e206",
-                "reference": "382e54a241bba7f8551bfc01487482642b72e206",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/0cd8f38815ea42c2eaab91ee28a6dd5020e4d5d1",
+                "reference": "0cd8f38815ea42c2eaab91ee28a6dd5020e4d5d1",
                 "shasum": ""
             },
             "require": {
@@ -11317,8 +11317,6 @@
                 "symfony/filesystem": "^3.0",
                 "symfony/finder": "^3.0",
                 "symfony/options-resolver": "^3.0",
-                "symfony/polyfill-php54": "^1.0",
-                "symfony/polyfill-php55": "^1.3",
                 "symfony/polyfill-php70": "^1.0",
                 "symfony/polyfill-xml": "^1.3",
                 "symfony/process": "^3.0",
@@ -11368,7 +11366,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-05-02T12:36:40+00:00"
+            "time": "2017-05-04T13:10:41+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -11376,12 +11374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "309b4e99947d9b9806a797416f2f36259a3df0cb"
+                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/309b4e99947d9b9806a797416f2f36259a3df0cb",
-                "reference": "309b4e99947d9b9806a797416f2f36259a3df0cb",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4c751251f4f66ada7bfb10a96993c664e479b626",
+                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626",
                 "shasum": ""
             },
             "require": {
@@ -11418,7 +11416,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-05-02T09:16:26+00:00"
+            "time": "2017-05-04T14:38:58+00:00"
         },
         {
             "name": "garygreen/pretty-routes",
@@ -11604,48 +11602,6 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
-        },
-        {
-            "name": "ircmaxell/password-compat",
-            "version": "v1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/password.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-            "homepage": "https://github.com/ircmaxell/password_compat",
-            "keywords": [
-                "hashing",
-                "password"
-            ],
-            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "jakub-onderka/php-parallel-lint",
@@ -12141,16 +12097,16 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "d9e5a00ca2d87b7e0f1bff36b897e02afd7d5435"
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/d9e5a00ca2d87b7e0f1bff36b897e02afd7d5435",
-                "reference": "d9e5a00ca2d87b7e0f1bff36b897e02afd7d5435",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
+                "reference": "e18ac876b2e4819c76349de8f78ccc8ef1554cd7",
                 "shasum": ""
             },
             "require": {
@@ -12162,7 +12118,9 @@
                 "couscous/couscous": "^1.5.2",
                 "ext-phar": "*",
                 "humbug/humbug": "dev-master@DEV",
+                "nikic/php-parser": "^3.0.4",
                 "phpbench/phpbench": "^0.12.2",
+                "phpstan/phpstan": "^0.6.4",
                 "phpunit/phpunit": "^5.6.4",
                 "phpunit/phpunit-mock-objects": "^3.4.1",
                 "squizlabs/php_codesniffer": "^2.7.0"
@@ -12204,7 +12162,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2016-11-30T15:45:00+00:00"
+            "time": "2017-05-04T11:12:50+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -14057,16 +14015,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.0.0RC4",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "2d2bad4d946bf4a5a5399e1b1d1433212ee60035"
+                "reference": "b95ff2c3b122a3ee4b57d149a57d2afce65522c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/2d2bad4d946bf4a5a5399e1b1d1433212ee60035",
-                "reference": "2d2bad4d946bf4a5a5399e1b1d1433212ee60035",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/b95ff2c3b122a3ee4b57d149a57d2afce65522c3",
+                "reference": "b95ff2c3b122a3ee4b57d149a57d2afce65522c3",
                 "shasum": ""
             },
             "require": {
@@ -14104,7 +14062,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-03-01T22:32:23+00:00"
+            "time": "2017-05-04T00:33:04+00:00"
         },
         {
             "name": "stecman/symfony-console-completion",
@@ -14436,120 +14394,6 @@
                 "options"
             ],
             "time": "2017-04-12T14:13:17+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php54",
-            "version": "v1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php54.git",
-                "reference": "90e085822963fdcc9d1c5b73deb3d2e5783b16a0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/90e085822963fdcc9d1c5b73deb3d2e5783b16a0",
-                "reference": "90e085822963fdcc9d1c5b73deb3d2e5783b16a0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php54\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 5.4+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2016-11-14T01:06:16+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php55",
-            "version": "v1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php55.git",
-                "reference": "03e3f0350bca2220e3623a0e340eef194405fc67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/03e3f0350bca2220e3623a0e340eef194405fc67",
-                "reference": "03e3f0350bca2220e3623a0e340eef194405fc67",
-                "shasum": ""
-            },
-            "require": {
-                "ircmaxell/password-compat": "~1.0",
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php55\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 5.5+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2016-11-14T01:06:16+00:00"
         },
         {
             "name": "symfony/polyfill-php70",

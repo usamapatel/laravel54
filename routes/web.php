@@ -23,6 +23,7 @@ Route::group(
         });
 
         Auth::routes();
+        Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
 
         Route::get('/home', 'HomeController@index');
 

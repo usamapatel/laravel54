@@ -9,6 +9,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Jobs\SendVerificationEmail;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -55,11 +57,32 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath())->with(
-                'success',
-                'Your account was successfully created. We have sent you an e-mail to confirm your account.'
-            );
+        dispatch(new SendVerificationEmail($user));
+
+        return view('auth.verification');
+
+//        return $this->registered($request, $user)
+//            ?: redirect($this->redirectPath())->with(
+//                'success',
+//                'Your account was successfully created. We have sent you an e-mail to confirm your account.'
+//            );
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param $token
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function verify($token)
+    {
+        $user = User::where('verification_token', $token)->first();
+        $user->is_verified = 1;
+        $user->verified_at = Carbon::now();
+        if ($user->save()) {
+            return view('auth.verified', ['user' => $user]);
+        }
     }
 
     /**
