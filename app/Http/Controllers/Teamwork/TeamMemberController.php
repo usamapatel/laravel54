@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Teamwork;
 
-use DB;
-use View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Mpociot\Teamwork\Facades\Teamwork;
 use Mpociot\Teamwork\TeamInvite;
+use View;
 
 class TeamMemberController extends Controller
 {

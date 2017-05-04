@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
 use App\Models\BaseModel as Model;
+use Illuminate\Notifications\Notifiable;
 
 class Person extends Model
 {
@@ -46,22 +46,22 @@ class Person extends Model
      * @var array
      */
     protected $casts = [
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'display_name' => 'string',
-        'address' => 'array',
-        'dob' => 'datetime',
-        'bio' => 'string',
-        'avatar' => 'string',
-        'gender' => 'string',
-        'primary_email' => 'string',
+        'first_name'      => 'string',
+        'last_name'       => 'string',
+        'display_name'    => 'string',
+        'address'         => 'array',
+        'dob'             => 'datetime',
+        'bio'             => 'string',
+        'avatar'          => 'string',
+        'gender'          => 'string',
+        'primary_email'   => 'string',
         'secondary_email' => 'string',
-        'home_phone' => 'string',
-        'work_phone' => 'string',
-        'mobile_number' => 'string',
-        'v_card' => 'array',
-        'extra_info' => 'array',
-        'settings' => 'array',
+        'home_phone'      => 'string',
+        'work_phone'      => 'string',
+        'mobile_number'   => 'string',
+        'v_card'          => 'array',
+        'extra_info'      => 'array',
+        'settings'        => 'array',
     ];
 
     /**
