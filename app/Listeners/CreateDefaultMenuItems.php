@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Models\Menu;
 use App\Models\MenuItem;
+use Spatie\Permission\Models\Permission;
 use App\Events\CompanyRegistered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -41,6 +42,11 @@ class CreateDefaultMenuItems
             $menuItem->menu_id = $menu->id;
             $this->createMenu($menuItem, $mainMenuItem, null);
             $menuItem->save();
+
+            $permission = new Permission();
+            $permission->name = $menu->company_id.".".$menuItem->id;
+            $permission->save();
+
             if(isset($mainMenuItem['children']) && count($mainMenuItem['children']) > 0) {
                 $this->generateChildrenMenus($mainMenuItem['children'], $menuItem, $menu);
             }
@@ -61,6 +67,11 @@ class CreateDefaultMenuItems
             $menuItem->menu_id = $menu->id;
             $this->createMenu($menuItem, $item, $parent->id);
             $menuItem->save();
+
+            $permission = new Permission();
+            $permission->name = $menu->company_id.".".$menuItem->id;
+            $permission->save();
+            
             if(isset($item['children']) && count($item['children']) > 0) {
                 $this->generateChildrenMenus($item['children'], $menuItem, $menu);
             }
