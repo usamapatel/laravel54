@@ -7,8 +7,6 @@ use App\Models\Menu;
 use App\Models\MenuItem;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateDefaultMenuItems
 {
@@ -35,8 +33,8 @@ class CreateDefaultMenuItems
         $user = $event->user;
 
         $role = new Role();
-        $role->name = $company->id.".Company Admin";
-        $role->display_name = "Company Admin";
+        $role->name = $company->id.'.Company Admin';
+        $role->display_name = 'Company Admin';
         $role->save();
 
         $user->assignRole($role->name);
@@ -58,7 +56,7 @@ class CreateDefaultMenuItems
             $permission->save();
             $role->givePermissionTo($permission->name);
 
-            if(isset($mainMenuItem['children']) && count($mainMenuItem['children']) > 0) {
+            if (isset($mainMenuItem['children']) && count($mainMenuItem['children']) > 0) {
                 $this->generateChildrenMenus($mainMenuItem['children'], $menuItem, $menu, $role);
             }
         }
@@ -85,8 +83,8 @@ class CreateDefaultMenuItems
             $permission->name = $menu->company_id.'.'.$menuItem->id;
             $permission->save();
             $role->givePermissionTo($permission->name);
-            
-            if(isset($item['children']) && count($item['children']) > 0) {
+
+            if (isset($item['children']) && count($item['children']) > 0) {
                 $this->generateChildrenMenus($item['children'], $menuItem, $menu, $role);
             }
         }
