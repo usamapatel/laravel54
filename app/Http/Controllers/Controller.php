@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use View;
-use Landlord;
 use App\Models\Menu;
 use App\Models\MenuItem;
+use Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-
+use Landlord;
+use View;
 
 class Controller extends BaseController
 {

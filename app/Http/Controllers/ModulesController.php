@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
-use Landlord;
 use App\Models\Menu;
 use App\Models\MenuItem;
-use App\Models\Companies;
+use DB;
 use Illuminate\Http\Request;
+use Landlord;
 use Spatie\Permission\Models\Permission;
+use View;
 
 class ModulesController extends Controller
 {
@@ -114,7 +113,7 @@ class ModulesController extends Controller
     public function create()
     {
         $this->init();
-    	$menuItems = MenuItem::where('menu_id', $this->menuId)->where('type', 'Module')->get()->toArray();
+        $menuItems = MenuItem::where('menu_id', $this->menuId)->where('type', 'Module')->get()->toArray();
         $allModules = Menu::buildMenuTree($menuItems);
 
         return view('modules.create', compact('allModules'));
@@ -215,23 +214,24 @@ class ModulesController extends Controller
      */
     public function generateModuleUrl(Request $request)
     {
-    	$moduleType = $request->module_type;
-    	$moduleName = $request->module_name;
-    	$moduleUrl = str_slug($moduleName, '-');
-    	$parent = $request->parent_id ? MenuItem::find($request->parent_id) : null;
-    	if($parent) {
-    		$moduleUrl = $parent->url . '/' . $moduleUrl;
-    	}
-    	if($parent->is_publicly_visible == 1 && $request->is_publicly_visible == 0) {
-    		$moduleUrl = '/admin' . $moduleUrl;
-    	}
-    	$moduleUrl = $this->generateUniqueUrl($moduleUrl, '');
+        $moduleType = $request->module_type;
+        $moduleName = $request->module_name;
+        $moduleUrl = str_slug($moduleName, '-');
+        $parent = $request->parent_id ? MenuItem::find($request->parent_id) : null;
+        if ($parent) {
+            $moduleUrl = $parent->url.'/'.$moduleUrl;
+        }
+        if ($parent->is_publicly_visible == 1 && $request->is_publicly_visible == 0) {
+            $moduleUrl = '/admin'.$moduleUrl;
+        }
+        $moduleUrl = $this->generateUniqueUrl($moduleUrl, '');
+
         return ['moduleUrl' => $this->uniqueUrl];
     }
 
     /**
-     * @param Object $module
-     * @param Object $request
+     * @param object $module
+     * @param object $request
      */
     private function setVariables($module, $request)
     {
@@ -252,18 +252,17 @@ class ModulesController extends Controller
     }
 
     /**
-     * Get unique module url
-     *
-     */	
+     * Get unique module url.
+     */
     public function generateUniqueUrl($url, $extra)
     {
-    	$moduleUrlExp = explode("/", $url);
+        $moduleUrlExp = explode('/', $url);
         $moduleUrlTemp = str_slug($moduleUrlExp[count($moduleUrlExp) - 1].'-'.$extra);
         $moduleUrlExp[count($moduleUrlExp) - 1] = $moduleUrlTemp;
-        $uniqueUrl = implode("/", $moduleUrlExp);
-        if(MenuItem::where('url',$uniqueUrl)->exists())
-        {
+        $uniqueUrl = implode('/', $moduleUrlExp);
+        if (MenuItem::where('url', $uniqueUrl)->exists()) {
             $this->generateUniqueUrl($url, $extra + 1);
+
             return;
         }
         $this->uniqueUrl = $uniqueUrl;

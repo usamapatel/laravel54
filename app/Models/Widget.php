@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Basemodel as Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use App\Models\Basemodel as Model;
 
 class Widget extends Model
 {
-	use HasSlug;
-	
+    use HasSlug;
+
     /**
      * Get the options for generating the slug.
      */

@@ -2,19 +2,20 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
-use Config;
-use Closure;
-use Landlord;
 use App\Models\Companies;
+use Auth;
+use Closure;
+use Config;
+use Landlord;
 
 class VerifyCompany
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -27,13 +28,13 @@ class VerifyCompany
             return response()->json(['error' => 'not found'], 404);
         }
 
-        if(Auth::check() && $slug !== "www") {
+        if (Auth::check() && $slug !== 'www') {
             $company = $request->user()->companies()->where('slug', $slug)->first();
         } else {
             $company = Companies::where('slug', $slug)->first();
         }
 
-        if(!$company) {
+        if (!$company) {
             return response()->json(['error' => 'not found'], 404);
         }
 
