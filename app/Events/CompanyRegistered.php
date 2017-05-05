@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Companies;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -22,9 +23,10 @@ class CompanyRegistered
      *
      * @return void
      */
-    public function __construct(Companies $company)
+    public function __construct(Companies $company, User $user)
     {
         $this->company = $company;
+        $this->user = $user;
     }
 
     /**
