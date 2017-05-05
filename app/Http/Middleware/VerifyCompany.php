@@ -38,7 +38,7 @@ class VerifyCompany
         }
 
         Landlord::addTenant('company', $company);
-        Config::set('config-variable.app.subdomain', $slug);
+        Config::set('config-variables.app.subdomain', $slug);
 
         return $next($request);
     }

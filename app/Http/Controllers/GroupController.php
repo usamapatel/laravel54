@@ -109,7 +109,7 @@ class GroupController extends Controller
     public function create()
     {
         $menuItems = MenuItem::all();
-        $menu = Menu::where('company_id', 1)->where('name', 'Sidebar')->first();
+        $menu = Menu::where('company_id', Landlord::getTenants()['company']->id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
         return view('groups.create', compact('menuItems', 'menuTree'));
     }
@@ -175,7 +175,7 @@ class GroupController extends Controller
             return (int)$menuItemId[1];
         })->toArray();
 
-        $menu = Menu::where('company_id', 1)->where('name', 'Sidebar')->first();
+        $menu = Menu::where('company_id', $company_id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
         return view('groups.edit', compact('role', 'menu', 'menuTree', 'modules'));
     }
