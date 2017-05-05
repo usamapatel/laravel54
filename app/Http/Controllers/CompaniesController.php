@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Companies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -100,25 +101,11 @@ class CompaniesController extends Controller
      */
     public function selectCompany(Request $request)
     {
-        return view('auth.selectcompany');
-    }
-
-    /**
-     * Check selected company
-     * @param  Request $request Request Object
-     * @return JSON           JSON response
-     */
-    public function checkCompany(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'company_slug' => 'required|max:255|alpha_dash|exists:companies,slug',
-        ]);
-
-        if($validator->fails()) {
-            return redirect()->back()->withErrors($validator->errors());
+        $companySlug = app('request')->route()->parameter('company');
+        if($companySlug != 'www') 
+        {
+            return redirect()->route('admin.home', ['domain' => $companySlug]);
         }
-
-        $company = Companies::where('slug', $request->company_slug)->first();
-        return redirect()->route('login', ['domain' => $company->slug]);
+        return view('auth.selectcompany');
     }
 }

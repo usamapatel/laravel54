@@ -1,8 +1,20 @@
 <div class="form-body">
     <div class="form-group">
-        <label class="col-md-3 control-label">Name </label>
+        <label class="col-md-3 control-label">First Name </label>
         <div class="col-md-9">
-            {!! Form::text('name', $from=="edit" ? $user->name : null,['class' => 'form-control']) !!}
+            {!! Form::text('first_name', $from=="edit" ? $user->person->first_name : null,['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Last Name </label>
+        <div class="col-md-9">
+            {!! Form::text('last_name', $from=="edit" ? $user->person->last_name : null,['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Username </label>
+        <div class="col-md-9">
+            {!! Form::text('username', $from=="edit" ? $user->username : null,['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="form-group">

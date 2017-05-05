@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/admin/companyselect';
 
     /**
      * Create a new controller instance.
@@ -51,31 +51,6 @@ class LoginController extends Controller
         return redirect()->route('front.index', ['domain' => 'www'])->with('status', 'Profile updated!');
     }
 
-    /**
-     * Attempt to log the user into the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
-    protected function attemptLogin(Request $request)
-    {
-        $field = filter_var($this->request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        $user = User::where($field, $request->login)->first();
-
-        if ($user) {
-            if (Hash::check($request->password, $user->password)) {
-                $companies = $user->companies->pluck('slug')->toArray();
-                $currentCompanySlug = Landlord::getTenants()['company']->slug;
-                if (!in_array($currentCompanySlug, $companies)) {
-                    return false;
-                }
-            }
-        }
-
-        return $this->guard()->attempt(
-            $this->credentials($request), $request->has('remember')
-        );
-    }
     /**
      * Get the login username to be used by the controller.
      *

@@ -19,18 +19,17 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
             | contains the "web" middleware group. Now create something great!
             |
             */
+            Auth::routes();
     
             Route::get('/', function () {
                 return view('index');
             })->name('front.index');
 
-            Route::get('companyselect', 'CompaniesController@selectCompany')->name('company.select');
-            Route::post('companyselect', 'CompaniesController@checkCompany')->name('check.selected.company');
-
-            Auth::routes();
             Route::post('company/generateSlug', 'CompaniesController@generateSlug')->name('generate.company.slug');
 
             Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+
+                Route::get('companyselect', 'CompaniesController@selectCompany')->name('company.select');
 
                 Route::get('/home', 'HomeController@index')->name('admin.home');
                 Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
@@ -81,7 +80,8 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
             });
         }
     );
- });
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+});
 
 // Local dev specific routes
 if (App::environment('local')) {
