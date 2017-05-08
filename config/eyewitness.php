@@ -15,7 +15,7 @@ return [
      */
 
     'api_enabled' => env('EYEWITNESS_API_ENABLED', true),
-    'api_url' => env('EYEWITNESS_API_URL', 'https://eyew.io/api/v1'),
+    'api_url'     => env('EYEWITNESS_API_URL', 'https://eyew.io/api/v1'),
 
     /*
      |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ return [
      |
      */
 
-    'app_token' => env('EYEWITNESS_APP_TOKEN', 'CyOZz6NsSxj5q2Bj'),
+    'app_token'  => env('EYEWITNESS_APP_TOKEN', 'CyOZz6NsSxj5q2Bj'),
     'secret_key' => env('EYEWITNESS_SECRET_KEY', 'Or0YiLYBeWZW4tn2KhVlKNAoI8wczypz0MmJF4bR8ADlkYBwOF2qAEceIJZZ'),
 
     /*
@@ -45,14 +45,14 @@ return [
      |
      */
 
-    'monitor_email' => true,
-    'monitor_queue' => true,
-    'monitor_scheduler' => true,
-    'monitor_database' => true,
-    'monitor_disk' => true,
-    'monitor_request' => true,
-    'monitor_log' => true,
-    'monitor_composer_lock' => true,
+    'monitor_email'            => true,
+    'monitor_queue'            => true,
+    'monitor_scheduler'        => true,
+    'monitor_database'         => true,
+    'monitor_disk'             => true,
+    'monitor_request'          => true,
+    'monitor_log'              => true,
+    'monitor_composer_lock'    => true,
     'monitor_maintenance_mode' => true,
 
     /*
@@ -134,6 +134,6 @@ return [
      */
 
     'routes_queue' => true,
-    'routes_log' => true,
+    'routes_log'   => true,
 
 ];

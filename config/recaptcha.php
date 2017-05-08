@@ -13,7 +13,7 @@ return [
     | and private_key is the Secret key.
     |
     */
-    'public_key' => env('RECAPTCHA_PUBLIC_KEY', ''),
+    'public_key'  => env('RECAPTCHA_PUBLIC_KEY', ''),
     'private_key' => env('RECAPTCHA_PRIVATE_KEY', ''),
 
     /*
@@ -48,7 +48,7 @@ return [
     'options' => [
 
         'curl_timeout' => 1,
-        'curl_verify' => true,
+        'curl_verify'  => true,
 
     ],
 
