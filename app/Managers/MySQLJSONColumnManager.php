@@ -80,7 +80,7 @@ class MySQLJSONColumnManager
                 $this->data[$key] = $value;
             }
         }
-        if (! is_array($key)) {
+        if (!is_array($key)) {
             $this->data[$key] = $value;
         }
 
@@ -137,7 +137,7 @@ class MySQLJSONColumnManager
      */
     public function update($key, $value = null)
     {
-        if (! is_array($key)) {
+        if (!is_array($key)) {
             $key = [$key => $value];
         }
 

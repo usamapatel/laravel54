@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use View;
-use Landlord;
 use App\Models\Menu;
+use App\Models\MenuItem;
+use Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-
+use View;
 
 class Controller extends BaseController
 {
@@ -18,24 +17,22 @@ class Controller extends BaseController
 
     public function __construct()
     {
-    	$this->middleware(function ($request, $next) {
-    		$companyId = Landlord::getTenants()['company']->id;
-    		$userRoles = Auth::user()->roles;
-    		// echo "<pre>";print_r($userRoles);echo "</pre>";exit;
-    		foreach ($userRoles as $userRole) {
-    			// echo "<pre>";print_r($userRole->permissions);echo "</pre>";exit;
-    			// dd($userRole->permissions);
-    		}
-	        $menu = Menu::where('company_id', $companyId)->where('name', 'Sidebar')->first();
-	        $menuArray = array();
-	        if($menu) {
-	        	$menuArray = $menu->generate();
-	        }
-	        View::share('menu_items', $menuArray);
-	        if(Auth::check()) {
-	        	View::share('companies', Auth::user()->companies);
-	        }
-	        return $next($request);
-	    });
+        $this->middleware(function ($request, $next) {
+            if (Auth::check()) {
+                $userRoles = Auth::user()->roles;
+                foreach ($userRoles as $role) {
+                    $permissions = $role->permissions;
+                    $menuItemIdArray = $permissions->map(function ($item, $key) {
+                        return explode('.', $item->name)[1];
+                    });
+                }
+                $menuItemArray = MenuItem::whereIn('id', $menuItemIdArray)->get()->toArray();
+                $menuItemArray = Menu::buildMenuTree($menuItemArray, 0);
+                View::share('menu_items', $menuItemArray);
+                View::share('companies', Auth::user()->companies);
+            }
+
+            return $next($request);
+        });
     }
 }

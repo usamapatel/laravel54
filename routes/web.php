@@ -1,14 +1,13 @@
 <?php
 
-Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'), 'middleware' => ['verifycompany']), function()
-{
+Route::group(['domain' => '{company}.'.config('config-variables.app.domain'), 'middleware' => ['verifycompany']], function () {
     Route::group(
         [
-            'prefix' => LaravelLocalization::setLocale(),
-            'middleware' => [ 'localize', 'localeSessionRedirect', 'localizationRedirect' ],
+            'prefix'     => LaravelLocalization::setLocale(),
+            'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect'],
         ],
         function () {
-    
+
             /*
             |--------------------------------------------------------------------------
             | Web Routes
@@ -20,7 +19,7 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
             |
             */
             Auth::routes();
-    
+
             Route::get('/', function () {
                 return view('index');
             })->name('front.index');
@@ -28,7 +27,6 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
             Route::post('company/generateSlug', 'CompaniesController@generateSlug')->name('generate.company.slug');
 
             Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
-
                 Route::get('companyselect', 'CompaniesController@selectCompany')->name('company.select');
 
                 Route::get('/home', 'HomeController@index')->name('admin.home');
@@ -56,25 +54,24 @@ Route::group(array('domain' => '{company}.'.config('config-variables.app.domain'
                     Route::get('accept/{token}', 'AuthController@acceptInvite')->name('teams.accept_invite');
                 });
 
-
                 Route::resource('roles', 'RolesController');
                 Route::post('/getRoleData', 'RolesController@getRoleData');
-    
+
                 Route::resource('permissions', 'PermissionController');
                 Route::post('/getPermissionData', 'PermissionController@getPermissionData');
-    
+
                 //Users Section
                 Route::resource('users', 'UsersController');
                 Route::post('/getUserData', 'UsersController@getUserData');
                 Route::post('/validateEmail', 'UsersController@validateEmail');
-    
+
                 Route::resource('modules', 'ModulesController');
                 Route::post('/getModuleData', 'ModulesController@getModuleData');
                 Route::post('generateModuleUrl', 'ModulesController@generateModuleUrl');
-    
+
                 Route::resource('widgets', 'WidgetsController');
                 Route::post('/getWidgetData', 'WidgetsController@getWidgetData');
-                
+
                 Route::resource('groups', 'GroupController');
                 Route::post('/getGroupData', 'GroupController@getGroupData');
             });

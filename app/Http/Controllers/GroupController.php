@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
-use Landlord;
-use App\Models\Companies;
-use App\Models\Menu;
 use App\Models\Group;
+use App\Models\Menu;
 use App\Models\MenuItem;
-use App\Models\MenuItemGroup;
+use DB;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use Landlord;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use View;
 
 class GroupController extends Controller
 {
@@ -48,7 +46,6 @@ class GroupController extends Controller
      */
     public function init()
     {
-
     }
 
     /**
@@ -111,13 +108,15 @@ class GroupController extends Controller
         $menuItems = MenuItem::all();
         $menu = Menu::where('company_id', Landlord::getTenants()['company']->id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
+
         return view('groups.create', compact('menuItems', 'menuTree'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -128,17 +127,17 @@ class GroupController extends Controller
 
         // create a new role for the added group
         $role = Role::create([
-            'name' => $company_id . '.' . $request->group_name,
+            'name'         => $company_id.'.'.$request->group_name,
             'display_name' => $request->group_name,
         ]);
-        
+
         // fetch all the relevant permission ids based on the menu items
         $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
-        $permissionsName = $menuItems->map(function($item, $key) use($company_id) {
-            return $company_id . '.' . $item->id;
+        $permissionsName = $menuItems->map(function ($item, $key) use ($company_id) {
+            return $company_id.'.'.$item->id;
         });
         $permissions = Permission::whereIn('name', $permissionsName)->pluck('id');
-        
+
         // Bind all the selected permissions to the newly created role
         $role->permissions()->sync($permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
@@ -149,7 +148,8 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -160,31 +160,35 @@ class GroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($company, $id)
     {
         $role = Role::find($id);
         $assignedPermissions = $role->permissions->pluck('id');
-        
+
         $permissions = Permission::whereIn('id', $assignedPermissions)->get();
         $company_id = Landlord::getTenants()['company']->id;
-        $modules = $permissions->map(function($item, $key) use($company_id) {
-            $menuItemId = explode('.',$item->name);
-            return (int)$menuItemId[1];
+        $modules = $permissions->map(function ($item, $key) use ($company_id) {
+            $menuItemId = explode('.', $item->name);
+
+            return (int) $menuItemId[1];
         })->toArray();
 
         $menu = Menu::where('company_id', $company_id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
+
         return view('groups.edit', compact('role', 'menu', 'menuTree', 'modules'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $company, $id)
@@ -201,22 +205,24 @@ class GroupController extends Controller
 
         // fetch all the relevant permission ids based on the menu items
         $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
-        $permissionsName = $menuItems->map(function($item, $key) use($company_id) {
-            return $company_id . '.' . $item->id;
+        $permissionsName = $menuItems->map(function ($item, $key) use ($company_id) {
+            return $company_id.'.'.$item->id;
         });
         $permissions = Permission::whereIn('name', $permissionsName)->pluck('id');
 
-        // Bind all the selected permissions to the updated role      
+        // Bind all the selected permissions to the updated role
         $role->permissions()->sync($permissions);
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
+
         return redirect()->route('groups.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($company, $id)

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Models\Companies;
+use Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class CompaniesController extends Controller
 {
@@ -84,28 +83,33 @@ class CompaniesController extends Controller
     }
 
     /**
-     * Generate slug
-     * @param  Request $request Request Object
-     * @return JSON           JSON response
+     * Generate slug.
+     *
+     * @param Request $request Request Object
+     *
+     * @return JSON JSON response
      */
     public function generateSlug(Request $request)
     {
         $slug = Companies::makeSlugUniqueBeforeCreate(str_slug($request->company_name));
+
         return $slug;
     }
 
     /**
-     * Select company
-     * @param  Request $request Request Object
-     * @return JSON           JSON response
+     * Select company.
+     *
+     * @param Request $request Request Object
+     *
+     * @return JSON JSON response
      */
     public function selectCompany(Request $request)
     {
         $companySlug = app('request')->route()->parameter('company');
-        if($companySlug != 'www') 
-        {
+        if ($companySlug != 'www') {
             return redirect()->route('admin.home', ['domain' => $companySlug]);
         }
+
         return view('auth.selectcompany');
     }
 }
