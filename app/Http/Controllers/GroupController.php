@@ -105,11 +105,11 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $menuItems = MenuItem::all();
+        // $menuItems = MenuItem::all();
         $menu = Menu::where('company_id', Landlord::getTenants()['company']->id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
 
-        return view('groups.create', compact('menuItems', 'menuTree'));
+        return view('groups.create', compact('menuTree'));
     }
 
     /**
@@ -121,7 +121,7 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        $request = $this->request;
+        $request = $this->request;        
         $this->init();
         $company_id = Landlord::getTenants()['company']->id;
 
@@ -132,7 +132,8 @@ class GroupController extends Controller
         ]);
 
         // fetch all the relevant permission ids based on the menu items
-        $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
+        $menuItems = MenuItem::whereIn('id', $request->widgets)->get();
+
         $permissionsName = $menuItems->map(function ($item, $key) use ($company_id) {
             return $company_id.'.'.$item->id;
         });
@@ -204,7 +205,7 @@ class GroupController extends Controller
         $role->save();
 
         // fetch all the relevant permission ids based on the menu items
-        $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
+        $menuItems = MenuItem::whereIn('id', $request->widgets)->get();
         $permissionsName = $menuItems->map(function ($item, $key) use ($company_id) {
             return $company_id.'.'.$item->id;
         });

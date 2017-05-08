@@ -1,4 +1,24 @@
 <div class="form-body">
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Controller</label>
+        <div class="col-md-9">
+            <select class="form-control select2-hide-search-box" id="parent_id" name="widget_controller">
+                <option value="">Select</option>
+                @if (count($allWidgetControllers) > 0)
+                    @foreach ($allWidgetControllers as $controller)
+                            @if(isset($controller['children']) && count($controller['children']))
+                                <option value="{{ $controller['id'] }}" {{ ($from=='edit' && $controller['id'] == $widget->widget_type_id) ? 'selected=selected ' : '' }} {{ $controller['type'] == 'Module'? 'disabled' : '' }}>{{ $controller['name'] }}</option>
+                                @include('elements.admin.widget_select_controller', ['mod' => $controller['children'], 'prefix' => '&nbsp;&nbsp;&nbsp;'])
+                            @else
+                                <option value="{{ $controller['id'] }}" {{ ($from=='edit' && $controller['id'] == $widget->widget_type_id) ? 'selected=selected ' : '' }}>{{ $controller['name'] }}</option>
+                            @endif
+                    @endforeach
+                @endif
+            </select>
+        </div>
+    </div>
+
     <div class="form-group">
         <label class="col-md-3 control-label">Widget Type</label>
         <div class="col-md-9">
