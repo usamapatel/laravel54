@@ -1,98 +1,114 @@
 /* here you can put your own css to customize and override the theme */
+
 table thead .sorting {
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0) url(../../img/admin/sort_both.png) no-repeat scroll right center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url(../../img/admin/sort_both.png) no-repeat scroll right center;
 }
 
 table thead .sorting_desc {
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0) url(../../img/admin/sort_desc.png) no-repeat scroll right center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url(../../img/admin/sort_desc.png) no-repeat scroll right center;
 }
 
 table thead .sorting_asc {
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0) url(../../img/admin/sort_asc.png) no-repeat scroll right center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url(../../img/admin/sort_asc.png) no-repeat scroll right center;
 }
 
 label.error {
-	color: red;
+    color: red;
 }
 
-.mt-element-list .list-todo .list-count.green-haze, 
+.mt-element-list .list-todo .list-count.green-haze,
 .mt-element-list .list-todo.mt-list-head.green-haze {
-	background-color: #17C4BB;
+    background-color: #17C4BB;
 }
+
 .add_modul.mt-element-list .list-todo.mt-list-container {
-	border-left: 0;
-	border-right: 0;
+    border-left: 0;
+    border-right: 0;
 }
+
 .add_modul.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item:after {
-	border: 0;
+    border: 0;
 }
+
 .add_modul.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item {
-	width: 100%;
-	margin-left: 0;
+    width: 100%;
+    margin-left: 0;
 }
+
 .add_modul.mt-element-list .list-todo .list-todo-item.grey .list-toggle {
-	background: #27A7CE;
-	color: #fff !important;
-	font-size: 16px
+    background: #27A7CE;
+    color: #fff !important;
+    font-size: 16px
 }
+
 .add_modul .md-checkbox label>.box {
-	border:2px solid #fff;
+    border: 2px solid #fff;
 }
+
 .list-todo-icon i {
-	left: 5px;
+    left: 5px;
     position: absolute;
     top: 33px;
 }
+
 .group-scroll {
     margin-bottom: 0;
     max-height: 181px;
     overflow-y: auto;
 }
-.inner_list li.list-group-item{
-	position: relative;
+
+.inner_list li.list-group-item {
+    position: relative;
     display: block;
     padding: 10px 10px;
     margin-bottom: -1px;
     background-color: #fff;
     border: 1px solid #ddd;
 }
+
 .inner_list li.list-group-item:last-child {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
+
 .inner_list li.list-group-item .checker {
-	margin-left: 3px;
+    margin-left: 3px;
     margin-top: -3px;
     width: 19px;
     height: 19px;
     float: left;
 }
+
 .mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item .task-list .task-list-item:last-child {
-	border-bottom: 1px solid #e7ecf1;
+    border-bottom: 1px solid #e7ecf1;
 }
+
 .md-checkbox label.mt-checkbox span,
 .md-checkbox label.mt-checkbox span:hover,
 .mt-checkbox.mt-checkbox-outline:hover>input:not([disabled])~span,
 .mt-checkbox.mt-checkbox-outline>span,
-.mt-checkbox.mt-checkbox-outline:hover>input:not([disabled]):checked~span, 
-.mt-checkbox.mt-checkbox-outline>input:checked~span{
-	border: 1px solid #fff;
-	background: #fff;
+.mt-checkbox.mt-checkbox-outline:hover>input:not([disabled]):checked~span,
+.mt-checkbox.mt-checkbox-outline>input:checked~span {
+    border: 1px solid #fff;
+    background: #fff;
 }
+
 .inner_list .md-checkbox label.mt-checkbox span,
 .inner_list .mt-checkbox.mt-checkbox-outline:hover>input:not([disabled])~span,
 .inner_list .mt-checkbox.mt-checkbox-outline>span,
-.inner_list .mt-checkbox.mt-checkbox-outline:hover>input:not([disabled]):checked~span, 
-.inner_list .mt-checkbox.mt-checkbox-outline>input:checked~span{
-	border:1px solid #d9d9d9;
+.inner_list .mt-checkbox.mt-checkbox-outline:hover>input:not([disabled]):checked~span,
+.inner_list .mt-checkbox.mt-checkbox-outline>input:checked~span {
+    border: 1px solid #d9d9d9;
 }
+
 .modul_list .md-checkbox label>.check {
-	border: 2px solid #fff;
-	border-top: none;
+    border: 2px solid #fff;
+    border-top: none;
     border-left: none;
 }
+
 .portlet.light.box-layout.group-clear.grop-box-1 {
     overflow: visible;
     width: 100%;
@@ -106,19 +122,24 @@ label.error {
     border-width: 1px;
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.03);
 }
+
 .mt-element-ribbon .ribbon.ribbon-color-black {
-	color: #fff;
+    color: #fff;
 }
+
 .mt-element-ribbon .ribbon.ribbon-color-black .ribbon-sub {
-	background-color: #000;
-	color: #fff;
+    background-color: #000;
+    color: #fff;
 }
+
 .mt-element-ribbon .ribbon>.ribbon-sub.ribbon-clip:before {
-	    border-right-color: #000!important;
+    border-right-color: #000!important;
 }
+
 .ribbon.ribbon-shadow.ribbon-color-black.uppercase.title-group-color {
     left: -28px !important;
 }
+
 .mt-element-ribbon .ribbon {
     clear: left;
     float: left;
@@ -135,6 +156,7 @@ label.error {
     position: relative;
     z-index: 5;
 }
+
 .portlet.light {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -147,21 +169,63 @@ label.error {
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.03);
     padding: 0 20px;
 }
+
 .portlet.light .portlet-body {
     padding: 15px 0;
 }
+
 .module_btn {
-	margin-bottom: 25px;
+    margin-bottom: 25px;
 }
+
 .module_btn button {
-	width: 150px;
-	font-size: 16px;
-	border-radius: 3px !important;
+    width: 150px;
+    font-size: 16px;
+    border-radius: 3px !important;
 }
-.module-edit label.col-md-3{
-	margin: 7px 0;
+
+.module-edit label.col-md-3 {
+    margin: 7px 0;
 }
+
 .btn.green-haze:not(.btn-outline) {
-	background-color: #17C4BB;
-	border-color: #17C4BB;
+    background-color: #17C4BB;
+    border-color: #17C4BB;
+}
+
+.user-login-5 .login-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.user-login-5 .login-container>.login-content {
+    margin-top: 0;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+.user-login-5 .login-container>.login-content>.login-form {
+    margin-top: 5%
 }

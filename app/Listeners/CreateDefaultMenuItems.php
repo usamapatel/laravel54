@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use App\Events\CompanyRegistered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,6 +31,14 @@ class CreateDefaultMenuItems
     public function handle(CompanyRegistered $event)
     {
         $company = $event->company;
+        $user = $event->user;
+
+        $role = new Role();
+        $role->name = $company->id.".Company Admin";
+        $role->display_name = "Company Admin";
+        $role->save();
+
+        $user->assignRole($role->name);
 
         $menu = new Menu();
         $menu->company_id = $company->id;
@@ -46,9 +55,10 @@ class CreateDefaultMenuItems
             $permission = new Permission();
             $permission->name = $menu->company_id.".".$menuItem->id;
             $permission->save();
+            $role->givePermissionTo($permission->name);
 
             if(isset($mainMenuItem['children']) && count($mainMenuItem['children']) > 0) {
-                $this->generateChildrenMenus($mainMenuItem['children'], $menuItem, $menu);
+                $this->generateChildrenMenus($mainMenuItem['children'], $menuItem, $menu, $role);
             }
         }
     }
@@ -60,7 +70,7 @@ class CreateDefaultMenuItems
      * @param  Object $menu          [description]
      * @return [type]                [description]
      */
-    public function generateChildrenMenus($childrenMenus, $parent, $menu) 
+    public function generateChildrenMenus($childrenMenus, $parent, $menu, $role) 
     {
         foreach($childrenMenus as $item) {
             $menuItem = new MenuItem;
@@ -71,9 +81,10 @@ class CreateDefaultMenuItems
             $permission = new Permission();
             $permission->name = $menu->company_id.".".$menuItem->id;
             $permission->save();
+            $role->givePermissionTo($permission->name);
             
             if(isset($item['children']) && count($item['children']) > 0) {
-                $this->generateChildrenMenus($item['children'], $menuItem, $menu);
+                $this->generateChildrenMenus($item['children'], $menuItem, $menu, $role);
             }
         }
     }

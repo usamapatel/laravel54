@@ -110,7 +110,7 @@ class RegisterController extends Controller
             'company_id'    => $company->id,
         ]);
 
-        event(new CompanyRegistered($company));
+        event(new CompanyRegistered($company, $user));
 
         return $user;
     }
