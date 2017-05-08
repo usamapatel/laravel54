@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use View;
-use Landlord;
-use App\Models\User;
-use App\Models\Person;
 use App\Models\CompanyUser;
+use App\Models\Person;
+use App\Models\User;
 use Carbon\Carbon as Carbon;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Landlord;
 use Spatie\Permission\Models\Role;
+use View;
 
 class UsersController extends Controller
 {
@@ -112,7 +112,8 @@ class UsersController extends Controller
     public function create()
     {
         $companyId = Landlord::getTenants()['company']->id;
-        $roles = Role::where('name', 'LIKE', $companyId . '%')->get();
+        $roles = Role::where('name', 'LIKE', $companyId.'%')->get();
+
         return view('users.create', compact('roles'));
     }
 
@@ -175,7 +176,8 @@ class UsersController extends Controller
     {
         $user = User::find($userId);
         $companyId = Landlord::getTenants()['company']->id;
-        $roles = Role::where('name', 'LIKE', $companyId . '%')->get();
+        $roles = Role::where('name', 'LIKE', $companyId.'%')->get();
+
         return view('users.edit', compact('user', 'roles'));
     }
 
@@ -196,7 +198,7 @@ class UsersController extends Controller
         $person->first_name = $request->first_name;
         $person->last_name = $request->last_name;
         $person->save();
-        
+
         $user->email = $request->email;
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
         $user->save();
