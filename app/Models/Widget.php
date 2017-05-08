@@ -60,4 +60,14 @@ class Widget extends Model
 
         return $items;
     }
+
+    /**
+     * Relationship: menuitems.
+     *
+     * @return
+     */
+    public function menuItems()
+    {
+        return $this->belongsTo('App\Models\MenuItem');
+    }
 }
