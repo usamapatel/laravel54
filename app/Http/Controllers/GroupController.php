@@ -121,9 +121,32 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        $request = $this->request;        
         $this->init();
+        $request = $this->request;
+        $allPermissions = [];
         $company_id = Landlord::getTenants()['company']->id;
+
+        // widgets
+        $widgets = $request->widgets;
+
+        // fetch all the relevant permission ids based on the menu items
+        /*$menuItems = $request->menuItems;
+        $menuItems = MenuItem::whereIn('id', $request->menuItems)->get();
+
+        foreach($menuItems as $item) {
+            $parentMenuId = $item->id;
+
+            $allWidgets = Widget::whereIn('id', $widgets[$item->id])->get();            
+
+            $allPermissions[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
+            while($item->parent_id != null) {
+                $item = MenuItem::where('id', $item->parent_id)->first();
+                $allPermissions[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
+            }
+
+        }
+
+        dd($allPermissions);*/
 
         // create a new role for the added group
         $role = Role::create([

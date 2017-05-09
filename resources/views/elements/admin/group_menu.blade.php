@@ -7,9 +7,8 @@
                     <div class="list-head-title-container">
                         <h4 class="list-title">{{ $item['name'] }} 
                         <div class="md-checkbox pull-right">
-                            <label class="mt-checkbox mt-checkbox-outline">
-                                <input type="checkbox">
-                                {!! Form::checkbox('groupItems[]', $item['id']) !!}
+                            <label class="mt-checkbox mt-checkbox-outline">                                
+                                {!! Form::checkbox('menuItems[]', $item['id']) !!}
                                 <span></span>
                             </label>
                         </div>
@@ -43,7 +42,7 @@
         	                                                <li class="list-group-item">
         	                                                    <div class="md-checkbox pull-left">
         	                                                        <label class="mt-checkbox mt-checkbox-outline">
-                                                                        {!! Form::checkbox('widgets[]', $widget['id'], ($from=="edit" &&
+                                                                        {!! Form::checkbox("widgets[".$item['id']."][]", $widget['id'], ($from=="edit" &&
                                                                          in_array($widget['id'], $modules))  ? true : null) !!}
         	                                                            <span></span>
         	                                                        </label>
