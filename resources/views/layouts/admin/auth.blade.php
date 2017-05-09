@@ -46,6 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
+        <link href="{{ asset('css/admin/custom.css') }}" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="favicon.ico" /> 
     </head>
     <!-- END HEAD -->
