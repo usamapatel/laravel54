@@ -48,12 +48,12 @@
                 @include('flash::message')
                 <div class="portlet-title">
                     <div class="caption col-md-8">
-                        <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">User List</span>
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold uppercase font-dark">User List</span>
                     </div>
                     <div class="col-md-4">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('users.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
+                            <a class="btn sbold border-btn" href="{{ route('users.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -77,11 +77,11 @@
                                     <td>@{{ user.last_name }}</td>
                                     <td>@{{ user.email }}</td>
                                     <td>@{{ user.created_datetime }}</td>
-                                    <td class="text-center">
-                                        <a href="{{url('admin/users')}}/@{{user.user_id}}/edit" class="btn btn-icon-only green">
+                                    <td class="text-center table_icon">
+                                        <a href="{{url('admin/users')}}/@{{user.user_id}}/edit" class="btn btn-icon-only">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this tag record?" data-delete-url="{{ url('admin/users') }}/@{{ user.user_id }}"  class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this tag record?" data-delete-url="{{ url('admin/users') }}/@{{ user.user_id }}"  class="btn btn-icon-only js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
