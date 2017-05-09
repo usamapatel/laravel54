@@ -53,7 +53,30 @@ License: You must have a valid license purchased only from themeforest(the above
     <body class=" login">
     	<div class="user-login-5">
             <div class="row bs-reset">
-                <div class="col-md-6 bs-reset mt-login-5-bsfix">
+                <div class="login_bg">
+                    <div class="container">
+                        <div class="full-login-screen row">
+                            <div class="col-md-6 leftbar-login">
+                                <div class="login-logo">
+                                    <img class="login-logo" src="{{ asset('img/logo_white.png') }}" />
+                                </div>
+                                <div class="login-description">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 rightbar-login">   
+                                <div class="content-log">
+                                    <div class="login-logo logoicon">
+                                        <img src="{{ asset('img/logo_white.png') }}">
+                                    </div>
+                                    @yield('auth-content')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6 bs-reset mt-login-5-bsfix">
                     <div class="login-bg" style="background-image:url( {{ asset('img/admin/login/bg1.jpg') }} )">
                         <img class="login-logo" src="{{ asset('img/logo.png') }}" /> </div>
                 </div>
@@ -90,7 +113,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
