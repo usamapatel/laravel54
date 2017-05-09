@@ -81,7 +81,34 @@
                         <option>Eng3</option>
                     </select>
                 </div>
-            </div> 
+            </div>
+
+            <div class="pull-left lang-box lang-translation">
+                <div class="lang-box-inner">
+                    <ul style="list-style-type: none;">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ LaravelLocalization::getCurrentLocaleNative() }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode, $url = null, $attributes = [], $forceDefaultLocation = true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="top-menu pull-left">
+                <p>{{ __('Selected language is') }} {{ LaravelLocalization::getCurrentLocaleNative() }} </p>
+                {{-- <p>{{ {{ __("Company Name") }} }}</p> --}}
+            </div>
+            
             <div class="top-menu notification">
                 <ul class="nav navbar-nav pull-right">
                     <!-- BEGIN NOTIFICATION DROPDOWN -->
@@ -371,17 +398,17 @@
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <span class="name">UN</span>
+                            <span class="name"> {{ Auth::user()->person->first_name[0]. Auth::user()->person->last_name[0] }} </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li class="detials">
                                 <label>
-                                    <span class="user-short-name">UN</span>
+                                    <span class="user-short-name">{{ Auth::user()->person->first_name[0]. Auth::user()->person->last_name[0] }}</span>
                                     <span class="user-detail">
-                                        <span class="name">Ub Nandaniya</span>
-                                        <span class="email">ubnandaniya@gmail.com</span>
-                                    </span>
+                                        <span class="name">{{ Auth::user()->person->first_name . ' ' . Auth::user()->person->last_name }}</span>
+                                        <span class="email">{{ Auth::user()->email }}</span>
+                                    </span>                                    
                                 </label>
                             </li>
                             <li>
@@ -400,8 +427,13 @@
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="page_user_login_1.html">
-                                    <i class="icon-key"></i> Log Out </a>
+                                <a href="javascript: void(0)"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="icon-key"></i> Log Out
+                                </a>
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
                         </ul>
                     </li>

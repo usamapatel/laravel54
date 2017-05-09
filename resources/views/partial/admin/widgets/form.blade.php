@@ -71,6 +71,14 @@
     </div>
     <div class="form-row col-md-6 clearfix">
         <div class="form-col-1">
+            <label class="label">Widget Slug</label>
+        </div>
+        <div class="p-r-5 input-wrapper right">
+            {!! Form::text('widget_slug', $from=="edit" ? $widget->slug : null,['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="form-row col-md-6 clearfix">
+        <div class="form-col-1">
             <label class="label">Widget Name</label>
         </div>
         <div class="p-r-5 input-wrapper right">
