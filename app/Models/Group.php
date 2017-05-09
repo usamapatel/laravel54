@@ -6,7 +6,7 @@ use App\Models\Basemodel as Model;
 
 class Group extends Model
 {
-   	/**
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -14,12 +14,12 @@ class Group extends Model
     protected $table = 'groups';
 
     /**
-     * Relationship: menuitems
+     * Relationship: menuitems.
      *
      * @return
      */
     public function menuItems()
     {
-    	return $this->hasMany('App\Models\MenuItemGroup', 'group_id');
+        return $this->hasMany('App\Models\MenuItemGroup', 'group_id');
     }
 }

@@ -3,13 +3,12 @@
 namespace App\Events;
 
 use App\Models\Companies;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class CompanyRegistered
 {
@@ -22,9 +21,10 @@ class CompanyRegistered
      *
      * @return void
      */
-    public function __construct(Companies $company)
+    public function __construct(Companies $company, User $user)
     {
         $this->company = $company;
+        $this->user = $user;
     }
 
     /**
