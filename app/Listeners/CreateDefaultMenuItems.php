@@ -4,22 +4,13 @@ namespace App\Listeners;
 
 use App\Events\CompanyRegistered;
 use App\Models\Menu;
+use App\Models\Widget;
 use App\Models\MenuItem;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class CreateDefaultMenuItems
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
@@ -31,6 +22,7 @@ class CreateDefaultMenuItems
     {
         $company = $event->company;
         $user = $event->user;
+        $defaultMenuItems = config('defaultmenuitems.' . $event->userType);
 
         $role = new Role();
         $role->name = $company->id.'.Company Admin';
@@ -44,7 +36,6 @@ class CreateDefaultMenuItems
         $menu->name = 'Sidebar';
         $menu->save();
 
-        $defaultMenuItems = config('defaultmenuitems');
         foreach ($defaultMenuItems as $mainMenuItem) {
             $menuItem = new MenuItem();
             $menuItem->menu_id = $menu->id;
@@ -52,12 +43,31 @@ class CreateDefaultMenuItems
             $menuItem->save();
 
             $permission = new Permission();
-            $permission->name = $menu->company_id.'.'.$menuItem->id;
+            $permission->name = $menu->company_id. '.' . config('config-variables.menu_item_permission_identifier') . '.' .$menuItem->id;
             $permission->save();
             $role->givePermissionTo($permission->name);
 
             if (isset($mainMenuItem['children']) && count($mainMenuItem['children']) > 0) {
                 $this->generateChildrenMenus($mainMenuItem['children'], $menuItem, $menu, $role);
+            }
+
+            if (isset($mainMenuItem['widget']) && count($mainMenuItem['widget']) > 0) {
+                foreach ($mainMenuItem['widget'] as $widgetItem) {
+                    $widget = new Widget();
+                    $widget->menu_item_id = $menuItem->id;
+                    $widget->company_id = $company->id;
+                    $this->createWidget($widget, $widgetItem, null);
+                    $widget->save();
+
+                    $permission = new Permission();
+                    $permission->name = $company->id. '.' . config('config-variables.widget_permission_identifier') . '.' .$widget->id;
+                    $permission->save();
+                    $role->givePermissionTo($permission->name);
+
+                    if (isset($widgetItem['children']) && count($widgetItem['children']) > 0) {
+                        $this->generateChildrenWidgets($widgetItem['children'], $widget, $role);
+                    }
+                }
             }
         }
     }
@@ -80,12 +90,60 @@ class CreateDefaultMenuItems
             $menuItem->save();
 
             $permission = new Permission();
-            $permission->name = $menu->company_id.'.'.$menuItem->id;
+            $permission->name = $menu->company_id. '.' . config('config-variables.menu_item_permission_identifier') . '.' .$menuItem->id;
             $permission->save();
             $role->givePermissionTo($permission->name);
 
             if (isset($item['children']) && count($item['children']) > 0) {
                 $this->generateChildrenMenus($item['children'], $menuItem, $menu, $role);
+            }
+
+            if (isset($item['widget']) && count($item['widget']) > 0) {
+                foreach ($item['widget'] as $widgetItem) {
+                    $widget = new Widget();
+                    $widget->menu_item_id = $menuItem->id;
+                    $widget->company_id = $menu->company_id;
+                    $this->createWidget($widget, $widgetItem, null);
+                    $widget->save();
+
+                    $permission = new Permission();
+                    $permission->name = $menu->company_id. '.' . config('config-variables.widget_permission_identifier') . '.' .$widget->id;
+                    $permission->save();
+                    $role->givePermissionTo($permission->name);
+
+                    if (isset($widgetItem['children']) && count($widgetItem['children']) > 0) {
+                        $this->generateChildrenWidgets($widgetItem['children'], $widget, $role);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * [generateChildrenWidgets description].
+     *
+     * @param array  $childrenWidgets [description]
+     * @param object $parent        [description]
+     * @param object $role          [description]
+     *
+     * @return [type] [description]
+     */
+    public function generateChildrenWidgets($childrenWidgets, $parent, $role)
+    {
+        foreach ($childrenWidgets as $item) {
+            $widget = new Widget();
+            $widget->menu_item_id = $parent->id;
+            $widget->company_id = $parent->company_id;
+            $this->createWidget($widget, $item, $parent->id);
+            $widget->save();
+
+            $permission = new Permission();
+            $permission->name = $parent->company_id. '.' . config('config-variables.widget_permission_identifier') . '.' .$widget->id;
+            $permission->save();
+            $role->givePermissionTo($permission->name);
+
+            if (isset($item['children']) && count($item['children']) > 0) {
+                $this->generateChildrenWidgets($item['children'], $widget, $role);
             }
         }
     }
@@ -110,5 +168,25 @@ class CreateDefaultMenuItems
         $item->is_active = $values['is_active'];
         $item->is_shown_on_menu = $values['is_shown_on_menu'];
         $item->is_publicly_visible = $values['is_publicly_visible'];
+    }
+
+    /**
+     * [createWidget description].
+     *
+     * @param object &$item  [description]
+     * @param array  $values [description]
+     *
+     * @return [type] [description]
+     */
+    public function createWidget(&$item, $values, $parent)
+    {
+        $item->icon = $values['icon'];
+        $item->name = $values['name'];
+        $item->description = $values['description'];
+        $item->parent_id = $parent;
+        $item->width = $values['width'];
+        $item->status = $values['status'];
+        $item->settings = $values['settings'];
+        $item->widget_type_id = $values['widget_type_id'];
     }
 }

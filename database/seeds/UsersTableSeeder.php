@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\User;
+use App\Models\Companies;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
+use App\Events\CompanyRegistered;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,17 +17,17 @@ class UsersTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        DB::table('people')->delete();
-        $person = DB::table('people')->insert([
-                                                [
-                                                    'first_name'        => 'Hardik',
-                                                    'last_name'         => 'Shah',
-                                                    'display_name'      => 'Hardik Shah',
-                                                    'primary_email'     => 'hshah@aecordigital.com',
-                                                ], ]
+        DB::table('people')->truncate();
+        DB::table('people')->insert([
+                        [
+                            'first_name'        => 'Hardik',
+                            'last_name'         => 'Shah',
+                            'display_name'      => 'Hardik Shah',
+                            'primary_email'     => 'hshah@aecordigital.com',
+                        ], ]
                     );
 
-        DB::table('users')->delete();
+        DB::table('users')->truncate();
         DB::table('users')->insert([
         [
             'person_id'          => 1,
@@ -35,11 +38,16 @@ class UsersTableSeeder extends Seeder
 
         ], ]);
 
-        DB::table('company_user')->delete();
+        $company = Companies::find(1);
+        $user = User::find(1);
+
+        DB::table('company_user')->truncate();
         DB::table('company_user')->insert([
         [
             'company_id' => 1,
             'user_id'    => 1,
         ], ]);
+
+        //event(new CompanyRegistered($company, $user, 'admin'));
     }
 }
