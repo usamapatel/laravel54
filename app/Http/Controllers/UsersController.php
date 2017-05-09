@@ -42,7 +42,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('users.index');
     }
@@ -138,7 +138,7 @@ class UsersController extends Controller
         $user->person_id = $person->id;
         $user->username = $request->username;
         $user->email = $request->email;
-        $user->password = Hash::make($request->get('password'));
+        $user->password = Hash::make('password');
         $user->verification_token = md5(uniqid(mt_rand(), true));
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
         $user->save();

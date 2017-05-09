@@ -182,6 +182,7 @@ class CreateDefaultMenuItems
     {
         $item->icon = $values['icon'];
         $item->name = $values['name'];
+        $item->slug = $values['slug'];
         $item->description = $values['description'];
         $item->parent_id = $parent;
         $item->width = $values['width'];
