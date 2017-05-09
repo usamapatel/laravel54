@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use View;
+use Landlord;
+use App\Models\Menu;
+use App\Models\MenuItem;
 use App\Models\Widget;
 use App\Models\WidgetType;
-use DB;
 use Illuminate\Http\Request;
-use View;
+use Spatie\Permission\Models\Permission;
 
 class WidgetsController extends Controller
 {
@@ -19,6 +23,7 @@ class WidgetsController extends Controller
      */
     public function __construct(Request $request)
     {
+        $this->menuId = null;
         $this->title = 'Widget';
         $this->request = $request;
         View::share('title', $this->title);
@@ -33,6 +38,7 @@ class WidgetsController extends Controller
     public function __destruct()
     {
         unset($this->title);
+        unset($this->menuId);
     }
 
     /**
@@ -42,6 +48,9 @@ class WidgetsController extends Controller
      */
     public function init()
     {
+        $companyId = Landlord::getTenants()['company']->id;
+        $menu = Menu::where('company_id', $companyId)->where('name', 'Sidebar')->first();
+        $this->menuId = $menu->id;
     }
 
     /**
@@ -100,10 +109,12 @@ class WidgetsController extends Controller
      */
     public function create()
     {
+        $this->init();
         $WidgetTypes = WidgetType::generate();
         $WidgetTree = Widget::generate();
-
-        return view('widgets.create', compact('WidgetTypes', 'WidgetTree'));
+        $menuItems = MenuItem::where('menu_id', $this->menuId)->get()->toArray();
+        $allWidgetControllers = Menu::buildMenuTree($menuItems);
+        return view('widgets.create', compact('WidgetTypes', 'WidgetTree', 'allWidgetControllers'));
     }
 
     /**
@@ -115,8 +126,9 @@ class WidgetsController extends Controller
      */
     public function store(Request $request)
     {
-        $request = $this->request;
         $this->init();
+        
+        $request = $this->request;
         $widget = new Widget();
         $widget->icon = $request->widget_icon;
         $widget->name = $request->widget_name;
@@ -125,9 +137,14 @@ class WidgetsController extends Controller
         $widget->status = $request->status ? 1 : 0;
         $widget->widget_type_id = $request->widget_type;
         $widget->parent_id = $request->widget_parent;
+        $widget->menu_item_id = $request->widget_controller;
         $widget->company_id = 1;
-
         $widget->save();
+
+        $companyId = Landlord::getTenants()['company']->id;
+        $permission = new Permission();
+        $permission->name = $companyId.'.'.(config('config-variables.widget_permission_identifier')). '.' .$widget->id;
+        $permission->save();
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
@@ -155,11 +172,14 @@ class WidgetsController extends Controller
      */
     public function edit($company, $id)
     {
+        $this->init();
         $widget = Widget::find($id);
         $WidgetTypes = WidgetType::generate();
         $WidgetTree = Widget::generate();
+        $menuItems = MenuItem::where('menu_id', $this->menuId)->get()->toArray();
+        $allWidgetControllers = Menu::buildMenuTree($menuItems);
 
-        return view('widgets.edit', compact('widget', 'WidgetTypes', 'WidgetTree'));
+        return view('widgets.edit', compact('widget', 'WidgetTypes', 'WidgetTree', 'menuItems', 'allWidgetControllers'));
     }
 
     /**
@@ -180,6 +200,7 @@ class WidgetsController extends Controller
         $widget->status = $request->status ? 1 : 0;
         $widget->widget_type_id = $request->widget_type;
         $widget->parent_id = $request->widget_parent;
+        $widget->menu_item_id = $request->widget_controller;
         $widget->company_id = 1;
         $widget->save();
 
