@@ -23,7 +23,7 @@ class Menu extends Model
 
     public function generate()
     {
-        $items = $this->items()
+        $items = $this->items()->with('widgets')
             ->where('is_active', 1)
             ->orderBy('order')
             ->get()
