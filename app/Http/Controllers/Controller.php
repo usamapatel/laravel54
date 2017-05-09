@@ -23,9 +23,12 @@ class Controller extends BaseController
                 foreach ($userRoles as $role) {
                     $permissions = $role->permissions;
                     $menuItemIdArray = $permissions->map(function ($item, $key) {
-                        return explode('.', $item->name)[1];
+                        if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
+                            return explode('.', $item->name)[2];
+                        }
                     });
                 }
+                // code refactoring remaining here
                 $menuItemArray = MenuItem::whereIn('id', $menuItemIdArray)->get()->toArray();
                 $menuItemArray = Menu::buildMenuTree($menuItemArray, 0);
                 View::share('menu_items', $menuItemArray);

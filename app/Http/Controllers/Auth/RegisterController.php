@@ -111,7 +111,7 @@ class RegisterController extends Controller
             'company_id'    => $company->id,
         ]);
 
-        event(new CompanyRegistered($company, $user));
+        event(new CompanyRegistered($company, $user, 'front'));
 
         return $user;
     }
