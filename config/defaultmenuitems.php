@@ -142,7 +142,7 @@ return [
                                 [
                                     'icon' => 'fa fa-user fa-lg',
                                     'name' => 'Add user',
-                                    'slug' => 'filter',
+                                    'slug' => 'add-user',
                                     'description' => 'add user details',
                                     'width' => '100%',
                                     'status' => 1,

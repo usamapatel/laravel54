@@ -63,6 +63,12 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="col-md-3 control-label">Widget Slug</label>
+        <div class="col-md-9">
+            {!! Form::text('widget_slug', $from=="edit" ? $widget->slug : null,['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="form-group">
         <label class="col-md-3 control-label">Widget Name</label>
         <div class="col-md-9">
             {!! Form::text('widget_name', $from=="edit" ? $widget->name : null,['class' => 'form-control']) !!}
