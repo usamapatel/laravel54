@@ -41,7 +41,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('verify');
     }
 
     /**
@@ -75,14 +75,22 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function verify($token)
+    public function verify($token = null)
     {
-        $user = User::where('verification_token', $token)->first();
-        $user->is_verified = 1;
-        $user->verified_at = Carbon::now();
-        if ($user->save()) {
-            return view('auth.verified', ['user' => $user]);
+        if (isset($token)) {
+            $user = User::where('verification_token', $token)->first();
+            if ($user) {
+                $user->is_verified = 1;
+                $user->verified_at = Carbon::now();
+                if ($user->save()) {
+                    return view('auth.verified', ['user' => $user]);
+                }
+            }
+
+            return view('auth.verification');
         }
+
+        return view('auth.verification');
     }
 
     /**
@@ -96,10 +104,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'first_name' => 'max:255',
-            'last_name'  => 'max:255',
-            'username'   => 'required|max:60|unique:users',
-            'email'      => 'required|email|max:255|unique:users',
-            'password'   => 'required|min:6|confirmed',
+            'last_name' => 'max:255',
+            'username' => 'required|max:60|unique:users',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -113,17 +121,17 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $person = Person::create([
-            'first_name'    => $data['first_name'],
-            'last_name'     => $data['last_name'],
-            'display_name'  => $data['username'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'display_name' => $data['username'],
             'primary_email' => $data['email'],
         ]);
 
         $user = User::create([
-            'person_id'          => $person->id,
-            'username'           => $data['username'],
-            'email'              => $data['email'],
-            'password'           => bcrypt($data['password']),
+            'person_id' => $person->id,
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
             'verification_token' => md5(uniqid(mt_rand(), true)),
         ]);
 

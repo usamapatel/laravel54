@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5402ba3700689d7857afbf6eba66f63d",
+    "content-hash": "8ccb568e95e5be67c62797758d7e9870",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "appstract/laravel-options",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-options.git",
-                "reference": "72eca09385ca4bb310be0556f2262b2c6485e4b1"
+                "reference": "dedde222e0d158c0d58a9d1bb4b38f1f751d2286"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-options/zipball/72eca09385ca4bb310be0556f2262b2c6485e4b1",
-                "reference": "72eca09385ca4bb310be0556f2262b2c6485e4b1",
+                "url": "https://api.github.com/repos/appstract/laravel-options/zipball/dedde222e0d158c0d58a9d1bb4b38f1f751d2286",
+                "reference": "dedde222e0d158c0d58a9d1bb4b38f1f751d2286",
                 "shasum": ""
             },
             "require": {
@@ -103,7 +103,7 @@
                 "appstract",
                 "laravel-options"
             ],
-            "time": "2017-03-22T10:37:06+00:00"
+            "time": "2017-05-04T13:13:34+00:00"
         },
         {
             "name": "arcanedev/log-viewer",
@@ -170,16 +170,16 @@
         },
         {
             "name": "arcanedev/support",
-            "version": "4.1.7",
+            "version": "4.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ARCANEDEV/Support.git",
-                "reference": "481caa8e200b8450d4223a9a7ad80bd5e63f4245"
+                "reference": "50bf6c1e6aabf7c5c4e1cea0d6028b0622d5ce2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/481caa8e200b8450d4223a9a7ad80bd5e63f4245",
-                "reference": "481caa8e200b8450d4223a9a7ad80bd5e63f4245",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/50bf6c1e6aabf7c5c4e1cea0d6028b0622d5ce2d",
+                "reference": "50bf6c1e6aabf7c5c4e1cea0d6028b0622d5ce2d",
                 "shasum": ""
             },
             "require": {
@@ -226,7 +226,7 @@
                 "laravel",
                 "support"
             ],
-            "time": "2017-04-28T11:30:05+00:00"
+            "time": "2017-05-08T12:18:25+00:00"
         },
         {
             "name": "arrilot/laravel-widgets",
@@ -444,16 +444,16 @@
         },
         {
             "name": "brotzka/laravel-dotenv-editor",
-            "version": "v2.0.7",
+            "version": "v2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Brotzka/laravel-dotenv-editor.git",
-                "reference": "360a86c06450f07d5c9efbf9a2b4462dd0094039"
+                "reference": "d10926bd3ecc1f98b5e3aed23aae03a48a1edd9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Brotzka/laravel-dotenv-editor/zipball/360a86c06450f07d5c9efbf9a2b4462dd0094039",
-                "reference": "360a86c06450f07d5c9efbf9a2b4462dd0094039",
+                "url": "https://api.github.com/repos/Brotzka/laravel-dotenv-editor/zipball/d10926bd3ecc1f98b5e3aed23aae03a48a1edd9e",
+                "reference": "d10926bd3ecc1f98b5e3aed23aae03a48a1edd9e",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +481,7 @@
                 "dotenv-editor",
                 "laravel"
             ],
-            "time": "2017-03-11T10:41:52+00:00"
+            "time": "2017-05-07T05:39:47+00:00"
         },
         {
             "name": "cache/adapter-common",
@@ -2648,16 +2648,16 @@
         },
         {
             "name": "imanghafoori/laravel-widgetize",
-            "version": "v1.8.2",
+            "version": "v1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/imanghafoori1/laravel-widgetize.git",
-                "reference": "c622128a50a6cd6fd13332d62b69f21cd2d6e38c"
+                "reference": "d873cbd6b7069ae259eda296905eb46f2bb49c76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/c622128a50a6cd6fd13332d62b69f21cd2d6e38c",
-                "reference": "c622128a50a6cd6fd13332d62b69f21cd2d6e38c",
+                "url": "https://api.github.com/repos/imanghafoori1/laravel-widgetize/zipball/d873cbd6b7069ae259eda296905eb46f2bb49c76",
+                "reference": "d873cbd6b7069ae259eda296905eb46f2bb49c76",
                 "shasum": ""
             },
             "require": {
@@ -2689,6 +2689,7 @@
                 }
             ],
             "description": "A minimal yet powerful package to give a better structure and caching opportunity for your laravel apps.",
+            "homepage": "https://github.com/imanghafoori1/laravel-widgetize",
             "keywords": [
                 "laravel",
                 "laravel-cache",
@@ -2696,7 +2697,7 @@
                 "laravel5-package",
                 "php"
             ],
-            "time": "2017-05-03T18:46:49+00:00"
+            "time": "2017-05-07T12:50:37+00:00"
         },
         {
             "name": "intervention/image",
@@ -2849,16 +2850,16 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.40",
+            "version": "v1.2.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "c5c0f049264edcf6499847c756dc36e51a072313"
+                "reference": "ab6f971acce526074f01c8367b2b8d7d55852d8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/c5c0f049264edcf6499847c756dc36e51a072313",
-                "reference": "c5c0f049264edcf6499847c756dc36e51a072313",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/ab6f971acce526074f01c8367b2b8d7d55852d8b",
+                "reference": "ab6f971acce526074f01c8367b2b8d7d55852d8b",
                 "shasum": ""
             },
             "require": {
@@ -2893,7 +2894,7 @@
                 "crawlerdetect",
                 "php crawler detect"
             ],
-            "time": "2017-04-20T18:58:25+00:00"
+            "time": "2017-05-04T20:01:45+00:00"
         },
         {
             "name": "jenssegers/agent",
@@ -3609,16 +3610,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.21",
+            "version": "v5.4.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2ed668f96d1a6ca42f50d5c87ee9ceecfc0a6eee"
+                "reference": "fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2ed668f96d1a6ca42f50d5c87ee9ceecfc0a6eee",
-                "reference": "2ed668f96d1a6ca42f50d5c87ee9ceecfc0a6eee",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d",
+                "reference": "fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d",
                 "shasum": ""
             },
             "require": {
@@ -3734,7 +3735,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-28T15:40:01+00:00"
+            "time": "2017-05-08T21:45:45+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4228,16 +4229,16 @@
         },
         {
             "name": "markrogoyski/math-php",
-            "version": "v0.27.0",
+            "version": "v0.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/markrogoyski/math-php.git",
-                "reference": "601baa6267cc4a357c8032d9407a0206975aa26e"
+                "reference": "443aa343f2056820aca6242c890903ba7d7d9cc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/markrogoyski/math-php/zipball/601baa6267cc4a357c8032d9407a0206975aa26e",
-                "reference": "601baa6267cc4a357c8032d9407a0206975aa26e",
+                "url": "https://api.github.com/repos/markrogoyski/math-php/zipball/443aa343f2056820aca6242c890903ba7d7d9cc3",
+                "reference": "443aa343f2056820aca6242c890903ba7d7d9cc3",
                 "shasum": ""
             },
             "require": {
@@ -4289,7 +4290,7 @@
                 "regressions",
                 "statistics"
             ],
-            "time": "2017-04-23T16:36:38+00:00"
+            "time": "2017-05-02T14:44:23+00:00"
         },
         {
             "name": "maximebf/debugbar",
@@ -4648,12 +4649,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpociot/botman.git",
-                "reference": "aa9c8c18f0297f3d7a483662e6f8693f00dcbc58"
+                "reference": "4249caa2bae371c879b82abb3fb2695d01cded63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpociot/botman/zipball/aa9c8c18f0297f3d7a483662e6f8693f00dcbc58",
-                "reference": "aa9c8c18f0297f3d7a483662e6f8693f00dcbc58",
+                "url": "https://api.github.com/repos/mpociot/botman/zipball/4249caa2bae371c879b82abb3fb2695d01cded63",
+                "reference": "4249caa2bae371c879b82abb3fb2695d01cded63",
                 "shasum": ""
             },
             "require": {
@@ -4708,7 +4709,7 @@
                 "slack",
                 "telegram"
             ],
-            "time": "2017-05-01T21:23:52+00:00"
+            "time": "2017-05-08T08:14:41+00:00"
         },
         {
             "name": "mpociot/pipeline",
@@ -5007,6 +5008,63 @@
                 "time"
             ],
             "time": "2017-01-16T07:55:07+00:00"
+        },
+        {
+            "name": "ngugijames/laravel-exceptions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ngugijames/laravel-exceptions.git",
+                "reference": "e6901405f08142cb1c2f1d6edfc6afc4aeed31f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ngugijames/laravel-exceptions/zipball/e6901405f08142cb1c2f1d6edfc6afc4aeed31f5",
+                "reference": "e6901405f08142cb1c2f1d6edfc6afc4aeed31f5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ngugi\\Exceptions\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Ngugi\\Exceptions\\Test\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "James Ngugi",
+                    "email": "ngugi823@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Better exception handling for Laravel. This package offers a listener approach for handling exceptions in big laravel applications.",
+            "keywords": [
+                "error",
+                "exceptions",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/ngugijames/laravel-exceptions/tree/master",
+                "issues": "https://github.com/ngugijames/laravel-exceptions/issues"
+            },
+            "time": "2016-11-30 11:55:22"
         },
         {
             "name": "nikic/php-parser",
@@ -7444,16 +7502,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "4.13.1",
+            "version": "4.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "894c4cd437253398cb6920a2735b5948fa667ad3"
+                "reference": "09585a737029001bb0f994ed0531712f1da646e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/894c4cd437253398cb6920a2735b5948fa667ad3",
-                "reference": "894c4cd437253398cb6920a2735b5948fa667ad3",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/09585a737029001bb0f994ed0531712f1da646e5",
+                "reference": "09585a737029001bb0f994ed0531712f1da646e5",
                 "shasum": ""
             },
             "require": {
@@ -7465,7 +7523,7 @@
                 "illuminate/support": "~5.3.28|~5.4.0",
                 "league/flysystem": "^1.0.27",
                 "php": "^7.0",
-                "spatie/db-dumper": "^2.5",
+                "spatie/db-dumper": "^2.6",
                 "spatie/temporary-directory": "^1.1",
                 "symfony/finder": "^3.0"
             },
@@ -7506,7 +7564,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2017-05-01T19:26:52+00:00"
+            "time": "2017-05-09T15:33:55+00:00"
         },
         {
             "name": "spatie/laravel-collection-macros",
@@ -8971,16 +9029,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.7",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4"
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
                 "shasum": ""
             },
             "require": {
@@ -9021,7 +9079,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-04-20T17:32:18+00:00"
+            "time": "2017-05-01T15:54:03+00:00"
         },
         {
             "name": "symfony/console",
@@ -10029,12 +10087,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/coding-sunshine/laravel-langman-gui.git",
-                "reference": "638cbea188d9d338cc5698fc4c22600753706c37"
+                "reference": "46061bb8eaba243a6b24652ab8f439319b7b1a2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/638cbea188d9d338cc5698fc4c22600753706c37",
-                "reference": "638cbea188d9d338cc5698fc4c22600753706c37",
+                "url": "https://api.github.com/repos/coding-sunshine/laravel-langman-gui/zipball/46061bb8eaba243a6b24652ab8f439319b7b1a2c",
+                "reference": "46061bb8eaba243a6b24652ab8f439319b7b1a2c",
                 "shasum": ""
             },
             "require": {
@@ -10067,7 +10125,7 @@
             "support": {
                 "source": "https://github.com/coding-sunshine/laravel-langman-gui/tree/master"
             },
-            "time": "2017-05-04T18:19:28+00:00"
+            "time": "2017-05-09T16:23:13+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -10118,16 +10176,16 @@
         },
         {
             "name": "timacdonald/rule-builder",
-            "version": "v2.2.1",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/timacdonald/rule-builder.git",
-                "reference": "7fa938edcf4d6e76708c4e240f44e82b1e4e6ead"
+                "reference": "33d91d00783a420d40be8fa0bfee61058a85eb9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timacdonald/rule-builder/zipball/7fa938edcf4d6e76708c4e240f44e82b1e4e6ead",
-                "reference": "7fa938edcf4d6e76708c4e240f44e82b1e4e6ead",
+                "url": "https://api.github.com/repos/timacdonald/rule-builder/zipball/33d91d00783a420d40be8fa0bfee61058a85eb9e",
+                "reference": "33d91d00783a420d40be8fa0bfee61058a85eb9e",
                 "shasum": ""
             },
             "require": {
@@ -10159,7 +10217,7 @@
                 "rule",
                 "validation"
             ],
-            "time": "2017-05-01T03:23:47+00:00"
+            "time": "2017-05-08T09:57:12+00:00"
         },
         {
             "name": "true/punycode",
@@ -10338,23 +10396,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/glore/laravel-favorite.git",
-                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0"
+                "reference": "0c8937ee81d2e949165043d50d978a06e479f9b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glore/laravel-favorite/zipball/52060a84f777e84062a76ead7dfc262006be8eb0",
-                "reference": "52060a84f777e84062a76ead7dfc262006be8eb0",
+                "url": "https://api.github.com/repos/glore/laravel-favorite/zipball/0c8937ee81d2e949165043d50d978a06e479f9b6",
+                "reference": "0c8937ee81d2e949165043d50d978a06e479f9b6",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": ">=5.0",
-                "illuminate/support": ">=5.3",
-                "php": ">=5.6.4"
+                "illuminate/support": ">=5.2",
+                "php": ">=5.5.9"
             },
             "require-dev": {
                 "orchestra/database": "~3.0",
                 "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "~5.7"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -10392,7 +10450,7 @@
                 "package",
                 "remember"
             ],
-            "time": "2017-02-16T07:44:57+00:00"
+            "time": "2017-05-08T11:03:19+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -10720,12 +10778,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "2d97e0ab0372cb87bfef1a1485db8dc102c436cb"
+                "reference": "8d6d2f483e0be7b2d19b4602a8d84247b1770c06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/2d97e0ab0372cb87bfef1a1485db8dc102c436cb",
-                "reference": "2d97e0ab0372cb87bfef1a1485db8dc102c436cb",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/8d6d2f483e0be7b2d19b4602a8d84247b1770c06",
+                "reference": "8d6d2f483e0be7b2d19b4602a8d84247b1770c06",
                 "shasum": ""
             },
             "require": {
@@ -10806,7 +10864,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-04-30T22:14:07+00:00"
+            "time": "2017-05-08T20:44:58+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -11073,12 +11131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CrestApps/laravel-code-generator.git",
-                "reference": "ffcbaf7b3672b2390406e57d7032a53313a64bb5"
+                "reference": "9629987bea9774f926bdd765a67d3a7e2cf725ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/ffcbaf7b3672b2390406e57d7032a53313a64bb5",
-                "reference": "ffcbaf7b3672b2390406e57d7032a53313a64bb5",
+                "url": "https://api.github.com/repos/CrestApps/laravel-code-generator/zipball/9629987bea9774f926bdd765a67d3a7e2cf725ab",
+                "reference": "9629987bea9774f926bdd765a67d3a7e2cf725ab",
                 "shasum": ""
             },
             "require": {
@@ -11124,7 +11182,7 @@
                 "routes creator",
                 "views creator"
             ],
-            "time": "2017-05-03T17:17:25+00:00"
+            "time": "2017-05-09T02:26:46+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -11299,17 +11357,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "0cd8f38815ea42c2eaab91ee28a6dd5020e4d5d1"
+                "reference": "c606b75a87baf017178b95f93406942f7816277f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/0cd8f38815ea42c2eaab91ee28a6dd5020e4d5d1",
-                "reference": "0cd8f38815ea42c2eaab91ee28a6dd5020e4d5d1",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/c606b75a87baf017178b95f93406942f7816277f",
+                "reference": "c606b75a87baf017178b95f93406942f7816277f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.2",
                 "ext-tokenizer": "*",
+                "gecko-packages/gecko-php-unit": "^2.0",
                 "php": "^5.6 || >=7.0 <7.2",
                 "sebastian/diff": "^1.4",
                 "symfony/console": "^3.0",
@@ -11326,9 +11385,9 @@
                 "hhvm": "<3.18"
             },
             "require-dev": {
-                "gecko-packages/gecko-php-unit": "^2.0",
+                "johnkary/phpunit-speedtrap": "^1.1",
                 "justinrainbow/json-schema": "^5.0",
-                "phpunit/phpunit": "^4.5 || ^5.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.4.3",
                 "satooshi/php-coveralls": "^1.0",
                 "symfony/phpunit-bridge": "^3.2.2"
             },
@@ -11366,7 +11425,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-05-04T13:10:41+00:00"
+            "time": "2017-05-09T11:14:18+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -11374,12 +11433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626"
+                "reference": "ff29a179c673426c57dc5ccf7635c4ed6fd939db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/4c751251f4f66ada7bfb10a96993c664e479b626",
-                "reference": "4c751251f4f66ada7bfb10a96993c664e479b626",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff29a179c673426c57dc5ccf7635c4ed6fd939db",
+                "reference": "ff29a179c673426c57dc5ccf7635c4ed6fd939db",
                 "shasum": ""
             },
             "require": {
@@ -11416,7 +11475,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-05-04T14:38:58+00:00"
+            "time": "2017-05-09T13:46:42+00:00"
         },
         {
             "name": "garygreen/pretty-routes",
@@ -11453,6 +11512,45 @@
             ],
             "description": "Pretty routes for Laravel 5.",
             "time": "2017-01-18T10:03:55+00:00"
+        },
+        {
+            "name": "gecko-packages/gecko-php-unit",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeckoPackages/GeckoPHPUnit.git",
+                "reference": "40a697ec261f3526e8196363b481b24383740c13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/40a697ec261f3526e8196363b481b24383740c13",
+                "reference": "40a697ec261f3526e8196363b481b24383740c13",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeckoPackages\\PHPUnit\\": "src\\PHPUnit"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Additional PHPUnit tests.",
+            "homepage": "https://github.com/GeckoPackages",
+            "keywords": [
+                "extension",
+                "filesystem",
+                "phpunit"
+            ],
+            "time": "2016-11-22T11:01:27+00:00"
         },
         {
             "name": "gitonomy/gitlib",
@@ -12512,12 +12610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "1c77d11878c4bd475bc66f0eaa2686df0fcfa30f"
+                "reference": "14cf4abb303d99679731f65d92fb057c8f6b1372"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/1c77d11878c4bd475bc66f0eaa2686df0fcfa30f",
-                "reference": "1c77d11878c4bd475bc66f0eaa2686df0fcfa30f",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/14cf4abb303d99679731f65d92fb057c8f6b1372",
+                "reference": "14cf4abb303d99679731f65d92fb057c8f6b1372",
                 "shasum": ""
             },
             "require": {
@@ -12586,7 +12684,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-04-27T12:40:39+00:00"
+            "time": "2017-05-07T17:45:59+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -14809,6 +14907,7 @@
         "dingo/api": 20,
         "jwage/purl": 20,
         "mpociot/botman": 20,
+        "ngugijames/laravel-exceptions": 20,
         "spatie/laravel-medialibrary": 20,
         "spatie/laravel-paginateroute": 20,
         "themsaid/laravel-langman-gui": 20,

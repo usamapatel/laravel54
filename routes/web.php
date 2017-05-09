@@ -2,7 +2,7 @@
 
 Route::group(
     [
-        'prefix'     => LaravelLocalization::setLocale(),
+        'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect'],
     ],
     function () {
@@ -23,7 +23,7 @@ Route::group(
         });
 
         Auth::routes();
-        Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+        Route::get('/verifyemail/{token?}', 'Auth\RegisterController@verify')->name('auth.verify');
 
         Route::get('/home', 'HomeController@index');
 
