@@ -3,7 +3,7 @@
 @section('page-content')
     <div class="row">
         <div class="col-md-12" id="modulelist">
-            <div class="portlet box green">
+            <div class="portlet box white">
                 <div class="portlet-title">
                     <div class="caption">
                         Search
@@ -41,7 +41,7 @@
                 <div class="portlet-title">
                     <div class="caption col-md-9">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Module List</span>
+                        <span class="caption-subject">Module List</span>
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">

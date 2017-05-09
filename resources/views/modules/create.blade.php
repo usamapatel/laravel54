@@ -5,7 +5,7 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase">Add Module</span>
+                <span class="caption-subject">Add Module</span>
             </div>
         </div>
         <div class="portlet-body form">

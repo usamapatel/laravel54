@@ -11,58 +11,58 @@
     <div class="row">
         @if($widgets["new-feedbacks"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-comments"></i>
+                    <!-- <i class="fa fa-comments"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number">
+                    <div class="number font-blue">
                         <span data-counter="counterup" data-value="1349">0</span>
                     </div>
-                    <div class="desc"> New Feedbacks </div>
+                    <div class="desc font-blue"> New Feedbacks </div>
                 </div>
             </a>
         </div>
         @endif
         @if($widgets["total-profit"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-bar-chart-o"></i>
+                    <!-- <i class="fa fa-bar-chart-o"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number">
+                    <div class="number font-red">
                         <span data-counter="counterup" data-value="12,5">0</span>M$ </div>
-                    <div class="desc"> Total Profit </div>
+                    <div class="desc font-red"> Total Profit </div>
                 </div>
             </a>
         </div>
         @endif
         @if($widgets["new-orders"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-shopping-cart"></i>
+                    <!-- <i class="fa fa-shopping-cart"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number">
+                    <div class="number font-green">
                         <span data-counter="counterup" data-value="549">0</span>
                     </div>
-                    <div class="desc"> New Orders </div>
+                    <div class="desc font-green"> New Orders </div>
                 </div>
             </a>
         </div>
         @endif
         @if($widgets["brand-popularity"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-globe"></i>
+                    <!-- <i class="fa fa-globe"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number"> +
+                    <div class="number font-purple"> +
                         <span data-counter="counterup" data-value="89"></span>% </div>
-                    <div class="desc"> Brand Popularity </div>
+                    <div class="desc font-purple"> Brand Popularity </div>
                 </div>
             </a>
         </div>

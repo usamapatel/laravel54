@@ -14,8 +14,8 @@
             </div> 
             <div class="form-group col-md-6">
                 <label class="col-md-3" ">Active Status:</label>
-                <div class="mt-radio-inline col-md-5">
-                    {!! Form::checkbox('status', 1, $from=="edit" ? $role->status : null, ['class' => 'make-switch', 'data-on-text' => 'Yes', 'data-off-text' => 'No']) !!}
+                <div class="mt-radio-inline col-md-5" style="padding:0;">
+                    {!! Form::checkbox('status', 1, $from=="edit" ? $group->status : null, ['class' => 'make-switch', 'data-on-text' => 'Yes', 'data-off-text' => 'No']) !!}
                 </div>
             </div>
         </div>    
