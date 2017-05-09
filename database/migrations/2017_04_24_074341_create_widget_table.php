@@ -25,7 +25,12 @@ class CreateWidgetTable extends Migration
             $table->longText('description')->nullable();
             $table->string('width');
             $table->boolean('status');
+            $table->text('settings')->nullable();
             $table->integer('parent_id')->nullable();
+            $table->integer('menu_item_id')->unsigned();
+            $table->foreign('menu_item_id')
+                ->references('id')->on('menu_items')
+                ->onDelete('cascade');
             $table->integer('widget_type_id')->unsigned();
             $table->foreign('widget_type_id')
                 ->references('id')->on('widget_type')

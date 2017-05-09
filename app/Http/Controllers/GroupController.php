@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Menu;
+use App\Models\Widget;
 use App\Models\MenuItem;
 use DB;
 use Illuminate\Http\Request;
@@ -105,11 +106,11 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $menuItems = MenuItem::all();
+        // $menuItems = MenuItem::all();
         $menu = Menu::where('company_id', Landlord::getTenants()['company']->id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
 
-        return view('groups.create', compact('menuItems', 'menuTree'));
+        return view('groups.create', compact('menuTree'));
     }
 
     /**
@@ -121,9 +122,39 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        $request = $this->request;
         $this->init();
+        $request = $this->request;
+        $allPermissions = [];
         $company_id = Landlord::getTenants()['company']->id;
+
+        // widgets
+        $requestWidgets = $request->widgets;
+
+        // fetch all the relevant permission ids based on the menu items
+        $menuItems = $request->menuItems;
+        $menuItems = MenuItem::whereIn('id', $request->menuItems)->get();
+
+        foreach($menuItems as $item) {
+            $allModules = [];
+            $allWidgets = [];
+            $widgets = Widget::whereIn('id', $requestWidgets[$item->id])->get();
+            foreach($widgets as $widget) {
+                $menuItemName = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$widget->menu_item_id;
+                if(!in_array($menuItemName, $allWidgets)) { 
+                    $allWidgets[] = $menuItemName;
+                }
+                $allWidgets[] = $company_id.'.'.config('config-variables.widget_permission_identifier').'.'.$widget->id;
+            }
+
+            $allModules[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
+            while($item->parent_id != null) {
+                $item = MenuItem::where('id', $item->parent_id)->first();
+                $allModules[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
+            }
+            $allModules = array_reverse($allModules);
+            $permissions = array_merge($allModules, $allWidgets);
+            $allPermissions = array_merge($allPermissions, $permissions);
+        }
 
         // create a new role for the added group
         $role = Role::create([
@@ -131,12 +162,7 @@ class GroupController extends Controller
             'display_name' => $request->group_name,
         ]);
 
-        // fetch all the relevant permission ids based on the menu items
-        $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
-        $permissionsName = $menuItems->map(function ($item, $key) use ($company_id) {
-            return $company_id.'.'.$item->id;
-        });
-        $permissions = Permission::whereIn('name', $permissionsName)->pluck('id');
+        $permissions = Permission::whereIn('name', $allPermissions)->pluck('id');
 
         // Bind all the selected permissions to the newly created role
         $role->permissions()->sync($permissions);
@@ -168,19 +194,26 @@ class GroupController extends Controller
     {
         $role = Role::find($id);
         $assignedPermissions = $role->permissions->pluck('id');
-
         $permissions = Permission::whereIn('id', $assignedPermissions)->get();
         $company_id = Landlord::getTenants()['company']->id;
         $modules = $permissions->map(function ($item, $key) use ($company_id) {
-            $menuItemId = explode('.', $item->name);
+            if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
+                $menuItemId = explode('.', $item->name);
+                return $menuItemId[2];
+            }
+        })->toArray();
 
-            return (int) $menuItemId[1];
+        $widgets = $permissions->map(function ($item, $key) use ($company_id) {
+            if(strpos($item->name, '.' . config('config-variables.widget_permission_identifier') .  '.') !== false) {
+                $menuItemId = explode('.', $item->name);
+                return $menuItemId[2];
+            }
         })->toArray();
 
         $menu = Menu::where('company_id', $company_id)->where('name', 'Sidebar')->first();
         $menuTree = $menu->generate();
 
-        return view('groups.edit', compact('role', 'menu', 'menuTree', 'modules'));
+        return view('groups.edit', compact('role', 'menu', 'menuTree', 'modules', 'widgets'));
     }
 
     /**
@@ -195,7 +228,11 @@ class GroupController extends Controller
     {
         $request = $this->request;
         $this->init();
+        $allPermissions = [];
         $company_id = Landlord::getTenants()['company']->id;
+
+        // widgets
+        $requestWidgets = $request->widgets;
 
         // update role
         $role = Role::findOrFail($id);
@@ -204,11 +241,32 @@ class GroupController extends Controller
         $role->save();
 
         // fetch all the relevant permission ids based on the menu items
-        $menuItems = MenuItem::whereIn('id', $request->groupItems)->get();
-        $permissionsName = $menuItems->map(function ($item, $key) use ($company_id) {
-            return $company_id.'.'.$item->id;
-        });
-        $permissions = Permission::whereIn('name', $permissionsName)->pluck('id');
+        $menuItems = $request->menuItems;
+        $menuItems = MenuItem::whereIn('id', $request->menuItems)->get();
+
+        foreach($menuItems as $item) {
+            $allModules = [];
+            $allWidgets = [];
+            $widgets = Widget::whereIn('id', $requestWidgets[$item->id])->get();
+            foreach($widgets as $widget) {
+                $menuItemName = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$widget->menu_item_id;
+                if(!in_array($menuItemName, $allWidgets)) { 
+                    $allWidgets[] = $menuItemName;
+                }
+                $allWidgets[] = $company_id.'.'.config('config-variables.widget_permission_identifier').'.'.$widget->id;
+            }
+
+            $allModules[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
+            while($item->parent_id != null) {
+                $item = MenuItem::where('id', $item->parent_id)->first();
+                $allModules[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
+            }
+            $allModules = array_reverse($allModules);
+            $permissions = array_merge($allModules, $allWidgets);
+            $allPermissions = array_merge($allPermissions, $permissions);
+        }
+
+        $permissions = Permission::whereIn('name', $allPermissions)->pluck('id');
 
         // Bind all the selected permissions to the updated role
         $role->permissions()->sync($permissions);

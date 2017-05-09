@@ -15,7 +15,7 @@
                     <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="company_name" autocomplete="off" placeholder="{{ __("Company Name") }}" name="company_name" value="{{ old('company_name') }}" required/>
                 </div>
                 <div class="col-xs-6">
-                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="company_slug" autocomplete="off" placeholder="{{ __("Company Slug") }}" name="company_slug" value="{{ old('company_slug') }}" readonly="readonly" />
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="company_slug" autocomplete="off" placeholder="{{ __("Company Slug") }}" name="company_slug" value="{{ old('company_slug') }}"/>
                 </div>
             </div>
             <div class="row">

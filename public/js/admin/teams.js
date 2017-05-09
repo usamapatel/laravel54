@@ -80,8 +80,8 @@ var initTable = function () {
             "info": "Showing _START_ to _END_ of _TOTAL_ entries",
             "infoEmpty": "No record found",
             "infoFiltered": "(filtered1 from _MAX_ total entries)",
-            "lengthMenu": "Show _MENU_",
-            "search": "Search:",
+            "lengthMenu": "_MENU_",
+            "search": "Search:",            
             "zeroRecords": "No record found",
             "paginate": {
                 "previous":"Previous",
@@ -110,6 +110,7 @@ var initTable = function () {
         // set the initial value
         "pageLength": 5,
         "pagingType": "full_numbers",
+        "dom": '<"top">rt<"row"<"col-sm-1"l><"col-sm-7"i><"col-sm-4"<"pull-right" p>>><"clear">',
         "columnDefs": [
             {  // set default column settings
                 'orderable': false,

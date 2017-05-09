@@ -135,7 +135,7 @@ class ModulesController extends Controller
 
         $companyId = Landlord::getTenants()['company']->id;
         $permission = new Permission();
-        $permission->name = $companyId.'.'.$module->id;
+        $permission->name = $companyId.'.'.(config('config-variables.menu_item_permission_identifier')). '.' .$module->id;
         $permission->save();
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));

@@ -7,8 +7,8 @@
                     <div class="list-head-title-container">
                         <h4 class="list-title">{{ $item['name'] }} 
                         <div class="md-checkbox pull-right">
-                            <label class="mt-checkbox mt-checkbox-outline">
-                                <input type="checkbox">
+                            <label class="mt-checkbox mt-checkbox-outline">                                
+                                {!! Form::checkbox('menuItems[]', $item['id'], ($from=="edit" &&in_array($item['id'], $modules))  ? true : null) !!}
                                 <span></span>
                             </label>
                         </div>
@@ -26,34 +26,36 @@
                                 <i class="icon-layers"></i>
                             </div>
                 			@if(isset($item['children']) && count($item['children']))                            
-	                            <div class="list-todo-item grey-steel">
-	                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#moduleDiv-5" onclick=" " href="#task-{{ $loop->index }}" aria-expanded="false">
-	                                    <div class="list-toggle done uppercase">
-	                                        <div class="list-toggle-title font-blue-chambray  sbold">Dashboard </div>
-	                                        <div class="badge badge-default pull-right bold"></div>
-	                                    </div>
-	                                </a>
-	                                <div class="task-list panel-collapse collapse in" id="task-{{ $loop->index }}">
-	                                    <ul class="inner_list">
-	                                        <li class="task-list-item done">
-	                                           <ul class="list-group group-scroll">
-	                                           @foreach ($item['children'] as $child) 
-	                                                <li class="list-group-item">
-	                                                    <div class="md-checkbox pull-left">
-	                                                        <label class="mt-checkbox mt-checkbox-outline">
-                                                                {!! Form::checkbox('groupItems[]', $child['id'], ($from=="edit" &&
-                                                                 in_array($child['id'], $modules))  ? true : null) !!}
-	                                                            <span></span>
-	                                                        </label>
-	                                                    </div> 
-	                                                    {{ $child['name'] }} 
-	                                                </li>
-	                                                @endforeach                                                             
-	                                            </ul>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
+                                @foreach ($item['children'] as $child)
+    	                            <div class="list-todo-item grey-steel"> 
+    	                                <a class="list-toggle-container" data-toggle="collapse" data-parent="#moduleDiv-5" onclick=" " href="#task-{{ $loop->index }}" aria-expanded="false">
+    	                                    <div class="list-toggle done uppercase">
+    	                                        <div class="list-toggle-title font-blue-chambray  sbold"> {{ $child['name'] }}  </div>
+    	                                        <div class="badge badge-default pull-right bold"></div>
+    	                                    </div>
+    	                                </a>
+    	                                <div class="task-list panel-collapse collapse in" id="task-{{ $loop->index }}">
+    	                                    <ul class="inner_list">
+    	                                        <li class="task-list-item done">
+    	                                           <ul class="list-group group-scroll">   
+                                                        @foreach ($child['widgets'] as $widget)
+        	                                                <li class="list-group-item">
+        	                                                    <div class="md-checkbox pull-left">
+        	                                                        <label class="mt-checkbox mt-checkbox-outline">
+                                                                        {!! Form::checkbox("widgets[".$item['id']."][]", $widget['id'], ($from=="edit" &&
+                                                                         in_array($widget['id'], $widgets))  ? true : null) !!}
+        	                                                            <span></span>
+        	                                                        </label>
+        	                                                    </div>
+        	                                                    {{ $widget['name'] }}
+        	                                                </li>
+                                                        @endforeach
+    	                                            </ul>
+    	                                        </li>
+    	                                    </ul>
+    	                                </div>                                
+    	                            </div>
+                                @endforeach   
                         	@endif
                         </li>
                     </ul>

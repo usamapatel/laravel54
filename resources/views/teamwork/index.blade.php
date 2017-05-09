@@ -7,7 +7,7 @@
 @section('page-content')
     <div class="row">
         <div class="col-md-12" id="teamlist">
-            {{-- <div class="portlet box green">
+            <div class="portlet box white">
                 <div class="portlet-title">
                     <div class="caption">
                         Search
@@ -39,13 +39,13 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div> 
             <div class="portlet light">
                 @include('flash::message')
                 <div class="portlet-title">
                     <div class="caption col-md-9">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Team List</span>
+                        <span class="caption-subject">Team List</span>
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">
@@ -80,7 +80,7 @@
                                         </td>
                                         <td>
                                             @if(is_null(auth()->user()->currentTeam) || auth()->user()->currentTeam->getKey() !== $team->getKey())
-                                                <a href="{{ route('teams.switch', ['domain' => app('request')->route()->parameter('company'), 'id' => $team]) }}" class="btn btn-sm btn-default green">
+                                                <a href="{{ route('teams.switch', ['domain' => app('request')->route()->parameter('company'), 'id' => $team]) }}" class="btn btn-sm btn-default green" style="width: auto;">
                                                     <i class="fa fa-sign-in"></i> Switch
                                                 </a>
                                             @else
