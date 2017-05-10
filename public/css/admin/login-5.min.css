@@ -80,3 +80,75 @@ input:-webkit-autofill {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.btn-5 {
+    backface-visibility: hidden;
+    background: #4276a4 none repeat scroll 0 0 !important;
+    color: #fff !important;
+    font-size: 16px;
+    height: 38px;
+    line-height: 24px;
+    min-width: 180px;
+    overflow: hidden;
+}
+.btn-del {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+    outline: medium none;
+    padding: 12px 0;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+}
+[class*=" fa-"]:not(.fa-stack), [class*=" glyphicon-"], [class*=" icon-"], [class^=fa-]:not(.fa-stack), [class^=glyphicon-], [class^=icon-] {
+    display: inline-block;
+    line-height: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+.btn-5a:hover span {
+    transform: translateY(300%);
+}
+.btn-5 span {
+    backface-visibility: hidden;
+    display: inline-block;
+    height: 100%;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+}
+.btn-5a:hover::before {
+    top: 0;
+}
+.fa-lock::before {
+    content: "";
+    font-family: FontAwesome;
+}
+.btn-5::before {
+    font-size: 180%;
+    height: 100%;
+    line-height: 1.5;
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+}
+.btn-5a::before {
+    left: 0;
+    top: -100%;
+}
+.btn-del::after {
+    content: "";
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    z-index: -1;
+}
+.btn.btn-5a:not(.btn-sm):not(.btn-lg) {
+    line-height: 1;
+}

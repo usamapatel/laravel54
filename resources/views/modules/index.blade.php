@@ -6,7 +6,7 @@
             <div class="portlet box white">
                 <div class="portlet-title">
                     <div class="caption">
-                        Search
+                        <span class="caption-subject bold uppercase font-dark">Search</span>
                     </div>
                     <div class="tools">
                         <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
@@ -17,9 +17,11 @@
                     <div class="form-horizontal" id="frmSearchData">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="col-md-3 col-sm-12 control-label">Name</label>
-                                    <div class="col-md-9">
+                                <div class="form-row clearfix">
+                                    <div class="form-col-1">
+                                        <label class="label">Name </label>
+                                    </div>
+                                    <div class="p-r-5 input-wrapper right">
                                         <input type="text" class="form-control" placeholder="Name" id="module_name">
                                     </div>
                                 </div>
@@ -28,8 +30,8 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="pull-right">
-                                    <button type="button" class="btn green" @click="searchModuleData()">Search</button>
-                                    <button type="button" class="btn btn-default" @click="clearForm('frmSearchData')">Clear</button>
+                                    <button type="button" class="btn uie-btn uie-btn-primary" @click="searchModuleData()">Search</button>
+                                    <button type="button" class="uie-btn uie-secondary-btn" @click="clearForm('frmSearchData')">Clear</button>
                                 </div>
                             </div>
                         </div>

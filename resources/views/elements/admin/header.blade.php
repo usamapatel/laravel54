@@ -44,17 +44,7 @@
                     </a>
                 </div>
             </div> 
-            <div class="top-menu pull-left lang-box">
-                <div class="lang-box-inner">
-                    <select>
-                        <option>Eng1</option>
-                        <option>Eng2</option>
-                        <option>Eng3</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="pull-left lang-box lang-translation">
+            <div class="top-menu pull-left lang-box lang-translation">
                 <div class="lang-box-inner">
                     <ul style="list-style-type: none;">
                         <li class="dropdown">
@@ -74,8 +64,7 @@
                     </ul>
                 </div>
             </div>
-    
-            <div class="top-menu pull-left">
+            <div class="top-menu pull-left lang-text">
                 <p>{{ __('Selected language is') }} {{ LaravelLocalization::getCurrentLocaleNative() }} </p>
                 {{-- <p>{{ {{ __("Company Name") }} }}</p> --}}
             </div>

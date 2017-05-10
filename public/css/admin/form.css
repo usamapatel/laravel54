@@ -81,3 +81,6 @@ select {
     border-color: #e1e5ec;
     color: #666666;
 }
+.uie-btn.uie-secondary-btn:hover {
+    text-decoration: none;
+}
