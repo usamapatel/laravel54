@@ -6,7 +6,7 @@
 		        <span class="title">{{ $item['name'] }}</span>
 		        <span class="selected"></span>
 		        @if(isset($item['children']) && count($item['children']))
-		        	<span class="arrow open"></span>
+		        	<span class="arrow"></span>
 		        @endif
 		    </a>
 		    @if(isset($item['children']) && count($item['children']))

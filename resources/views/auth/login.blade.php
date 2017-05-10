@@ -41,7 +41,9 @@
                     <a href="javascript:;" id="forget-password" class="forget-password" href="{{ route('password.request', ['domain' => app('request')->route()->parameter('company')]) }}">Forgot Password?</a>
                 </div>
                 <div class="col-xs-12">
-                    <button class="btn login-btn" type="submit">{{ __("Login") }}</button>
+                    <button class="btn btn-del btn-5 btn-5a fa fa-lock login-btn" type="submit">
+                        <span>{{ __("Login") }}</span>
+                    </button>
                 </div>
             </div>
             <!-- <div class="row">
@@ -64,7 +66,7 @@
         <!-- BEGIN FORGOT PASSWORD FORM -->
         <form class="forget-form login-form" role="form" method="POST" action="{{ route('password.email', ['domain' => app('request')->route()->parameter('company')]) }}">
             {{ csrf_field() }}
-            <h3 class="font-green">{{ __("Forgot Password?") }}</h3>
+            <h3 class="text-white">{{ __("Forgot Password?") }}</h3>
             <p> {{ __("Enter your e-mail address below to reset your password.") }} </p>
             <div class="form-group">
                 <input class="form-control placeholder-no-fix form-group" type="email" autocomplete="off" placeholder="{{ __("Email") }}" name="email" value="{{ old('email') }}" required/>
