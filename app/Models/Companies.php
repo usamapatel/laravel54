@@ -6,7 +6,7 @@ use App\Models\Basemodel as Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Companies extends Model
+class Companies extends Basemodel
 {
     use HasSlug;
 

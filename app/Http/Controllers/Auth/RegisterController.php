@@ -12,6 +12,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Jobs\SendVerificationEmail;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -42,7 +44,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('verify');
     }
 
     /**
@@ -77,6 +79,41 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         return redirect()->route('company.select', ['domain' => app('request')->route()->parameter('company')]);
+
+        dispatch(new SendVerificationEmail($user));
+
+        return view('auth.verification');
+
+//        return $this->registered($request, $user)
+//            ?: redirect($this->redirectPath())->with(
+//                'success',
+//                'Your account was successfully created. We have sent you an e-mail to confirm your account.'
+//            );
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param $token
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function verify($token = null)
+    {
+        if (isset($token)) {
+            $user = User::where('verification_token', $token)->first();
+            if ($user) {
+                $user->is_verified = 1;
+                $user->verified_at = Carbon::now();
+                if ($user->save()) {
+                    return view('auth.verified', ['user' => $user]);
+                }
+            }
+
+            return view('auth.verification');
+        }
+
+        return view('auth.verification');
     }
 
     /**
@@ -99,10 +136,10 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create([
-            'person_id'          => $person->id,
-            'username'           => $data['username'],
-            'email'              => $data['email'],
-            'password'           => bcrypt($data['password']),
+            'person_id' => $person->id,
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
             'verification_token' => md5(uniqid(mt_rand(), true)),
         ]);
 
