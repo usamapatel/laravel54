@@ -737,10 +737,13 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-directions font-green hide"></i>
-                        <span class="caption-subject"> Activities</span>
+                        <span class="caption-subject bold uppercase font-dark"> Activities</span>
                         <span class="caption-helper">(Horizontal Timeline)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
@@ -761,7 +764,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="cd-horizontal-timeline mt-timeline-horizontal" data-spacing="60">
@@ -842,9 +845,9 @@
                                     <div class="mt-content border-grey-steel">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, mi felis, aliquam at iaculis mi felis, aliquam
                                             at iaculis finibus eu ex. Integer efficitur tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non est rhoncus volutpat.</p>
-                                        <a href="javascript:;" class="btn btn-circle red btn-outline pull-left">Read More</a>
+                                        <a href="javascript:;" class="btn blue btn-outline pull-left">Read More</a>
                                         <div class="actions pull-right">
-                                            <div class="btn-group btn-group-devided">
+                                            <div class="btn-group btn-group-devided dashboard-btn-group">
                                                 <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
                                                     <i class="fa fa-plus"></i>
                                                 </a>
@@ -918,7 +921,7 @@
                                             risus sed sodales.</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                             qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut. </p>
-                                        <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                        <a href="javascript:;" class="btn blue">Read More</a>
                                     </div>
                                 </li>
                                 <li data-date="20/05/2014">
@@ -940,7 +943,7 @@
                                             tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non
                                             est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent dignissim luctus
                                             risus sed sodales.</p>
-                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                        <a href="javascript:;" class="btn blue btn-outline">Read More</a>
                                     </div>
                                 </li>
                                 <li data-date="09/07/2014">
@@ -1128,17 +1131,20 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-directions font-green hide"></i>
-                        <span class="caption-subject"> Events</span>
+                        <span class="caption-subject bold uppercase font-dark"> Events</span>
                         <span class="caption-helper">(Horizontal Timeline)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                             <label class="btn green btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Actions</label>
                             <label class="btn  green btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="cd-horizontal-timeline mt-timeline-horizontal" data-spacing="60">
@@ -1500,9 +1506,12 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">Recent Activities</span>
+                        <span class="caption-subject bold uppercase font-dark">Recent Activities</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Filter By
                                 <i class="fa fa-angle-down"></i>
@@ -1530,7 +1539,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
@@ -1813,10 +1822,14 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">Tasks</span>
+                        <span class="caption-subject bold uppercase font-dark">Tasks</span>
                         <span class="caption-helper">(tasks summary...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                        <a href="javascript:;" class="reload" data-original-title="" title="" aria-describedby="tooltip73982" @click="reloadData();"> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> More
                                 <i class="fa fa-angle-down"></i>
@@ -1853,7 +1866,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="task-content">
@@ -2201,12 +2214,16 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-cursor font-dark hide"></i>
-                        <span class="caption-subject">General Stats</span>
+                        <span class="caption-subject bold uppercase font-dark">General Stats</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                        <a href="javascript:;" class="reload" data-original-title="" title="" aria-describedby="tooltip73982" @click="reloadData();"> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
                             <i class="fa fa-repeat"></i> Reload </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -2251,7 +2268,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-equalizer font-dark hide"></i>
-                        <span class="caption-subject">Server Stats</span>
+                        <span class="caption-subject bold uppercase font-dark">Server Stats</span>
                         <span class="caption-helper">(monthly stats...)</span>
                     </div>
                     <div class="tools">
@@ -2304,9 +2321,13 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">Regional Stats</span>
+                        <span class="caption-subject bold uppercase font-dark">Regional Stats</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+                        <a href="javascript:;" class="reload" data-original-title="" title="" aria-describedby="tooltip73982" @click="reloadData();"> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                             <i class="icon-cloud-upload"></i>
                         </a>
@@ -2317,7 +2338,7 @@
                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                             <i class="icon-trash"></i>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div id="region_statistics_loading">
@@ -2367,7 +2388,7 @@
                 <div class="portlet-title tabbable-line">
                     <div class="caption">
                         <i class="icon-globe font-dark hide"></i>
-                        <span class="caption-subject">Feeds</span>
+                        <span class="caption-subject bold uppercase font-dark">Feeds</span>
                     </div>
                     <ul class="nav nav-tabs">
                         <li class="active">
@@ -2913,7 +2934,7 @@
                 <div class="portlet-title ">
                     <div class="caption">
                         <i class="icon-calendar font-dark hide"></i>
-                        <span class="caption-subject">Feeds</span>
+                        <span class="caption-subject bold uppercase font-dark">Feeds</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -2928,15 +2949,30 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-hide hide"></i>
-                        <span class="caption-subject">Chats</span>
+                        <span class="caption-subject bold uppercase font-dark">Chats</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
                     </div>
                     <div class="actions">
+                        <a class="btn btn-icon-only btn-default" href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <a class="btn btn-icon-only btn-default" href="#">
+                            <i class="icon-wrench"></i>
+                        </a>
+                        <a class="btn btn-icon-only btn-default" href="#">
+                            <i class="icon-trash"></i>
+                        </a>
+                        <a class="btn btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="portlet-input input-inline">
                             <div class="input-icon right">
                                 <i class="icon-magnifier"></i>
                                 <input type="text" class="form-control input-circle" placeholder="search..."> </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body" id="chats">
                     <div class="scroller" style="height: 525px;" data-always-visible="1" data-rail-visible1="1">
@@ -3045,9 +3081,12 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-dark hide"></i>
-                        <span class="caption-subject">Recent Users</span>
+                        <span class="caption-subject bold uppercase font-dark">Recent Users</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
@@ -3068,7 +3107,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -3160,17 +3199,20 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject"> Recent Works</span>
+                        <span class="caption-subject bold uppercase font-dark"> Recent Works</span>
                         <span class="caption-helper">(default option...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                             <label class="btn blue btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Settings</label>
                             <label class="btn blue btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -3258,18 +3300,21 @@
             <div class="portlet light portlet-fit ">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject"> Recent Projects</span>
+                        <i class="icon-bubble font-dark hide"></i>
+                        <span class="caption-subject bold uppercase font-dark">Recent Projects</span>
                         <span class="caption-helper">(default option...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                             <label class="btn blue btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Actions</label>
                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -3349,10 +3394,13 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject"> Activities</span>
+                        <span class="caption-subject bold uppercase font-dark"> Activities</span>
                         <span class="caption-helper">(default option...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn  blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
@@ -3373,7 +3421,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">

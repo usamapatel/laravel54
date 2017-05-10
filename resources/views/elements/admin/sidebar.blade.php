@@ -13,7 +13,7 @@
                                 <i class="fa {{ $menu_item['icon'] }}"></i>
                                 <span class="title">{{ $menu_item['name'] }}</span>
                                 <span class="selected"></span>
-                                <span class="arrow open"></span>
+                                <span class="arrow"></span>
                             </a>    
                             @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
                         @else
@@ -59,7 +59,7 @@
                                 <i class="fa {{ $menu_item['icon'] }}"></i>
                                 <span class="title">{{ $menu_item['name'] }}</span>
                                 <span class="selected"></span>
-                                <span class="arrow open"></span>
+                                <span class="arrow"></span>
                             </a>
                                 @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
                         @else

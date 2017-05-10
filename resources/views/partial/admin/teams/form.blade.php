@@ -1,7 +1,9 @@
 <div class="form-body">
-    <div class="form-group">
-        <label class="col-md-2 control-label">Name</label>
-        <div class="col-md-9">
+    <div class="form-row col-md-6 clearfix">
+        <div class="form-col-1">
+            <label class="label">Name </label>
+        </div>
+        <div class="p-r-5 input-wrapper right">
             {!! Form::text('name', $from=="edit" ? $team->name : null,['class' => 'form-control']) !!}
 
             @if ($errors->has('name'))
@@ -13,10 +15,10 @@
     </div>
 </div>
 <div class="form-actions">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <button type="submit" class="btn green">Submit</button>
-            <a class="btn red-sunglo" href="{{ route('teams.index', ['domain' => app('request')->route()->parameter('company')]) }}">Cancel</a>
+    <div class="">
+        <div class="col-md-12">
+            <button type="submit" class="uie-btn uie-btn-primary save-btn">Submit</button>
+            <a class="uie-btn uie-secondary-btn reset-btn" href="{{ route('teams.index', ['domain' => app('request')->route()->parameter('company')]) }}">Cancel</a>
         </div>
     </div>
 </div>

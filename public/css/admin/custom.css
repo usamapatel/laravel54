@@ -117,7 +117,28 @@ label.error {
 .inner_list .mt-checkbox.mt-checkbox-outline>input:checked~span {
     border: 1px solid #d9d9d9;
 }
-
+.portlet.box.white>.portlet-title>.caption {
+    line-height: 31px;
+}
+.portlet.box>.portlet-title>.tools>a.expand {
+    background-image: url(../../img/admin/portlet-collapse-icon.png);
+}
+.portlet.box>.portlet-title>.tools>a.collapse {
+    background-image: url(../../img/admin/portlet-expand-icon.png);
+}
+.portlet.box>.portlet-title>.tools>a.reload {
+    background-image: url(../../img/admin/portlet-reload-icon.png);
+}
+.portlet.light>.portlet-title>.tools {
+    margin-top: -4px;
+}
+.portlet>.portlet-title>.tools>a{
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid #cccccc;
+    height: 27px;
+    width: 27px !important;
+}
 .modul_list .md-checkbox label>.check {
     border: 2px solid #fff;
     border-top: none;
@@ -194,9 +215,9 @@ label.error {
 }
 
 .btn {
-	width: 150px;
+	/*width: 150px;
 	font-size: 16px;
-	border-radius: 3px !important;
+	border-radius: 3px !important;*/
 }
 .btn-group .btn {
     width: auto;
@@ -404,9 +425,14 @@ body {
 	background: #3c6c95 !important;
 }
 .pagination-length-div .selection,
-.pagination-length-div .select2-container--bootstrap {
+.pagination-length-div .select2-container--bootstrap,
+.dataTables_length .input-xsmall {
     width: 45px !important;
 }
+.dataTables_length .input-xsmall {
+    padding: 5px 0 5px 4px;
+}
+
 .select2-container--bootstrap .select2-selection--single {
     padding: 6px 20px 6px 4px;
     font-size: 12px;
@@ -422,7 +448,7 @@ body {
     font-size: 12px;
 }
 #DataTables_Table_0_info  {
-    margin-left: 3px;
+    margin-left: -34px;
     margin-top: 6px;
     color: #4276A4;
     font-size: 12px;
@@ -430,9 +456,18 @@ body {
 table.table tr th {
     /*height: 45px;*/
     font-size: 13px;
-    background: #3979B2 url(../../img/admin/sort_both.png) center right no-repeat !important;
     color: #fff;
     padding: 10px;
+    background: #3979B2;
+}
+table.table tr th.sorting {
+    background: #3979B2 url(../../img/admin/sort_both.png) center right no-repeat !important;
+}
+table.table tr th.sorting_asc {
+    background: #3979B2 url(../../img/admin/sort_asc.png) center right no-repeat;
+}
+table.table tr th.sorting_desc {
+    background: #3979B2 url(../../img/admin/sort_desc.png) center right no-repeat;
 }
 .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li>a {
 	min-height: 39px;
@@ -636,7 +671,7 @@ table .table_icon .btn:not(.btn-sm):not(.btn-lg) {
     border-right: 1px solid #eef1f5;
     position: relative;
 }
-.page-header.navbar .top-menu.lang-box select {
+.page-header.navbar .top-menu.lang-box ul {
     -moz-appearance: none;
     -webkit-appearance: none;
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -644,9 +679,37 @@ table .table_icon .btn:not(.btn-sm):not(.btn-lg) {
     color: #4276a4;
     height: 50px;
     padding: 0 10px;
-    width: 90px;
+    /*width: 90px;*/
 }
-.page-header.navbar .top-menu.lang-box .lang-box-inner::after {
+.page-header.navbar .top-menu.lang-box ul .dropdown a.dropdown-toggle {
+    line-height: 47px;
+}
+.page-header.navbar .top-menu.lang-box ul .dropdown a.dropdown-toggle:hover,
+.page-header.navbar .top-menu.lang-box ul .dropdown a.dropdown-toggle:focus {
+    text-decoration: none;
+}
+.page-header.navbar .top-menu.lang-box ul a .caret {
+    margin-left: 6px;
+    border-top: 6px dashed;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+}
+.page-header.navbar .top-menu.lang-box ul li ul.dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #eee; 
+    height: auto;
+    width: auto;
+    padding: 0;
+}
+.lang-text p {
+    margin: 16px 0 16px 10px;
+    color: #3979B2;
+}
+.btn-group.dashboard-btn-group a{
+    width: 34px;
+    height: 34px;
+}
+/*.page-header.navbar .top-menu.lang-box .lang-box-inner::after {
     border-left: 6px solid rgba(0, 0, 0, 0);
     border-right: 6px solid rgba(0, 0, 0, 0);
     border-top: 6px solid #3979b2;
@@ -654,7 +717,7 @@ table .table_icon .btn:not(.btn-sm):not(.btn-lg) {
     position: absolute;
     right: 12px;
     top: 22px;
-}
+}*/
 .quick-nav {
 	display: none;
 }

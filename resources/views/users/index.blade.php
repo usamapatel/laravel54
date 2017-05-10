@@ -7,7 +7,7 @@
                 <div class="portlet box white">
                     <div class="portlet-title">
                         <div class="caption">
-                            Search
+                            <span class="caption-subject bold uppercase font-dark">Search</span>
                         </div>
                         <div class="tools">
                             <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
@@ -18,17 +18,21 @@
                         <div class="form-horizontal" id="frmSearchData">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-sm-12 control-label">Name</label>
-                                        <div class="col-md-9">
+                                    <div class="form-row clearfix">
+                                        <div class="form-col-1">
+                                            <label class="label">Name </label>
+                                        </div>
+                                        <div class="p-r-5 input-wrapper right">
                                             <input type="text" class="form-control" placeholder="User Name" id="user_name">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-sm-12 control-label">Email</label>
-                                        <div class="col-md-9">
+                                    <div class="form-row clearfix">
+                                        <div class="form-col-1">
+                                            <label class="label">Email </label>
+                                        </div>
+                                        <div class="p-r-5 input-wrapper right">
                                             <input type="text" class="form-control" placeholder="Email" id="user_email">
                                         </div>
                                     </div>
@@ -37,8 +41,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="pull-right">
-                                        <button type="button" class="btn green" @click="searchUserData()">Search</button>
-                                        <button type="button" class="btn btn-default" @click="clearForm('frmSearchData')">Clear</button>
+                                        <button type="button" class="btn uie-btn uie-btn-primary" @click="searchUserData()">Search</button>
+                                        <button type="button" class="uie-btn uie-secondary-btn" @click="clearForm('frmSearchData')">Clear</button>
                                     </div>
                                 </div>
                             </div>
@@ -51,12 +55,12 @@
                     @include('flash::message')
                     <div class="portlet-title">
                         <div class="caption col-md-8">
-                            <i class="icon-share font-dark hide"></i>
+                            <i class="fa fa-table"></i>
                             <span class="caption-subject font-dark bold uppercase">User List</span>
                         </div>
                         <div class="col-md-4">
                             <div class="btn-group pull-right">
-                                <a class="btn sbold green" href="{{ route('users.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
+                                <a class="btn sbold border-btn" href="{{ route('users.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                     <i class="fa fa-plus"></i>
                                 </a>
                             </div>
@@ -80,11 +84,11 @@
                                         <td>@{{ user.last_name }}</td>
                                         <td>@{{ user.email }}</td>
                                         <td>@{{ user.created_datetime }}</td>
-                                        <td class="text-center">
-                                            <a href="{{url('admin/users')}}/@{{user.user_id}}/edit" class="btn btn-icon-only green">
+                                        <td class="text-center table_icon">
+                                            <a href="{{url('admin/users')}}/@{{user.user_id}}/edit" class="btn btn-icon-only">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="#" data-confirm-msg="Are you sure you would like to delete this tag record?" data-delete-url="{{ url('admin/users') }}/@{{ user.user_id }}"  class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+                                            <a href="#" data-confirm-msg="Are you sure you would like to delete this tag record?" data-delete-url="{{ url('admin/users') }}/@{{ user.user_id }}"  class="btn btn-icon-only js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>

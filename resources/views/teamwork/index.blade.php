@@ -10,7 +10,7 @@
             <div class="portlet box white">
                 <div class="portlet-title">
                     <div class="caption">
-                        Search
+                        <span class="caption-subject bold uppercase font-dark">Search</span>
                     </div>
                     <div class="tools">
                         <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
@@ -21,9 +21,11 @@
                     <div class="form-horizontal" id="frmSearchData">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="col-md-3 col-sm-12 control-label">Name</label>
-                                    <div class="col-md-9">
+                                <div class="fform-row clearfix">
+                                    <div class="form-col-1">
+                                        <label class="label">Name </label>
+                                    </div>
+                                    <div class="p-r-5 input-wrapper right">
                                         <input type="text" class="form-control" placeholder="Name" id="module_name">
                                     </div>
                                 </div>
@@ -32,8 +34,8 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="pull-right">
-                                    <button type="button" class="btn green" @click="searchModuleData()">Search</button>
-                                    <button type="button" class="btn btn-default" @click="clearForm('frmSearchData')">Clear</button>
+                                    <button type="button" class="btn uie-btn uie-btn-primary" @click="searchModuleData()">Search</button>
+                                    <button type="button" class="uie-btn uie-secondary-btn" @click="clearForm('frmSearchData')">Clear</button>
                                 </div>
                             </div>
                         </div>
@@ -44,12 +46,12 @@
                 @include('flash::message')
                 <div class="portlet-title">
                     <div class="caption col-md-9">
-                        <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">Team List</span>
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold uppercase font-dark">Team List</span>
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('teams.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
+                            <a class="btn sbold border-btn" href="{{ route('teams.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -88,17 +90,17 @@
                                             @endif
                                         </td>
                                         <td>{{ Carbon\Carbon::parse($team->created_at)->format('d-m-Y h:i:s') }}</td>
-                                        <td>
-                                            <a href="{{route('teams.members.show', ['domain' => app('request')->route()->parameter('company'), 'id' => $team] )}}" class="btn btn-icon-only green">
+                                        <td class="text-center table_icon">
+                                            <a href="{{route('teams.members.show', ['domain' => app('request')->route()->parameter('company'), 'id' => $team] )}}" class="btn btn-icon-only">
                                                 <i class="fa fa-users"></i>
                                             </a>
 
                                             @if(auth()->user()->isOwnerOfTeam($team))
-                                                <a href="{{route('teams.edit', ['domain' => app('request')->route()->parameter('company'), 'id' => $team] )}}" class="btn btn-icon-only green">
+                                                <a href="{{route('teams.edit', ['domain' => app('request')->route()->parameter('company'), 'id' => $team] )}}" class="btn btn-icon-only">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
 
-                                                <a href="#" data-confirm-msg="Are you sure you would like to delete this team record?" data-delete-url="{{route('teams.destroy', ['domain' => app('request')->route()->parameter('company'), 'id' => $team])}}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+                                                <a href="#" data-confirm-msg="Are you sure you would like to delete this team record?" data-delete-url="{{route('teams.destroy', ['domain' => app('request')->route()->parameter('company'), 'id' => $team])}}" class="btn btn-icon-only js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
                                             @endif
                                         </td>
                                     </tr>
