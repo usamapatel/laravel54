@@ -58,7 +58,7 @@ class GroupController extends Controller
     {
         $request = $this->request->all();
         $companyId = Landlord::getTenants()['company']->id;
-        $groups = DB::table('roles')->where('name', 'LIKE', $companyId.'%')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
+        $groups = DB::table('roles')->where('name', 'LIKE', $companyId.'.%')->select('*', DB::raw('DATE_FORMAT(created_at, "%d-%m-%Y %H:%i:%s") as "created_datetime"'));
 
         $sortby = 'groups.created_datetime';
         $sorttype = 'desc';
@@ -123,13 +123,13 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $this->init();
-        $request = $this->request;
+        $request = $this->request;        
         $allPermissions = [];
         $company_id = Landlord::getTenants()['company']->id;
 
         // widgets
         $requestWidgets = $request->widgets;
-
+        
         // fetch all the relevant permission ids based on the menu items
         $menuItems = $request->menuItems;
         $menuItems = MenuItem::whereIn('id', $request->menuItems)->get();
@@ -137,13 +137,17 @@ class GroupController extends Controller
         foreach($menuItems as $item) {
             $allModules = [];
             $allWidgets = [];
-            $widgets = Widget::whereIn('id', $requestWidgets[$item->id])->get();
-            foreach($widgets as $widget) {
-                $menuItemName = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$widget->menu_item_id;
-                if(!in_array($menuItemName, $allWidgets)) { 
-                    $allWidgets[] = $menuItemName;
+
+            if(isset($requestWidgets[$item->id])) {
+                $widgets = Widget::whereIn('id', $requestWidgets[$item->id])->get();
+
+                foreach($widgets as $widget) {
+                    $menuItemName = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$widget->menu_item_id;
+                    if(!in_array($menuItemName, $allWidgets)) { 
+                        $allWidgets[] = $menuItemName;
+                    }
+                    $allWidgets[] = $company_id.'.'.config('config-variables.widget_permission_identifier').'.'.$widget->id;
                 }
-                $allWidgets[] = $company_id.'.'.config('config-variables.widget_permission_identifier').'.'.$widget->id;
             }
 
             $allModules[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
@@ -160,6 +164,7 @@ class GroupController extends Controller
         $role = Role::create([
             'name'         => $company_id.'.'.$request->group_name,
             'display_name' => $request->group_name,
+            'status' => $request->status ? 1 : 0,
         ]);
 
         $permissions = Permission::whereIn('name', $allPermissions)->pluck('id');
@@ -237,7 +242,7 @@ class GroupController extends Controller
         // update role
         $role = Role::findOrFail($id);
         $role->display_name = $request->group_name;
-        // $role->status = $request->status ? 1 : 0;
+        $role->status = $request->status ? 1 : 0;
         $role->save();
 
         // fetch all the relevant permission ids based on the menu items
@@ -247,15 +252,17 @@ class GroupController extends Controller
         foreach($menuItems as $item) {
             $allModules = [];
             $allWidgets = [];
-            $widgets = Widget::whereIn('id', $requestWidgets[$item->id])->get();
-            foreach($widgets as $widget) {
-                $menuItemName = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$widget->menu_item_id;
-                if(!in_array($menuItemName, $allWidgets)) { 
-                    $allWidgets[] = $menuItemName;
+            if(isset($requestWidgets[$item->id])) { 
+                $widgets = Widget::whereIn('id', $requestWidgets[$item->id])->get();
+                foreach($widgets as $widget) {
+                    $menuItemName = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$widget->menu_item_id;
+                    if(!in_array($menuItemName, $allWidgets)) { 
+                        $allWidgets[] = $menuItemName;
+                    }
+                    $allWidgets[] = $company_id.'.'.config('config-variables.widget_permission_identifier').'.'.$widget->id;
                 }
-                $allWidgets[] = $company_id.'.'.config('config-variables.widget_permission_identifier').'.'.$widget->id;
             }
-
+            
             $allModules[] = $company_id.'.'.config('config-variables.menu_item_permission_identifier').'.'.$item->id;
             while($item->parent_id != null) {
                 $item = MenuItem::where('id', $item->parent_id)->first();
