@@ -110,5 +110,6 @@
     "Your password has been reset!": null,
     "cookieConsent::texts.agree": null,
     "cookieConsent::texts.message": null,
-    "custom-message": null
+    "custom-message": null,
+    "selected-language": "ภาษาที่เลือกคือ"
 }
