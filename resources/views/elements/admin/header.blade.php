@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="top-menu pull-left lang-text">
-                <p>{{ __('Selected language is') }} {{ LaravelLocalization::getCurrentLocaleNative() }} </p>
+                <p>{{ __('selected-language') }} {{ LaravelLocalization::getCurrentLocaleNative() }} </p>
                 {{-- <p>{{ {{ __("Company Name") }} }}</p> --}}
             </div>
             
