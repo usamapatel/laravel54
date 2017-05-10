@@ -29,6 +29,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Signika+Negative:400,600,700" rel="stylesheet">
         <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -50,6 +51,7 @@ License: You must have a valid license purchased only from themeforest(the above
         @yield('page-style')
 
         <link href="{{ asset('css/admin/custom.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/admin/form.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
     </head>
@@ -139,6 +141,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN CORE PLUGINS -->
         <script src="{{ asset('plugins/jquery.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="http://htmlwazir.peppyemails.com/js/bootstrap-fileinput.js" type="text/javascript"></script>
         <script src="{{ asset('plugins/js.cookie.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
@@ -163,6 +166,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="{{ asset('js/admin/quick-nav.min.js') }}" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
         <script src="{{ asset('js/admin/common.js') }}" type="text/javascript"></script>
+
+        <!-- <script src="http://htmlwazir.peppyemails.com/js/function.js" type="text/javascript"></script>
+        <script src="http://htmlwazir.peppyemails.com/js/init.js" type="text/javascript"></script> -->
         @yield("page-script")
     </body>
 </html>

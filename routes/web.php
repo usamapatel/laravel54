@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['domain' => '{company}.'.config('config-variables.app.domain'), 'middleware' => ['verifycompany']], function () {
+Route::group(['domain' => '{company}.'.config('config-variables.app.domain')], function () {
     Route::group(
         [
             'prefix'     => LaravelLocalization::setLocale(),
@@ -19,6 +19,9 @@ Route::group(['domain' => '{company}.'.config('config-variables.app.domain'), 'm
             |
             */
             Auth::routes();
+            Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+
+            Route::get('/home', 'HomeController@index');
 
             Route::get('/', function () {
                 return view('index');
@@ -26,7 +29,7 @@ Route::group(['domain' => '{company}.'.config('config-variables.app.domain'), 'm
 
             Route::post('company/generateSlug', 'CompaniesController@generateSlug')->name('generate.company.slug');
 
-            Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+            Route::group(['middleware' => ['auth', 'verifycompany'], 'prefix' => 'admin'], function () {
                 Route::get('companyselect', 'CompaniesController@selectCompany')->name('company.select');
 
                 Route::get('/home', 'HomeController@index')->name('admin.home');
@@ -82,5 +85,5 @@ Route::group(['domain' => '{company}.'.config('config-variables.app.domain'), 'm
 
 // Local dev specific routes
 if (App::environment('local')) {
-    // Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
+    Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
 }

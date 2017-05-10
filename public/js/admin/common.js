@@ -146,3 +146,29 @@ function setDefaultData(vueId) {
     vueId.sorttype = 'desc';
     vueId.searchdata = '';
 }
+
+
+var wazirFunction = {
+    timerTop: function () {
+        setInterval(function () {
+            var date = new Date();
+            var d = new Date();
+
+            var options = {hour12: false};
+            // document.getElementById('myTime').innerHTML = date.toDateString();
+            // document.getElementById('myTimeData').innerHTML = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        }, 1000);
+    },
+    widgetSetting: function () {
+        $('.widget-setting a.setting').click(function () {
+            $('.widget-setting a').not('.setting').toggleClass('icon-hidden icon-show');
+            $('.widget-setting span.overlay').toggleClass('opn-bg');
+            $(this).toggleClass("fa-cog").toggleClass("fa-times");
+        });
+    }
+};
+
+$(document).ready(function(){
+  wazirFunction.timerTop();
+  wazirFunction.widgetSetting();
+});

@@ -132,6 +132,7 @@ class WidgetsController extends Controller
         $widget = new Widget();
         $widget->icon = $request->widget_icon;
         $widget->name = $request->widget_name;
+        $widget->slug = $request->widget_slug;
         $widget->description = $request->description;
         $widget->width = $request->widget_width;
         $widget->status = $request->status ? 1 : 0;
@@ -195,6 +196,7 @@ class WidgetsController extends Controller
         $widget = Widget::findOrFail($id);
         $widget->icon = $request->widget_icon;
         $widget->name = $request->widget_name;
+        $widget->slug = $request->widget_slug;
         $widget->description = $request->description;
         $widget->width = $request->widget_width;
         $widget->status = $request->status ? 1 : 0;

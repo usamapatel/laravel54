@@ -12,7 +12,7 @@ class CompaniesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('companies')->delete();
+        DB::table('companies')->truncate();
         DB::table('companies')->insert([
         [
             'name'       => 'www',
