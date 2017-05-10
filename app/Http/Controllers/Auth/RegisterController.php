@@ -44,7 +44,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('verify');
     }
 
     /**
@@ -98,14 +98,22 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function verify($token)
+    public function verify($token = null)
     {
-        $user = User::where('verification_token', $token)->first();
-        $user->is_verified = 1;
-        $user->verified_at = Carbon::now();
-        if ($user->save()) {
-            return view('auth.verified', ['user' => $user]);
+        if (isset($token)) {
+            $user = User::where('verification_token', $token)->first();
+            if ($user) {
+                $user->is_verified = 1;
+                $user->verified_at = Carbon::now();
+                if ($user->save()) {
+                    return view('auth.verified', ['user' => $user]);
+                }
+            }
+
+            return view('auth.verification');
         }
+
+        return view('auth.verification');
     }
 
     /**
@@ -128,10 +136,10 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create([
-            'person_id'          => $person->id,
-            'username'           => $data['username'],
-            'email'              => $data['email'],
-            'password'           => bcrypt($data['password']),
+            'person_id' => $person->id,
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
             'verification_token' => md5(uniqid(mt_rand(), true)),
         ]);
 
