@@ -77,44 +77,6 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-md-6 bs-reset mt-login-5-bsfix">
-                    <div class="login-bg" style="background-image:url( {{ asset('img/admin/login/bg1.jpg') }} )">
-                        <img class="login-logo" src="{{ asset('img/logo.png') }}" /> </div>
-                </div>
-
-                <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
-                    
-					@yield('auth-content')
-                                        
-                    <div class="login-footer">
-                        <div class="row bs-reset">
-                            <div class="col-xs-5 bs-reset">
-                                <ul class="login-social">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="icon-social-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="icon-social-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <i class="icon-social-dribbble"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xs-7 bs-reset">
-                                <div class="login-copyright text-right">
-                                    <p>Copyright &copy; Keenthemes 2015</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
 

@@ -14,7 +14,7 @@
                         </label>
                     </div>
                     <div class="col-xs-3">
-                        <a class="btn green pull-right" href="{{ route('admin.home', ['domain' => $company->slug]) }}">{{ __("Select") }}</a>
+                        <a class="btn uie-btn uie-btn-primary pull-right" href="{{ route('admin.home', ['domain' => $company->slug]) }}">{{ __("Select") }}</a>
                     </div>
                 </div>
             </div>
