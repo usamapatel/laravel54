@@ -40,18 +40,18 @@
                 @include('flash::message')
                 <div class="portlet-title">
                     <div class="caption col-md-9">
-                        <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">Module List</span>
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold uppercase font-dark">Module List</span>
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('modules.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
+                            <a class="btn sbold border-btn" href="{{ route('modules.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="portlet-body">
+               <div class="portlet-body">
                     <div>
                         <table class="table table-striped table-bordered table-hover order-column" v-cloak>
                             <thead>
@@ -73,11 +73,11 @@
                                     <td>@{{ module.is_active == 1 ? 'Active' : 'Inactive' }}</td>
                                     <td>@{{ module.is_shown_on_menu == 1 ? 'Yes' : 'No' }}</td>
                                     <td>@{{ module.created_datetime }}</td>                                 
-                                    <td class="text-center">
-                                        <a href="{{ url('admin/modules') }}/@{{ module.id }}/edit" class="btn btn-icon-only green">
+                                    <td class="text-center table_icon">
+                                        <a href="{{ url('admin/modules') }}/@{{ module.id }}/edit" class="btn btn-icon-only">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this module record?" data-delete-url="{{ url('admin/modules') }}/@{{ module.id }}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this module record?" data-delete-url="{{ url('admin/modules') }}/@{{ module.id }}" class="btn btn-icon-only js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -99,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

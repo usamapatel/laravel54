@@ -40,12 +40,12 @@
                 @include('flash::message')
                 <div class="portlet-title">
                     <div class="caption col-md-9">
-                        <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject">Group List</span>
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold uppercase font-dark">Group List</span>
                     </div>
                     <div class="col-md-3">
                         <div class="btn-group pull-right">
-                            <a class="btn sbold green" href="{{ route('groups.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
+                            <a class="btn sbold border-btn" href="{{ route('groups.create', ['domain' => app('request')->route()->parameter('company')]) }}"> Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -67,11 +67,11 @@
                                     <td>@{{ group.display_name }}</td>
                                     <td>@{{ group.status==1 ? 'Activated' : 'Inactive' }}</td>
                                     <td>@{{ group.created_datetime }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ url('admin/groups') }}/@{{ group.id }}/edit" class="btn btn-icon-only green">
+                                    <td class="text-center table_icon">
+                                        <a href="{{ url('admin/groups') }}/@{{ group.id }}/edit" class="btn btn-icon-only">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this group record?" data-delete-url="{{ url('admin/groups') }}/@{{ group.id }}" class="btn btn-icon-only red js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
+                                        <a href="#" data-confirm-msg="Are you sure you would like to delete this group record?" data-delete-url="{{ url('admin/groups') }}/@{{ group.id }}" class="btn btn-icon-only js-delete-button" data-toggle="modal" data-target="#delete_modal"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

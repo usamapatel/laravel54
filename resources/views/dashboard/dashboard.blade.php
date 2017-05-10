@@ -456,7 +456,7 @@
                                                 <span class="mt=action-time">9:30-13:00</span>
                                             </div>
                                             <div class="mt-action-buttons ">
-                                                <div class="btn-group btn-group-circle">
+                                                <div class="btn-group">
                                                     <button type="button" class="btn btn-outline green btn-sm">Appove</button>
                                                     <button type="button" class="btn btn-outline red btn-sm">Reject</button>
                                                 </div>
@@ -737,8 +737,8 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-directions font-green hide"></i>
-                        <span class="caption-subject bold font-dark uppercase "> Activities</span>
-                        <span class="caption-helper">Horizontal Timeline</span>
+                        <span class="caption-subject"> Activities</span>
+                        <span class="caption-helper">(Horizontal Timeline)</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group">
@@ -842,13 +842,17 @@
                                     <div class="mt-content border-grey-steel">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, mi felis, aliquam at iaculis mi felis, aliquam
                                             at iaculis finibus eu ex. Integer efficitur tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non est rhoncus volutpat.</p>
-                                        <a href="javascript:;" class="btn btn-circle red btn-outline">Read More</a>
-                                        <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                        <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
+                                        <a href="javascript:;" class="btn btn-circle red btn-outline pull-left">Read More</a>
+                                        <div class="actions pull-right">
+                                            <div class="btn-group btn-group-devided">
+                                                <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                                 <li data-date="28/02/2014">
@@ -1124,8 +1128,8 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-directions font-green hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Events</span>
-                        <span class="caption-helper">Horizontal Timeline</span>
+                        <span class="caption-subject"> Events</span>
+                        <span class="caption-helper">(Horizontal Timeline)</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -1496,7 +1500,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Recent Activities</span>
+                        <span class="caption-subject">Recent Activities</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group">
@@ -1809,12 +1813,12 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Tasks</span>
-                        <span class="caption-helper">tasks summary...</span>
+                        <span class="caption-subject">Tasks</span>
+                        <span class="caption-helper">(tasks summary...)</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group">
-                            <a class="btn blue-oleo btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> More
+                            <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> More
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">
@@ -2197,7 +2201,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-cursor font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">General Stats</span>
+                        <span class="caption-subject">General Stats</span>
                     </div>
                     <div class="actions">
                         <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
@@ -2247,8 +2251,8 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-equalizer font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Server Stats</span>
-                        <span class="caption-helper">monthly stats...</span>
+                        <span class="caption-subject">Server Stats</span>
+                        <span class="caption-helper">(monthly stats...)</span>
                     </div>
                     <div class="tools">
                         <a href="" class="collapse"> </a>
@@ -2300,7 +2304,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Regional Stats</span>
+                        <span class="caption-subject">Regional Stats</span>
                     </div>
                     <div class="actions">
                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -2363,7 +2367,7 @@
                 <div class="portlet-title tabbable-line">
                     <div class="caption">
                         <i class="icon-globe font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Feeds</span>
+                        <span class="caption-subject">Feeds</span>
                     </div>
                     <ul class="nav nav-tabs">
                         <li class="active">
@@ -2909,7 +2913,7 @@
                 <div class="portlet-title ">
                     <div class="caption">
                         <i class="icon-calendar font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Feeds</span>
+                        <span class="caption-subject">Feeds</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -2924,7 +2928,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-hide hide"></i>
-                        <span class="caption-subject font-hide bold uppercase">Chats</span>
+                        <span class="caption-subject">Chats</span>
                     </div>
                     <div class="actions">
                         <div class="portlet-input input-inline">
@@ -3041,11 +3045,11 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-dark hide"></i>
-                        <span class="caption-subject font-hide bold uppercase">Recent Users</span>
+                        <span class="caption-subject">Recent Users</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group">
-                            <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                            <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">
@@ -3156,14 +3160,14 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Recent Works</span>
-                        <span class="caption-helper">default option...</span>
+                        <span class="caption-subject"> Recent Works</span>
+                        <span class="caption-helper">(default option...)</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
-                            <label class="btn red btn-outline btn-circle btn-sm active">
+                            <label class="btn blue btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Settings</label>
-                            <label class="btn  red btn-outline btn-circle btn-sm">
+                            <label class="btn blue btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
                     </div>
@@ -3255,8 +3259,8 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Recent Projects</span>
-                        <span class="caption-helper">default option...</span>
+                        <span class="caption-subject"> Recent Projects</span>
+                        <span class="caption-helper">(default option...)</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -3345,12 +3349,12 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Activities</span>
-                        <span class="caption-helper">default option...</span>
+                        <span class="caption-subject"> Activities</span>
+                        <span class="caption-helper">(default option...)</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group">
-                            <a class="btn red btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                            <a class="btn  blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">

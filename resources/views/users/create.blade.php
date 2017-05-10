@@ -7,8 +7,8 @@
 	<div class="portlet light">
         <div class="portlet-title">
             <div class="caption">
-                <i class="icon-share font-dark hide"></i>
-                <span class="caption-subject font-dark bold uppercase">Add Users</span>
+                <i class="fa fa-newspaper-o"></i>
+                <span class="caption-subject bold uppercase font-dark">Add Users</span>
             </div>
         </div>
         <div class="portlet-body form">

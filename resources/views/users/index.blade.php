@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-12" id="userlist">
             @if( in_array('filter', app('session')->get('widgetAccess')) )
-                <div class="portlet box green">
+                <div class="portlet box white">
                     <div class="portlet-title">
                         <div class="caption">
                             Search

@@ -19,6 +19,9 @@ Route::group(['domain' => '{company}.'.config('config-variables.app.domain')], f
             |
             */
             Auth::routes();
+            Route::get('/verifyemail/{token}', 'Auth\RegisterController@verify');
+
+            Route::get('/home', 'HomeController@index');
 
             Route::get('/', function () {
                 return view('index');
@@ -82,5 +85,5 @@ Route::group(['domain' => '{company}.'.config('config-variables.app.domain')], f
 
 // Local dev specific routes
 if (App::environment('local')) {
-    // Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
+    Route::get('decompose', '\Lubusin\Decomposer\Controllers\DecomposerController@index');
 }

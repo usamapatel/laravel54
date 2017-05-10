@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div> 
             <div class="portlet light">
                 @include('flash::message')
                 <div class="portlet-title">

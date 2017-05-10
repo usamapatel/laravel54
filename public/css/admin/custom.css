@@ -21,7 +21,19 @@ table thead .sorting_asc {
 label.error {
     color: red;
 }
+.border-btn {
+    border: 1px solid #38648B;
+}
 
+.mt-element-list .list-todo.mt-list-container ul {
+    z-index: 1;
+}
+.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-icon {
+    display: inline;
+}
+.mt-element-list .list-todo.mt-list-container ul>.mt-list-item>.list-todo-item {
+    margin-left: 23px;
+}
 .mt-element-list .list-todo .list-count.green-haze,
 .mt-element-list .list-todo.mt-list-head.green-haze {
     background-color: #17C4BB;
@@ -186,18 +198,17 @@ label.error {
 	font-size: 16px;
 	border-radius: 3px !important;
 }
+.btn-group .btn {
+    width: auto;
+    font-size: 14px;
+}
 table .btn {
 	width: 34px;
 }
 .module-edit label.col-md-3{
 	margin: 7px 0;
 }
-.module_btn button {
-    width: 150px;
-    font-size: 16px;
-    border-radius: 3px !important;
-}
-}
+
 
 .btn.green-haze:not(.btn-outline) {
     background-color: #17C4BB;
@@ -311,10 +322,10 @@ body {
 	background-color: #4276A4 !important;
 	color: #4276A4;
 	font-weight: 600;
-	padding-left: 47px;
+	/*padding-left: 47px;*/
 } 
 .page-sidebar .page-sidebar-menu .sub-menu>li.open > .sub-menu {
-	padding-left: 30px;
+	padding-left: 0px;
 }
 .page-sidebar .page-sidebar-menu>li>a>i[class*=icon-],
 .page-sidebar .page-sidebar-menu>li.active.open>a>i, 
@@ -349,7 +360,7 @@ body {
 	margin-top: -25px;
 }
 .page-header.navbar .page-top {
-	box-shadow: none;
+	box-shadow: 0 2px 2px -2px #cccccc;
 }
 .page-sidebar-menu.page-sidebar-menu-hover-submenu>li:hover>.sub-menu {
 	margin-top: -45px;
@@ -382,7 +393,7 @@ body {
 	background: #3c6c95;
 }
 .page-sidebar .page-sidebar-menu .sub-menu {
-	padding-left: 33px;
+	padding-left: 24px;
 }
 .page-sidebar .page-sidebar-menu .sub-menu>li>a span.title {
 	color: #C9DFF5;
@@ -392,16 +403,51 @@ body {
 .page-sidebar .page-sidebar-menu .sub-menu>li:hover>a {
 	background: #3c6c95 !important;
 }
-
-#pagination_record_msg {
+.pagination-length-div .selection,
+.pagination-length-div .select2-container--bootstrap {
+    width: 45px !important;
+}
+.select2-container--bootstrap .select2-selection--single {
+    padding: 6px 20px 6px 4px;
+    font-size: 12px;
+    line-height: 1.7;
+}
+.select2-container--bootstrap.select2-container--focus .select2-selection, .select2-container--bootstrap.select2-container--open .select2-selection {
+    border-color: #38648B !important;
+}
+#pagination_record_msg{
 	margin-left: 10px;
     margin-top: 8px;
+    color: #4276A4;
+    font-size: 12px;
+}
+#DataTables_Table_0_info  {
+    margin-left: 3px;
+    margin-top: 6px;
+    color: #4276A4;
+    font-size: 12px;
+}
+table.table tr th {
+    /*height: 45px;*/
+    font-size: 13px;
+    background: #3979B2 url(../../img/admin/sort_both.png) center right no-repeat !important;
+    color: #fff;
+    padding: 10px;
 }
 .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li>a {
 	min-height: 39px;
 }
 .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li.active>a i {
 	margin-left: -2px; 
+}
+table .table_icon .btn{
+    width: 25px;
+    margin-right: 0;
+    padding: 0;
+    height: auto;
+}
+table .table_icon .btn:not(.btn-sm):not(.btn-lg) {
+    line-height: 0.5
 }
 .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li>a i {
 	margin-top: 0px;
@@ -717,6 +763,15 @@ body {
 .page-sidebar .page-sidebar-menu>li.open>a>.arrow.open:before, .page-sidebar .page-sidebar-menu>li.open>a>.arrow:before, .page-sidebar .page-sidebar-menu>li.open>a>i, .page-sidebar .page-sidebar-menu>li:hover>a>.arrow.open:before, .page-sidebar .page-sidebar-menu>li:hover>a>.arrow:before, .page-sidebar .page-sidebar-menu>li:hover>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.open>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li:hover>a>i {
     color: #8EB8DE;
 }
+.page-sidebar .page-sidebar-menu .sub-menu>li>a>.arrow.open:before, .page-sidebar .page-sidebar-menu .sub-menu>li>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>.arrow:before {
+    color: #8EB8DE;
+}
+.page-sidebar .page-sidebar-menu .sub-menu>li.active>a>.arrow.open:before, .page-sidebar .page-sidebar-menu .sub-menu>li.active>a>.arrow:before, .page-sidebar .page-sidebar-menu .sub-menu>li.open>a>.arrow.open:before, .page-sidebar .page-sidebar-menu .sub-menu>li.open>a>.arrow:before, .page-sidebar .page-sidebar-menu .sub-menu>li:hover>a>.arrow.open:before, .page-sidebar .page-sidebar-menu .sub-menu>li:hover>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li.active>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li.active>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li.open>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li.open>a>.arrow:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li:hover>a>.arrow.open:before, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li:hover>a>.arrow:before {
+    color: #8EB8DE;
+}
+.page-sidebar .page-sidebar-menu .sub-menu>li>a>i, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu>li>a>i {
+    color: #8EB8DE;
+}
 .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
     z-index: 2;
     margin-left: -1px;
@@ -745,7 +800,7 @@ body {
     padding: 11px 20px 5px;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 9999;
 }
 .scroll-to-top {
     bottom: 0px;

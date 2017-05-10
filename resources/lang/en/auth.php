@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'failed'   => 'These credentials do not match our records.',
+    'failed' => 'These credentials do not match our records.',
+    'unverified' => 'You have not verified your email.',
+    'banned' => 'You have been blocked from using this section',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];
