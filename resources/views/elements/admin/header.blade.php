@@ -20,49 +20,20 @@
         </div> -->
         <!-- BEGIN PAGE TOP -->
         <div class="page-top">
-            <div class="top-menu pull-left user-setting">
+            <div class="top-menu pull-left user-setting">            
                 <div class="dropdown company-list">
                     <a id="dLabel" role="button" data-toggle="dropdown" class="btn" data-target="#" href="javascript:;">
                         <img alt="" class="img-circle" src="../../img/admin/avatar1.jpg">
-                        <span class="username username-hide-on-mobile"> ViitorCloud Tech. PVT LTD.</span>
+                        <span class="username username-hide-on-mobile"> {{ $selectedCompany->name }}</span>
                         <span class="role">Manager</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                    @foreach($companies as $company)
                         <li class="dropdown-submenu">
-                            <a tabindex="-1" href="javascript:;">Aecor Digital</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">QA</a></li>
-                                <li><a href="javascript:;">Developer</a></li>
-                                <li><a href="javascript:;">Manager</a></li>
-                                <li><a href="#">Designer</a></li>
-                            </ul>
+                            <a tabindex="-1" href="{{ route('admin.home', ['domain' => $company->slug]) }}">{{ $company->name}}</a>                           
                         </li>
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="javascript:;">ViitorCloud Tech. PVT LTD.</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">Manager</a></li>
-                                <li><a href="javascript:;">Developer</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="javascript:;">White Magic</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">QA</a></li>
-                                <li><a href="javascript:;">Developer</a></li>
-                                <li><a href="javascript:;">Manager</a></li>
-                                <li><a href="javascript:;">Designer</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="#">Norlinx</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:;">QA</a></li>
-                                <li><a href="javascript:;">Developer</a></li>
-                                <li><a href="javascript:;">Manager</a></li>
-                                <li><a href="javascript:;">Designer</a></li>
-                            </ul>
-                        </li>
+                    @endforeach                       
                     </ul>
                 </div>
             </div>
