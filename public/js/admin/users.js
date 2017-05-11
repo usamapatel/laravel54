@@ -26,7 +26,7 @@ var User = function() {
                 }
             },
             submitHandler: function (form) {
-                //form.submit();
+                form.submit();
                 // $.ajax({
                 //     url: "/admin/validateEmail",
                 //     type: "post",
