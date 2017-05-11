@@ -1,9 +1,16 @@
 var vueUser;
 var User = function() {
+
+    var form = $('#submit_user_form');
+    var error = $('.alert-danger', form);
+    var success = $('.alert-success', form);
+
     var handleValidation = function() {
-        $('.js-frm-create-user,.js-frm-edit-user').validate({
-            ignore: [],
-            debug: false,
+        form.validate({
+            doNotHideMessage: true, //this option enables to show the error/success messages on tab switch.
+            errorElement: 'span', //default input error message container
+            errorClass: 'help-block help-block-error', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
             rules: {
                 first_name: {
                     required: true
@@ -11,10 +18,16 @@ var User = function() {
                 last_name: {
                     required: true
                 },
+                username: {
+                    required: true
+                },
                 email: {
                     required: true,
                 },
                 'roles[]': {
+                    required: true
+                },
+                created_at :{
                     required: true
                 },
             },
@@ -25,7 +38,31 @@ var User = function() {
                     element.parent().append(error);
                 }
             },
+
+            invalidHandler: function (event, validator) { //display error alert on form submit   
+                success.hide();
+                error.show();
+                App.scrollTo(error, -200);
+            },
+
+            highlight: function (element) { // hightlight error inputs
+                $(element)
+                    .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+            },
+
+            unhighlight: function (element) { // revert the change done by hightlight
+                $(element)
+                    .closest('.form-group').removeClass('has-error'); // set error class to the control group
+            },
+
+            success: function (label) {
+                label
+                    .addClass('valid') // mark the current input as valid and display OK icon
+                    .closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+
             submitHandler: function (form) {
+                error.hide();
                 form.submit();
                 // $.ajax({
                 //     url: "/admin/validateEmail",
@@ -39,17 +76,87 @@ var User = function() {
             }
         });
     };
-    var formInitialization = function() {
+    // var formInitialization = function() {
         
-    };
-    var formEvents = function() {
+    // };
+    // var formEvents = function() {
         
+    // };
+    var handleTitle = function(tab, navigation, index) {
+        var total = navigation.find('li').length;
+        var current = index + 1;
+        // set wizard title
+        $('.step-title', $('#user_form_wizard')).text('Step ' + (index + 1) + ' of ' + total);
+        // set done steps
+        jQuery('li', $('#user_form_wizard')).removeClass("done");
+        var li_list = navigation.find('li');
+        for (var i = 0; i < index; i++) {
+            jQuery(li_list[i]).addClass("done");
+        }
+
+        if (current == 1) {
+            $('#user_form_wizard').find('.button-previous').hide();
+        } else {
+            $('#user_form_wizard').find('.button-previous').show();
+        }
+
+        if (current >= total) {
+            $('#user_form_wizard').find('.button-next').hide();
+            $('#user_form_wizard').find('.button-submit').show();            
+        } else {
+            $('#user_form_wizard').find('.button-next').show();
+            $('#user_form_wizard').find('.button-submit').hide();
+        }
+    }
+    var formWizard = function() {
+        // default form wizard
+        $('#user_form_wizard').bootstrapWizard({
+            'nextSelector': '.button-next',
+            'previousSelector': '.button-previous',
+            onTabClick: function (tab, navigation, index, clickedIndex) {
+                return false;
+                
+                success.hide();
+                error.hide();
+                if (form.valid() == false) {
+                    return false;
+                }
+                
+                handleTitle(tab, navigation, clickedIndex);
+            },
+            onNext: function (tab, navigation, index) {
+                success.hide();
+                error.hide();
+
+                if (form.valid() == false) {
+                    return false;
+                }
+
+                handleTitle(tab, navigation, index);
+            },
+            onPrevious: function (tab, navigation, index) {
+                success.hide();
+                error.hide();
+
+                handleTitle(tab, navigation, index);
+            },
+            onTabShow: function (tab, navigation, index) {
+                var total = navigation.find('li').length;
+                var current = index + 1;
+                var $percent = (current / total) * 100;
+                $('#user_form_wizard').find('.progress-bar').css({
+                    width: $percent + '%'
+                });
+            }
+        });
     };
+
     return {
         init: function() {
             handleValidation();
-            formInitialization();
-            formEvents();
+            // formInitialization();
+            // formEvents();
+            formWizard();
         }
     }
 }();
@@ -58,6 +165,34 @@ $(document).ready(function() {
     $(document).on('change', '#pagination_length', function(){
         Cookies.set('pagination_length', $(this).val());
         vueUser.userListData(1, vueUser.sortby, vueUser.sorttype, vueUser.searchdata);
+    });
+
+    $(document).on('click', '.js-continue', function(){
+        $.ajax({
+            url: "/admin/validateEmail",
+            type: "POST",
+            data: {email: $("#email").val()},
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            success: function(result){
+                $(".js-tab-pane").removeClass('active');
+                $("#profile_setup").addClass('active');
+                $(".js-btn-back").css('display', 'inline-block');
+
+                if(result === 'true') {
+                    $(".js-btn-continue").css('display', 'none');
+                    $(".js-btn-send").css('display', 'none');
+                    $(".js-btn-submit").css('display', 'inline-block');
+                    $(".js-send-invitation").hide();
+                    $(".js-profile-details").show();
+                } else {
+                    $(".js-btn-continue").css('display', 'none');
+                    $(".js-btn-send").css('display', 'inline-block');
+                    $(".js-btn-submit").css('display', 'none');
+                    $(".js-profile-details").hide();
+                    $(".js-send-invitation").show();
+                }
+            }
+        });
     });
 
     function getUserData() {
