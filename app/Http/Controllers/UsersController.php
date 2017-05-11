@@ -49,7 +49,7 @@ class UsersController extends Controller
     }
 
     public function validateEmail(Request $request)
-    {
+    {        
         $email = $request->email;
         if ($email !== null && !empty($email)) {
             $userQuery = User::where('email', $email);
@@ -57,11 +57,11 @@ class UsersController extends Controller
                 $userQuery->where('id', '!=', $request->id);
             }
             $user = $userQuery->first();
+
             if ($user) {
                 return 'false';
-            }
-        }
-
+            }            
+        }       
         return 'true';
     }
 
@@ -113,7 +113,7 @@ class UsersController extends Controller
     public function create()
     {
         $companyId = Landlord::getTenants()['company']->id;
-        $roles = Role::where('name', 'LIKE', $companyId.'%')->get();
+        $roles = Role::where('name', 'LIKE', $companyId.'%')->pluck('display_name', 'name');
 
         return view('users.create', compact('roles'));
     }
