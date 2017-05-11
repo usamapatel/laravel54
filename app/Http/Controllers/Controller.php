@@ -11,6 +11,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use View;
+use Landlord;
+use DB;
 
 class Controller extends BaseController
 {
@@ -20,33 +22,48 @@ class Controller extends BaseController
     {
         $this->middleware(function ($request, $next) {
             if (Auth::check()) {
-                $widgetsAccess = array();
-                $userRoles = Auth::user()->roles;
-                foreach ($userRoles as $role) {
-                    $permissions = $role->permissions;
-                    $menuItemIdArray = $permissions->map(function ($item, $key) {
-                        if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
-                            return explode('.', $item->name)[2];
+                if(Landlord::getTenants()['company']->slug != 'www') {
+                    $widgetsAccessArray = array();
+                    $menuItemIdArray = array();
+                    $roles = Auth::user()->roles;
+
+                    $filteredRoleData = $roles->filter(function ($value, $key) {
+                        $companyId = Landlord::getTenants()['company']->id;
+                        if(explode(".", $value->name)[0] == $companyId) {
+                            return $value;
                         }
                     });
 
-                    $widgetsAccess = $permissions->map(function ($item, $key) {
-                        if(strpos($item->name, '.' . config('config-variables.widget_permission_identifier') .  '.') !== false) {
-                            return explode('.', $item->name)[2];
-                        }
-                    })->values();
-                }
-                // code refactoring remaining here
-                $menuItemArray = MenuItem::whereIn('id', $menuItemIdArray)->get()->toArray();
-                $menuItemArray = Menu::buildMenuTree($menuItemArray, 0);
+                    foreach ($filteredRoleData as $role) {
+                        $permissions = $role->permissions;
+                        $menuItemIds = $permissions->map(function ($item, $key) {
+                            if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
+                                return explode('.', $item->name)[2];
+                            }
+                        })->unique()->toArray();
+                        $menuItemIdArray = array_merge($menuItemIdArray, $menuItemIds);
 
-                $widgetArray = Widget::whereIn('id', $widgetsAccess)->pluck('slug')->toArray();
-                $request->session()->put('widgetAccess', $widgetArray);
+                        $widgetsAccess = $permissions->map(function ($item, $key) {
+                            if(strpos($item->name, '.' . config('config-variables.widget_permission_identifier') .  '.') !== false) {
+                                return explode('.', $item->name)[2];
+                            }
+                        })->values()->toArray();
+                        $widgetsAccessArray = array_merge($widgetsAccessArray, $widgetsAccess);
+                    }                    
+                    // code refactoring remaining here
+                    $menuItemArray = MenuItem::whereIn('id', $menuItemIdArray)->get()->toArray();
+                    $menuItemArray = Menu::buildMenuTree($menuItemArray, 0);
 
-                View::share('menu_items', $menuItemArray);
-                View::share('companies', Auth::user()->companies);
+                    $widgetArray = Widget::whereIn('id', $widgetsAccessArray)->pluck('slug')->toArray();
+                    $request->session()->put('widgetAccess', $widgetArray);
+
+                    $selectedCompany = Landlord::getTenants()['company'];                            
+
+                    View::share('menu_items', $menuItemArray);                
+                    View::share('selectedCompany', $selectedCompany);
+                }                   
+                View::share('companies', Auth::user()->companies);             
             }
-
             return $next($request);
         });
     }

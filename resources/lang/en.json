@@ -110,5 +110,6 @@
     "Your password has been reset!": "Your password has been reset!",
     "cookieConsent::texts.agree": "cookieConsent::texts.agree",
     "cookieConsent::texts.message": "cookieConsent::texts.message",
-    "custom-message": "custom-message"
+    "custom-message": "custom-message",
+    "selected-language": "Selected language is"
 }

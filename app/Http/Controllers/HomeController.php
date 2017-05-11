@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use View;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
         return view('home.home');
     }
 }
