@@ -4,11 +4,6 @@ var User = function() {
         $('.js-frm-create-user,.js-frm-edit-user').validate({
             ignore: [],
             debug: false,
-            messages: {  
-                email:{
-                    remote:'Email already exists.',
-                }
-            },
             rules: {
                 first_name: {
                     required: true
@@ -18,16 +13,6 @@ var User = function() {
                 },
                 email: {
                     required: true,
-                    remote: {
-                                url: "/admin/validateEmail",
-                                type: "post",
-                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                                data: {   
-                                      id: function() {
-                                        return $('input[name="user_id"]').val();
-                                      }
-                                }  
-                            }
                 },
                 'roles[]': {
                     required: true
@@ -42,6 +27,15 @@ var User = function() {
             },
             submitHandler: function (form) {
                 form.submit();
+                // $.ajax({
+                //     url: "/admin/validateEmail",
+                //     type: "post",
+                //     data: { email: $("#email").val() },
+                //     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                //     success: function(result){
+                //         $("#div1").html(result);
+                //     }
+                // });
             }
         });
     };

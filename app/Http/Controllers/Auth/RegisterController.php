@@ -78,17 +78,11 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        return redirect()->route('company.select', ['domain' => app('request')->route()->parameter('company')]);
+        // return redirect()->route('company.select', ['domain' => app('request')->route()->parameter('company')]);
 
         dispatch(new SendVerificationEmail($user));
 
         return view('auth.verification');
-
-//        return $this->registered($request, $user)
-//            ?: redirect($this->redirectPath())->with(
-//                'success',
-//                'Your account was successfully created. We have sent you an e-mail to confirm your account.'
-//            );
     }
 
     /**
@@ -98,7 +92,7 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function verify($token = null)
+    public function verify($company, $token = null)
     {
         if (isset($token)) {
             $user = User::where('verification_token', $token)->first();

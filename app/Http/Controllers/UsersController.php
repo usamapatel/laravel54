@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Landlord;
 use Spatie\Permission\Models\Role;
 use View;
+use App\Jobs\SendVerificationEmail;
 
 class UsersController extends Controller
 {
@@ -148,6 +149,8 @@ class UsersController extends Controller
         $companyUser->company_id = $companyId;
         $companyUser->user_id = $user->id;
         $companyUser->save();
+
+        dispatch(new SendVerificationEmail($user));
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
