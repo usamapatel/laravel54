@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyUser;
-use App\Models\UserInvite;
 use App\Models\Person;
 use App\Models\User;
 use Carbon\Carbon as Carbon;

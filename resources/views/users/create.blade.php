@@ -61,7 +61,7 @@
                                         <div class="p-r-5 input-wrapper right">
                                             <div class="row">                                            
                                                 <div class="col-md-12">                                                    
-                                                    {!! Form::select('roles[]', $roles, null, array('class' =>'select2-tag form-control', 'multiple' => true)) !!}
+                                                    {!! Form::select('roles[]', $roles, null, array('class' =>'js-select2-multiselect form-control', 'multiple' => true)) !!}
                                                 </div>                                            
                                             </div>
                                         </div>
@@ -127,7 +127,7 @@
                                 <a class="btn btn-outline green button-next js-continue js-btn-continue"> Continue
                                     <i class="fa fa-angle-right"></i>
                                 </a>                                
-                                <button type="button" class="btn green button-submit js-btn-send" style="display: none"> Send <i class="fa fa-check"></i></button>
+                                <button type="submit" class="btn green button-submit js-btn-send" style="display: none"> Send <i class="fa fa-check"></i></button>
                                 <button type="submit" class="btn green button-submit js-btn-submit" style="display: none"> Submit <i class="fa fa-check"></i></button>
                             </div>
                         </div>

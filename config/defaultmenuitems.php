@@ -295,6 +295,28 @@ return [
                             'is_active'           => 1,
                             'is_shown_on_menu'    => 1,
                             'is_publicly_visible' => 0,
+                            'widget'              => [
+                                [
+                                    'icon' => 'fa fa-gear fa-lg',
+                                    'name' => 'Filter',
+                                    'slug' => 'filter',
+                                    'description' => 'user search filter',
+                                    'width' => '100%',
+                                    'status' => 1,
+                                    'settings' => null,
+                                    'widget_type_id' => 1,
+                                ],
+                                [
+                                    'icon' => 'fa fa-gear fa-lg',
+                                    'name' => 'Listing',
+                                    'slug' => 'listing',
+                                    'description' => 'user listing',
+                                    'width' => '100%',
+                                    'status' => 1,
+                                    'settings' => null,
+                                    'widget_type_id' => 1,
+                                ],
+                            ],
                         ],
                         [
                             'name'                => 'Add user',
@@ -306,6 +328,18 @@ return [
                             'is_active'           => 1,
                             'is_shown_on_menu'    => 1,
                             'is_publicly_visible' => 0,
+                            'widget'              => [
+                                [
+                                    'icon' => 'fa fa-user fa-lg',
+                                    'name' => 'Add user',
+                                    'slug' => 'add-user',
+                                    'description' => 'add user details',
+                                    'width' => '100%',
+                                    'status' => 1,
+                                    'settings' => null,
+                                    'widget_type_id' => 1,
+                                ],
+                            ],
                         ],
                     ],
                 ],
@@ -346,7 +380,7 @@ return [
                 ],
             ],
         ],
-        [
+        /*[
             'name'                => 'Team',
             'description'         => null,
             'url'                 => '#',
@@ -380,6 +414,6 @@ return [
                     'is_publicly_visible' => 0,
                 ],
             ],
-        ]
+        ]*/
     ]
 ];

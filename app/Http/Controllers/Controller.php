@@ -13,6 +13,8 @@ use Illuminate\Routing\Controller as BaseController;
 use View;
 use Landlord;
 use DB;
+use JavaScript;
+use LaravelLocalization;
 
 class Controller extends BaseController
 {
@@ -27,14 +29,14 @@ class Controller extends BaseController
                     $menuItemIdArray = array();
                     $roles = Auth::user()->roles;
 
-                    $filteredRoleData = $roles->filter(function ($value, $key) {
+                    $currentCompanyRoles = $roles->filter(function ($value, $key) {
                         $companyId = Landlord::getTenants()['company']->id;
                         if(explode(".", $value->name)[0] == $companyId) {
                             return $value;
                         }
-                    });
+                    })->values();
 
-                    foreach ($filteredRoleData as $role) {
+                    foreach ($currentCompanyRoles as $role) {
                         $permissions = $role->permissions;
                         $menuItemIds = $permissions->map(function ($item, $key) {
                             if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
@@ -57,11 +59,15 @@ class Controller extends BaseController
                     $widgetArray = Widget::whereIn('id', $widgetsAccessArray)->pluck('slug')->toArray();
                     $request->session()->put('widgetAccess', $widgetArray);
 
-                    $selectedCompany = Landlord::getTenants()['company'];                            
+                    $currentCompany = Landlord::getTenants()['company'];
 
                     View::share('menu_items', $menuItemArray);                
-                    View::share('selectedCompany', $selectedCompany);
-                }                   
+                    View::share('currentCompany', $currentCompany);
+                    View::share('currentCompanyRoles', $currentCompanyRoles);
+                }
+                JavaScript::put([
+                    'locale' => LaravelLocalization::getCurrentLocale(),
+                ]);               
                 View::share('companies', Auth::user()->companies);             
             }
             return $next($request);
