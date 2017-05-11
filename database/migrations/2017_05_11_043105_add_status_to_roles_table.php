@@ -14,7 +14,7 @@ class AddStatusToRolesTable extends Migration
     public function up()
     {
         Schema::table('roles', function (Blueprint $table) {
-            $table->boolean('status')->after('guard_name');
+            $table->boolean('status')->after('guard_name')->default(0);
         });
     }
 
