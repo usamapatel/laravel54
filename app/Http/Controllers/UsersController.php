@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyUser;
+use App\Models\UserInvite;
 use App\Models\Person;
 use App\Models\User;
 use Carbon\Carbon as Carbon;
@@ -252,5 +253,18 @@ class UsersController extends Controller
         flash()->message($message, $type);
 
         return redirect()->route('users.index', ['domain' => app('request')->route()->parameter('company')]);
+    }
+
+    public function acceptInvitation($token = null)
+    {
+        if (isset($token)) {
+            $userInvites = UserInvite::where('accept_token', $token)->first();        
+            if ($userInvites) {
+                $companyUser = CompanyUser::where('user_id', $userInvites->invited_user_id)
+                                            ->where('company_id', $userInvites->company_id);                                           
+                $companyUser->is_verified = 1;
+                $companyUser->save();
+            }
+        }
     }
 }
