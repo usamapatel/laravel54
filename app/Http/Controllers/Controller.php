@@ -27,31 +27,40 @@ class Controller extends BaseController
                 if(Landlord::getTenants()['company']->slug != 'www') {
                     $widgetsAccessArray = array();
                     $menuItemIdArray = array();
-                    $roles = Auth::user()->roles;
+                    $role = null;
 
-                    $currentCompanyRoles = $roles->filter(function ($value, $key) {
+                    if(isset($request->role)) {
+                        $role = Auth::user()->roles()->where('id', $request->role)->first();
+                    } else {
+                        $role = Auth::user()->roles()->first();
+                    }
+
+                    if(!$role) {
+                        return response()->json(['error' => 'not found'], 404);
+                    }
+
+                    $currentCompanyRoles = Auth::user()->roles->filter(function ($value, $key) {
                         $companyId = Landlord::getTenants()['company']->id;
                         if(explode(".", $value->name)[0] == $companyId) {
                             return $value;
                         }
                     })->values();
 
-                    foreach ($currentCompanyRoles as $role) {
-                        $permissions = $role->permissions;
-                        $menuItemIds = $permissions->map(function ($item, $key) {
-                            if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
-                                return explode('.', $item->name)[2];
-                            }
-                        })->unique()->toArray();
-                        $menuItemIdArray = array_merge($menuItemIdArray, $menuItemIds);
+                    $permissions = $role->permissions;
+                    $menuItemIds = $permissions->map(function ($item, $key) {
+                        if(strpos($item->name, '.' . config('config-variables.menu_item_permission_identifier') .  '.') !== false) {
+                            return explode('.', $item->name)[2];
+                        }
+                    })->unique()->toArray();
+                    $menuItemIdArray = array_merge($menuItemIdArray, $menuItemIds);
 
-                        $widgetsAccess = $permissions->map(function ($item, $key) {
-                            if(strpos($item->name, '.' . config('config-variables.widget_permission_identifier') .  '.') !== false) {
-                                return explode('.', $item->name)[2];
-                            }
-                        })->values()->toArray();
-                        $widgetsAccessArray = array_merge($widgetsAccessArray, $widgetsAccess);
-                    }                    
+                    $widgetsAccess = $permissions->map(function ($item, $key) {
+                        if(strpos($item->name, '.' . config('config-variables.widget_permission_identifier') .  '.') !== false) {
+                            return explode('.', $item->name)[2];
+                        }
+                    })->values()->toArray();
+                    $widgetsAccessArray = array_merge($widgetsAccessArray, $widgetsAccess);
+
                     // code refactoring remaining here
                     $menuItemArray = MenuItem::whereIn('id', $menuItemIdArray)->get()->toArray();
                     $menuItemArray = Menu::buildMenuTree($menuItemArray, 0);
