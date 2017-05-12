@@ -1,0 +1,86 @@
+label.label {
+    background: inherit;
+    border: medium none;
+    box-shadow: inherit;
+    color: #4276A4;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    max-width: 100%;
+    padding: 0;
+    text-transform: capitalize;
+}
+.form-col-2 .input-wrapper {
+    position: relative;
+}
+.dropdown-list-menu .btn-group {
+    display: block;
+    width: 100%;
+}
+.forms-grid .btn.dropdown-toggle.btn-default {
+    display: none;
+}
+select {
+    border: 1px solid #acb7c0;
+    color: #555555;
+    height: 34px;
+    width: 100%;
+}
+.panel-grid-main .form-row .input-wrapper .text-box {
+    border-radius: 0;
+    box-shadow: none;
+}
+.text-box, .textarea-box {
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #c2cad8;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.form-row {
+    margin-bottom: 15px;
+}
+.forms-grid .radio-btn label {
+    font-weight: normal;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: top;
+    margin-top: 1px;
+}
+.uie-btn.uie-btn-primary {
+    background: #4276A4 none repeat scroll 0 0;
+}
+.uie-btn.uie-btn-primary, .uie-btn.uie-secondary-btn {
+    -moz-user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    margin-right: 15px;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.uie-btn.uie-secondary-btn {
+    background-color: #e1e5ec;
+    border-color: #e1e5ec;
+    color: #666666;
+}
+.uie-btn.uie-secondary-btn:hover {
+    text-decoration: none;
+}

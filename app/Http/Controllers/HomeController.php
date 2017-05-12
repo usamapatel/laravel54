@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use View;
+use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -12,6 +15,9 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->title = 'Home';
+        View::share('title', $this->title);
+        parent::__construct();
     }
 
     /**
@@ -20,7 +26,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {        
+        return view('home.home');
     }
 }

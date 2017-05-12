@@ -22,8 +22,11 @@ class HelperServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $excludeFiles = [app_path().'/Helpers/HelperOverload.php'];
         foreach (glob(app_path().'/Helpers/*.php') as $filename) {
-            require_once $filename;
+            if (!in_array($filename, $excludeFiles, true)) {
+                require_once $filename;
+            }
         }
     }
 }

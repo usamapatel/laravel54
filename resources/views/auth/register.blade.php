@@ -1,76 +1,78 @@
-@extends('layouts.app')
+@extends('layouts.admin.auth')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+@section('auth-content')
+    <div class="login-content">
+        <h1>Registration</h1>
+        <form class="login-form" role="form" method="POST" action="{{ route('register', ['domain' => app('request')->route()->parameter('company')]) }}">
+            {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span>{{ __("Please fill up required fields.") }}</span>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="company_name" autocomplete="off" placeholder="{{ __("Company Name") }}" name="company_name" value="{{ old('company_name') }}" required/>
+                </div>
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="company_slug" autocomplete="off" placeholder="{{ __("Company Slug") }}" name="company_slug" value="{{ old('company_slug') }}"/>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="first_name" autocomplete="off" placeholder="{{ __("First Name") }}" name="first_name" value="{{ old('first_name') }}" required/>
+                </div>
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" id="last_name" autocomplete="off" placeholder="{{ __("Last Name") }}" name="last_name" value="{{ old('last_name') }}" required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="username" type="text" autocomplete="off" value="{{ old('username') }}" placeholder="{{ __("Username") }}" name="username" required/>
+                    @if ($errors->has('username'))
+                        <span class="help-block">
+                            <strong>{{ __($errors->first('username')) }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="email" type="email" autocomplete="off" value="{{ old('email') }}" placeholder="{{ __("Email") }}" name="email" required/>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ __($errors->first('email')) }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" id="password" autocomplete="off" id="password" placeholder="{{ __("Password") }}" name="password" required/>
+
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ __($errors->first('password')) }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-xs-6">
+                    <input class="form-control form-control-solid placeholder-no-fix form-group" id="password-confirm" type="password" autocomplete="off" placeholder="{{ __("Confirm Password") }}" name="password_confirmation" required/>
+
+                    @if ($errors->has('password_confirmation'))
+                        <span class="help-block">
+                            <strong>{{ __($errors->first('password_confirmation')) }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <button class="btn green" type="submit">{{ __("Register") }}</button>
+                </div>
+            </div>
+        </form>
     </div>
-</div>
+@endsection
+
+@section('page-script')
+    <script src="{{ asset('js/admin/auth.js') }}" type="text/javascript"></script>
 @endsection
