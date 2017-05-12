@@ -57,29 +57,6 @@ var User = function() {
                     App.scrollTo(error, -200);    
                 }  
             },
-
-            highlight: function (element) { // hightlight error inputs
-                if($('.js-frm-create-user').length > 0) {
-                    $(element)
-                        .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
-                }
-            },
-
-            unhighlight: function (element) { // revert the change done by hightlight
-                if($('.js-frm-create-user').length > 0) {
-                    $(element)
-                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
-                }
-            },
-
-            success: function (label) {
-                if($('.js-frm-create-user').length > 0) {
-                    label
-                        .addClass('valid') // mark the current input as valid and display OK icon
-                        .closest('.form-group').removeClass('has-error').addClass('has-success');
-                }
-            },
-
             submitHandler: function (form) {
                 error.hide();
                 form.submit();

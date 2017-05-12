@@ -34,7 +34,7 @@
                                 <a tabindex="-1" href="{{ route('admin.home', ['domain' => $company->slug]) }}">{{ $company->name}}</a>
                                 <ul class="dropdown-menu">
                                     @foreach($currentCompanyRoles as $role)
-                                        <li><a href="javascript:;">{{ $role->display_name }}</a></li>
+                                        <li><a href="{{ route('admin.home', ['domain' => $company->slug, 'role' => $role->id]) }}">{{ $role->display_name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

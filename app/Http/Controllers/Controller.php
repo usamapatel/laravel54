@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\Widget;
+use App\Models\Companies;
 use Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -76,8 +77,10 @@ class Controller extends BaseController
                 }
                 JavaScript::put([
                     'locale' => LaravelLocalization::getCurrentLocale(),
-                ]);               
-                View::share('companies', Auth::user()->companies);             
+                ]);
+
+                $companies = Auth::user()->companies()->where('is_invitation_accepted', 1)->get();
+                View::share('companies', $companies);
             }
             return $next($request);
         });

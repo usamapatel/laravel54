@@ -106,12 +106,15 @@ class CompaniesController extends Controller
     public function selectCompany(Request $request)
     {
         $companySlug = app('request')->route()->parameter('company');
-        if(count(Auth::user()->companies) == 1) {
-            $singleCompanySlug = Auth::user()->companies->first();
-            return redirect()->route('admin.home', ['domain' => $singleCompanySlug->slug]);
-        }
+        $companies = Auth::user()->companies()->where('is_invitation_accepted', 1);
+
         if ($companySlug != 'www') {
             return redirect()->route('admin.home', ['domain' => $companySlug]);
+        }
+
+        if(count($companies->get()) == 1) {
+            $singleCompanySlug = $companies->first();
+            return redirect()->route('admin.home', ['domain' => $singleCompanySlug->slug]);
         }
         return view('auth.selectcompany');
     }

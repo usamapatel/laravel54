@@ -187,6 +187,9 @@ class UsersController extends Controller
         $companyUser = new CompanyUser();
         $companyUser->company_id = $companyId;
         $companyUser->user_id = $userId;
+        if(!$checkUserExists) {
+            $companyUser->is_invitation_accepted = 1;
+        }
         $companyUser->save();
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));

@@ -140,6 +140,7 @@ class RegisterController extends Controller
         $companyUser = CompanyUser::create([
             'user_id'       => $user->id,
             'company_id'    => $company->id,
+            'is_invitation_accepted' => 1,
         ]);
 
         event(new CompanyRegistered($company, $user, 'front'));

@@ -3,31 +3,6 @@
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
     <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
     <div class="page-sidebar navbar-collapse collapse">
-        
-        {{-- <ul class="page-sidebar-menu  page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-            @if (count($menu_items) > 0)                
-                @foreach ($menu_items as $menu_item)
-                    <li class="nav-item start">
-                        @if(isset($menu_item['children']) && count($menu_item['children']))
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="fa {{ $menu_item['icon'] }}"></i>
-                                <span class="title">{{ $menu_item['name'] }}</span>
-                                <span class="selected"></span>
-                                <span class="arrow"></span>
-                            </a>    
-                            @include('elements.admin.submenu', ['menu_item' => $menu_item['children']])
-                        @else
-                            <a href="{{ url($menu_item['url']) }}" class="nav-link nav-toggle">
-                                <i class="fa {{ $menu_item['icon'] }}"></i>
-                                <span class="title">{{ $menu_item['name'] }}</span>
-                                <span class="arrow"></span>
-                            </a>
-                        @endif
-                    </li>
-                @endforeach
-            @endif
-        </ul> --}}
-
         <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
             <li class="sidebar-toggler-wrapper hide">
                 <div class="sidebar-toggler">
@@ -66,7 +41,6 @@
                             <a href="{{ url($menu_item['url']) }}" class="nav-link nav-toggle">
                                 <i class="fa {{ $menu_item['icon'] }}"></i>
                                 <span class="title">{{ $menu_item['name'] }}</span>
-                                <span class="arrow"></span>
                             </a>
                         @endif
                     </li>

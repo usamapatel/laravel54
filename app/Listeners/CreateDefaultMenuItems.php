@@ -26,8 +26,8 @@ class CreateDefaultMenuItems
         $defaultMenuItems = config('defaultmenuitems.' . $event->userType);
 
         $role = new Role();
-        $role->name = $company->id.'.Company Admin';
-        $role->display_name = 'Company Admin';
+        $role->name = $company->id.'.Admin';
+        $role->display_name = 'Admin';
         $role->save();
 
         $user->assignRole($role->name);
