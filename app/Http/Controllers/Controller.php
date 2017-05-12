@@ -22,8 +22,8 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            if (Auth::check()) {
+        $this->middleware(function ($request, $next) {            
+            if (Auth::check() && count(Landlord::getTenants()) > 0 ) {
                 if(Landlord::getTenants()['company']->slug != 'www') {
                     $widgetsAccessArray = array();
                     $menuItemIdArray = array();

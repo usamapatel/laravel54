@@ -9,7 +9,7 @@
             <div class="caption">
                 <i class="fa fa-newspaper-o"></i>
                 <span class="caption-subject bold uppercase font-dark">Add Users
-                    <span class="step-title"> - Step 1 of 2 </span>
+                    <span class="step-title"></span>
                 </span>                
             </div>
         </div>
@@ -31,7 +31,7 @@
                                     <span class="desc">
                                         <i class="fa fa-check"></i> Profile Setup </span>
                                 </a>
-                            </li>                        
+                            </li>
                         </ul>
                         <div id="bar" class="progress progress-striped" role="progressbar">
                             <div class="progress-bar progress-bar-success"> </div>
@@ -59,7 +59,7 @@
                                             <label class="label">Roles </label>
                                         </div>
                                         <div class="p-r-5 input-wrapper right">
-                                            <div class="row">                                            
+                                            <div class="row">
                                                 <div class="col-md-12">                                                    
                                                     {!! Form::select('roles[]', $roles, null, array('class' =>'js-select2-multiselect form-control', 'multiple' => true)) !!}
                                                 </div>                                            

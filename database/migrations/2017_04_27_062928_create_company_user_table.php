@@ -22,7 +22,7 @@ class CreateCompanyUserTable extends Migration
             $table->foreign('company_id')
                 ->references('id')->on('companies')
                 ->onDelete('cascade');
-            $table->boolean('is_verified')->default(false);
+            $table->boolean('is_invitation_accepted')->default(false);
             $table->text('settings')->nullable();
         });
     }
