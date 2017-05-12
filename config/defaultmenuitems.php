@@ -3,6 +3,17 @@
 return [
     'front' => [
         [
+            'name'                => 'Dashboard',
+            'description'         => null,
+            'url'                 => '/admin/dashboard',
+            'type'                => 'Page',
+            'order'               => 0,
+            'icon'                => 'fa-home',
+            'is_active'           => 1,
+            'is_shown_on_menu'    => 1,
+            'is_publicly_visible' => 0,
+        ],
+        [
             'name'                => 'Configuration',
             'description'         => null,
             'url'                 => '#',
