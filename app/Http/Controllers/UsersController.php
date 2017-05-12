@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyUser;
-use App\Models\UserInvite;
 use App\Models\Person;
 use App\Models\User;
 use Carbon\Carbon as Carbon;
@@ -14,6 +13,9 @@ use Landlord;
 use Spatie\Permission\Models\Role;
 use View;
 use App\Jobs\SendVerificationEmail;
+use App\Jobs\SendInvitationMail;
+use App\Models\UserInvite;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -129,29 +131,46 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->init();
+        $checkUserExists = User::where('email', $request->email)->first();
         $companyId = Landlord::getTenants()['company']->id;
+        $userId = 0;
 
-        $person = new Person();
-        $person->first_name = $request->first_name;
-        $person->last_name = $request->last_name;
-        $person->save();
+        if(!$checkUserExists) {
+            $person = new Person();
+            $person->first_name = $request->first_name;
+            $person->last_name = $request->last_name;
+            $person->save();
 
-        $user = new User();
-        $user->person_id = $person->id;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->password = Hash::make('password');
-        $user->verification_token = md5(uniqid(mt_rand(), true));
-        $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
-        $user->save();
-        $user->assignRole($request->get('roles'));
+            $user = new User();
+            $user->person_id = $person->id;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->password = Hash::make('password');
+            $user->verification_token = md5(uniqid(mt_rand(), true));
+            $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
+            $user->save();
+            $user->assignRole($request->get('roles'));
+
+            $userId = $user->id;
+
+            dispatch(new SendVerificationEmail($user));
+        } else {
+            $userId = $checkUserExists->id;
+
+            $userInvite = new UserInvite();
+            $userInvite->user_id = Auth::user()->id;
+            $userInvite->company_id = $companyId;
+            $userInvite->invited_user_id = $userId;
+            $userInvite->accept_token = md5(uniqid(mt_rand(), true));
+            $userInvite->save();
+
+            dispatch(new SendInvitationMail($userInvite, $checkUserExists));
+        }
 
         $companyUser = new CompanyUser();
         $companyUser->company_id = $companyId;
-        $companyUser->user_id = $user->id;
+        $companyUser->user_id = $userId;
         $companyUser->save();
-
-        dispatch(new SendVerificationEmail($user));
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 

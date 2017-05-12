@@ -108,7 +108,7 @@ class CompaniesController extends Controller
         $companySlug = app('request')->route()->parameter('company');
         if(count(Auth::user()->companies) == 1) {
             $singleCompanySlug = Auth::user()->companies->first();
-            return redirect()->route('admin.home', ['domain' => $singleCompanySlug['slug']]);
+            return redirect()->route('admin.home', ['domain' => $singleCompanySlug->slug]);
         }
         if ($companySlug != 'www') {
             return redirect()->route('admin.home', ['domain' => $companySlug]);

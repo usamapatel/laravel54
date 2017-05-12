@@ -8,6 +8,7 @@ use App\Models\Widget;
 use App\Models\MenuItem;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use DB;
 
 class CreateDefaultMenuItems
 {
@@ -45,7 +46,13 @@ class CreateDefaultMenuItems
             $permission = new Permission();
             $permission->name = $menu->company_id. '.' . config('config-variables.menu_item_permission_identifier') . '.' .$menuItem->id;
             $permission->save();
-            $role->givePermissionTo($permission->name);
+
+            DB::table('role_has_permissions')->insert([
+            [
+                'permission_id' => $permission->id,
+                'role_id' => $role->id
+            ]
+            ]);
 
             if (isset($mainMenuItem['children']) && count($mainMenuItem['children']) > 0) {
                 $this->generateChildrenMenus($mainMenuItem['children'], $menuItem, $menu, $role);
@@ -62,7 +69,12 @@ class CreateDefaultMenuItems
                     $permission = new Permission();
                     $permission->name = $company->id. '.' . config('config-variables.widget_permission_identifier') . '.' .$widget->id;
                     $permission->save();
-                    $role->givePermissionTo($permission->name);
+                    DB::table('role_has_permissions')->insert([
+            [
+                'permission_id' => $permission->id,
+                'role_id' => $role->id
+            ]
+            ]);
 
                     if (isset($widgetItem['children']) && count($widgetItem['children']) > 0) {
                         $this->generateChildrenWidgets($widgetItem['children'], $widget, $role);
@@ -92,7 +104,12 @@ class CreateDefaultMenuItems
             $permission = new Permission();
             $permission->name = $menu->company_id. '.' . config('config-variables.menu_item_permission_identifier') . '.' .$menuItem->id;
             $permission->save();
-            $role->givePermissionTo($permission->name);
+            DB::table('role_has_permissions')->insert([
+            [
+                'permission_id' => $permission->id,
+                'role_id' => $role->id
+            ]
+            ]);
 
             if (isset($item['children']) && count($item['children']) > 0) {
                 $this->generateChildrenMenus($item['children'], $menuItem, $menu, $role);
@@ -109,7 +126,12 @@ class CreateDefaultMenuItems
                     $permission = new Permission();
                     $permission->name = $menu->company_id. '.' . config('config-variables.widget_permission_identifier') . '.' .$widget->id;
                     $permission->save();
-                    $role->givePermissionTo($permission->name);
+                    DB::table('role_has_permissions')->insert([
+            [
+                'permission_id' => $permission->id,
+                'role_id' => $role->id
+            ]
+            ]);
 
                     if (isset($widgetItem['children']) && count($widgetItem['children']) > 0) {
                         $this->generateChildrenWidgets($widgetItem['children'], $widget, $role);
@@ -140,7 +162,12 @@ class CreateDefaultMenuItems
             $permission = new Permission();
             $permission->name = $parent->company_id. '.' . config('config-variables.widget_permission_identifier') . '.' .$widget->id;
             $permission->save();
-            $role->givePermissionTo($permission->name);
+            DB::table('role_has_permissions')->insert([
+            [
+                'permission_id' => $permission->id,
+                'role_id' => $role->id
+            ]
+            ]);
 
             if (isset($item['children']) && count($item['children']) > 0) {
                 $this->generateChildrenWidgets($item['children'], $widget, $role);

@@ -4,9 +4,7 @@ $(document).ready(function() {
         minimumResultsForSearch: Infinity
     });
     
-    $(".select2-tag").select2({
-        tags: true
-    });
+    $(".js-select2-multiselect").select2();
 
     $('#temp .dropdown-menu').on({
         "click":function(e){

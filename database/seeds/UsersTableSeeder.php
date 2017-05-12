@@ -5,6 +5,7 @@ use App\Models\Companies;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\Events\CompanyRegistered;
+use Carbon\Carbon as Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -34,20 +35,22 @@ class UsersTableSeeder extends Seeder
             'username'           => 'admin',
             'email'              => 'hshah@aecordigital.com',
             'password'           => bcrypt('password'),
+            'is_verified'        => 1,
+            'verified_at'        => Carbon::now()->format('Y-m-d H:i:s'),
             'verification_token' => md5(uniqid(mt_rand(), true)),
 
         ], ]);
 
-        $company = Companies::find(1);
+        $company = Companies::find(2);
         $user = User::find(1);
 
         DB::table('company_user')->truncate();
         DB::table('company_user')->insert([
         [
-            'company_id' => 1,
+            'company_id' => 2,
             'user_id'    => 1,
         ], ]);
 
-        //event(new CompanyRegistered($company, $user, 'admin'));
+        event(new CompanyRegistered($company, $user, 'admin'));
     }
 }

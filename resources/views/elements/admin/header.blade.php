@@ -24,16 +24,21 @@
                 <div class="dropdown company-list">
                     <a id="dLabel" role="button" data-toggle="dropdown" class="btn" data-target="#" href="javascript:;">
                         <img alt="" class="img-circle" src="../../img/admin/avatar1.jpg">
-                        <span class="username username-hide-on-mobile"> {{ $selectedCompany->name }}</span>
+                        <span class="username username-hide-on-mobile"> {{ $currentCompany->name }}</span>
                         <span class="role">Manager</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                    @foreach($companies as $company)
-                        <li class="dropdown-submenu">
-                            <a tabindex="-1" href="{{ route('admin.home', ['domain' => $company->slug]) }}">{{ $company->name}}</a>                           
-                        </li>
-                    @endforeach                       
+                        @foreach($companies as $company)
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="{{ route('admin.home', ['domain' => $company->slug]) }}">{{ $company->name}}</a>
+                                <ul class="dropdown-menu">
+                                    @foreach($currentCompanyRoles as $role)
+                                        <li><a href="javascript:;">{{ $role->display_name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach                       
                     </ul>
                 </div>
             </div>
