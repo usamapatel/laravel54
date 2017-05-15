@@ -68,6 +68,23 @@ class UsersController extends Controller
         return 'true';
     }
 
+    public function validateUsername(Request $request)
+    {
+        $username = $request->username;
+        if ($username !== null && !empty($username)) {
+            $userQuery = User::where('username', $username);
+            if ($request->id) {
+                $userQuery->where('id', '!=', $request->id);
+            }
+            $user = $userQuery->first();
+
+            if ($user) {
+                return 'false';
+            }
+        }       
+        return 'true';
+    }
+
     public function getUserData()
     {
         $request = $this->request->all();
@@ -131,7 +148,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->init();
-        $checkUserExists = User::where('email', $request->email)->first();
+        $checkUserExists = User::where('email', $request->email)->first();        
         $companyId = Landlord::getTenants()['company']->id;
         $userId = 0;
 
@@ -170,6 +187,9 @@ class UsersController extends Controller
         $companyUser = new CompanyUser();
         $companyUser->company_id = $companyId;
         $companyUser->user_id = $userId;
+        if(!$checkUserExists) {
+            $companyUser->is_invitation_accepted = 1;
+        }
         $companyUser->save();
 
         flash()->success(config('config-variables.flash_messages.dataSaved'));
@@ -199,9 +219,18 @@ class UsersController extends Controller
     {
         $user = User::find($userId);
         $companyId = Landlord::getTenants()['company']->id;
-        $roles = Role::where('name', 'LIKE', $companyId.'%')->get();
+        $roles = Role::where('name', 'LIKE', $companyId.'%')->pluck('display_name', 'name');
 
-        return view('users.edit', compact('user', 'roles'));
+        $userRoles = $user->roles;
+
+        $companyWiseRoles = $userRoles->filter(function ($value, $key) {
+            $companyId = Landlord::getTenants()['company']->id;
+            if(explode(".", $value->name)[0] == $companyId) {
+                return $value;
+            }
+        })->values()->pluck('name')->toArray();
+
+        return view('users.edit', compact('user', 'roles', 'companyWiseRoles'));
     }
 
     /**
@@ -223,6 +252,7 @@ class UsersController extends Controller
         $person->save();
 
         $user->email = $request->email;
+        $user->username = $request->username;
         $user->banned_at = Carbon::parse($request->banned_at)->format('Y-m-d H:i:s');
         $user->save();
         $user->syncRoles();
@@ -254,15 +284,19 @@ class UsersController extends Controller
         return redirect()->route('users.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
-    public function acceptInvitation($token = null)
+    public function acceptInvitation($company, $token = null)
     {
         if (isset($token)) {
-            $userInvites = UserInvite::where('accept_token', $token)->first();        
-            if ($userInvites) {
-                $companyUser = CompanyUser::where('user_id', $userInvites->invited_user_id)
-                                            ->where('company_id', $userInvites->company_id);                                           
-                $companyUser->is_verified = 1;
-                $companyUser->save();
+            $userInvites = UserInvite::where('accept_token', $token)->first();
+            if ($userInvites) {               
+                $companyUser = DB::table('company_user')
+                                    ->where('user_id', $userInvites->invited_user_id)
+                                    ->where('company_id', $userInvites->company_id)
+                                    ->update(['is_invitation_accepted' => 1]);
+
+                return view('users.accpet_invitation');                
+            } else {
+                return $this->response()->array(['error' => 'not found'])->statusCode(404);
             }
         }
     }

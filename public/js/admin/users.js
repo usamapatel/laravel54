@@ -1,16 +1,21 @@
 var vueUser;
 var User = function() {
-
     var form = $('#submit_user_form');
+    // var editForm = $('#submit_edit_user_form');
     var error = $('.alert-danger', form);
     var success = $('.alert-success', form);
 
-    var handleValidation = function() {
-        form.validate({
+    var handleValidationAddPage = function() {
+        $('.js-frm-create-user, .js-frm-edit-user').validate({
             doNotHideMessage: true, //this option enables to show the error/success messages on tab switch.
             errorElement: 'span', //default input error message container
             errorClass: 'help-block help-block-error', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
+            messages: {
+                username: {
+                    remote: 'Username already exists.'
+                }
+            },
             rules: {
                 first_name: {
                     required: true
@@ -19,7 +24,17 @@ var User = function() {
                     required: true
                 },
                 username: {
-                    required: true
+                    required: true,
+                     remote: {
+                        url: "/admin/validateUsername",
+                        type: "post",
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        data: {   
+                              id: function() {
+                                return $('input[name="user_id"]').val();
+                              }
+                        }
+                    }
                 },
                 email: {
                     required: true,
@@ -32,56 +47,73 @@ var User = function() {
                 },
             },
             errorPlacement: function (error, element) { // render error placement for each input type
-                if(element.prop('name') == "roles[]") {
-                    element.parent().parent().parent().append(error);
-                } else {
-                    element.parent().append(error);
-                }
+                element.parent().append(error);
             },
 
             invalidHandler: function (event, validator) { //display error alert on form submit   
-                success.hide();
-                error.show();
-                App.scrollTo(error, -200);
+                if($('.js-frm-create-user').length > 0) {
+                    success.hide();
+                    error.show();
+                    App.scrollTo(error, -200);    
+                }  
             },
-
-            highlight: function (element) { // hightlight error inputs
-                $(element)
-                    .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
-            },
-
-            unhighlight: function (element) { // revert the change done by hightlight
-                $(element)
-                    .closest('.form-group').removeClass('has-error'); // set error class to the control group
-            },
-
-            success: function (label) {
-                label
-                    .addClass('valid') // mark the current input as valid and display OK icon
-                    .closest('.form-group').removeClass('has-error').addClass('has-success');
-            },
-
             submitHandler: function (form) {
                 error.hide();
                 form.submit();
-                // $.ajax({
-                //     url: "/admin/validateEmail",
-                //     type: "post",
-                //     data: { email: $("#email").val() },
-                //     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                //     success: function(result){
-                //         $("#div1").html(result);
-                //     }
-                // });
             }
         });
     };
-    // var formInitialization = function() {
-        
+
+    // var handleValidationEditPage = function() {
+    //     editForm.validate({
+    //         doNotHideMessage: true, //this option enables to show the error/success messages on tab switch.
+    //         errorElement: 'span', //default input error message container
+    //         errorClass: 'help-block help-block-error', // default input error message class
+    //         focusInvalid: false, // do not focus the last invalid input
+    //         messages: {
+    //             username: {
+    //                 remote: 'Username already exists.'
+    //             }
+    //         },
+    //         rules: {
+    //             first_name: {
+    //                 required: true
+    //             },
+    //             last_name: {
+    //                 required: true
+    //             },
+    //             username: {
+    //                 required: true,
+    //                  remote: {
+    //                     url: "/admin/validateUsername",
+    //                     type: "post",
+    //                     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    //                     data: {   
+    //                           id: function() {
+    //                             return $('input[name="user_id"]').val();
+    //                           }
+    //                     }
+    //                 }
+    //             },
+    //             email: {
+    //                 required: true,
+    //             },
+    //             'roles[]': {
+    //                 required: true
+    //             },
+    //             created_at :{
+    //                 required: true
+    //             },
+    //         },
+    //         errorPlacement: function (error, element) { // render error placement for each input type
+    //             element.parent().append(error);
+    //         },            
+    //         submitHandler: function (form) {
+    //             editForm.submit();
+    //         }
+    //     });
     // };
-    // var formEvents = function() {
-        
-    // };
+
     var handleTitle = function(tab, navigation, index) {
         var total = navigation.find('li').length;
         var current = index + 1;
@@ -108,6 +140,7 @@ var User = function() {
             $('#user_form_wizard').find('.button-submit').hide();
         }
     }
+
     var formWizard = function() {
         // default form wizard
         $('#user_form_wizard').bootstrapWizard({
@@ -153,13 +186,12 @@ var User = function() {
 
     return {
         init: function() {
-            handleValidation();
-            // formInitialization();
-            // formEvents();
+            handleValidationAddPage();
             formWizard();
         }
     }
 }();
+
 $(document).ready(function() {
     User.init();
     $(document).on('change', '#pagination_length', function(){
