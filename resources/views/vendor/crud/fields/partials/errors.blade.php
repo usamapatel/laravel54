@@ -1,3 +1,3 @@
 @if($has_error)
-    <p class="help-block">{{ $error }}</p>
+    <p class="help-block">{{ __($error) }}</p>
 @endif

@@ -7,61 +7,73 @@
 
 @section('page-content')
 	<!-- BEGIN DASHBOARD STATS 1-->
+    @if(isset($widgets["tile-count-widget"]) && $widgets["tile-count-widget"] == 1)
     <div class="row">
+        @if($widgets["new-feedbacks"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-comments"></i>
+                    <!-- <i class="fa fa-comments"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number">
+                    <div class="number font-blue">
                         <span data-counter="counterup" data-value="1349">0</span>
                     </div>
-                    <div class="desc"> New Feedbacks </div>
+                    <div class="desc font-blue"> New Feedbacks </div>
                 </div>
             </a>
         </div>
+        @endif
+        @if($widgets["total-profit"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-bar-chart-o"></i>
+                    <!-- <i class="fa fa-bar-chart-o"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number">
+                    <div class="number font-red">
                         <span data-counter="counterup" data-value="12,5">0</span>M$ </div>
-                    <div class="desc"> Total Profit </div>
+                    <div class="desc font-red"> Total Profit </div>
                 </div>
             </a>
         </div>
+        @endif
+        @if($widgets["new-orders"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-shopping-cart"></i>
+                    <!-- <i class="fa fa-shopping-cart"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number">
+                    <div class="number font-green">
                         <span data-counter="counterup" data-value="549">0</span>
                     </div>
-                    <div class="desc"> New Orders </div>
+                    <div class="desc font-green"> New Orders </div>
                 </div>
             </a>
         </div>
+        @endif
+        @if($widgets["brand-popularity"] == 1)
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+            <a class="dashboard-stat dashboard-stat-v2 white" href="#">
                 <div class="visual">
-                    <i class="fa fa-globe"></i>
+                    <!-- <i class="fa fa-globe"></i> -->
                 </div>
                 <div class="details">
-                    <div class="number"> +
+                    <div class="number font-purple"> +
                         <span data-counter="counterup" data-value="89"></span>% </div>
-                    <div class="desc"> Brand Popularity </div>
+                    <div class="desc font-purple"> Brand Popularity </div>
                 </div>
             </a>
         </div>
+        @endif
     </div>
+    @endif
     <div class="clearfix"></div>
     <!-- END DASHBOARD STATS 1-->
+    @if(isset($widgets["graph"]) && $widgets["graph"] ==1)
     <div class="row">
+        @if($widgets["area-chart"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN PORTLET-->
             <div class="portlet light ">
@@ -90,6 +102,9 @@
             </div>
             <!-- END PORTLET-->
         </div>
+        @endif
+
+        @if(isset($widgets["line-chart"]) && $widgets["line-chart"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN PORTLET-->
             <div class="portlet light ">
@@ -159,8 +174,11 @@
             </div>
             <!-- END PORTLET-->
         </div>
+        @endif
     </div>
+    @endif
     <div class="row">
+        @if(isset($widgets["comments-widget"]) && $widgets["comments-widget"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title tabbable-line">
@@ -395,7 +413,9 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="col-lg-6 col-xs-12 col-sm-12">
+            @if(isset($widgets["quick-actions-widget"]) && $widgets["quick-actions-widget"] == 1)
             <div class="portlet light ">
                 <div class="portlet-title tabbable-line">
                     <div class="caption">
@@ -436,7 +456,7 @@
                                                 <span class="mt=action-time">9:30-13:00</span>
                                             </div>
                                             <div class="mt-action-buttons ">
-                                                <div class="btn-group btn-group-circle">
+                                                <div class="btn-group">
                                                     <button type="button" class="btn btn-outline green btn-sm">Appove</button>
                                                     <button type="button" class="btn btn-outline red btn-sm">Reject</button>
                                                 </div>
@@ -708,6 +728,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
     <div class="row">
@@ -716,10 +737,13 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-directions font-green hide"></i>
-                        <span class="caption-subject bold font-dark uppercase "> Activities</span>
-                        <span class="caption-helper">Horizontal Timeline</span>
+                        <span class="caption-subject bold uppercase font-dark"> Activities</span>
+                        <span class="caption-helper">(Horizontal Timeline)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
@@ -740,7 +764,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="cd-horizontal-timeline mt-timeline-horizontal" data-spacing="60">
@@ -821,13 +845,17 @@
                                     <div class="mt-content border-grey-steel">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, mi felis, aliquam at iaculis mi felis, aliquam
                                             at iaculis finibus eu ex. Integer efficitur tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non est rhoncus volutpat.</p>
-                                        <a href="javascript:;" class="btn btn-circle red btn-outline">Read More</a>
-                                        <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                        <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
+                                        <a href="javascript:;" class="btn blue btn-outline pull-left">Read More</a>
+                                        <div class="actions pull-right">
+                                            <div class="btn-group btn-group-devided dashboard-btn-group">
+                                                <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-circle btn-icon-only green pull-right">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                                 <li data-date="28/02/2014">
@@ -893,7 +921,7 @@
                                             risus sed sodales.</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                             qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut. </p>
-                                        <a href="javascript:;" class="btn btn-circle red">Read More</a>
+                                        <a href="javascript:;" class="btn blue">Read More</a>
                                     </div>
                                 </li>
                                 <li data-date="20/05/2014">
@@ -915,7 +943,7 @@
                                             tincidunt, et dignissim risus lacinia. Nam in egestas nunc. Suspendisse potenti. Cras ullamcorper tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non
                                             est rhoncus volutpat. Nullam interdum, neque quis vehicula ornare, lacus elit dignissim purus, quis ultrices erat tortor eget felis. Cras commodo id massa at condimentum. Praesent dignissim luctus
                                             risus sed sodales.</p>
-                                        <a href="javascript:;" class="btn btn-circle green-turquoise">Read More</a>
+                                        <a href="javascript:;" class="btn blue btn-outline">Read More</a>
                                     </div>
                                 </li>
                                 <li data-date="09/07/2014">
@@ -1103,17 +1131,20 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-directions font-green hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Events</span>
-                        <span class="caption-helper">Horizontal Timeline</span>
+                        <span class="caption-subject bold uppercase font-dark"> Events</span>
+                        <span class="caption-helper">(Horizontal Timeline)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                             <label class="btn green btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Actions</label>
                             <label class="btn  green btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="cd-horizontal-timeline mt-timeline-horizontal" data-spacing="60">
@@ -1475,9 +1506,12 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Recent Activities</span>
+                        <span class="caption-subject bold uppercase font-dark">Recent Activities</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
                             <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Filter By
                                 <i class="fa fa-angle-down"></i>
@@ -1505,7 +1539,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
@@ -1788,12 +1822,16 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Tasks</span>
-                        <span class="caption-helper">tasks summary...</span>
+                        <span class="caption-subject bold uppercase font-dark">Tasks</span>
+                        <span class="caption-helper">(tasks summary...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                        <a href="javascript:;" class="reload" data-original-title="" title="" aria-describedby="tooltip73982" @click="reloadData();"> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
-                            <a class="btn blue-oleo btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> More
+                            <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> More
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">
@@ -1828,7 +1866,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="task-content">
@@ -2167,18 +2205,25 @@
             </div>
         </div>
     </div>
+
+    @if(isset($widgets["stats"]) && $widgets["stats"] == 1)
     <div class="row">
+        @if($widgets["general-stats"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-cursor font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">General Stats</span>
+                        <span class="caption-subject bold uppercase font-dark">General Stats</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                        <a href="javascript:;" class="reload" data-original-title="" title="" aria-describedby="tooltip73982" @click="reloadData();"> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
                             <i class="fa fa-repeat"></i> Reload </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -2215,13 +2260,16 @@
                 </div>
             </div>
         </div>
+        @endif
+
+        @if(isset($widgets["server-stats"]) && $widgets["server-stats"] == 1)
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <div class="portlet light ">
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-equalizer font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Server Stats</span>
-                        <span class="caption-helper">monthly stats...</span>
+                        <span class="caption-subject bold uppercase font-dark">Server Stats</span>
+                        <span class="caption-helper">(monthly stats...)</span>
                     </div>
                     <div class="tools">
                         <a href="" class="collapse"> </a>
@@ -2262,7 +2310,10 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
+    @endif
+
     {{--<div class="row">
         <div class="col-lg-6 col-xs-12 col-sm-12">
             <!-- BEGIN REGIONAL STATS PORTLET-->
@@ -2270,9 +2321,13 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-share font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Regional Stats</span>
+                        <span class="caption-subject bold uppercase font-dark">Regional Stats</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="javascript:;" class="expand" data-original-title="" title=""> </a>
+                        <a href="javascript:;" class="reload" data-original-title="" title="" aria-describedby="tooltip73982" @click="reloadData();"> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                             <i class="icon-cloud-upload"></i>
                         </a>
@@ -2283,7 +2338,7 @@
                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                             <i class="icon-trash"></i>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div id="region_statistics_loading">
@@ -2333,7 +2388,7 @@
                 <div class="portlet-title tabbable-line">
                     <div class="caption">
                         <i class="icon-globe font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Feeds</span>
+                        <span class="caption-subject bold uppercase font-dark">Feeds</span>
                     </div>
                     <ul class="nav nav-tabs">
                         <li class="active">
@@ -2879,7 +2934,7 @@
                 <div class="portlet-title ">
                     <div class="caption">
                         <i class="icon-calendar font-dark hide"></i>
-                        <span class="caption-subject font-dark bold uppercase">Feeds</span>
+                        <span class="caption-subject bold uppercase font-dark">Feeds</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -2894,15 +2949,30 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-hide hide"></i>
-                        <span class="caption-subject font-hide bold uppercase">Chats</span>
+                        <span class="caption-subject bold uppercase font-dark">Chats</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
                     </div>
                     <div class="actions">
+                        <a class="btn btn-icon-only btn-default" href="#">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <a class="btn btn-icon-only btn-default" href="#">
+                            <i class="icon-wrench"></i>
+                        </a>
+                        <a class="btn btn-icon-only btn-default" href="#">
+                            <i class="icon-trash"></i>
+                        </a>
+                        <a class="btn btn-icon-only btn-default fullscreen" href="#" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="portlet-input input-inline">
                             <div class="input-icon right">
                                 <i class="icon-magnifier"></i>
                                 <input type="text" class="form-control input-circle" placeholder="search..."> </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body" id="chats">
                     <div class="scroller" style="height: 525px;" data-always-visible="1" data-rail-visible1="1">
@@ -3011,11 +3081,14 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-bubble font-dark hide"></i>
-                        <span class="caption-subject font-hide bold uppercase">Recent Users</span>
+                        <span class="caption-subject bold uppercase font-dark">Recent Users</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
-                            <a class="btn green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                            <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">
@@ -3034,7 +3107,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -3126,17 +3199,20 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Recent Works</span>
-                        <span class="caption-helper">default option...</span>
+                        <span class="caption-subject bold uppercase font-dark"> Recent Works</span>
+                        <span class="caption-helper">(default option...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
-                            <label class="btn red btn-outline btn-circle btn-sm active">
+                            <label class="btn blue btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Settings</label>
-                            <label class="btn  red btn-outline btn-circle btn-sm">
+                            <label class="btn blue btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -3224,18 +3300,21 @@
             <div class="portlet light portlet-fit ">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Recent Projects</span>
-                        <span class="caption-helper">default option...</span>
+                        <i class="icon-bubble font-dark hide"></i>
+                        <span class="caption-subject bold uppercase font-dark">Recent Projects</span>
+                        <span class="caption-helper">(default option...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group btn-group-devided" data-toggle="buttons">
                             <label class="btn blue btn-outline btn-circle btn-sm active">
                                 <input type="radio" name="options" class="toggle" id="option1">Actions</label>
                             <label class="btn  blue btn-outline btn-circle btn-sm">
                                 <input type="radio" name="options" class="toggle" id="option2">Tools</label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">
@@ -3315,12 +3394,15 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-microphone font-dark hide"></i>
-                        <span class="caption-subject bold font-dark uppercase"> Activities</span>
-                        <span class="caption-helper">default option...</span>
+                        <span class="caption-subject bold uppercase font-dark"> Activities</span>
+                        <span class="caption-helper">(default option...)</span>
                     </div>
-                    <div class="actions">
+                    <div class="tools">
+                        <a href="" class="collapse" data-original-title="" title=""> </a>
+                    </div>
+                    <!-- <div class="actions">
                         <div class="btn-group">
-                            <a class="btn red btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                            <a class="btn  blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">
@@ -3339,7 +3421,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="portlet-body">
                     <div class="row">

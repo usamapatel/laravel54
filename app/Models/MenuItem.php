@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Basemodel as Model;
 
 class MenuItem extends Model
 {
@@ -12,4 +12,14 @@ class MenuItem extends Model
      * @var string
      */
     protected $table = 'menu_items';
+
+    /**
+     * Relationship: widgets.
+     *
+     * @return
+     */
+    public function widgets()
+    {
+        return $this->hasMany('App\Models\Widget', 'menu_item_id');
+    }    
 }

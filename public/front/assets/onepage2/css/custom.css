@@ -1,0 +1,40 @@
+/*.page-header .navbar-nav {
+	margin-right: 30px;
+}
+.lang-translation {
+	position: absolute;
+    top: 30px;
+    right: 10px;
+}*/
+.lang-translation {
+	float: right;
+	margin-right: 30px;
+	margin-top: 10px;
+}
+.lang-translation ul{
+	list-style-type: none;
+	padding: 0px;
+	margin:0px;
+}
+.lang-translation ul .dropdown .dropdown-toggle {
+	text-decoration: none;
+	color: #fff;
+}
+.lang-translation ul .dropdown-menu {
+	right: 0;
+	left: auto;
+}
+.navbar-brand{
+	padding-top: 5px;
+}
+.page-header .navbar-nav li {
+	padding-top: 15px;	
+}
+.page-header .navbar-toggle {
+	margin-top: 15px;
+}
+@media (max-width: 768px) {
+	.lang-translation ul .dropdown .dropdown-toggle {
+		color: #000;
+	}
+}

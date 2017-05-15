@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class TeamworkSetupTables extends Migration
 {
@@ -13,7 +13,7 @@ class TeamworkSetupTables extends Migration
     public function up()
     {
         Schema::table(\Config::get('teamwork.users_table'), function (Blueprint $table) {
-            $table->integer('current_team_id')->unsigned()->nullable();
+            $table->integer('current_team_id')->after('password')->unsigned()->nullable();
         });
 
         Schema::create(\Config::get('teamwork.teams_table'), function (Blueprint $table) {
@@ -72,8 +72,8 @@ class TeamworkSetupTables extends Migration
             $table->dropForeign(\Config::get('teamwork.team_user_table').'_team_id_foreign');
         });
 
-        Schema::drop(\Config::get('teamwork.team_user_table'));
-        Schema::drop(\Config::get('teamwork.team_invites_table'));
-        Schema::drop(\Config::get('teamwork.teams_table'));
+        Schema::dropIfExists(\Config::get('teamwork.team_user_table'));
+        Schema::dropIfExists(\Config::get('teamwork.team_invites_table'));
+        Schema::dropIfExists(\Config::get('teamwork.teams_table'));
     }
 }

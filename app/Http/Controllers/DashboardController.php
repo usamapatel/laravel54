@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Widget;
 use View;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -27,6 +27,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $widgets = Widget::where('company_id', '=', 1)->pluck('status', 'slug');
+
+        return view('dashboard.dashboard', compact('widgets'));
     }
 }

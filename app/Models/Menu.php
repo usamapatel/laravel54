@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\MenuItem;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Basemodel as Model;
 
 class Menu extends Model
 {
@@ -24,7 +23,7 @@ class Menu extends Model
 
     public function generate()
     {
-        $items = $this->items()
+        $items = $this->items()->with('widgets')
             ->where('is_active', 1)
             ->orderBy('order')
             ->get()
@@ -41,7 +40,7 @@ class Menu extends Model
      *
      * @return array
      */
-    private static function buildMenuTree(array $menuArray, $parent = 0)
+    public static function buildMenuTree(array $menuArray, $parent = 0)
     {
         $items = [];
         foreach ($menuArray as $menuItem) {
@@ -49,7 +48,7 @@ class Menu extends Model
                 $menuItem['children'] = isset($menuItem['children'])
                     ? $menuItem['children']
                     : self::buildMenuTree($menuArray, $menuItem['id']);
-                if (! $menuItem['children']) {
+                if (!$menuItem['children']) {
                     unset($menuItem['children']);
                 }
                 $items[] = $menuItem;

@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use DB;
-use View;
-use Session;
-use Storage;
-use JavaScript;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Storage;
+use View;
 
 class RolesController extends Controller
 {
@@ -84,7 +81,7 @@ class RolesController extends Controller
 
         $rolesList = [];
 
-        if (! array_key_exists('pagination', $request)) {
+        if (!array_key_exists('pagination', $request)) {
             $roles = $roles->paginate($request['pagination_length']);
             $rolesList = $roles;
         } else {
@@ -126,7 +123,7 @@ class RolesController extends Controller
         $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -136,7 +133,7 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($rolesId)
+    public function edit($company, $rolesId)
     {
         $role = Role::find($rolesId);
         $permissions = Permission::all();
@@ -154,7 +151,7 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $rolesId)
+    public function update(Request $request, $company, $rolesId)
     {
         $this->init();
         $role = Role::findOrFail($rolesId);
@@ -164,7 +161,7 @@ class RolesController extends Controller
         $role->givePermissionTo($request->permissions);
         flash()->success(config('config-variables.flash_messages.dataSaved'));
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 
     /**
@@ -175,16 +172,16 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($rolesId)
+    public function destroy($company, $rolesId)
     {
         $message = config('config-variables.flash_messages.dataDeleted');
         $type = 'success';
-        if (! Role::where('id', $rolesId)->delete()) {
+        if (!Role::where('id', $rolesId)->delete()) {
             $message = config('config-variables.flash_messages.dataNotDeleted');
             $type = 'danger';
         }
         flash()->message($message, $type);
 
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index', ['domain' => app('request')->route()->parameter('company')]);
     }
 }
